@@ -4,7 +4,7 @@ class Beacon :public KdGameObject
 {
 public:
 
-	Beacon() {}
+	Beacon() { Init(); }
 	~Beacon()override {}
 
 	void Init()override;

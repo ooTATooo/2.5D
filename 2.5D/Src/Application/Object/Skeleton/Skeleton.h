@@ -4,7 +4,7 @@ class Skeleton :public KdGameObject
 {
 public:
 
-	Skeleton() {}
+	Skeleton() { Init(); }
 	~Skeleton()override {}
 
 	void Update()override;

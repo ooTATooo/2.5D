@@ -367,7 +367,7 @@ void Application::ImGui()
 	{
 		// FPS
 		ImGui::Text("FPS : %d", m_fpsController.m_nowfps);
-		ImGui::Text((const char*)u8"あああああ");
+		ImGui::Text((const char*)u8"アニメーション");
 	}
 	ImGui::End();
 

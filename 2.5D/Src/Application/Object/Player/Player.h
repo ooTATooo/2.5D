@@ -4,7 +4,7 @@ class Player :public KdGameObject
 {
 public:
 
-	Player() {}
+	Player() { Init(); }
 	~Player()override {}
 
 	void Update()override;
@@ -25,15 +25,20 @@ public:
 		kind
 	};
 
-	KdModelData m_model;
+	KdSquarePolygon m_poly;
 
 	float m_moveSpd;
 	Math::Vector3 m_nowPos;
 	Math::Vector3 m_moveVec;
 	Math::Matrix m_scaleMat;
-	Math::Matrix m_rotMat;
+	Math::Matrix m_rotMatX;
+	Math::Matrix m_rotMatY;
 	Math::Matrix m_trancMat;
 	float m_size;
-	float m_ang;
+	float m_angX;
+	float m_angY;
 	bool m_keyFlg[keyType::kind];
+
+	int frame;
+	int ani;
 };

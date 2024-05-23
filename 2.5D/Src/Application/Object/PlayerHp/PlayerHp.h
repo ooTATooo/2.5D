@@ -4,7 +4,7 @@ class PlayerHp :public KdGameObject
 {
 public:
 
-	PlayerHp() {}
+	PlayerHp() { Init(); }
 	~PlayerHp()override {}
 
 	void Update()override;

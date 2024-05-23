@@ -2,6 +2,13 @@
 
 void Player::Update()
 {
+	if (frame == 0)
+	{
+		frame = 20;
+		ani++;
+	}
+	m_poly.SetUVRect(ani);
+
 	m_moveSpd = 0.1f;
 	m_nowPos = m_trancMat.Translation();
 	m_moveVec = Math::Vector3::Zero;
@@ -12,40 +19,60 @@ void Player::Update()
 	m_moveVec *= m_moveSpd;
 	m_nowPos += m_moveVec;
 
-	m_scaleMat = Math::Matrix::CreateScale(m_size);
+	frame--;
+	if (frame < 0)
+	{
+		frame = 0;
+	}
+	if (ani >= 2)
+	{
+		ani = 0;
+	}
 
-	m_rotMat = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_ang));
+	//m_scaleMat = Math::Matrix::CreateScale(m_size);
+
+	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
+
+	m_rotMatY = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_angY));
 
 	m_trancMat = Math::Matrix::CreateTranslation(m_nowPos);
 
-	m_mWorld = m_scaleMat * m_rotMat * m_trancMat;
+	m_mWorld = m_rotMatX * m_rotMatY * m_trancMat;
 }
 
 void Player::Init()
 {
-	m_model.Load("Asset/Models/Player/KnightCharacter.gltf");
+	m_poly.SetMaterial("Asset/Textures/Player/player.png");
+	m_poly.SetSplit(9, 6);
+	m_poly.SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 	m_moveSpd = 0.1f;
 	m_nowPos = m_mWorld.Translation();
 	m_moveVec = Math::Vector3::Zero;
 	m_scaleMat = Math::Matrix::Identity;
-	m_rotMat = Math::Matrix::Identity;
-	m_trancMat = Math::Matrix::Identity;
-	m_size = 0.25f;
-	m_ang = 0;
+	m_rotMatX = Math::Matrix::Identity;
+	m_rotMatY = Math::Matrix::Identity;
+	m_trancMat = Math::Matrix::CreateTranslation(0.0f, 0.0f, 0.0f);
+	m_size = 1;
+	m_angX = -20;
+	m_angY = 180;
 	for (int i = 0; i < keyType::kind; i++)
 	{
 		m_keyFlg[i] = false;
 	}
+
+
+	frame = 0;
+	ani = 0;
 }
 
 void Player::GenerateDepthMapFromLight()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawModel(m_model, m_mWorld);
+	KdShaderManager::Instance().m_StandardShader.DrawPolygon(m_poly, m_mWorld);
 }
 
 void Player::DrawLit()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawModel(m_model, m_mWorld);
+	KdShaderManager::Instance().m_StandardShader.DrawPolygon(m_poly, m_mWorld);
 }
 
 void Player::KeyAction()
@@ -59,41 +86,24 @@ void Player::KeyAction()
 	{
 		m_keyFlg[keyType::W] = true;
 		m_moveVec.z = 1.0f;
-		m_ang = 180;
 	}
 	if (GetAsyncKeyState('S') & 0x8000)
 	{
 		m_keyFlg[keyType::S] = true;
 		m_moveVec.z = -1.0f;
-		m_ang = 0;
 	}
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
 		m_keyFlg[keyType::A] = true;
 		m_moveVec.x = -1.0f;
-		m_ang = 90;
+		m_angX = 20;
+		m_angY = 0;
 	}
 	if (GetAsyncKeyState('D') & 0x8000)
 	{
 		m_keyFlg[keyType::D] = true;
 		m_moveVec.x = 1.0f;
-		m_ang = 270;
-	}
-
-	if (m_keyFlg[keyType::W] && m_keyFlg[keyType::A])
-	{
-		m_ang = 135;
-	}
-	if (m_keyFlg[keyType::W] && m_keyFlg[keyType::D])
-	{
-		m_ang = 225;
-	}
-	if (m_keyFlg[keyType::S] && m_keyFlg[keyType::A])
-	{
-		m_ang = 45;
-	}
-	if (m_keyFlg[keyType::S] && m_keyFlg[keyType::D])
-	{
-		m_ang = 315;
+		m_angX = -20;
+		m_angY = 180;
 	}
 }

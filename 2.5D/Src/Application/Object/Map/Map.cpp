@@ -2,7 +2,7 @@
 
 void Map::Init()
 {
-	m_model.Load("Asset/Models/Map/Terrain.gltf");
+	m_model.Load("Asset/Models/Cobblestone/Cobblestone.gltf");
 }
 
 void Map::DrawLit()

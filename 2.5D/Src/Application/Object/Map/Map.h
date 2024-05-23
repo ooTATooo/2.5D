@@ -4,7 +4,7 @@ class Map :public KdGameObject
 {
 public:
 
-	Map() {}
+	Map() { Init(); }
 	~Map()override {}
 
 	void Init()override;
