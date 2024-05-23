@@ -1,11 +1,11 @@
 ﻿#pragma once
 
-class Map :public KdGameObject
+class Ground :public KdGameObject
 {
 public:
 
-	Map() { Init(); }
-	~Map()override {}
+	Ground() { }
+	~Ground()override {}
 
 	void Init()override;
 	void DrawLit()override;
@@ -13,7 +13,7 @@ public:
 private:
 
 	// モデル
-	KdModelData m_model;
+	std::shared_ptr<KdModelData> m_model;
 
 	Math::Matrix rotMat;
 };

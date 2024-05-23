@@ -1,11 +1,11 @@
 ﻿#pragma once
 
-class PlayerHp :public KdGameObject
+class BeaconHP :public KdGameObject
 {
 public:
 
-	PlayerHp() { Init(); }
-	~PlayerHp()override {}
+	BeaconHP() { Init(); }
+	~BeaconHP()override {}
 
 	void Update()override;
 	void Init()override;
@@ -16,8 +16,9 @@ private:
 	struct Data
 	{
 		KdTexture tex;
+		Math::Matrix scaleMat;
+		Math::Matrix transMat;
 		Math::Matrix mat;
-		Math::Vector3 pos;
 	};
 
 	Data m_backHp;

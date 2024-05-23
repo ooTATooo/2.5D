@@ -7,7 +7,7 @@ void Player::Update()
 		frame = 20;
 		ani++;
 	}
-	m_poly.SetUVRect(ani);
+	m_poly->SetUVRect(ani);
 
 	m_moveSpd = 0.1f;
 	m_nowPos = m_trancMat.Translation();
@@ -42,9 +42,10 @@ void Player::Update()
 
 void Player::Init()
 {
-	m_poly.SetMaterial("Asset/Textures/Player/player.png");
-	m_poly.SetSplit(9, 6);
-	m_poly.SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
+	m_poly = std::make_shared<KdSquarePolygon>();
+	m_poly->SetMaterial("Asset/Textures/Player/player.png");
+	m_poly->SetSplit(9, 6);
+	m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 	m_moveSpd = 0.1f;
 	m_nowPos = m_mWorld.Translation();
 	m_moveVec = Math::Vector3::Zero;
@@ -67,12 +68,12 @@ void Player::Init()
 
 void Player::GenerateDepthMapFromLight()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawPolygon(m_poly, m_mWorld);
+	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_poly, m_mWorld);
 }
 
 void Player::DrawLit()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawPolygon(m_poly, m_mWorld);
+	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_poly, m_mWorld);
 }
 
 void Player::KeyAction()

@@ -4,7 +4,7 @@ class Beacon :public KdGameObject
 {
 public:
 
-	Beacon() { Init(); }
+	Beacon() {}
 	~Beacon()override {}
 
 	void Init()override;
@@ -13,5 +13,6 @@ public:
 
 private:
 
-	KdModelData m_model;
+	std::shared_ptr<KdModelData> m_model;
+
 };

@@ -73,20 +73,17 @@
     <Filter Include="Src\Application\Object">
       <UniqueIdentifier>{ed047f20-18ff-4425-8ff4-37386dbdac09}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Map">
-      <UniqueIdentifier>{08cfd2b7-8586-4b8e-9042-14d915734b65}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\PlayerHp">
-      <UniqueIdentifier>{ad8d4f87-fed3-4afc-b1a8-57e5725027ee}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Player">
       <UniqueIdentifier>{3cf14e31-589d-4852-b27a-76ed93c6f7bc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Object\Beacon">
       <UniqueIdentifier>{73aa2919-66a1-4fe1-9c19-bfb92ab67f8a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Skeleton">
-      <UniqueIdentifier>{3199ede3-51a4-4b85-90ed-e71122d2b7b4}</UniqueIdentifier>
+    <Filter Include="Src\Application\Object\Ground">
+      <UniqueIdentifier>{d9af2454-5137-4566-b292-ba515947b05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\BeaconHP">
+      <UniqueIdentifier>{66798429-5f0d-4d06-b4df-84c9c537ece8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -252,23 +249,20 @@
     <ClInclude Include="..\Library\imgui\ja_glyph_ranges.h">
       <Filter>Library\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Map\Map.h">
-      <Filter>Src\Application\Object\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\PlayerHp\PlayerHp.h">
-      <Filter>Src\Application\Object\PlayerHp</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Player\Player.h">
       <Filter>Src\Application\Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Beacon\Beacon.h">
       <Filter>Src\Application\Object\Beacon</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Skeleton\Skeleton.h">
-      <Filter>Src\Application\Object\Skeleton</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Scene\SceneManager.h">
       <Filter>Src\Application\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Ground\Ground.h">
+      <Filter>Src\Application\Object\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\BeaconHP\BeaconHP.h">
+      <Filter>Src\Application\Object\BeaconHP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -410,20 +404,17 @@
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp">
       <Filter>Library\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Map\Map.cpp">
-      <Filter>Src\Application\Object\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\PlayerHp\PlayerHp.cpp">
-      <Filter>Src\Application\Object\PlayerHp</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Player\Player.cpp">
       <Filter>Src\Application\Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Beacon\Beacon.cpp">
       <Filter>Src\Application\Object\Beacon</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Skeleton\Skeleton.cpp">
-      <Filter>Src\Application\Object\Skeleton</Filter>
+    <ClCompile Include="Src\Application\Object\Ground\Ground.cpp">
+      <Filter>Src\Application\Object\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\BeaconHP\BeaconHP.cpp">
+      <Filter>Src\Application\Object\BeaconHP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@ class Player :public KdGameObject
 {
 public:
 
-	Player() { Init(); }
+	Player() {}
 	~Player()override {}
 
 	void Update()override;
@@ -25,7 +25,7 @@ public:
 		kind
 	};
 
-	KdSquarePolygon m_poly;
+	std::shared_ptr<KdSquarePolygon> m_poly;
 
 	float m_moveSpd;
 	Math::Vector3 m_nowPos;

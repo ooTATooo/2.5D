@@ -3,6 +3,8 @@
 #include"../BaseScene/BaseScene.h"
 
 class Player;
+class Beacon;
+class BeaconHP;
 
 class GameScene : public BaseScene
 {
@@ -17,6 +19,6 @@ private:
 	void Init() override;
 
 	std::shared_ptr<Player> m_player;
-
-	Math::Vector3 pos = { 0, 5, -5 };
+	//std::shared_ptr<Beacon> m_beacon;
+	//std::shared_ptr<BeaconHP> m_beaconHp;
 };
