@@ -157,7 +157,7 @@
     <ClInclude Include="..\Library\tinygltf\stb_image_write.h" />
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
     <ClInclude Include="Src\Application\main.h" />
-    <ClInclude Include="Src\Application\Object\BeaconHP\BeaconHP.h" />
+    <ClInclude Include="Src\Application\Object\BeaconHp\BeaconHp.h" />
     <ClInclude Include="Src\Application\Object\Beacon\Beacon.h" />
     <ClInclude Include="Src\Application\Object\Ground\Ground.h" />
     <ClInclude Include="Src\Application\Object\Player\Player.h" />
@@ -211,7 +211,7 @@
     <ClCompile Include="..\Library\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />
-    <ClCompile Include="Src\Application\Object\BeaconHP\BeaconHP.cpp" />
+    <ClCompile Include="Src\Application\Object\BeaconHp\BeaconHp.cpp" />
     <ClCompile Include="Src\Application\Object\Beacon\Beacon.cpp" />
     <ClCompile Include="Src\Application\Object\Ground\Ground.cpp" />
     <ClCompile Include="Src\Application\Object\Player\Player.cpp" />

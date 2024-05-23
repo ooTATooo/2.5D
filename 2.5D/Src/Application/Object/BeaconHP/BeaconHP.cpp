@@ -1,6 +1,6 @@
-﻿#include "BeaconHP.h"
+﻿#include "BeaconHp.h"
 
-void BeaconHP::Update()
+void BeaconHp::Update()
 {
 	m_backHp.mat = m_backHp.scaleMat * m_backHp.transMat;
 
@@ -9,7 +9,7 @@ void BeaconHP::Update()
 	m_greenHp.mat = m_greenHp.scaleMat * m_greenHp.transMat;
 }
 
-void BeaconHP::Init()
+void BeaconHp::Init()
 {
 	m_backHp.tex.Load("Asset/Textures/HpBar/hpbar01.png");
 	m_backHp.scaleMat = Math::Matrix::CreateScale(0.25f, 0.25f, 0.25f);
@@ -24,7 +24,7 @@ void BeaconHP::Init()
 	m_greenHp.transMat = Math::Matrix::Identity;
 }
 
-void BeaconHP::DrawSprite()
+void BeaconHp::DrawSprite()
 {
 	Math::Rectangle rect = { 0,0,420,36 };
 	Math::Color color = { 1.0f,1.0f,1.0f,1.0f };

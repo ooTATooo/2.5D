@@ -1,11 +1,11 @@
 ﻿#pragma once
 
-class BeaconHP :public KdGameObject
+class BeaconHp :public KdGameObject
 {
 public:
 
-	BeaconHP() { Init(); }
-	~BeaconHP()override {}
+	BeaconHp() { Init(); }
+	~BeaconHp()override {}
 
 	void Update()override;
 	void Init()override;

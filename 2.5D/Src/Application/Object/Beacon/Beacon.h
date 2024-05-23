@@ -4,8 +4,8 @@ class Beacon :public KdGameObject
 {
 public:
 
-	Beacon() {}
-	~Beacon()override {}
+	Beacon() { Init(); }
+	~Beacon()override {};
 
 	void Init()override;
 	void GenerateDepthMapFromLight()override;

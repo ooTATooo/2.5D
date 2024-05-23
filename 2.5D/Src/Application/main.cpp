@@ -96,7 +96,7 @@ void Application::KdBeginDraw(bool usePostProcess)
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::KdPostDraw()
 {
-	ImGui();
+	ImGuiProcess();
 
 	// BackBuffer -> 画面表示
 	KdDirect3D::Instance().WorkSwapChain()->Present(0, 0);
@@ -146,7 +146,7 @@ bool Application::Init(int w, int h)
 	//===================================================================
 	// ウィンドウ作成
 	//===================================================================
-	if (m_window.Create(w, h, "2.5D", "Window") == false) {
+	if (m_window.Create(w, h, "3D GameProgramming", "Window") == false) {
 		MessageBoxA(nullptr, "ウィンドウ作成に失敗", "エラー", MB_OK);
 		return false;
 	}
@@ -339,9 +339,9 @@ void Application::Release()
 	KdAudioManager::Instance().Release();
 
 	// imgui解放
-	//ImGui_ImplDX11_Shutdown();
-	//ImGui_ImplWin32_Shutdown();
-	//ImGui::DestroyContext();
+	ImGui_ImplDX11_Shutdown();
+	ImGui_ImplWin32_Shutdown();
+	ImGui::DestroyContext();
 
 	KdDirect3D::Instance().Release();
 
@@ -349,8 +349,10 @@ void Application::Release()
 	m_window.Release();
 }
 
-void Application::ImGui()
+void Application::ImGuiProcess()
 {
+	//return;
+
 	// ImGui開始
 	ImGui_ImplDX11_NewFrame();
 	ImGui_ImplWin32_NewFrame();
@@ -359,15 +361,15 @@ void Application::ImGui()
 	// ImGui Demo ウィンドウ表示
 	//ImGui::ShowDemoWindow(nullptr);
 
-	ImGui::SetNextWindowPos(ImVec2(20, 20), 2);
-	ImGui::SetNextWindowSize(ImVec2(300, 210), 2);
+	ImGui::SetNextWindowPos(ImVec2(20, 20));
+	ImGui::SetNextWindowSize(ImVec2(300, 210));
 
 	// デバッグウィンドウ
 	if (ImGui::Begin("Debug Window"))
 	{
 		// FPS
 		ImGui::Text("FPS : %d", m_fpsController.m_nowfps);
-		ImGui::Text((const char*)u8"アニメーション");
+		ImGui::Text((const char*)u8"あああああ");
 	}
 	ImGui::End();
 

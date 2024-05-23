@@ -1,50 +1,60 @@
 ﻿#include "GameScene.h"
-#include"../SceneManager.h"
+#include "../SceneManager.h"
 
-#include "../../Object/Ground/Ground.h"
 #include "../../Object/Player/Player.h"
+#include "../../Object/Ground/Ground.h"
 #include "../../Object/Beacon/Beacon.h"
-//#include "../../Object/BeaconHP/BeaconHP.h"
+#include "../../Object/BeaconHp/BeaconHp.h"
 
 void GameScene::Event()
 {
-	// 拡縮行列
-	Math::Matrix scaleMat = Math::Matrix::CreateScale(1, 1, 1);
+	if (GetAsyncKeyState('T') & 0x8000)
+	{
+		SceneManager::Instance().SetNextScene
+		(
+			SceneManager::SceneType::Title
+		);
+	}
 
-	// 回転行列
-	Math::Matrix rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
+	Math::Vector3 playerPos;
+	if (!m_player.expired())
+	{
+		playerPos = m_player.lock()->GetPos();
+	}
 
-	// 移動行列
+	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
+
 	Math::Matrix transMat = Math::Matrix::CreateTranslation(0, 5, -5);
 
-	Math::Matrix pTransMat = Math::Matrix::CreateTranslation(m_player->GetPos());
+	Math::Matrix pTransMat = Math::Matrix::CreateTranslation(playerPos);
 
-	// カメラのワールド行列を作成し、適応させる
-	// 行列の親子関係
-	Math::Matrix _mWorld = scaleMat * rotMatX * transMat *pTransMat;
-	m_camera->SetCameraMatrix(_mWorld);
+	Math::Matrix mat;
+	mat = rotMat * transMat * pTransMat;
+
+	// カメラに行列をセット
+	// この時点では画面には反映されない
+	m_camera->SetCameraMatrix(mat);
+
 }
 
 void GameScene::Init()
 {
-	m_camera = std::make_unique<KdCamera>();
-	m_camera->SetProjectionMatrix(60);
+	// カメラ生成＆視野角設定
+	m_camera = std::make_unique<KdCamera>();	//1 メモリ確保
+	m_camera->SetProjectionMatrix(60);			//2	視野角設定
+
+	std::shared_ptr<Player> player = std::make_shared<Player>();
+	AddObject(player);
+	m_player = player;
 
 	std::shared_ptr<Ground> ground = std::make_shared<Ground>();
-	ground->Init();
 	AddObject(ground);
 
 	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
-	beacon->Init();
-	//m_beacon = beacon;
 	AddObject(beacon);
+	m_beacon = beacon;
 
-	std::shared_ptr<Player> player = std::make_shared<Player>();
-	player->Init();
-	m_player = player;
-	AddObject(player);
-
-	//std::shared_ptr<BeaconHP> beaconHP = std::make_shared<BeaconHP>();
-	////m_beaconHp = beaconHP;
-	//AddObject(beaconHP);
+	std::shared_ptr<BeaconHp> beaconHp = std::make_shared<BeaconHp>();
+	AddObject(beaconHp);
+	m_beaconHp = beaconHp;
 }

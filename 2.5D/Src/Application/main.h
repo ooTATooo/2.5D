@@ -36,13 +36,14 @@ private:
 	void DrawSprite();
 	void KdPostDraw();
 
-	void ImGui();
-
 	// アプリケーション初期化
 	bool Init(int w, int h);
 
 	// アプリケーション解放
 	void Release();
+
+	// ImGui処理
+	void ImGuiProcess();
 
 	// ゲームウィンドウクラス
 	KdWindow		m_window;

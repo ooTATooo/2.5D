@@ -4,7 +4,7 @@ class Player :public KdGameObject
 {
 public:
 
-	Player() {}
+	Player() { Init(); }
 	~Player()override {}
 
 	void Update()override;
@@ -12,18 +12,7 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
-	void KeyAction();
-
-public:
-
-	enum keyType
-	{
-		W,
-		S,
-		A,
-		D,
-		kind
-	};
+private:
 
 	std::shared_ptr<KdSquarePolygon> m_poly;
 
@@ -37,8 +26,8 @@ public:
 	float m_size;
 	float m_angX;
 	float m_angY;
-	bool m_keyFlg[keyType::kind];
 
 	int frame;
 	int ani;
+
 };

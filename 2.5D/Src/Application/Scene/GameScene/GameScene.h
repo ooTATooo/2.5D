@@ -4,7 +4,7 @@
 
 class Player;
 class Beacon;
-class BeaconHP;
+class BeaconHp;
 
 class GameScene : public BaseScene
 {
@@ -18,7 +18,8 @@ private:
 	void Event() override;
 	void Init() override;
 
-	std::shared_ptr<Player> m_player;
-	//std::shared_ptr<Beacon> m_beacon;
-	//std::shared_ptr<BeaconHP> m_beaconHp;
+	std::weak_ptr<Player> m_player;
+	std::weak_ptr<Beacon> m_beacon;
+	std::weak_ptr<BeaconHp> m_beaconHp;
+
 };

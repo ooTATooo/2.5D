@@ -13,7 +13,26 @@ void Player::Update()
 	m_nowPos = m_trancMat.Translation();
 	m_moveVec = Math::Vector3::Zero;
 
-	KeyAction();
+	if (GetAsyncKeyState('W') & 0x8000)
+	{
+		m_moveVec.z = 1.0f;
+	}
+	if (GetAsyncKeyState('S') & 0x8000)
+	{
+		m_moveVec.z = -1.0f;
+	}
+	if (GetAsyncKeyState('A') & 0x8000)
+	{
+		m_moveVec.x = -1.0f;
+		m_angX = 20;
+		m_angY = 0;
+	}
+	if (GetAsyncKeyState('D') & 0x8000)
+	{
+		m_moveVec.x = 1.0f;
+		m_angX = -20;
+		m_angY = 180;
+	}
 
 	m_moveVec.Normalize();
 	m_moveVec *= m_moveSpd;
@@ -29,8 +48,6 @@ void Player::Update()
 		ani = 0;
 	}
 
-	//m_scaleMat = Math::Matrix::CreateScale(m_size);
-
 	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
 
 	m_rotMatY = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_angY));
@@ -38,6 +55,7 @@ void Player::Update()
 	m_trancMat = Math::Matrix::CreateTranslation(m_nowPos);
 
 	m_mWorld = m_rotMatX * m_rotMatY * m_trancMat;
+
 }
 
 void Player::Init()
@@ -49,18 +67,12 @@ void Player::Init()
 	m_moveSpd = 0.1f;
 	m_nowPos = m_mWorld.Translation();
 	m_moveVec = Math::Vector3::Zero;
-	m_scaleMat = Math::Matrix::Identity;
 	m_rotMatX = Math::Matrix::Identity;
 	m_rotMatY = Math::Matrix::Identity;
-	m_trancMat = Math::Matrix::CreateTranslation(0.0f, 0.0f, 0.0f);
+	m_trancMat = Math::Matrix::Identity;
 	m_size = 1;
 	m_angX = -20;
 	m_angY = 180;
-	for (int i = 0; i < keyType::kind; i++)
-	{
-		m_keyFlg[i] = false;
-	}
-
 
 	frame = 0;
 	ani = 0;
@@ -74,37 +86,4 @@ void Player::GenerateDepthMapFromLight()
 void Player::DrawLit()
 {
 	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_poly, m_mWorld);
-}
-
-void Player::KeyAction()
-{
-	for (int i = 0; i < keyType::kind; i++)
-	{
-		m_keyFlg[i] = false;
-	}
-
-	if (GetAsyncKeyState('W') & 0x8000)
-	{
-		m_keyFlg[keyType::W] = true;
-		m_moveVec.z = 1.0f;
-	}
-	if (GetAsyncKeyState('S') & 0x8000)
-	{
-		m_keyFlg[keyType::S] = true;
-		m_moveVec.z = -1.0f;
-	}
-	if (GetAsyncKeyState('A') & 0x8000)
-	{
-		m_keyFlg[keyType::A] = true;
-		m_moveVec.x = -1.0f;
-		m_angX = 20;
-		m_angY = 0;
-	}
-	if (GetAsyncKeyState('D') & 0x8000)
-	{
-		m_keyFlg[keyType::D] = true;
-		m_moveVec.x = 1.0f;
-		m_angX = -20;
-		m_angY = 180;
-	}
 }
