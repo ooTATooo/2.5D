@@ -1,10 +1,13 @@
 ﻿#include "Beacon.h"
 
+#include "../../Scene/GameScene/GameScene.h"
+#include "../../Object/BeaconHp/BeaconHp.h"
+
 void Beacon::Init()
 {
 	m_model = std::make_shared<KdModelData>();
-	m_model->Load("Asset/Models/Beacon/Beacon.gltf");
-	m_mWorld = Math::Matrix::CreateScale(4);
+	m_model->Load("Asset/Models/Crystal/Crystal.gltf");
+	m_mWorld = Math::Matrix::CreateScale(1.0f);
 }
 
 void Beacon::GenerateDepthMapFromLight()

@@ -3,6 +3,7 @@
 
 #include "../../Object/Player/Player.h"
 #include "../../Object/Ground/Ground.h"
+#include "../../Object/WallFawme/WallFrame.h"
 #include "../../Object/Beacon/Beacon.h"
 #include "../../Object/BeaconHp/BeaconHp.h"
 
@@ -24,7 +25,7 @@ void GameScene::Event()
 
 	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
 
-	Math::Matrix transMat = Math::Matrix::CreateTranslation(0, 5, -5);
+	Math::Matrix transMat = Math::Matrix::CreateTranslation(0, 8, -8);
 
 	Math::Matrix pTransMat = Math::Matrix::CreateTranslation(playerPos);
 
@@ -50,11 +51,12 @@ void GameScene::Init()
 	std::shared_ptr<Ground> ground = std::make_shared<Ground>();
 	AddObject(ground);
 
+	std::shared_ptr<WallFrame> wall = std::make_shared<WallFrame>();
+	AddObject(wall);
+
 	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
 	AddObject(beacon);
-	m_beacon = beacon;
 
 	std::shared_ptr<BeaconHp> beaconHp = std::make_shared<BeaconHp>();
 	AddObject(beaconHp);
-	m_beaconHp = beaconHp;
 }

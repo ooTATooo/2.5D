@@ -17,9 +17,9 @@
 			"mesh":0,
 			"name":"Cube",
 			"scale":[
-				20,
+				30,
 				1,
-				20
+				30
 			]
 		}
 	],
@@ -92,7 +92,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":20,
+			"count":55,
 			"max":[
 				1,
 				-0.0018806010484695435,
@@ -108,25 +108,25 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":20,
+			"count":55,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":20,
+			"count":55,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":30,
+			"count":150,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":4,
+			"count":88,
 			"max":[
 				1,
 				-0.0018806010484695435,
@@ -134,7 +134,7 @@
 			],
 			"min":[
 				-1,
-				-0.0018806010484695435,
+				-0.09103603661060333,
 				-1
 			],
 			"type":"VEC3"
@@ -142,69 +142,69 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":4,
+			"count":88,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":4,
+			"count":88,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":7,
 			"componentType":5123,
-			"count":6,
+			"count":138,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":240,
+			"byteLength":660,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":240,
-			"byteOffset":240,
+			"byteLength":660,
+			"byteOffset":660,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":160,
-			"byteOffset":480,
+			"byteLength":440,
+			"byteOffset":1320,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":60,
-			"byteOffset":640,
+			"byteLength":300,
+			"byteOffset":1760,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
-			"byteOffset":700,
+			"byteLength":1056,
+			"byteOffset":2060,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
-			"byteOffset":748,
+			"byteLength":1056,
+			"byteOffset":3116,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":32,
-			"byteOffset":796,
+			"byteLength":704,
+			"byteOffset":4172,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":12,
-			"byteOffset":828,
+			"byteLength":276,
+			"byteOffset":4876,
 			"target":34963
 		}
 	],
@@ -216,7 +216,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":840,
+			"byteLength":5152,
 			"uri":"Cobblestone.bin"
 		}
 	]

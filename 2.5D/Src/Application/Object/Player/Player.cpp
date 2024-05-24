@@ -73,7 +73,6 @@ void Player::Init()
 	m_size = 1;
 	m_angX = -20;
 	m_angY = 180;
-
 	frame = 0;
 	ani = 0;
 }

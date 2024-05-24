@@ -19,7 +19,5 @@ private:
 	void Init() override;
 
 	std::weak_ptr<Player> m_player;
-	std::weak_ptr<Beacon> m_beacon;
-	std::weak_ptr<BeaconHp> m_beaconHp;
 
 };

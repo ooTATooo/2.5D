@@ -85,6 +85,9 @@
     <Filter Include="Src\Application\Object\Ground">
       <UniqueIdentifier>{4e823812-3b8f-4dca-be7f-689759929441}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\WallFrame">
+      <UniqueIdentifier>{ed09bb3e-797d-4752-bb0c-a9ae501327fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -264,6 +267,9 @@
     <ClInclude Include="Src\Application\Object\BeaconHp\BeaconHp.h">
       <Filter>Src\Application\Object\BeaconHp</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\WallFawme\WallFrame.h">
+      <Filter>Src\Application\Object\WallFrame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -415,6 +421,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\BeaconHp\BeaconHp.cpp">
       <Filter>Src\Application\Object\BeaconHp</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\WallFawme\WallFrame.cpp">
+      <Filter>Src\Application\Object\WallFrame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

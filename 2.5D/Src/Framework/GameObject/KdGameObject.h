@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+class GameScene;
+
 // ゲーム上に存在するすべてのオブジェクトの基底となるクラス
 class KdGameObject : public std::enable_shared_from_this<KdGameObject>
 {
@@ -34,6 +36,8 @@ public:
 	virtual void DrawSprite() {}
 
 	virtual void DrawDebug();
+
+	virtual void SetOwner(GameScene* _owner) { m_owner = _owner; }
 
 	virtual void SetAsset(const std::string&) {}
 
@@ -87,4 +91,6 @@ protected:
 
 	// デバッグ情報クラス
 	std::unique_ptr<KdDebugWireFrame> m_pDebugWire = nullptr;
+
+	GameScene* m_owner = nullptr;
 };
