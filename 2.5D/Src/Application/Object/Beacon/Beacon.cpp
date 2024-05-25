@@ -12,10 +12,10 @@ void Beacon::Init()
 
 void Beacon::GenerateDepthMapFromLight()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld);
+	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, color);
 }
 
 void Beacon::DrawLit()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld);
+	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, color);
 }

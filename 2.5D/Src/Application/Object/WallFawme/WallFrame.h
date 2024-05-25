@@ -13,5 +13,9 @@ public:
 
 private:
 
-	std::shared_ptr<KdModelData> m_model;
+	std::shared_ptr<KdModelData> m_model01;
+	std::shared_ptr<KdModelData> m_model02;
+
+	Math::Color color = { 1,1,1,1.0f };
+
 };

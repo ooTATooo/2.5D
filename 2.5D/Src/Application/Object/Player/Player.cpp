@@ -2,6 +2,7 @@
 
 void Player::Update()
 {
+
 	if (frame == 0)
 	{
 		frame = 20;
@@ -10,7 +11,7 @@ void Player::Update()
 	m_poly->SetUVRect(ani);
 
 	m_moveSpd = 0.1f;
-	m_nowPos = m_trancMat.Translation();
+	m_pos = m_transMat.Translation();
 	m_moveVec = Math::Vector3::Zero;
 
 	if (GetAsyncKeyState('W') & 0x8000)
@@ -36,7 +37,7 @@ void Player::Update()
 
 	m_moveVec.Normalize();
 	m_moveVec *= m_moveSpd;
-	m_nowPos += m_moveVec;
+	m_pos += m_moveVec;
 
 	frame--;
 	if (frame < 0)
@@ -48,13 +49,18 @@ void Player::Update()
 		ani = 0;
 	}
 
+	if (m_pos.x < -29.5f) { m_pos.x = -29.5f; }
+	if (m_pos.x > 29.5f) { m_pos.x = 29.5f; }
+	if (m_pos.z < -29.5f) { m_pos.z = -29.5f; }
+	if (m_pos.z > 29.5f) { m_pos.z = 29.5f; }
+
 	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
 
 	m_rotMatY = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_angY));
 
-	m_trancMat = Math::Matrix::CreateTranslation(m_nowPos);
+	m_transMat = Math::Matrix::CreateTranslation(m_pos);
 
-	m_mWorld = m_rotMatX * m_rotMatY * m_trancMat;
+	m_mWorld = m_rotMatX * m_rotMatY * m_transMat;
 
 }
 
@@ -65,11 +71,11 @@ void Player::Init()
 	m_poly->SetSplit(9, 6);
 	m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 	m_moveSpd = 0.1f;
-	m_nowPos = m_mWorld.Translation();
+	m_pos = m_mWorld.Translation();
 	m_moveVec = Math::Vector3::Zero;
 	m_rotMatX = Math::Matrix::Identity;
 	m_rotMatY = Math::Matrix::Identity;
-	m_trancMat = Math::Matrix::Identity;
+	m_transMat = Math::Matrix::Identity;
 	m_size = 1;
 	m_angX = -20;
 	m_angY = 180;

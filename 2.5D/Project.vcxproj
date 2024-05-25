@@ -156,10 +156,12 @@
     <ClInclude Include="..\Library\tinygltf\stb_image.h" />
     <ClInclude Include="..\Library\tinygltf\stb_image_write.h" />
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
+    <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h" />
     <ClInclude Include="Src\Application\main.h" />
     <ClInclude Include="Src\Application\Object\BeaconHp\BeaconHp.h" />
     <ClInclude Include="Src\Application\Object\Beacon\Beacon.h" />
     <ClInclude Include="Src\Application\Object\Ground\Ground.h" />
+    <ClInclude Include="Src\Application\Object\Pillar\Pillar.h" />
     <ClInclude Include="Src\Application\Object\Player\Player.h" />
     <ClInclude Include="Src\Application\Object\WallFawme\WallFrame.h" />
     <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h" />
@@ -211,10 +213,12 @@
     <ClCompile Include="..\Library\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />
     <ClCompile Include="Src\Application\Object\BeaconHp\BeaconHp.cpp" />
     <ClCompile Include="Src\Application\Object\Beacon\Beacon.cpp" />
     <ClCompile Include="Src\Application\Object\Ground\Ground.cpp" />
+    <ClCompile Include="Src\Application\Object\Pillar\Pillar.cpp" />
     <ClCompile Include="Src\Application\Object\Player\Player.cpp" />
     <ClCompile Include="Src\Application\Object\WallFawme\WallFrame.cpp" />
     <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp" />

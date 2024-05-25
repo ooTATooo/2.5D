@@ -15,4 +15,6 @@ private:
 
 	std::shared_ptr<KdModelData> m_model;
 
+	Math::Color color = { 1,1,1,0.8f };
+
 };

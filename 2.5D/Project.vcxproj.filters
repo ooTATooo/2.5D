@@ -88,6 +88,12 @@
     <Filter Include="Src\Application\Object\WallFrame">
       <UniqueIdentifier>{ed09bb3e-797d-4752-bb0c-a9ae501327fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\ImGuiManager">
+      <UniqueIdentifier>{bce72ed7-05ad-4001-afd1-6f9f12cbf0ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Pillar">
+      <UniqueIdentifier>{169121e0-d050-4477-a1f1-f49c983deef4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -270,6 +276,12 @@
     <ClInclude Include="Src\Application\Object\WallFawme\WallFrame.h">
       <Filter>Src\Application\Object\WallFrame</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h">
+      <Filter>Src\Application\ImGuiManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Pillar\Pillar.h">
+      <Filter>Src\Application\Object\Pillar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -424,6 +436,12 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\WallFawme\WallFrame.cpp">
       <Filter>Src\Application\Object\WallFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp">
+      <Filter>Src\Application\ImGuiManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Pillar\Pillar.cpp">
+      <Filter>Src\Application\Object\Pillar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

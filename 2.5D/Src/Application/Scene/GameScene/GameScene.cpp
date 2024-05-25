@@ -1,5 +1,6 @@
 ﻿#include "GameScene.h"
 #include "../SceneManager.h"
+#include "../../ImGuiManager/ImGuiManager.h"
 
 #include "../../Object/Player/Player.h"
 #include "../../Object/Ground/Ground.h"
@@ -22,6 +23,7 @@ void GameScene::Event()
 	{
 		playerPos = m_player.lock()->GetPos();
 	}
+	ImGuiManager::Instance().SetPlayerPos(playerPos);
 
 	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
 

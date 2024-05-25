@@ -1,6 +1,7 @@
 ﻿#include "main.h"
 
 #include "Scene/SceneManager.h"
+#include "ImGuiManager/ImGuiManager.h"
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 // エントリーポイント
@@ -361,17 +362,7 @@ void Application::ImGuiProcess()
 	// ImGui Demo ウィンドウ表示
 	//ImGui::ShowDemoWindow(nullptr);
 
-	ImGui::SetNextWindowPos(ImVec2(20, 20));
-	ImGui::SetNextWindowSize(ImVec2(300, 210));
-
-	// デバッグウィンドウ
-	if (ImGui::Begin("Debug Window"))
-	{
-		// FPS
-		ImGui::Text("FPS : %d", m_fpsController.m_nowfps);
-		ImGui::Text((const char*)u8"あああああ");
-	}
-	ImGui::End();
+	ImGuiManager::Instance().Update();
 
 	// ImGuiのレタリング
 	ImGui::Render();
