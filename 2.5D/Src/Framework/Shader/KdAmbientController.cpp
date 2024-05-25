@@ -23,7 +23,7 @@ void KdAmbientController::Init()
 
 		m_parameter.m_distanceFogColor = cbFog.DistanceFogColor;
 		m_parameter.m_distanceFogDensity = cbFog.DistanceFogDensity;
-		
+
 		m_parameter.m_heightFogColor = cbFog.HeightFogColor;
 		m_parameter.m_heightFogTopValue= cbFog.HeightFogTopValue;
 		m_parameter.m_heightFogBottomValue = cbFog.HeightFogBottomValue;
@@ -31,7 +31,12 @@ void KdAmbientController::Init()
 	}
 
 	// 影用深度バッファ生成情報の初期化
-	SetDirLightShadowArea({ 25.0f, 25.0f }, 30.0f);
+	SetDirLightShadowArea({ 75.0f, 75.0f }, 30.0f);
+
+	//==========================================
+	SetDirLight({ 1,-1,1 }, { 2.25f,2.25f,2.25f });	//?
+	//SetAmbientLight({ 0,0,1,1 });
+	//==========================================
 
 	// 光のパラメータの反映
 	// ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -141,7 +146,7 @@ void KdAmbientController::SetheightFog(const Math::Vector3& col, float topValue,
 	m_parameter.m_heightFogTopValue = topValue;
 
 	m_parameter.m_heightFogBottomValue = bottomValue;
-	
+
 	m_parameter.m_heightFogBeginDistance = distance;
 
 	m_dirtyFogHeight = true;

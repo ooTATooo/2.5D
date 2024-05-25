@@ -4,7 +4,7 @@ class Pillar :public KdGameObject
 {
 public:
 
-	Pillar() {}
+	Pillar() { Init(); }
 	~Pillar()override {}
 
 	void Update()override;
@@ -16,14 +16,5 @@ private:
 
 	std::shared_ptr<KdModelData> m_model;
 
-	static const int width = 4;
-	static const int height = 4;
-
-	struct Data
-	{
-		Math::Vector3 pos;
-		Math::Color color;
-	};
-
-	Data m_pillar[width][height];
+	Math::Color color = { 1.0f,1.0f,1.0f,1.0f };
 };

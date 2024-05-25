@@ -1,7 +1,6 @@
 ﻿#include "Beacon.h"
 
 #include "../../Scene/GameScene/GameScene.h"
-#include "../../Object/BeaconHp/BeaconHp.h"
 
 void Beacon::Init()
 {
@@ -16,6 +15,11 @@ void Beacon::GenerateDepthMapFromLight()
 }
 
 void Beacon::DrawLit()
+{
+	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, color);
+}
+
+void Beacon::DrawBright()
 {
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, color);
 }

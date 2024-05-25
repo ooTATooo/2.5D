@@ -10,11 +10,11 @@ public:
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
-
+	void DrawBright()override;
 private:
 
 	std::shared_ptr<KdModelData> m_model;
 
-	Math::Color color = { 1,1,1,0.8f };
+	Math::Color color = { 1,1,1,0.35f };
 
 };

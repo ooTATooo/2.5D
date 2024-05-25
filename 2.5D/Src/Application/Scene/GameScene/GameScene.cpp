@@ -5,6 +5,7 @@
 #include "../../Object/Player/Player.h"
 #include "../../Object/Ground/Ground.h"
 #include "../../Object/WallFawme/WallFrame.h"
+#include "../../Object/Pillar/Pillar.h"
 #include "../../Object/Beacon/Beacon.h"
 #include "../../Object/BeaconHp/BeaconHp.h"
 
@@ -55,6 +56,21 @@ void GameScene::Init()
 
 	std::shared_ptr<WallFrame> wall = std::make_shared<WallFrame>();
 	AddObject(wall);
+
+	static const int width = 4;
+	static const int height = 4;
+	float posX[width] = { -20.0f,-10.0f,10.0f,20.0f };
+	float posZ[height] = { 20.0f,10.0f,-10.0f,-20.0f };
+
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
+			std::shared_ptr<Pillar> pillar = std::make_shared<Pillar>();
+			pillar->SetPos({ posX[i], 0, posZ[j]});
+			AddObject(pillar);
+		}
+	}
 
 	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
 	AddObject(beacon);
