@@ -34,7 +34,7 @@ void KdAmbientController::Init()
 	SetDirLightShadowArea({ 75.0f, 75.0f }, 30.0f);
 
 	//==========================================
-	SetDirLight({ 1,-1,1 }, { 2.25f,2.25f,2.25f });	//?
+	//SetDirLight({ 1,-1,1 }, { 2.25f,2.25f,2.25f });	//?
 	//SetAmbientLight({ 0,0,1,1 });
 	//==========================================
 
