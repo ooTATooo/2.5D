@@ -3,8 +3,6 @@
 #include"../BaseScene/BaseScene.h"
 
 class Player;
-class Beacon;
-class BeaconHp;
 
 class GameScene : public BaseScene
 {

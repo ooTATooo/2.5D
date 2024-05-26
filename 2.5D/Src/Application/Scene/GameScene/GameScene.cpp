@@ -9,6 +9,7 @@
 #include "../../Object/Beacon/Beacon.h"
 #include "../../Object/BeaconHp/BeaconHp.h"
 
+
 void GameScene::Event()
 {
 	if (GetAsyncKeyState('T') & 0x8000)
@@ -38,7 +39,6 @@ void GameScene::Event()
 	// カメラに行列をセット
 	// この時点では画面には反映されない
 	m_camera->SetCameraMatrix(mat);
-
 }
 
 void GameScene::Init()
