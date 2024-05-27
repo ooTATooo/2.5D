@@ -2,15 +2,15 @@
 
 void Player::Update()
 {
+	int run[3] = { 0,1,2 };
+	m_poly->SetUVRect(run[(int)m_anime]);
 
-	if (frame == 0)
+	m_anime += 0.1f;
+	if (m_anime >= 3)
 	{
-		frame = 20;
-		ani++;
+		m_anime = 0;
 	}
-	m_poly->SetUVRect(ani);
 
-	m_moveSpd = 0.1f;
 	m_pos = m_transMat.Translation();
 	m_moveVec = Math::Vector3::Zero;
 
@@ -36,18 +36,7 @@ void Player::Update()
 	}
 
 	m_moveVec.Normalize();
-	m_moveVec *= m_moveSpd;
-	m_pos += m_moveVec;
-
-	frame--;
-	if (frame < 0)
-	{
-		frame = 0;
-	}
-	if (ani >= 2)
-	{
-		ani = 0;
-	}
+	m_pos += m_moveVec *= m_moveSpd;
 
 	if (m_pos.x < -29.5f) { m_pos.x = -29.5f; }
 	if (m_pos.x > 29.5f) { m_pos.x = 29.5f; }
@@ -61,7 +50,6 @@ void Player::Update()
 	m_transMat = Math::Matrix::CreateTranslation(m_pos);
 
 	m_mWorld = m_rotMatX * m_rotMatY * m_transMat;
-
 }
 
 void Player::Init()
@@ -76,11 +64,9 @@ void Player::Init()
 	m_rotMatX = Math::Matrix::Identity;
 	m_rotMatY = Math::Matrix::Identity;
 	m_transMat = Math::Matrix::Identity;
-	m_size = 1;
 	m_angX = -20;
 	m_angY = 180;
-	frame = 0;
-	ani = 0;
+	m_anime = 0;
 }
 
 void Player::GenerateDepthMapFromLight()

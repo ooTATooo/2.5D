@@ -94,6 +94,21 @@
     <Filter Include="Src\Application\Object\Pillar">
       <UniqueIdentifier>{169121e0-d050-4477-a1f1-f49c983deef4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\Boss">
+      <UniqueIdentifier>{9ed1dbd9-6a0f-43cc-a2c4-0246a5497a3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Enemy">
+      <UniqueIdentifier>{4342e5db-e6f9-4908-b199-ba7badf18af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Enemy\Enemy03">
+      <UniqueIdentifier>{2f21d9f7-272e-46b0-88f0-ea8a2ed878de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Enemy\Enemy01">
+      <UniqueIdentifier>{202d943d-c4fe-4af9-9d9b-ff0e1894c076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Enemy\Enemy02">
+      <UniqueIdentifier>{50963397-8825-4c13-82e6-5e198321dc35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -282,6 +297,21 @@
     <ClInclude Include="Src\Application\Object\Pillar\Pillar.h">
       <Filter>Src\Application\Object\Pillar</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\Boss\Boss.h">
+      <Filter>Src\Application\Object\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy\Enemy01\Enemy01.h">
+      <Filter>Src\Application\Object\Enemy\Enemy01</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy\Enemy02\Enemy02.h">
+      <Filter>Src\Application\Object\Enemy\Enemy02</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy\Enemy03\Enemy03.h">
+      <Filter>Src\Application\Object\Enemy\Enemy03</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h">
+      <Filter>Src\Application\Object\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -442,6 +472,21 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Pillar\Pillar.cpp">
       <Filter>Src\Application\Object\Pillar</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Boss\Boss.cpp">
+      <Filter>Src\Application\Object\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy\Enemy01\Enemy01.cpp">
+      <Filter>Src\Application\Object\Enemy\Enemy01</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy\Enemy02\Enemy02.cpp">
+      <Filter>Src\Application\Object\Enemy\Enemy02</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy\Enemy03\Enemy03.cpp">
+      <Filter>Src\Application\Object\Enemy\Enemy03</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp">
+      <Filter>Src\Application\Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

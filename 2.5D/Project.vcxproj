@@ -160,6 +160,11 @@
     <ClInclude Include="Src\Application\main.h" />
     <ClInclude Include="Src\Application\Object\BeaconHp\BeaconHp.h" />
     <ClInclude Include="Src\Application\Object\Beacon\Beacon.h" />
+    <ClInclude Include="Src\Application\Object\Boss\Boss.h" />
+    <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h" />
+    <ClInclude Include="Src\Application\Object\Enemy\Enemy01\Enemy01.h" />
+    <ClInclude Include="Src\Application\Object\Enemy\Enemy02\Enemy02.h" />
+    <ClInclude Include="Src\Application\Object\Enemy\Enemy03\Enemy03.h" />
     <ClInclude Include="Src\Application\Object\Ground\Ground.h" />
     <ClInclude Include="Src\Application\Object\Pillar\Pillar.h" />
     <ClInclude Include="Src\Application\Object\Player\Player.h" />
@@ -217,6 +222,11 @@
     <ClCompile Include="Src\Application\main.cpp" />
     <ClCompile Include="Src\Application\Object\BeaconHp\BeaconHp.cpp" />
     <ClCompile Include="Src\Application\Object\Beacon\Beacon.cpp" />
+    <ClCompile Include="Src\Application\Object\Boss\Boss.cpp" />
+    <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp" />
+    <ClCompile Include="Src\Application\Object\Enemy\Enemy01\Enemy01.cpp" />
+    <ClCompile Include="Src\Application\Object\Enemy\Enemy02\Enemy02.cpp" />
+    <ClCompile Include="Src\Application\Object\Enemy\Enemy03\Enemy03.cpp" />
     <ClCompile Include="Src\Application\Object\Ground\Ground.cpp" />
     <ClCompile Include="Src\Application\Object\Pillar\Pillar.cpp" />
     <ClCompile Include="Src\Application\Object\Player\Player.cpp" />

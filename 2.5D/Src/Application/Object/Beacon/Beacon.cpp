@@ -1,7 +1,5 @@
 ﻿#include "Beacon.h"
 
-#include "../../Scene/GameScene/GameScene.h"
-
 void Beacon::Init()
 {
 	m_model = std::make_shared<KdModelData>();

@@ -6,6 +6,10 @@
 #include "../../Object/Ground/Ground.h"
 #include "../../Object/WallFawme/WallFrame.h"
 #include "../../Object/Pillar/Pillar.h"
+#include "../../Object/Enemy/Enemy01/Enemy01.h"
+#include "../../Object/Enemy/Enemy02/Enemy02.h"
+#include "../../Object/Enemy/Enemy03/Enemy03.h"
+#include "../../Object/Boss/Boss.h"
 #include "../../Object/Beacon/Beacon.h"
 #include "../../Object/BeaconHp/BeaconHp.h"
 
@@ -47,6 +51,18 @@ void GameScene::Init()
 	m_camera = std::make_unique<KdCamera>();	//1 メモリ確保
 	m_camera->SetProjectionMatrix(60);			//2	視野角設定
 
+	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
+	AddObject(enemy01);
+
+	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
+	AddObject(enemy02);
+
+	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
+	AddObject(enemy03);
+
+	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
+	AddObject(boss);
+
 	std::shared_ptr<Player> player = std::make_shared<Player>();
 	AddObject(player);
 	m_player = player;
@@ -72,9 +88,9 @@ void GameScene::Init()
 		}
 	}
 
-	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
-	AddObject(beacon);
+	//std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
+	//AddObject(beacon);
 
-	std::shared_ptr<BeaconHp> beaconHp = std::make_shared<BeaconHp>();
-	AddObject(beaconHp);
+	//std::shared_ptr<BeaconHp> beaconHp = std::make_shared<BeaconHp>();
+	//AddObject(beaconHp);
 }
