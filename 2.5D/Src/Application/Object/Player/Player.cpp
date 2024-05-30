@@ -59,7 +59,7 @@ void Player::PostUpdate()
 	// 球に当たったオブジェクトの情報を格納
 	std::list<KdCollider::CollisionResult> retSphereList;
 
-	// 当たり判定だよ！！！！！！！！！！！！！！！！！！！！！
+	// 当たり判定
 	for (auto& obj : SceneManager::Instance().GetObjList())
 	{
 		obj->Intersects(sphere, &retSphereList);
@@ -82,8 +82,8 @@ void Player::PostUpdate()
 
 	if (isHit)
 	{
-		// zへの押し返し無効
-		//hitDir.z = 0;
+		// yへの押し返し無効
+		hitDir.y = 0;
 		// 正規化(長さを１にする)
 		// 方向は絶対長さ１
 		hitDir.Normalize();
