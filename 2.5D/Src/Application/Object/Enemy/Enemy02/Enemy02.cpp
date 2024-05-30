@@ -31,7 +31,7 @@ void Enemy02::Init()
 		m_poly->SetSplit(14, 1);
 		m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 		m_poly->SetScale(2);
-		m_pos = { 2,0,0 };
+		m_pos = { 4,0,0 };
 		m_angX = -20;
 		m_angY = 180;
 	}

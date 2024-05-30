@@ -8,6 +8,7 @@ public:
 	~Player()override {}
 
 	void Update()override;
+	void PostUpdate()override;
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;

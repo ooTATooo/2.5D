@@ -27,7 +27,7 @@ void Boss::Init()
 	m_poly->SetSplit(15, 1);
 	m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 	m_poly->SetScale({ 8,6 });
-	m_pos = { 0,0,2 };
+	m_pos = { 0,0,5 };
 	m_moveVec = Math::Vector3::Zero;
 	m_rotMatX = Math::Matrix::Identity;
 	m_rotMatY = Math::Matrix::Identity;

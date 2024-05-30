@@ -1,5 +1,7 @@
 ﻿#include "Player.h"
 
+#include "../../Scene/SceneManager.h"
+
 void Player::Update()
 {
 	int run[3] = { 0,1,2 };
@@ -11,7 +13,7 @@ void Player::Update()
 		m_anime = 0;
 	}
 
-	m_pos = m_transMat.Translation();
+	//m_pos = m_transMat.Translation();
 	m_moveVec = Math::Vector3::Zero;
 
 	if (GetAsyncKeyState('W') & 0x8000)
@@ -37,11 +39,58 @@ void Player::Update()
 
 	m_moveVec.Normalize();
 	m_pos += m_moveVec *= m_moveSpd;
+}
 
-	if (m_pos.x < -29.5f) { m_pos.x = -29.5f; }
-	if (m_pos.x > 29.5f) { m_pos.x = 29.5f; }
-	if (m_pos.z < -29.5f) { m_pos.z = -29.5f; }
-	if (m_pos.z > 29.5f) { m_pos.z = 29.5f; }
+void Player::PostUpdate()
+{
+	// 球判定用の変数を作成
+	KdCollider::SphereInfo sphere;
+	// 球の中心点を設定
+	sphere.m_sphere.Center = m_pos;
+	sphere.m_sphere.Center.y += 0.5f;
+	// 球の半径を設定
+	sphere.m_sphere.Radius = 0.3f;
+	// 当たり判定をしたいタイプを設定
+	sphere.m_type = KdCollider::TypeBump;
+
+	// デバッグ表示
+	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius);
+
+	// 球に当たったオブジェクトの情報を格納
+	std::list<KdCollider::CollisionResult> retSphereList;
+
+	// 当たり判定だよ！！！！！！！！！！！！！！！！！！！！！
+	for (auto& obj : SceneManager::Instance().GetObjList())
+	{
+		obj->Intersects(sphere, &retSphereList);
+	}
+
+	// 球に当たったリストから一番近いオブジェクトを検出
+	float maxOverLap = 0;	// はみでたレイの長さ
+	Math::Vector3 hitDir;	// 当たった方向
+	bool isHit = false;		// 当たっていたらtrue
+	for (auto& ret : retSphereList)
+	{
+		// 球にめりこんで、オーバーした長さが一番長いものを探す
+		if (maxOverLap < ret.m_overlapDistance)
+		{
+			maxOverLap = ret.m_overlapDistance;
+			hitDir = ret.m_hitDir;
+			isHit = true;
+		}
+	}
+
+	if (isHit)
+	{
+		// zへの押し返し無効
+		//hitDir.z = 0;
+		// 正規化(長さを１にする)
+		// 方向は絶対長さ１
+		hitDir.Normalize();
+
+		// 地面に当たっている
+		m_pos += hitDir * maxOverLap;
+	}
 
 	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
 
@@ -50,6 +99,7 @@ void Player::Update()
 	m_transMat = Math::Matrix::CreateTranslation(m_pos);
 
 	m_mWorld = m_rotMatX * m_rotMatY * m_transMat;
+
 }
 
 void Player::Init()
@@ -59,7 +109,7 @@ void Player::Init()
 	m_poly->SetSplit(9, 6);
 	m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 	m_moveSpd = 0.1f;
-	m_pos = m_mWorld.Translation();
+	m_pos = { 0,0,-3 };
 	m_moveVec = Math::Vector3::Zero;
 	m_rotMatX = Math::Matrix::Identity;
 	m_rotMatY = Math::Matrix::Identity;
@@ -67,6 +117,9 @@ void Player::Init()
 	m_angX = -20;
 	m_angY = 180;
 	m_anime = 0;
+
+	// デバッグ用
+	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 }
 
 void Player::GenerateDepthMapFromLight()

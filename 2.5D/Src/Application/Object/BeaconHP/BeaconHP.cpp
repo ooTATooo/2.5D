@@ -2,10 +2,16 @@
 
 void BeaconHp::Update()
 {
+	Math::Vector3 res = Math::Vector3::Zero;
+	m_camera.lock()->ConvertWorldToScreenDetail(m_mWorld.Translation(), res);
+
+	m_backHp.transMat = Math::Matrix::CreateTranslation(res);
 	m_backHp.mat = m_backHp.scaleMat * m_backHp.transMat;
 
+	m_yellowHp.transMat = Math::Matrix::CreateTranslation(res);
 	m_yellowHp.mat = m_yellowHp.scaleMat * m_yellowHp.transMat;
 
+	m_greenHp.transMat = Math::Matrix::CreateTranslation(res);
 	m_greenHp.mat = m_greenHp.scaleMat * m_greenHp.transMat;
 }
 

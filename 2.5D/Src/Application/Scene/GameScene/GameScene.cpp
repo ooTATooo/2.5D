@@ -29,6 +29,7 @@ void GameScene::Event()
 	{
 		playerPos = m_player.lock()->GetPos();
 	}
+
 	ImGuiManager::Instance().SetPlayerPos(playerPos);
 
 	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
@@ -48,7 +49,7 @@ void GameScene::Event()
 void GameScene::Init()
 {
 	// カメラ生成＆視野角設定
-	m_camera = std::make_unique<KdCamera>();	//1 メモリ確保
+	m_camera = std::make_shared<KdCamera>();	//1 メモリ確保
 	m_camera->SetProjectionMatrix(60);			//2	視野角設定
 
 	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
@@ -88,9 +89,11 @@ void GameScene::Init()
 		}
 	}
 
-	//std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
-	//AddObject(beacon);
+	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
+	AddObject(beacon);
 
-	//std::shared_ptr<BeaconHp> beaconHp = std::make_shared<BeaconHp>();
-	//AddObject(beaconHp);
+	std::shared_ptr<BeaconHp> beaconHp = std::make_shared<BeaconHp>();
+	beaconHp->SetPos(beacon->GetPos());
+	beaconHp->SetCamera(m_camera);
+	AddObject(beaconHp);
 }

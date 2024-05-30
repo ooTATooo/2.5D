@@ -11,7 +11,12 @@ public:
 	void Init()override;
 	void DrawSprite()override;
 
+	void SetCamera(std::weak_ptr<KdCamera> _camera) { m_camera = _camera; }
+
+	//void SetPos(const Math::Vector3& pos)override { m_mWorld.Translation(pos); }
 private:
+
+	std::weak_ptr<KdCamera> m_camera;
 
 	struct Data
 	{
