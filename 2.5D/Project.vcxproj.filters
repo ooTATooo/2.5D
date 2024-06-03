@@ -109,6 +109,9 @@
     <Filter Include="Src\Application\Object\Enemy\Enemy02">
       <UniqueIdentifier>{50963397-8825-4c13-82e6-5e198321dc35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\AssetManager">
+      <UniqueIdentifier>{54eb2e43-25a1-41aa-87c9-e9249d47ab51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -312,6 +315,9 @@
     <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h">
       <Filter>Src\Application\Object\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\AssetManager\AssetManager.h">
+      <Filter>Src\Application\AssetManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -487,6 +493,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp">
       <Filter>Src\Application\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\AssetManager\AssetManager.cpp">
+      <Filter>Src\Application\AssetManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

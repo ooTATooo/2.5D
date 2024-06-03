@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+class Player;
+
 class BeaconHp :public KdGameObject
 {
 public:
@@ -12,11 +14,11 @@ public:
 	void DrawSprite()override;
 
 	void SetCamera(std::weak_ptr<KdCamera> _camera) { m_camera = _camera; }
-
-	//void SetPos(const Math::Vector3& pos)override { m_mWorld.Translation(pos); }
+	void SetPlayer(std::weak_ptr<Player> _player) { m_player = _player; }
 private:
 
 	std::weak_ptr<KdCamera> m_camera;
+	std::weak_ptr<Player> m_player;
 
 	struct Data
 	{
@@ -29,4 +31,13 @@ private:
 	Data m_backHp;
 	Data m_yellowHp;
 	Data m_greenHp;
+
+	Math::Vector3 m_pos;
+	float m_scale = 1.0f;
+
+	Math::Rectangle m_rect = { 0,0,0,0 };
+	Math::Color m_color = { 1.0f,1.0f,1.0f,1.0f };
+
+	float m_dis = 0;
+
 };

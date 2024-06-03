@@ -15,10 +15,10 @@ void Pillar::Init()
 
 void Pillar::GenerateDepthMapFromLight()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, color);
+	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, m_color);
 }
 
 void Pillar::DrawLit()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, color);
+	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, m_color);
 }

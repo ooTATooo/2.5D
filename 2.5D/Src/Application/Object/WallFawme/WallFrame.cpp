@@ -16,11 +16,11 @@ void WallFrame::Init()
 void WallFrame::GenerateDepthMapFromLight()
 {
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model01, m_mWorld);
-	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model02, m_mWorld, color);
+	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model02, m_mWorld, m_color);
 }
 
 void WallFrame::DrawLit()
 {
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model01, m_mWorld);
-	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model02, m_mWorld, color);
+	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model02, m_mWorld, m_color);
 }

@@ -13,9 +13,12 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
+	void SetPillar(std::weak_ptr<KdGameObject> _pillar) { m_pillar = _pillar; }
 private:
 
 	std::shared_ptr<KdSquarePolygon> m_poly = nullptr;
+
+	std::weak_ptr<KdGameObject> m_pillar;
 
 	float m_moveSpd = 0;
 	Math::Vector3 m_pos = Math::Vector3::Zero;;

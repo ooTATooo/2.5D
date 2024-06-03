@@ -17,6 +17,6 @@ private:
 	std::shared_ptr<KdModelData> m_model02;
 	std::shared_ptr<KdModelData> m_modelHit;
 
-	Math::Color color = { 1,1,1,1.0f };
+	Math::Color m_color = { 1,1,1,1.0f };
 
 };

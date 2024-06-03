@@ -30,6 +30,8 @@ void GameScene::Event()
 		playerPos = m_player.lock()->GetPos();
 	}
 
+	if (!m_beaconHp.expired()) { m_beaconHp.lock()->SetPlayer(m_player); }
+
 	ImGuiManager::Instance().SetPlayerPos(playerPos);
 
 	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
@@ -64,10 +66,6 @@ void GameScene::Init()
 	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
 	AddObject(boss);
 
-	std::shared_ptr<Player> player = std::make_shared<Player>();
-	AddObject(player);
-	m_player = player;
-
 	std::shared_ptr<Ground> ground = std::make_shared<Ground>();
 	AddObject(ground);
 
@@ -89,6 +87,10 @@ void GameScene::Init()
 		}
 	}
 
+	std::shared_ptr<Player> player = std::make_shared<Player>();
+	AddObject(player);
+	m_player = player;
+
 	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
 	AddObject(beacon);
 
@@ -96,4 +98,5 @@ void GameScene::Init()
 	beaconHp->SetPos(beacon->GetPos());
 	beaconHp->SetCamera(m_camera);
 	AddObject(beaconHp);
+	m_beaconHp = beaconHp;
 }
