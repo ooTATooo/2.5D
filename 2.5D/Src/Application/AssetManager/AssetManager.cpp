@@ -1,33 +1,36 @@
 ﻿#include "AssetManager.h"
 
-void AssetManager::Animation()
-{
-}
-
 void AssetManager::Init()
 {
-	LoadPolygon("Player", "Asset/Textures/Player/player.png");
-	m_polyList["Player"]->SetSplit(9, 6);
-	m_polyList["Player"]->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 }
 
-void AssetManager::LoadTex(std::string _name, std::string _filePath)
+KdSquarePolygon AssetManager::GetMaterial(std::string _name)
 {
-	std::shared_ptr<KdTexture> tex = std::make_shared<KdTexture>();
-	tex->Load(_filePath);
-	m_texList[_name] = tex;
+	if (m_materialList.find(_name) != m_materialList.end())
+	{
+		return m_materialList.at(_name);
+	}
 }
 
-void AssetManager::LoadPolygon(std::string _name, std::string _filePath)
+KdModelData AssetManager::GetModel(std::string _name)
 {
-	std::shared_ptr<KdSquarePolygon> poly = std::make_shared<KdSquarePolygon>();
-	poly->SetMaterial(_filePath);
-	m_polyList[_name] = poly;
+	if (m_modelList.find(_name) != m_modelList.end())
+	{
+		return m_modelList.at(_name);
+	}
 }
 
-void AssetManager::LoadModel(std::string _name, std::string _filePath)
+KdTexture* AssetManager::GetTex(std::string _name)
 {
-	std::shared_ptr<KdModelData> model = std::make_shared<KdModelData>();
-	model->Load(_filePath);
-	m_modelList[_name] = model;
+	if (m_texList.find(_name) != m_texList.end())
+	{
+		return &m_texList.at(_name);
+	}
+}
+
+void AssetManager::SetMaterial(std::string _name, float _scale, KdSquarePolygon::PivotType _pivot, int _splitX, int _splitY)
+{
+	m_materialList[_name].SetScale(_scale);
+	m_materialList[_name].SetPivot(_pivot);
+	m_materialList[_name].SetSplit(_splitX, _splitY);
 }

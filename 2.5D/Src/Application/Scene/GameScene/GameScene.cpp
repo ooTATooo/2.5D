@@ -35,18 +35,6 @@ void GameScene::Init()
 	m_camera = std::make_shared<KdCamera>();	//1 メモリ確保
 	m_camera->SetProjectionMatrix(60);			//2	視野角設定
 
-	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
-	AddObject(enemy01);
-
-	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
-	AddObject(enemy02);
-
-	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
-	AddObject(enemy03);
-
-	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
-	AddObject(boss);
-
 	std::shared_ptr<Ground> ground = std::make_shared<Ground>();
 	AddObject(ground);
 
@@ -68,10 +56,6 @@ void GameScene::Init()
 		}
 	}
 
-	std::shared_ptr<Player> player = std::make_shared<Player>();
-	AddObject(player);
-	m_player = player;
-
 	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
 	AddObject(beacon);
 
@@ -80,6 +64,24 @@ void GameScene::Init()
 	beaconHp->SetCamera(m_camera);
 	AddObject(beaconHp);
 	m_beaconHp = beaconHp;
+
+	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
+	enemy01->SetBeacon(beacon);
+	AddObject(enemy01);
+
+	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
+	AddObject(enemy02);
+
+	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
+	AddObject(enemy03);
+
+	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
+	AddObject(boss);
+
+	std::shared_ptr<Player> player = std::make_shared<Player>();
+	AddObject(player);
+	m_player = player;
+
 }
 
 void GameScene::CameraUpdate()
@@ -105,6 +107,7 @@ void GameScene::CameraUpdate()
 	Math::Matrix mat;
 	mat = rotMat * transMat;
 
+	// スクロールの限界処理
 	if (playerPos.z > 27.0f) { scrollType |= ScrollType::Up; }
 	if (playerPos.z < -27.0f) { scrollType |= ScrollType::Down; }
 	if (playerPos.x < -26.0f) { scrollType |= ScrollType::Left; }

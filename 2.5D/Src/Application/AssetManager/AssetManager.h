@@ -1,39 +1,44 @@
 ﻿#pragma once
+class KdTexture;
 
 class AssetManager
 {
 public:
 
-	void CallTex(std::string _name) { m_texList[_name]; }
+	// ポリゴン
+	KdSquarePolygon GetMaterial(std::string _name);
 
-	void CallPolygon(std::string _name) { m_polyList[_name]; }
+	// モデル
+	KdModelData GetModel(std::string _name);
 
-	void CallModel(std::string _name) { m_modelList[_name]; }
-
-private:
-
-	void Animation();
-	void Init();
-
-	std::unordered_map<std::string, std::shared_ptr<KdTexture>> m_texList;
-
-	std::unordered_map<std::string, std::shared_ptr<KdSquarePolygon>> m_polyList;
-
-	std::unordered_map<std::string, std::shared_ptr<KdModelData>> m_modelList;
-
-	void LoadTex(std::string _name, std::string _filePath);
-
-	void LoadPolygon(std::string _name, std::string _filePath);
-
-	void LoadModel(std::string _name, std::string _filePath);
+	// テクスチャ
+	KdTexture* GetTex(std::string _name);
 
 private:
 
-	AssetManager() { Init(); }
-	~AssetManager() {}
+	// ポリゴン
+	std::unordered_map<std::string, KdSquarePolygon> m_materialList;
+	void LoadMaterial(std::string _name, std::string _path) { m_materialList[_name].SetMaterial(_path); }
+	void SetMaterial(std::string _name, float _scale, KdSquarePolygon::PivotType _pivot, int _splitX, int _splitY);
+
+	// モデル
+	std::unordered_map<std::string, KdModelData> m_modelList;
+	void LoadModel(std::string _name, std::string _path) { m_modelList[_name].Load(_path); }
+
+	// テクスチャ
+	std::unordered_map<std::string, KdTexture> m_texList;
+	void LoadTex(std::string _name, std::string _path) { m_texList[_name].Load(_path); }
+
+	void Init();				// 初期化
+
+private:
+
+	AssetManager() { Init(); }	// コンストラクタ
+	~AssetManager() {}			// デストラクタ
 
 public:
 
+	// シングルトンパターン
 	static AssetManager& Instance()
 	{
 		static AssetManager instance;

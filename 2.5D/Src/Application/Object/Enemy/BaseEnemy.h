@@ -8,13 +8,18 @@ public:
 	~BaseEnemy()override {}
 
 	void Update()override;
+	void PostUpdate()override;
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
+	void SetBeacon(const std::weak_ptr<KdGameObject> _beacon) { m_beacon = _beacon; }
+
 protected:
 
 	std::shared_ptr<KdSquarePolygon> m_poly = nullptr;
+
+	std::weak_ptr<KdGameObject> m_beacon;
 
 	float m_moveSpd = 0;
 	Math::Vector3 m_pos = m_mWorld.Translation();

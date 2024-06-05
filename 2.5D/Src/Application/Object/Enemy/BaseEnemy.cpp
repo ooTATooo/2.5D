@@ -4,6 +4,10 @@ void BaseEnemy::Update()
 {
 }
 
+void BaseEnemy::PostUpdate()
+{
+}
+
 void BaseEnemy::Init()
 {
 	m_poly = nullptr;
