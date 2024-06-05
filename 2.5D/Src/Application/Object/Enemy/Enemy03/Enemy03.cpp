@@ -20,6 +20,10 @@ void Enemy03::Update()
 	m_mWorld = m_rotMatX * m_rotMatY * m_transMat;
 }
 
+void Enemy03::PostUpdate()
+{
+}
+
 void Enemy03::Init()
 {
 	BaseEnemy::Init();

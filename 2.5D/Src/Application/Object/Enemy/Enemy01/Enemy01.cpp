@@ -11,7 +11,6 @@ void Enemy01::Update()
 		m_anime = 0;
 	}
 
-
 	m_moveVec = Math::Vector3::Zero;
 
 	const std::shared_ptr<KdGameObject> beacon = m_beacon.lock();

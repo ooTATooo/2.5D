@@ -51,23 +51,24 @@ void BeaconHp::Init()
 	m_greenHp.scaleMat = Math::Matrix::CreateScale(m_scale);
 	m_greenHp.transMat = Math::Matrix::Identity;
 
-	m_pos = m_mWorld.Translation() + Math::Vector3{ 0,2.5f,0 };
+	m_pos = m_mWorld.Translation() + Math::Vector3{ -1,2.5f,0 };
 }
 
 void BeaconHp::DrawSprite()
 {
 
-	m_rect = { 0,0,105,9 };
+	m_rect = { 0,0,(int)m_backHp.tex.GetWidth(),(int)m_backHp.tex.GetHeight() };
 	m_color = { 1.0f,1.0f,1.0f,1.0f };
 	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_backHp.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_backHp.tex, 0, 0, 105, 9, &m_rect, &m_color);
+	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_backHp.tex, 0, 0, m_backHp.tex.GetWidth(), m_backHp.tex.GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
 
-	m_rect = { 0,0,103,7 };
+	m_rect = { 0,0,(int)m_yellowHp.tex.GetWidth(),(int)m_yellowHp.tex.GetHeight() };
 	m_color = { 1.0f,1.0f,0.0f,1.0f };
 	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_yellowHp.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_yellowHp.tex, 0, 0, 103, 7, &m_rect, &m_color);
+	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_yellowHp.tex, 0, 0, m_yellowHp.tex.GetWidth(), m_yellowHp.tex.GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
 
+	m_rect = { 0,0,(int)m_greenHp.tex.GetWidth(),(int)m_greenHp.tex.GetHeight() };
 	m_color = { 0.0f,1.0f,0.0f,1.0f };
 	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_greenHp.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_greenHp.tex, 0, 0, 103, 7, &m_rect,&m_color);
+	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_greenHp.tex, 0, 0, m_greenHp.tex.GetWidth(), m_greenHp.tex.GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
 }

@@ -10,6 +10,7 @@ public:
 	~Enemy03()override {}
 
 	void Update()override;
+	void PostUpdate()override;
 	void Init()override;
 
 private:
