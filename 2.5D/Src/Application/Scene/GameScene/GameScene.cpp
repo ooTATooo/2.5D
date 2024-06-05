@@ -24,28 +24,9 @@ void GameScene::Event()
 		);
 	}
 
-	Math::Vector3 playerPos;
-	if (!m_player.expired())
-	{
-		playerPos = m_player.lock()->GetPos();
-	}
-
 	if (!m_beaconHp.expired()) { m_beaconHp.lock()->SetPlayer(m_player); }
 
-	ImGuiManager::Instance().SetPlayerPos(playerPos);
-
-	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
-
-	Math::Matrix transMat = Math::Matrix::CreateTranslation(0, 8, -8);
-
-	Math::Matrix pTransMat = Math::Matrix::CreateTranslation(playerPos);
-
-	Math::Matrix mat;
-	mat = rotMat * transMat * pTransMat;
-
-	// カメラに行列をセット
-	// この時点では画面には反映されない
-	m_camera->SetCameraMatrix(mat);
+	CameraUpdate();
 }
 
 void GameScene::Init()
@@ -99,4 +80,70 @@ void GameScene::Init()
 	beaconHp->SetCamera(m_camera);
 	AddObject(beaconHp);
 	m_beaconHp = beaconHp;
+}
+
+void GameScene::CameraUpdate()
+{
+	UINT scrollType = 0;
+	// デバッグ用 ===============================
+	int dir = 0;
+	// ==========================================
+
+	Math::Vector3 playerPos;
+	if (!m_player.expired()) { playerPos = m_player.lock()->GetPos(); }
+
+	// デバッグ用 ===============================
+	ImGuiManager::Instance().SetPlayerPos(playerPos);
+	// ==========================================
+
+	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
+
+	Math::Matrix transMat = Math::Matrix::CreateTranslation(0, 8, -8);
+
+	Math::Matrix pTransMat;
+
+	Math::Matrix mat;
+	mat = rotMat * transMat;
+
+	if (playerPos.z > 27.0f) { scrollType |= ScrollType::Up; }
+	if (playerPos.z < -27.0f) { scrollType |= ScrollType::Down; }
+	if (playerPos.x < -26.0f) { scrollType |= ScrollType::Left; }
+	if (playerPos.x > 26.0f) { scrollType |= ScrollType::Right; }
+
+	if (scrollType & ScrollType::Up) { pTransMat = Math::Matrix::CreateTranslation(playerPos.x, playerPos.y, 27.0f); }
+	if (scrollType & ScrollType::Down) { pTransMat = Math::Matrix::CreateTranslation(playerPos.x, playerPos.y, -27.0f); }
+	if (scrollType & ScrollType::Left) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, playerPos.z); }
+	if (scrollType & ScrollType::Right) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, playerPos.z); }
+
+	// デバッグ用 ===============================
+	if (scrollType & ScrollType::Up) { dir = 1; }
+	if (scrollType & ScrollType::Down) { dir = 2; }
+	if (scrollType & ScrollType::Left) { dir = 3; }
+	if (scrollType & ScrollType::Right) { dir = 4; }
+	// ==========================================
+
+	if (scrollType == (ScrollType::Up | ScrollType::Left)) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, 27.0f); }
+	if (scrollType == (ScrollType::Up | ScrollType::Right)) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, 27.0f); }
+	if (scrollType == (ScrollType::Down | ScrollType::Left)) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, -27.0f); }
+	if (scrollType == (ScrollType::Down | ScrollType::Right)) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, -27.0f); }
+
+	// デバッグ用 ===============================
+	if (scrollType == (ScrollType::Up | ScrollType::Left)) { dir = 5; }
+	if (scrollType == (ScrollType::Up | ScrollType::Right)) { dir = 5; }
+	if (scrollType == (ScrollType::Down | ScrollType::Left)) { dir = 5; }
+	if (scrollType == (ScrollType::Down | ScrollType::Right)) { dir = 5; }
+	// ==========================================
+
+	if (scrollType == 0) { pTransMat = Math::Matrix::CreateTranslation(playerPos); }
+
+	// デバッグ用 ===============================
+	if (scrollType == 0) { dir = 0; }
+	ImGuiManager::Instance().SetScrollType(dir);
+	// ==========================================
+
+	mat *= pTransMat;
+
+	// カメラに行列をセット
+	// この時点では画面には反映されない
+	m_camera->SetCameraMatrix(mat);
 }
