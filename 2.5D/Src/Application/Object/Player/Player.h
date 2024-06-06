@@ -15,12 +15,17 @@ public:
 
 	void MapHit();
 
-	void SetPillar(std::weak_ptr<KdGameObject> _pillar) { m_pillar = _pillar; }
+	void SetPillar(const std::weak_ptr<KdGameObject> _pillar) { m_pillar = _pillar; }
+	void SetGround(const std::weak_ptr<KdGameObject> _ground) { m_ground = _ground; }
+	void SetCamera(const std::weak_ptr<KdCamera> _camera) { m_camera = _camera; }
+
 private:
 
 	std::shared_ptr<KdSquarePolygon> m_poly = nullptr;
 
 	std::weak_ptr<KdGameObject> m_pillar;
+	std::weak_ptr<KdGameObject> m_ground;
+	std::weak_ptr<KdCamera> m_camera;
 
 	float m_moveSpd = 0;
 	Math::Vector3 m_pos = Math::Vector3::Zero;;
@@ -32,5 +37,7 @@ private:
 	float m_angY = 0;
 
 	float m_anime = 0;
+
+	Math::Vector3 m_groundPos = Math::Vector3::Zero;
 
 };

@@ -112,6 +112,15 @@
     <Filter Include="Src\Application\AssetManager">
       <UniqueIdentifier>{54eb2e43-25a1-41aa-87c9-e9249d47ab51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\Bullet">
+      <UniqueIdentifier>{e19058bf-cce6-4800-b2d3-1b876f1cd4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Bullet\PlayerBullet01">
+      <UniqueIdentifier>{9b7d6f30-40fa-425e-ba36-99a14c30eb8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Bullet\EnemyBullet">
+      <UniqueIdentifier>{2f7cdba9-a5c2-4d96-a372-92fe0b97fef9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -318,6 +327,12 @@
     <ClInclude Include="Src\Application\AssetManager\AssetManager.h">
       <Filter>Src\Application\AssetManager</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet\BaseBullet.h">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h">
+      <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -496,6 +511,12 @@
     </ClCompile>
     <ClCompile Include="Src\Application\AssetManager\AssetManager.cpp">
       <Filter>Src\Application\AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet\BaseBullet.cpp">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp">
+      <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
