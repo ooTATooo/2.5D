@@ -10,6 +10,7 @@ public:
 	~BeaconHp()override {}
 
 	void Update()override;
+	void PostUpdate()override;
 	void Init()override;
 	void DrawSprite()override;
 

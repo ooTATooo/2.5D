@@ -13,6 +13,8 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
+	void MapHit();
+
 	void SetPillar(std::weak_ptr<KdGameObject> _pillar) { m_pillar = _pillar; }
 private:
 

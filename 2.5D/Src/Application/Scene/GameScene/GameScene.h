@@ -4,6 +4,9 @@
 
 class Player;
 class BeaconHp;
+class Enemy01;
+class Enemy02;
+class Enemy03;
 
 class GameScene : public BaseScene
 {
@@ -30,5 +33,7 @@ private:
 
 	std::weak_ptr<Player> m_player;
 	std::weak_ptr<BeaconHp> m_beaconHp;
-
+	std::weak_ptr<Enemy01> m_enemy01;
+	std::weak_ptr<Enemy02> m_enemy02;
+	std::weak_ptr<Enemy03> m_enemy03;
 };

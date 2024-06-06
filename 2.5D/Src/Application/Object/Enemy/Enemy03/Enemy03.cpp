@@ -11,17 +11,50 @@ void Enemy03::Update()
 		m_anime = 0;
 	}
 
-	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
+	m_moveVec = Math::Vector3::Zero;
 
-	m_rotMatY = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_angY));
+	// 対象座標ー自分の座標
+	Math::Vector3 dis;
 
-	m_transMat = Math::Matrix::CreateTranslation(m_pos);
+	const std::shared_ptr<KdGameObject> beacon = m_beacon.lock();
 
-	m_mWorld = m_rotMatX * m_rotMatY * m_transMat;
+	if (beacon)
+	{
+		dis = beacon->GetPos() - m_pos;
+
+		m_moveVec = dis;
+
+		if (dis.Length() < 5.0f)
+		{
+			// 球判定・・・ベクトルの長さで判定
+			if (dis.Length() < 3.0f)
+			{
+				// ビーコン前で止まる
+				m_moveVec = Math::Vector3::Zero;
+			}
+		}
+		else
+		{
+			const std::shared_ptr<KdGameObject> player = m_player.lock();
+
+			if (player)
+			{
+				dis = player->GetPos() - m_pos;
+
+				if (dis.Length() < 5.0f)
+				{
+					m_moveVec = dis;
+				}
+			}
+		}
+	}
+	m_moveVec.Normalize();
+	m_pos += m_moveVec *= m_moveSpd;
 }
 
 void Enemy03::PostUpdate()
 {
+	BaseEnemy::PostUpdate();
 }
 
 void Enemy03::Init()
@@ -35,8 +68,9 @@ void Enemy03::Init()
 		m_poly->SetSplit(14, 1);
 		m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 		m_poly->SetScale(2);
-		m_pos = { 5,0,0 };
-		m_angX = -20;
-		m_angY = 180;
+		m_pos = { -5,0,21 };
+		//m_pos = { 5,0,0 };
+		m_pCollider = std::make_unique<KdCollider>();
+		m_pCollider->RegisterCollisionShape("enemy03", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
 	}
 }

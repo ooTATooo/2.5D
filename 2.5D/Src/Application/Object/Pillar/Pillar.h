@@ -12,7 +12,7 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
-	void SetColor(Math::Color _color) { m_color = m_color; }
+	//void SetColor(Math::Color _color) { m_color = m_color; }
 private:
 
 	std::shared_ptr<KdModelData> m_model;

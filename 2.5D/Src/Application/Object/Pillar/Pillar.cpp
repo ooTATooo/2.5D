@@ -10,7 +10,7 @@ void Pillar::Init()
 	m_model->Load("Asset/Models/Pillar/Pillar.gltf");
 
 	m_pCollider = std::make_unique<KdCollider>();
-	m_pCollider->RegisterCollisionShape("ModelHit", m_model, KdCollider::TypeBump);
+	m_pCollider->RegisterCollisionShape("ModelHit", m_model, KdCollider::TypeGround);
 }
 
 void Pillar::GenerateDepthMapFromLight()

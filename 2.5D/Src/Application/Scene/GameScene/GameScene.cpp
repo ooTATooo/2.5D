@@ -26,6 +26,10 @@ void GameScene::Event()
 
 	if (!m_beaconHp.expired()) { m_beaconHp.lock()->SetPlayer(m_player); }
 
+	if (!m_enemy01.expired()) { m_enemy01.lock()->SetPlayer(m_player); }
+	if (!m_enemy02.expired()) { m_enemy02.lock()->SetPlayer(m_player); }
+	if (!m_enemy03.expired()) { m_enemy03.lock()->SetPlayer(m_player); }
+
 	CameraUpdate();
 }
 
@@ -68,12 +72,17 @@ void GameScene::Init()
 	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
 	enemy01->SetBeacon(beacon);
 	AddObject(enemy01);
+	m_enemy01 = enemy01;
 
 	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
+	enemy02->SetBeacon(beacon);
 	AddObject(enemy02);
+	m_enemy02 = enemy02;
 
 	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
+	enemy03->SetBeacon(beacon);
 	AddObject(enemy03);
+	m_enemy03 = enemy03;
 
 	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
 	AddObject(boss);

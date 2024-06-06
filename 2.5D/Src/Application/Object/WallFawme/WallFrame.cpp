@@ -10,7 +10,7 @@ void WallFrame::Init()
 	m_modelHit->Load("Asset/Models/WallFrame/WallHit.gltf");
 
 	m_pCollider = std::make_unique<KdCollider>();
-	m_pCollider->RegisterCollisionShape("ModelHit", m_modelHit, KdCollider::TypeBump);
+	m_pCollider->RegisterCollisionShape("ModelHit", m_modelHit, KdCollider::TypeGround);
 }
 
 void WallFrame::GenerateDepthMapFromLight()

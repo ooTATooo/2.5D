@@ -13,12 +13,14 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
+	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
 	void SetBeacon(const std::weak_ptr<KdGameObject> _beacon) { m_beacon = _beacon; }
 
 protected:
 
 	std::shared_ptr<KdSquarePolygon> m_poly = nullptr;
 
+	std::weak_ptr<KdGameObject> m_player;
 	std::weak_ptr<KdGameObject> m_beacon;
 
 	float m_moveSpd = 0;

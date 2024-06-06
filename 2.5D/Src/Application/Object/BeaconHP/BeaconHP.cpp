@@ -4,25 +4,30 @@
 
 void BeaconHp::Update()
 {
+	const std::shared_ptr<KdGameObject> player = m_player.lock();
+
+	if (player)
+	{
+		if (player->GetPos().z < 0)
+		{
+			m_scale = 1.0f - (player->GetPos().z / -29.0f);
+		}
+		if (player->GetPos().z > 0)
+		{
+			m_scale = 1.0f + (player->GetPos().z / 29.0f);
+		}
+	}
+
+	ImGuiManager::Instance().SetSize(m_scale);
+}
+
+void BeaconHp::PostUpdate()
+{
 	Math::Vector3 barRes = Math::Vector3::Zero;
 	if (!m_camera.expired())
 	{
 		m_camera.lock()->ConvertWorldToScreenDetail(m_pos, barRes);
 	}
-
-	if (!m_player.expired())
-	{
-		if (m_player.lock()->GetPos().z < 0)
-		{
-			m_scale = 1.0f - (m_player.lock()->GetPos().z / -29.0f);
-		}
-		if (m_player.lock()->GetPos().z > 0)
-		{
-			m_scale = 1.0f + (m_player.lock()->GetPos().z / 29.0f);
-		}
-	}
-
-	ImGuiManager::Instance().SetSize(m_scale);
 
 	m_backHp.transMat = Math::Matrix::CreateTranslation(barRes.x, barRes.y, 0);
 	m_backHp.scaleMat = Math::Matrix::CreateScale(m_scale);
