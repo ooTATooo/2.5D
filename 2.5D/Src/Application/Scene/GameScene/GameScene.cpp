@@ -87,11 +87,10 @@ void GameScene::Init()
 	AddObject(boss);
 
 	std::shared_ptr<Player> player = std::make_shared<Player>();
-	//player->SetCamera(m_camera);
+	player->SetCamera(m_camera);
 	player->SetGround(ground);
 	AddObject(player);
 	m_player = player;
-
 }
 
 void GameScene::CameraUpdate()
@@ -104,7 +103,7 @@ void GameScene::CameraUpdate()
 	Math::Vector3 playerPos;
 	if (!m_player.expired())
 	{ 
-		m_player.lock()->SetCamera(m_camera);
+		//m_player.lock()->SetCamera(m_camera);
 		playerPos = m_player.lock()->GetPos();
 	}
 

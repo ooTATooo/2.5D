@@ -169,3 +169,19 @@ void KdSquarePolygon::InitVertices()
 	// とりあえず板ポリは2Dオブジェクトとして生成する
 	Set2DObject(true);
 }
+
+void KdSquarePolygon::TurnScale()
+{
+	// 作業用
+	Math::Vector3 workPos;
+
+	// 左上と右上を入れ替え
+	workPos = m_vertices[0].pos;
+	m_vertices[0].pos = m_vertices[2].pos;
+	m_vertices[2].pos = workPos;
+
+	// 左下と右下を入れ替え
+	workPos = m_vertices[1].pos;
+	m_vertices[1].pos = m_vertices[3].pos;
+	m_vertices[3].pos = workPos;
+}

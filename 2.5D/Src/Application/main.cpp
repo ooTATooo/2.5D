@@ -1,6 +1,5 @@
 ﻿#include "main.h"
 
-#include "Scene/SceneManager.h"
 #include "ImGuiManager/ImGuiManager.h"
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -69,6 +68,8 @@ void Application::PreUpdate()
 void Application::Update()
 {
 	SceneManager::Instance().Update();
+
+	ImGuiManager::Instance().SetFps(m_fpsController.m_nowfps);
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////

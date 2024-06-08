@@ -1,6 +1,5 @@
 ﻿#include "Player.h"
 
-#include "../../Scene/SceneManager.h"
 #include "../../Object/Bullet/PlayerBullet01/PlayerBullet01.h"
 
 void Player::Update()
@@ -40,101 +39,101 @@ void Player::Update()
 	m_moveVec.Normalize();
 	m_pos += m_moveVec *= m_moveSpd;
 
-	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+	if (shotWait <= 0)
 	{
-		POINT mousePos;
-		GetCursorPos(&mousePos);
-
-		std::shared_ptr<KdCamera> camera = m_camera.lock();
-		if (camera)
+		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 		{
-			// レイの発射方向を求める(_rayDir)
-			Math::Vector3 cameraPos = camera->GetCameraMatrix().Translation();
-			Math::Vector3 rayDir = Math::Vector3::Zero;
-			float rayRange = 100.0f;
-			camera->GenerateRayInfoFromClientPos(mousePos, cameraPos, rayDir, rayRange);
+			POINT mousePos;
+			GetCursorPos(&mousePos);
 
-			// レイの衝突位置を求める
-			const std::shared_ptr<KdGameObject> ground = m_ground.lock();
-			if (ground)
+			std::shared_ptr<KdCamera> camera = m_camera.lock();
+			if (camera)
 			{
-				Math::Vector3 endRayPos = cameraPos + (rayDir * rayRange);
-				KdCollider::RayInfo rayInfo(KdCollider::TypeGround, cameraPos, endRayPos);
+				// レイの発射方向を求める
+				Math::Vector3 cameraPos = camera->GetCameraMatrix().Translation();
+				Math::Vector3 rayDir = Math::Vector3::Zero;
+				float rayRange = 100.0f;
+				camera->GenerateRayInfoFromClientPos(mousePos, cameraPos, rayDir, rayRange);
 
-				//実際の当たり判定処理
-				std::list<KdCollider::CollisionResult> results;
-				ground->Intersects(rayInfo, &results);
-
-				// 結果が1つでも返って来ていたら
-				if (results.size())
+				// レイの衝突位置を求める
+				const std::shared_ptr<KdGameObject> ground = m_ground.lock();
+				if (ground)
 				{
-					for (auto& result : results)
+					Math::Vector3 endRayPos = cameraPos + (rayDir * rayRange);
+					KdCollider::RayInfo rayInfo(KdCollider::TypeGround, cameraPos, endRayPos);
+
+					// 実際の当たり判定処理
+					std::list<KdCollider::CollisionResult> results;
+					ground->Intersects(rayInfo, &results);
+
+					// 結果が1つでも返って来ていたら
+					if (results.size())
 					{
-						m_groundPos = result.m_hitPos;
-						std::shared_ptr<PlayerBullet01> pBullet = std::make_shared<PlayerBullet01>();
-						pBullet->shot(m_pos, m_groundPos);
-						SceneManager::Instance().AddObject(pBullet);
+						for (auto& result : results)
+						{
+							std::shared_ptr<PlayerBullet01> pBullet = std::make_shared<PlayerBullet01>();
+							pBullet->shot(m_pos, result.m_hitPos);
+							SceneManager::Instance().AddObject(pBullet);
+							shotWait = 30;
+						}
 					}
 				}
 			}
 		}
+	}
 
+	shotWait--;
+	if (shotWait == 0)
+	{
+		shotWait = 0;
 	}
 }
 
 void Player::PostUpdate()
 {
-	// =====================
-	// 当たり判定(レイ判定)
-	// =====================
+	//// レイ判定用に変数を作成
+	//KdCollider::RayInfo ray;
+	//// レイの発射位置(座標)を設定
+	//ray.m_pos = m_pos;	// 自分の足元
+	//// レイの発射方法
+	//ray.m_dir = Math::Vector3::Forward;
+	//// 少し高いところから飛ばす
+	//ray.m_pos.y += 0.5f;
 
-	// レイ判定用に変数を作成
-	KdCollider::RayInfo ray;
-	// レイの発射位置(座標)を設定
-	ray.m_pos = m_pos;	// 自分の足元
-	// レイの発射方法
-	ray.m_dir = Math::Vector3::Forward;
-	// 少し高いところから飛ばす
-	ray.m_pos.y += 0.5f;
-	// 段差の許容範囲を設定
-	//float enableStepHigh = 0.2f;
-	//ray.m_pos.y += enableStepHigh;
+	//// レイの長さを設定
+	//ray.m_range = 3.0f;// m_gravity + enableStepHigh;
+	//// 当たり判定をしたいタイプを設定
+	//ray.m_type = KdCollider::TypeGround;
 
-	// レイの長さを設定
-	ray.m_range = 3.0f;// m_gravity + enableStepHigh;
-	// 当たり判定をしたいタイプを設定
-	ray.m_type = KdCollider::TypeGround;
+	//// デバッグ表示
+	//Math::Color color = { 1,1,1,1 };
+	//m_pDebugWire->AddDebugLine(ray.m_pos, ray.m_dir, ray.m_range, color);
 
-	// デバッグ表示
-	Math::Color color = { 1,1,1,1 };
-	m_pDebugWire->AddDebugLine(ray.m_pos, ray.m_dir, ray.m_range, color);
+	//// レイに当たったオブジェクト情報を格納するリスト
+	//std::list<KdCollider::CollisionResult> retRayList;
 
-	// レイに当たったオブジェクト情報を格納するリスト
-	std::list<KdCollider::CollisionResult> retRayList;
+	//// レイと当たり判定！！
+	//for (auto& obj : SceneManager::Instance().GetObjList())
+	//{
+	//	obj->Intersects(ray, &retRayList);
+	//}
 
-	// レイと当たり判定！！
-	for (auto& obj : SceneManager::Instance().GetObjList())
-	{
-		obj->Intersects(ray, &retRayList);
-	}
+	//// レイに当たったリストから一番近いオブジェクトを検出
+	//float maxOverLap = 0;	// はみでたレイの長さ
+	//bool isHit = false;		// 当たっていたらtrue
+	//for (auto& ret : retRayList)
+	//{
+	//	// レイを遮断し、オーバーした長さが一番長いものを探す
+	//	if (maxOverLap < ret.m_overlapDistance)
+	//	{
+	//		isHit = true;
+	//	}
+	//}
 
-	// レイに当たったリストから一番近いオブジェクトを検出
-	float maxOverLap = 0;	// はみでたレイの長さ
-	bool isHit = false;		// 当たっていたらtrue
-	for (auto& ret : retRayList)
-	{
-		// レイを遮断し、オーバーした長さが一番長いものを探す
-		if (maxOverLap < ret.m_overlapDistance)
-		{
-			isHit = true;
-		}
-	}
+	//if (isHit)
+	//{
 
-	if (isHit)
-	{
-		// オブジェクトに隠れている
-
-	}
+	//}
 
 	MapHit();
 
@@ -150,7 +149,6 @@ void Player::PostUpdate()
 
 void Player::Init()
 {
-	//AssetManager::Instance().CallPolygon("Player");
 	m_poly = std::make_shared<KdSquarePolygon>();
 	m_poly->SetMaterial("Asset/Textures/Player/player.png");
 	m_poly->SetSplit(9, 6);

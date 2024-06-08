@@ -60,3 +60,8 @@ void BaseEnemy::DrawLit()
 		KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_poly, m_mWorld);
 	}
 }
+
+float BaseEnemy::Turn()
+{
+	return	m_angX = -20, m_angY = 180;
+}

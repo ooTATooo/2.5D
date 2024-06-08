@@ -13,6 +13,8 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
+	float Turn();
+
 	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
 	void SetBeacon(const std::weak_ptr<KdGameObject> _beacon) { m_beacon = _beacon; }
 

@@ -2,15 +2,41 @@
 
 void Enemy01::Update()
 {
-	int run[3] = { 9,10,11 };
-	m_poly->SetUVRect(run[(int)m_anime]);
+	//int run[4] = { 0,1,2,3 };
+	//m_poly->SetUVRect(run[(int)m_anime]);
 
-	m_anime += 0.1f;
-	if (m_anime >= 3)
+	//m_anime += 0.1f;
+	//if (m_anime >= 3)
+	//{
+	//	m_anime = 0;
+	//}
+	AnimationManager::Instance().CreateAnime(AnimationManager::Dir::Left, AnimationManager::State::Run, m_poly);
+
+	Move();
+}
+
+void Enemy01::PostUpdate()
+{
+
+
+	BaseEnemy::PostUpdate();
+}
+
+void Enemy01::Init()
+{
+	BaseEnemy::Init();
+
+	if (!m_poly)
 	{
-		m_anime = 0;
+		m_poly = std::make_shared<KdSquarePolygon>();
+		m_pos = { -5,0,-21 };
+		m_pCollider = std::make_unique<KdCollider>();
+		m_pCollider->RegisterCollisionShape("enemy01", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
 	}
+}
 
+void Enemy01::Move()
+{
 	m_moveVec = Math::Vector3::Zero;
 
 	// 対象座標ー自分の座標
@@ -48,30 +74,7 @@ void Enemy01::Update()
 			}
 		}
 	}
+
 	m_moveVec.Normalize();
 	m_pos += m_moveVec *= m_moveSpd;
-}
-
-void Enemy01::PostUpdate()
-{
-
-
-	BaseEnemy::PostUpdate();
-}
-
-void Enemy01::Init()
-{
-	BaseEnemy::Init();
-
-	if (!m_poly)
-	{
-		m_poly = std::make_shared<KdSquarePolygon>();
-		m_poly->SetMaterial("Asset/Textures/Enemy01/slime01.png");
-		m_poly->SetSplit(12, 1);
-		m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
-		m_poly->SetScale(1);
-		m_pos = { -5,0,-21 };
-		m_pCollider = std::make_unique<KdCollider>();
-		m_pCollider->RegisterCollisionShape("enemy01", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
-	}
 }

@@ -156,6 +156,7 @@
     <ClInclude Include="..\Library\tinygltf\stb_image.h" />
     <ClInclude Include="..\Library\tinygltf\stb_image_write.h" />
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
+    <ClInclude Include="Src\Application\AnimationManager\AnimationManager.h" />
     <ClInclude Include="Src\Application\AssetManager\AssetManager.h" />
     <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h" />
     <ClInclude Include="Src\Application\main.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="..\Library\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Application\AnimationManager\AnimationManager.cpp" />
     <ClCompile Include="Src\Application\AssetManager\AssetManager.cpp" />
     <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />

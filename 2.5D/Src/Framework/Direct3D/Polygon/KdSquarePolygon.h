@@ -53,6 +53,8 @@ public:
 	UINT GetSplitX() { return m_splitX; }
 	UINT GetSplitY() { return m_splitY; }
 
+	void TurnScale();
+
 private:
 
 	void InitVertices();

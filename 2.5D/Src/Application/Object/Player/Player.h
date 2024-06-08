@@ -38,6 +38,6 @@ private:
 
 	float m_anime = 0;
 
-	Math::Vector3 m_groundPos = Math::Vector3::Zero;
+	float shotWait= 0;
 
 };

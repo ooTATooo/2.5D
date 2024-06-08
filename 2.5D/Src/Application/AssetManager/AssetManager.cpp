@@ -2,6 +2,16 @@
 
 void AssetManager::Init()
 {
+	KdSquarePolygon::PivotType pivot = KdSquarePolygon::PivotType::Center_Bottom;
+	LoadMaterial("enemy01Idol", "Asset/Textures/Enemy01/slime01.png");
+	SetMaterial("enemy01Idol", 1.0f, pivot, 12, 1);
+
+	LoadMaterial("enemy01Attack", "Asset/Textures/Enemy01/slime01.png");
+	SetMaterial("enemy01Attack", 1.0f, pivot, 12, 1);
+
+	LoadMaterial("enemy01Run", "Asset/Textures/Enemy01/slime01.png");
+	SetMaterial("enemy01Run", 1.0f, pivot, 12, 1);
+
 }
 
 KdSquarePolygon AssetManager::GetMaterial(std::string _name)

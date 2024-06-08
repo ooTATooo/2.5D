@@ -15,5 +15,7 @@ public:
 
 private:
 
+	void Move();
+
 
 };
