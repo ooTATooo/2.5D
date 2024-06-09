@@ -14,12 +14,16 @@ public:
 	// テクスチャ
 	KdTexture* GetTex(std::string _name);
 
+	// アニメーションの配列取得
+	std::vector<int> GetAnimation(std::string _name);
 private:
 
 	// ポリゴン
 	std::unordered_map<std::string, KdSquarePolygon> m_materialList;
+	std::unordered_map<std::string, std::vector<int>> m_animationList;
 	void LoadMaterial(std::string _name, std::string _path) { m_materialList[_name].SetMaterial(_path); }
 	void SetMaterial(std::string _name, float _scale, KdSquarePolygon::PivotType _pivot, int _splitX, int _splitY);
+	void SetAnimation(std::string _name, int _start, int _count);
 
 	// モデル
 	std::unordered_map<std::string, KdModelData> m_modelList;

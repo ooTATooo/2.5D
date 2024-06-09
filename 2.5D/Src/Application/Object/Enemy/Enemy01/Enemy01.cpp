@@ -2,14 +2,6 @@
 
 void Enemy01::Update()
 {
-	//int run[4] = { 0,1,2,3 };
-	//m_poly->SetUVRect(run[(int)m_anime]);
-
-	//m_anime += 0.1f;
-	//if (m_anime >= 3)
-	//{
-	//	m_anime = 0;
-	//}
 	AnimationManager::Instance().CreateAnime(AnimationManager::Dir::Left, AnimationManager::State::Run, m_poly);
 
 	Move();
