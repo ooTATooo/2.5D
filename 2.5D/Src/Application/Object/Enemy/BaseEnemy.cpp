@@ -41,6 +41,7 @@ void BaseEnemy::Init()
 	m_angY = 180;
 	m_moveSpd = 0.02f;
 	m_anime = 0;
+	m_state = State::Run;
 
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 }

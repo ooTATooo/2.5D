@@ -15,6 +15,30 @@ void AssetManager::Init()
 	SetMaterial("enemy01Run", 1.0f, pivot, 12, 1);
 	SetAnimation("enemy01Run", 0, 4);
 
+	LoadMaterial("enemy02Idol", "Asset/Textures/Enemy01/witch01.png");
+	SetMaterial("enemy02Idol", 1.0f, pivot, 14, 1);
+	SetAnimation("enemy02Idol", 11, 4);
+
+	LoadMaterial("enemy02Attack", "Asset/Textures/Enemy01/witch01.png");
+	SetMaterial("enemy02Attack", 1.0f, pivot, 14, 1);
+	SetAnimation("enemy02Attack", 7, 4);
+
+	LoadMaterial("enemy02Run", "Asset/Textures/Enemy01/witch01.png");
+	SetMaterial("enemy02Run", 1.0f, pivot, 14, 1);
+	SetAnimation("enemy02Run", 0, 6);
+
+	LoadMaterial("enemy03Idol", "Asset/Textures/Enemy01/knight01.png");
+	SetMaterial("enemy03Idol", 1.0f, pivot, 14, 1);
+	SetAnimation("enemy03Idol", 11, 4);
+
+	LoadMaterial("enemy03Attack", "Asset/Textures/Enemy01/knight01.png");
+	SetMaterial("enemy03Attack", 1.0f, pivot, 14, 1);
+	SetAnimation("enemy03Attack", 7, 4);
+
+	LoadMaterial("enemy03Run", "Asset/Textures/Enemy01/knight01.png");
+	SetMaterial("enemy03Run", 1.0f, pivot, 14, 1);
+	SetAnimation("enemy03Run", 0, 6);
+
 }
 
 KdSquarePolygon AssetManager::GetMaterial(std::string _name)
@@ -61,4 +85,20 @@ void AssetManager::SetAnimation(std::string _name, int _start, int _count)
 std::vector<int> AssetManager::GetAnimation(std::string _name)
 {
 	return m_animationList[_name];
+}
+
+void AssetManager::GatAnimation(std::string _name, std::shared_ptr<KdSquarePolygon> _polygon)
+{
+	*_polygon = AssetManager::Instance().GetMaterial(_name);
+	m_animeFrame = AssetManager::Instance().GetAnimation(_name);
+
+	//if (_dir == Dir::Left) { _polygon->TurnScale(); }
+
+	_polygon->SetUVRect(m_animeFrame[(int)m_anime]);
+
+	m_anime += m_cntSpeed;
+	if (m_anime >= m_animeFrame.size())
+	{
+		m_anime = 0;
+	}
 }

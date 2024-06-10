@@ -5,6 +5,13 @@ class AssetManager
 {
 public:
 
+	// 向き
+	enum class Dir
+	{
+		Right,
+		Left,
+	};
+
 	// ポリゴン
 	KdSquarePolygon GetMaterial(std::string _name);
 
@@ -16,6 +23,10 @@ public:
 
 	// アニメーションの配列取得
 	std::vector<int> GetAnimation(std::string _name);
+
+	// アニメーション作成
+	void GatAnimation(std::string _name, std::shared_ptr<KdSquarePolygon> _polygon);
+
 private:
 
 	// ポリゴン
@@ -33,7 +44,13 @@ private:
 	std::unordered_map<std::string, KdTexture> m_texList;
 	void LoadTex(std::string _name, std::string _path) { m_texList[_name].Load(_path); }
 
-	void Init();				// 初期化
+	void Init();						// 初期化
+
+	std::vector<int> m_animeFrame;		// アニメーション配列格納用
+
+	float m_cntSpeed = 0.1f;			// アニメのスピード
+
+	float m_anime = 0;					// アニメーションカウント
 
 private:
 

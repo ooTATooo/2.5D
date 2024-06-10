@@ -121,9 +121,6 @@
     <Filter Include="Src\Application\Object\Bullet\EnemyBullet">
       <UniqueIdentifier>{2f7cdba9-a5c2-4d96-a372-92fe0b97fef9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\AnimationManager">
-      <UniqueIdentifier>{33513cda-c717-4bea-9356-71c6fc41b40d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -336,9 +333,6 @@
     <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h">
       <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\AnimationManager\AnimationManager.h">
-      <Filter>Src\Application\AnimationManager</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -523,9 +517,6 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp">
       <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\AnimationManager\AnimationManager.cpp">
-      <Filter>Src\Application\AnimationManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

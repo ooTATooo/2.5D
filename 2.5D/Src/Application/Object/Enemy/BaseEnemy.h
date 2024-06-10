@@ -4,6 +4,13 @@ class BaseEnemy :public KdGameObject
 {
 public:
 
+	enum class State
+	{
+		Idol,
+		Attack,
+		Run,
+	};
+
 	BaseEnemy() {}
 	~BaseEnemy()override {}
 
@@ -24,6 +31,8 @@ protected:
 
 	std::weak_ptr<KdGameObject> m_player;
 	std::weak_ptr<KdGameObject> m_beacon;
+
+	State m_state;
 
 	float m_moveSpd = 0;
 	Math::Vector3 m_pos = m_mWorld.Translation();

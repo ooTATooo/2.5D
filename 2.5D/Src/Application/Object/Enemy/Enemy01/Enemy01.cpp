@@ -2,15 +2,26 @@
 
 void Enemy01::Update()
 {
-	//AnimationManager::Instance().CreateAnime(AnimationManager::Dir::Left, AnimationManager::State::Run, m_poly);
+	switch (m_state)
+	{
+	case BaseEnemy::State::Idol:
+		AssetManager::Instance().GatAnimation("enemy01Idol", m_poly);
+		break;
+	case BaseEnemy::State::Attack:
+		AssetManager::Instance().GatAnimation("enemy01Attack", m_poly);
+		break;
+	case BaseEnemy::State::Run:
+		AssetManager::Instance().GatAnimation("enemy01Run", m_poly);
+		break;
+	}
+
+	m_state = State::Run;
 
 	Move();
 }
 
 void Enemy01::PostUpdate()
 {
-
-
 	BaseEnemy::PostUpdate();
 }
 
@@ -49,6 +60,8 @@ void Enemy01::Move()
 			{
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
+
+				m_state = State::Attack;
 			}
 		}
 		else
@@ -62,6 +75,13 @@ void Enemy01::Move()
 				if (dis.Length() < 5.0f)
 				{
 					m_moveVec = dis;
+
+					if (dis.Length() < 2.0f)
+					{
+						m_moveVec = Math::Vector3::Zero;
+
+						m_state = State::Attack;
+					}
 				}
 			}
 		}
