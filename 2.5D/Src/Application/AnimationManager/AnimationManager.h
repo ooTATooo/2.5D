@@ -1,6 +1,66 @@
 ﻿#pragma once
 
-class AnimationManager
+//class AnimationManager
+//{
+//public:
+//
+//	// キャラク
+//	enum class Chara
+//	{
+//		None,
+//		Player,
+//		Enemy01,
+//		Enemy02,
+//		Enemy03,
+//		Boss,
+//	};
+//
+//	// 状態
+//	enum class State
+//	{
+//		None,
+//		Idle,
+//		Run,
+//		Attack,
+//	};
+//
+//	// 向き
+//	enum class Dir
+//	{
+//		Right,
+//		Left,
+//	};
+//
+//	// アニメーション作成
+//	void CreateAnime(Dir _dir, State _state, std::shared_ptr<KdSquarePolygon> _polygon);
+//
+//private:
+//
+//	void Init();				// 初期化
+//
+//	std::vector<int> m_animeFrame;		// アニメーション配列格納用
+//
+//	State m_state;				// キャラの状態
+//	float m_cntSpeed;			// アニメのスピード
+//
+//	float m_anime = 0;
+//
+//private:
+//
+//	AnimationManager() { Init(); }		// コンストラクタ
+//	~AnimationManager() {}				// デストラクタ
+//
+//public:
+//
+//	// シングルトンパターン
+//	static AnimationManager& Instance()
+//	{
+//		static AnimationManager instance;
+//		return instance;
+//	}
+//};
+
+class Anime
 {
 public:
 
@@ -13,50 +73,66 @@ public:
 		Attack,
 	};
 
+	// 向き
 	enum class Dir
 	{
 		Right,
 		Left,
 	};
 
-	//State GetState() { return m_state; }
-
-	//bool GetAction() { return m_bAction; }
-	//bool GetStiff() { return m_bStiff; }
-
 	// アニメーション作成
-	void CreateAnime(Dir _dir, State _state, std::shared_ptr<KdSquarePolygon> _polygon);
+	void CreateAnime(State _state, std::shared_ptr<KdSquarePolygon> _polygon);
 
 private:
 
 	void Init();				// 初期化
 
-	void AnimeCnt();
+	std::vector<int> m_animeFrame;		// アニメーション配列格納用
 
-	std::vector<int> m_animeFrame;
-
-	State m_state;				// プレイヤーの状態
-	//float m_cnt;				// アニメのカウント
+	State m_state;				// キャラの状態
 	float m_cntSpeed;			// アニメのスピード
-	//int m_maxAnime;				// 最大のアニメ数
-
-	//bool m_bAction;				// アクション可能か？(true:可能 false:不可能)
-	//bool m_bStiff;				// 硬直中か？(true:はい false:いいえ)
-	//int m_wait;					// 硬直時間
 
 	float m_anime = 0;
 
+//private:
+//
+//	Anime() { Init(); }		// コンストラクタ
+//	~Anime() {}				// デストラクタ
+//
+//public:
+//
+//	// シングルトンパターン
+//	static Anime& Instance()
+//	{
+//		static Anime instance;
+//		return instance;
+//	}
+};
+
+class Animation
+{
+public:
+
+	Anime GetAnimation(std::string _name);
+
 private:
 
-	AnimationManager() { Init(); }		// コンストラクタ
-	~AnimationManager() {}				// デストラクタ
+	void LoadAnimation(std::string _name, Anime::State _state);
+	void Init();				// 初期化
+
+	std::unordered_map<std::string, Anime> m_animationList;
+
+private:
+
+	Animation() { Init(); }		// コンストラクタ
+	~Animation() {}				// デストラクタ
 
 public:
 
 	// シングルトンパターン
-	static AnimationManager& Instance()
+	static Animation& Instance()
 	{
-		static AnimationManager instance;
+		static Animation instance;
 		return instance;
 	}
 };

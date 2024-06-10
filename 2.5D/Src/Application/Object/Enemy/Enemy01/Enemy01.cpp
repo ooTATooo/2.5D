@@ -2,7 +2,7 @@
 
 void Enemy01::Update()
 {
-	AnimationManager::Instance().CreateAnime(AnimationManager::Dir::Left, AnimationManager::State::Run, m_poly);
+	//AnimationManager::Instance().CreateAnime(AnimationManager::Dir::Left, AnimationManager::State::Run, m_poly);
 
 	Move();
 }

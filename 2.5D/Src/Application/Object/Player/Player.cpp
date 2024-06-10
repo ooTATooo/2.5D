@@ -45,6 +45,7 @@ void Player::Update()
 		{
 			POINT mousePos;
 			GetCursorPos(&mousePos);
+			ScreenToClient(Application::Instance().GetWindowHandle(), &mousePos);
 
 			std::shared_ptr<KdCamera> camera = m_camera.lock();
 			if (camera)
