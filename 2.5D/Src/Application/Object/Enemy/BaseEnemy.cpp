@@ -40,9 +40,7 @@ void BaseEnemy::Init()
 	m_angX = -30;
 	m_angY = 180;
 	m_moveSpd = 0.02f;
-	m_anime = 0;
-	m_state = State::Run;
-
+	m_animeFlg = false;
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 }
 
@@ -60,9 +58,4 @@ void BaseEnemy::DrawLit()
 	{
 		KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_poly, m_mWorld);
 	}
-}
-
-float BaseEnemy::Turn()
-{
-	return	m_angX = -20, m_angY = 180;
 }

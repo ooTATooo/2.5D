@@ -23,7 +23,7 @@ private:
 
 	struct Data
 	{
-		KdTexture tex;
+		std::shared_ptr<KdTexture> tex;
 		Math::Matrix scaleMat;
 		Math::Matrix transMat;
 		Math::Matrix mat;

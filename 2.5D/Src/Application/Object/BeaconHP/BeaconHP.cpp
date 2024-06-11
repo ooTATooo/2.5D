@@ -44,15 +44,18 @@ void BeaconHp::PostUpdate()
 
 void BeaconHp::Init()
 {
-	m_backHp.tex.Load("Asset/Textures/HpBar/hpbar01.png");
+	m_backHp.tex = std::make_shared<KdTexture>();
+	m_backHp.tex = AssetManager::Instance().GetTex("BarBack");
 	m_backHp.scaleMat = Math::Matrix::CreateScale(m_scale);
 	m_backHp.transMat = Math::Matrix::Identity;
 
-	m_yellowHp.tex.Load("Asset/Textures/HpBar/hpbar02.png");
+	m_yellowHp.tex = std::make_shared<KdTexture>();
+	m_yellowHp.tex = AssetManager::Instance().GetTex("Bar");
 	m_yellowHp.scaleMat = Math::Matrix::CreateScale(m_scale);
 	m_yellowHp.transMat = Math::Matrix::Identity;
 
-	m_greenHp.tex.Load("Asset/Textures/HpBar/hpbar02.png");
+	m_greenHp.tex = std::make_shared<KdTexture>();
+	m_greenHp.tex = AssetManager::Instance().GetTex("Bar");
 	m_greenHp.scaleMat = Math::Matrix::CreateScale(m_scale);
 	m_greenHp.transMat = Math::Matrix::Identity;
 
@@ -62,18 +65,18 @@ void BeaconHp::Init()
 void BeaconHp::DrawSprite()
 {
 
-	m_rect = { 0,0,(int)m_backHp.tex.GetWidth(),(int)m_backHp.tex.GetHeight() };
+	m_rect = { 0,0,(int)m_backHp.tex->GetWidth(),(int)m_backHp.tex->GetHeight() };
 	m_color = { 1.0f,1.0f,1.0f,1.0f };
 	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_backHp.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_backHp.tex, 0, 0, m_backHp.tex.GetWidth(), m_backHp.tex.GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_backHp.tex, 0, 0, m_backHp.tex->GetWidth(), m_backHp.tex->GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
 
-	m_rect = { 0,0,(int)m_yellowHp.tex.GetWidth(),(int)m_yellowHp.tex.GetHeight() };
+	m_rect = { 0,0,(int)m_yellowHp.tex->GetWidth(),(int)m_yellowHp.tex->GetHeight() };
 	m_color = { 1.0f,1.0f,0.0f,1.0f };
 	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_yellowHp.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_yellowHp.tex, 0, 0, m_yellowHp.tex.GetWidth(), m_yellowHp.tex.GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_yellowHp.tex, 0, 0, m_yellowHp.tex->GetWidth(), m_yellowHp.tex->GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
 
-	m_rect = { 0,0,(int)m_greenHp.tex.GetWidth(),(int)m_greenHp.tex.GetHeight() };
+	m_rect = { 0,0,(int)m_greenHp.tex->GetWidth(),(int)m_greenHp.tex->GetHeight() };
 	m_color = { 0.0f,1.0f,0.0f,1.0f };
 	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_greenHp.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(&m_greenHp.tex, 0, 0, m_greenHp.tex.GetWidth(), m_greenHp.tex.GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_greenHp.tex, 0, 0, m_greenHp.tex->GetWidth(), m_greenHp.tex->GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
 }

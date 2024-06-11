@@ -2,12 +2,12 @@
 
 #include "../BaseEnemy.h"
 
-class Enemy01 :public BaseEnemy
+class Boss :public BaseEnemy
 {
 public:
 
-	Enemy01() { Init(); }
-	~Enemy01()override {}
+	Boss() { Init(); }
+	~Boss()override {}
 
 	void Update()override;
 	void PostUpdate()override;
@@ -15,5 +15,4 @@ public:
 
 private:
 
-	void Move();
 };

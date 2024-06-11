@@ -94,9 +94,6 @@
     <Filter Include="Src\Application\Object\Pillar">
       <UniqueIdentifier>{169121e0-d050-4477-a1f1-f49c983deef4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Boss">
-      <UniqueIdentifier>{9ed1dbd9-6a0f-43cc-a2c4-0246a5497a3b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Enemy">
       <UniqueIdentifier>{4342e5db-e6f9-4908-b199-ba7badf18af3}</UniqueIdentifier>
     </Filter>
@@ -120,6 +117,12 @@
     </Filter>
     <Filter Include="Src\Application\Object\Bullet\EnemyBullet">
       <UniqueIdentifier>{2f7cdba9-a5c2-4d96-a372-92fe0b97fef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\AnimationManager">
+      <UniqueIdentifier>{973e9af9-95dd-4bf8-a583-4e39fb2900c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Enemy\Boss">
+      <UniqueIdentifier>{a432c696-68d8-48fc-bf51-ddf88ae83473}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -309,9 +312,6 @@
     <ClInclude Include="Src\Application\Object\Pillar\Pillar.h">
       <Filter>Src\Application\Object\Pillar</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Boss\Boss.h">
-      <Filter>Src\Application\Object\Boss</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Enemy\Enemy01\Enemy01.h">
       <Filter>Src\Application\Object\Enemy\Enemy01</Filter>
     </ClInclude>
@@ -332,6 +332,12 @@
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h">
       <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\AnimationManager\AnimationManager.h">
+      <Filter>Src\Application\AnimationManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h">
+      <Filter>Src\Application\Object\Enemy\Boss</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -494,9 +500,6 @@
     <ClCompile Include="Src\Application\Object\Pillar\Pillar.cpp">
       <Filter>Src\Application\Object\Pillar</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Boss\Boss.cpp">
-      <Filter>Src\Application\Object\Boss</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy\Enemy01\Enemy01.cpp">
       <Filter>Src\Application\Object\Enemy\Enemy01</Filter>
     </ClCompile>
@@ -517,6 +520,12 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp">
       <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\AnimationManager\AnimationManager.cpp">
+      <Filter>Src\Application\AnimationManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp">
+      <Filter>Src\Application\Object\Enemy\Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

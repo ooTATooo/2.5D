@@ -4,13 +4,6 @@ class BaseEnemy :public KdGameObject
 {
 public:
 
-	enum class State
-	{
-		Idol,
-		Attack,
-		Run,
-	};
-
 	BaseEnemy() {}
 	~BaseEnemy()override {}
 
@@ -19,8 +12,6 @@ public:
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
-
-	float Turn();
 
 	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
 	void SetBeacon(const std::weak_ptr<KdGameObject> _beacon) { m_beacon = _beacon; }
@@ -32,8 +23,6 @@ protected:
 	std::weak_ptr<KdGameObject> m_player;
 	std::weak_ptr<KdGameObject> m_beacon;
 
-	State m_state;
-
 	float m_moveSpd = 0;
 	Math::Vector3 m_pos = m_mWorld.Translation();
 	Math::Vector3 m_moveVec = Math::Vector3::Zero;
@@ -42,5 +31,8 @@ protected:
 	Math::Matrix m_transMat = Math::Matrix::Identity;
 	float m_angX = 0;
 	float m_angY = 0;
-	float m_anime = 0;
+
+	AnimationManager::State m_state;
+	std::shared_ptr<AnimationManager> m_anime = nullptr;
+	bool m_animeFlg;
 };

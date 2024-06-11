@@ -4,18 +4,16 @@ void Enemy01::Update()
 {
 	switch (m_state)
 	{
-	case BaseEnemy::State::Idol:
-		AssetManager::Instance().GatAnimation("enemy01Idol", m_poly);
+	case AnimationManager::State::Idol:
+		m_anime->CreateAnime("Enemy01", AnimationManager::State::Idol, AnimationManager::Dir::Left, m_poly);
 		break;
-	case BaseEnemy::State::Attack:
-		AssetManager::Instance().GatAnimation("enemy01Attack", m_poly);
+	case AnimationManager::State::Attack:
+		m_anime->CreateAnime("Enemy01", AnimationManager::State::Attack, AnimationManager::Dir::Left, m_poly);
 		break;
-	case BaseEnemy::State::Run:
-		AssetManager::Instance().GatAnimation("enemy01Run", m_poly);
+	case AnimationManager::State::Run:
+		m_anime->CreateAnime("Enemy01", AnimationManager::State::Run, AnimationManager::Dir::Left, m_poly);
 		break;
 	}
-
-	m_state = State::Run;
 
 	Move();
 }
@@ -33,6 +31,7 @@ void Enemy01::Init()
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_pos = { -5,0,-21 };
+		m_anime = std::make_shared<AnimationManager>();
 		m_pCollider = std::make_unique<KdCollider>();
 		m_pCollider->RegisterCollisionShape("enemy01", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
 	}
@@ -40,6 +39,8 @@ void Enemy01::Init()
 
 void Enemy01::Move()
 {
+	m_state = AnimationManager::State::Run;
+
 	m_moveVec = Math::Vector3::Zero;
 
 	// 対象座標ー自分の座標
@@ -56,12 +57,12 @@ void Enemy01::Move()
 		if (dis.Length() < 5.0f)
 		{
 			// 球判定・・・ベクトルの長さで判定
-			if (dis.Length() < 3.0f)
+			if (dis.Length() < 2.0f)
 			{
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
 
-				m_state = State::Attack;
+				m_state = AnimationManager::State::Attack;
 			}
 		}
 		else
@@ -76,11 +77,11 @@ void Enemy01::Move()
 				{
 					m_moveVec = dis;
 
-					if (dis.Length() < 2.0f)
+					if (dis.Length() < 1.0f)
 					{
 						m_moveVec = Math::Vector3::Zero;
 
-						m_state = State::Attack;
+						m_state = AnimationManager::State::Attack;
 					}
 				}
 			}

@@ -9,7 +9,7 @@
 #include "../../Object/Enemy/Enemy01/Enemy01.h"
 #include "../../Object/Enemy/Enemy02/Enemy02.h"
 #include "../../Object/Enemy/Enemy03/Enemy03.h"
-#include "../../Object/Boss/Boss.h"
+#include "../../Object/Enemy/Boss/Boss.h"
 #include "../../Object/Beacon/Beacon.h"
 #include "../../Object/BeaconHp/BeaconHp.h"
 
@@ -24,10 +24,6 @@ void GameScene::Event()
 	}
 
 	if (!m_beaconHp.expired()) { m_beaconHp.lock()->SetPlayer(m_player); }
-
-	if (!m_enemy01.expired()) { m_enemy01.lock()->SetPlayer(m_player); }
-	if (!m_enemy02.expired()) { m_enemy02.lock()->SetPlayer(m_player); }
-	if (!m_enemy03.expired()) { m_enemy03.lock()->SetPlayer(m_player); }
 
 	CameraUpdate();
 }
@@ -59,6 +55,12 @@ void GameScene::Init()
 		}
 	}
 
+	std::shared_ptr<Player> player = std::make_shared<Player>();
+	player->SetCamera(m_camera);
+	player->SetGround(ground);
+	AddObject(player);
+	m_player = player;
+
 	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
 	AddObject(beacon);
 
@@ -70,27 +72,22 @@ void GameScene::Init()
 
 	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
 	enemy01->SetBeacon(beacon);
+	enemy01->SetPlayer(player);
 	AddObject(enemy01);
-	m_enemy01 = enemy01;
 
 	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
 	enemy02->SetBeacon(beacon);
+	enemy02->SetPlayer(player);
 	AddObject(enemy02);
-	m_enemy02 = enemy02;
 
 	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
 	enemy03->SetBeacon(beacon);
+	enemy03->SetPlayer(player);
 	AddObject(enemy03);
-	m_enemy03 = enemy03;
 
 	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
 	AddObject(boss);
 
-	std::shared_ptr<Player> player = std::make_shared<Player>();
-	player->SetCamera(m_camera);
-	player->SetGround(ground);
-	AddObject(player);
-	m_player = player;
 }
 
 void GameScene::CameraUpdate()

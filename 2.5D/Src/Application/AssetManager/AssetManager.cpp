@@ -2,42 +2,66 @@
 
 void AssetManager::Init()
 {
+	// ポリゴン====================
 	KdSquarePolygon::PivotType pivot = KdSquarePolygon::PivotType::Center_Bottom;
-	LoadMaterial("enemy01Idol", "Asset/Textures/Enemy01/slime01.png");
-	SetMaterial("enemy01Idol", 1.0f, pivot, 12, 1);
-	SetAnimation("enemy01Idol", 9, 3);
+	LoadMaterial("Enemy01Idol", "Asset/Textures/Enemy01/slime01.png");
+	SetMaterial("Enemy01Idol", { 1.0f,1.0f }, pivot, { 12, 1 });
+	SetAnimation("Enemy01Idol", 9, 3);
 
-	LoadMaterial("enemy01Attack", "Asset/Textures/Enemy01/slime01.png");
-	SetMaterial("enemy01Attack", 1.0f, pivot, 12, 1);
-	SetAnimation("enemy01Attack", 4, 5);
+	LoadMaterial("Enemy01Attack", "Asset/Textures/Enemy01/slime01.png");
+	SetMaterial("Enemy01Attack", { 1.0f,1.0f }, pivot, { 12, 1 });
+	SetAnimation("Enemy01Attack", 4, 5);
 
-	LoadMaterial("enemy01Run", "Asset/Textures/Enemy01/slime01.png");
-	SetMaterial("enemy01Run", 1.0f, pivot, 12, 1);
-	SetAnimation("enemy01Run", 0, 4);
+	LoadMaterial("Enemy01Run", "Asset/Textures/Enemy01/slime01.png");
+	SetMaterial("Enemy01Run", { 1.0f,1.0f }, pivot, { 12, 1 });
+	SetAnimation("Enemy01Run", 0, 4);
 
-	LoadMaterial("enemy02Idol", "Asset/Textures/Enemy01/witch01.png");
-	SetMaterial("enemy02Idol", 1.0f, pivot, 14, 1);
-	SetAnimation("enemy02Idol", 11, 4);
+	LoadMaterial("Enemy02Idol", "Asset/Textures/Enemy02/witch01.png");
+	SetMaterial("Enemy02Idol", { 2.0f,2.0f }, pivot, { 14, 1 });
+	SetAnimation("Enemy02Idol", 10, 4);
 
-	LoadMaterial("enemy02Attack", "Asset/Textures/Enemy01/witch01.png");
-	SetMaterial("enemy02Attack", 1.0f, pivot, 14, 1);
-	SetAnimation("enemy02Attack", 7, 4);
+	LoadMaterial("Enemy02Attack", "Asset/Textures/Enemy02/witch01.png");
+	SetMaterial("Enemy02Attack", { 2.0f,2.0f }, pivot, { 14, 1 });
+	SetAnimation("Enemy02Attack", 6, 4);
 
-	LoadMaterial("enemy02Run", "Asset/Textures/Enemy01/witch01.png");
-	SetMaterial("enemy02Run", 1.0f, pivot, 14, 1);
-	SetAnimation("enemy02Run", 0, 6);
+	LoadMaterial("Enemy02Run", "Asset/Textures/Enemy02/witch01.png");
+	SetMaterial("Enemy02Run", { 2.0f,2.0f }, pivot, { 14, 1 });
+	SetAnimation("Enemy02Run", 0, 6);
 
-	LoadMaterial("enemy03Idol", "Asset/Textures/Enemy01/knight01.png");
-	SetMaterial("enemy03Idol", 1.0f, pivot, 14, 1);
-	SetAnimation("enemy03Idol", 11, 4);
+	LoadMaterial("Enemy03Idol", "Asset/Textures/Enemy03/knight01.png");
+	SetMaterial("Enemy03Idol", { 2.0f,2.0f }, pivot, { 14, 1 });
+	SetAnimation("Enemy03Idol", 10, 4);
 
-	LoadMaterial("enemy03Attack", "Asset/Textures/Enemy01/knight01.png");
-	SetMaterial("enemy03Attack", 1.0f, pivot, 14, 1);
-	SetAnimation("enemy03Attack", 7, 4);
+	LoadMaterial("Enemy03Attack", "Asset/Textures/Enemy03/knight01.png");
+	SetMaterial("Enemy03Attack", { 2.0f,2.0f }, pivot, { 14, 1 });
+	SetAnimation("Enemy03Attack", 6, 4);
 
-	LoadMaterial("enemy03Run", "Asset/Textures/Enemy01/knight01.png");
-	SetMaterial("enemy03Run", 1.0f, pivot, 14, 1);
-	SetAnimation("enemy03Run", 0, 6);
+	LoadMaterial("Enemy03Run", "Asset/Textures/Enemy03/knight01.png");
+	SetMaterial("Enemy03Run", { 2.0f,2.0f }, pivot, { 14, 1 });
+	SetAnimation("Enemy03Run", 0, 6);
+
+	LoadMaterial("BossIdol", "Asset/Textures/Boss/dragon02.png");
+	SetMaterial("BossIdol", { 8.0f,6.0f }, pivot, { 15, 1 });
+	SetAnimation("BossIdol", 11, 4);
+
+	LoadMaterial("BossAttack", "Asset/Textures/Boss/dragon02.png");
+	SetMaterial("BossAttack", { 8.0f,6.0f }, pivot, { 15, 1 });
+	SetAnimation("BossAttack", 7, 5);
+
+	LoadMaterial("BossRun", "Asset/Textures/Boss/dragon02.png");
+	SetMaterial("BossRun", { 8.0f,6.0f }, pivot, { 15, 1 });
+	SetAnimation("BossRun", 0, 6);
+	// ============================
+
+	// モデル======================
+	
+	// ============================
+
+	// 2Dテクスチャ================
+	LoadTex("BarBack", "Asset/Textures/HpBar/hpbar01.png");
+
+	LoadTex("Bar", "Asset/Textures/HpBar/hpbar02.png");
+	// ============================
 
 }
 
@@ -57,19 +81,27 @@ KdModelData AssetManager::GetModel(std::string _name)
 	}
 }
 
-KdTexture* AssetManager::GetTex(std::string _name)
+std::shared_ptr<KdTexture> AssetManager::GetTex(std::string _name)
 {
 	if (m_texList.find(_name) != m_texList.end())
 	{
-		return &m_texList.at(_name);
+		return m_texList.at(_name);
 	}
 }
 
-void AssetManager::SetMaterial(std::string _name, float _scale, KdSquarePolygon::PivotType _pivot, int _splitX, int _splitY)
+std::vector<int> AssetManager::GetAnimation(std::string _name)
 {
-	m_materialList[_name].SetScale(_scale);
+	if (m_animationList.find(_name) != m_animationList.end())
+	{
+		return m_animationList.at(_name);
+	}
+}
+
+void AssetManager::SetMaterial(std::string _name, Math::Vector2 _scale, KdSquarePolygon::PivotType _pivot, Math::Vector2 _split)
+{
+	m_materialList[_name].SetScale({ _scale.x, _scale.y });
 	m_materialList[_name].SetPivot(_pivot);
-	m_materialList[_name].SetSplit(_splitX, _splitY);
+	m_materialList[_name].SetSplit(_split.x, _split.y);
 }
 
 void AssetManager::SetAnimation(std::string _name, int _start, int _count)
@@ -82,23 +114,8 @@ void AssetManager::SetAnimation(std::string _name, int _start, int _count)
 	m_animationList[_name] = num;
 }
 
-std::vector<int> AssetManager::GetAnimation(std::string _name)
+void AssetManager::LoadTex(std::string _name, std::string _path)
 {
-	return m_animationList[_name];
-}
-
-void AssetManager::GatAnimation(std::string _name, std::shared_ptr<KdSquarePolygon> _polygon)
-{
-	*_polygon = AssetManager::Instance().GetMaterial(_name);
-	m_animeFrame = AssetManager::Instance().GetAnimation(_name);
-
-	//if (_dir == Dir::Left) { _polygon->TurnScale(); }
-
-	_polygon->SetUVRect(m_animeFrame[(int)m_anime]);
-
-	m_anime += m_cntSpeed;
-	if (m_anime >= m_animeFrame.size())
-	{
-		m_anime = 0;
-	}
+	m_texList[_name] = std::make_shared<KdTexture>();
+	m_texList[_name]->Load(_path);
 }
