@@ -4,9 +4,6 @@
 
 class Player;
 class BeaconHp;
-class Enemy01;
-class Enemy02;
-class Enemy03;
 
 class GameScene : public BaseScene
 {

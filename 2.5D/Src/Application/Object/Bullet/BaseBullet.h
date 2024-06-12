@@ -25,7 +25,9 @@ protected:
 	Math::Matrix m_transMat = Math::Matrix::Identity;
 	float m_angX = 0;
 	float m_angY = 0;
-	float m_anime = 0;
 	bool m_alive = false;
+
+	AnimationManager::BulletState m_state;
+	std::shared_ptr<AnimationManager> m_anime = nullptr;
 
 };

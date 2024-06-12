@@ -14,6 +14,7 @@ public:
 	void DrawLit()override;
 
 	void MapHit();
+	void ShotBullet();
 
 	void SetPillar(const std::weak_ptr<KdGameObject> _pillar) { m_pillar = _pillar; }
 	void SetGround(const std::weak_ptr<KdGameObject> _ground) { m_ground = _ground; }

@@ -4,18 +4,18 @@ void Boss::Update()
 {
 	switch (m_state)
 	{
-	case AnimationManager::State::Idol:
-		m_anime->CreateAnime("Boss", AnimationManager::State::Idol, AnimationManager::Dir::Left, m_poly);
+	case AnimationManager::CharaState::Idol:
+		m_anime->CreateCharaAnimation("Boss", m_state, AnimationManager::Dir::Left, m_poly);
 		break;
-	case AnimationManager::State::Attack:
-		m_anime->CreateAnime("Boss", AnimationManager::State::Attack, AnimationManager::Dir::Left, m_poly);
+	case AnimationManager::CharaState::Attack:
+		m_anime->CreateCharaAnimation("Boss", m_state, AnimationManager::Dir::Left, m_poly);
 		break;
-	case AnimationManager::State::Run:
-		m_anime->CreateAnime("Boss", AnimationManager::State::Run, AnimationManager::Dir::Left, m_poly);
+	case AnimationManager::CharaState::Run:
+		m_anime->CreateCharaAnimation("Boss", m_state, AnimationManager::Dir::Left, m_poly);
 		break;
 	}
 
-	m_state = AnimationManager::State::Run;
+	m_state = AnimationManager::CharaState::Run;
 }
 
 void Boss::PostUpdate()

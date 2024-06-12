@@ -5,7 +5,7 @@ void BaseBullet::Update()
 }
 
 void BaseBullet::PostUpdate()
-{	
+{
 	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
 
 	m_rotMatY = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_angY));
@@ -29,7 +29,7 @@ void BaseBullet::Init()
 	m_moveSpd = 0.2f;
 	m_anime = 0;
 	m_alive = false;
-
+	m_state = AnimationManager::BulletState::None;
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 }
 

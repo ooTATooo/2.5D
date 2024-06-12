@@ -7,13 +7,22 @@ public:
 	AnimationManager();
 	~AnimationManager() {}
 
-	// 状態
-	enum class State
+	// キャラクター状態
+	enum class CharaState
 	{
 		None,
 		Idol,
 		Attack,
 		Run,
+	};
+
+	// 弾状態
+	enum class BulletState
+	{
+		None,
+		Idol,
+		Shot,
+		Hit,
 	};
 
 	// 向き
@@ -23,8 +32,11 @@ public:
 		Left,
 	};
 
-	// アニメーション作成
-	void CreateAnime(std::string _name, State _state, Dir _dir, std::shared_ptr<KdSquarePolygon> _polygon);
+	// キャラクターアニメーション作成
+	void CreateCharaAnimation(std::string _name, CharaState _state, Dir _dir, std::shared_ptr<KdSquarePolygon> _polygon);
+
+	// 弾アニメーション作成
+	void CreateBulletAnimation(std::string _name, BulletState _state, Dir _dir, std::shared_ptr<KdSquarePolygon> _polygon);
 
 private:
 
@@ -34,6 +46,8 @@ private:
 
 	float m_anime = 0;					// アニメーションカウント
 
-	State m_state = State::None;
+	CharaState m_charaState = CharaState::None;
+
+	BulletState m_bulletState = BulletState::None;
 
 };

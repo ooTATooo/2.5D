@@ -10,7 +10,8 @@
 			"nodes":[
 				0,
 				1,
-				2
+				2,
+				3
 			]
 		}
 	],
@@ -68,6 +69,26 @@
 				0,
 				0
 			]
+		},
+		{
+			"mesh":3,
+			"name":"\u7acb\u65b9\u4f53.003",
+			"rotation":[
+				0,
+				-1,
+				0,
+				4.371138828673793e-08
+			],
+			"scale":[
+				30,
+				2,
+				0.20000000298023224
+			],
+			"translation":[
+				0,
+				0,
+				30
+			]
 		}
 	],
 	"materials":[
@@ -75,6 +96,21 @@
 			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"name":"\u30de\u30c6\u30ea\u30a2\u30eb",
+			"pbrMetallicRoughness":{
+				"baseColorFactor":[
+					0.800000011920929,
+					0.800000011920929,
+					0.800000011920929,
+					0
+				],
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"\u30de\u30c6\u30ea\u30a2\u30eb.001",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.800000011920929,
@@ -127,6 +163,20 @@
 					},
 					"indices":3,
 					"material":0
+				}
+			]
+		},
+		{
+			"name":"\u7acb\u65b9\u4f53.003",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":10,
+						"NORMAL":11,
+						"TEXCOORD_0":12
+					},
+					"indices":3,
+					"material":1
 				}
 			]
 		}
@@ -221,6 +271,34 @@
 			"componentType":5126,
 			"count":24,
 			"type":"VEC2"
+		},
+		{
+			"bufferView":10,
+			"componentType":5126,
+			"count":24,
+			"max":[
+				1,
+				2.019843578338623,
+				1
+			],
+			"min":[
+				-1,
+				0.019843757152557373,
+				-1
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":11,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":12,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC2"
 		}
 	],
 	"bufferViews":[
@@ -283,11 +361,29 @@
 			"byteLength":192,
 			"byteOffset":2184,
 			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":2376,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":2664,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":192,
+			"byteOffset":2952,
+			"target":34962
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2376,
+			"byteLength":3144,
 			"uri":"WallHit.bin"
 		}
 	]

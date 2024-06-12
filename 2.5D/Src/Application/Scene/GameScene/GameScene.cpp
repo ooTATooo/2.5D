@@ -93,20 +93,12 @@ void GameScene::Init()
 void GameScene::CameraUpdate()
 {
 	UINT scrollType = 0;
-	// デバッグ用 ===============================
-	int dir = 0;
-	// ==========================================
 
 	Math::Vector3 playerPos;
 	if (!m_player.expired())
-	{ 
-		//m_player.lock()->SetCamera(m_camera);
+	{
 		playerPos = m_player.lock()->GetPos();
 	}
-
-	// デバッグ用 ===============================
-	ImGuiManager::Instance().SetPlayerPos(playerPos);
-	// ==========================================
 
 	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
 
@@ -128,31 +120,12 @@ void GameScene::CameraUpdate()
 	if (scrollType & ScrollType::Left) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, playerPos.z); }
 	if (scrollType & ScrollType::Right) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, playerPos.z); }
 
-	// デバッグ用 ===============================
-	if (scrollType & ScrollType::Up) { dir = 1; }
-	if (scrollType & ScrollType::Down) { dir = 2; }
-	if (scrollType & ScrollType::Left) { dir = 3; }
-	if (scrollType & ScrollType::Right) { dir = 4; }
-	// ==========================================
-
 	if (scrollType == (ScrollType::Up | ScrollType::Left)) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, 27.0f); }
 	if (scrollType == (ScrollType::Up | ScrollType::Right)) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, 27.0f); }
 	if (scrollType == (ScrollType::Down | ScrollType::Left)) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, -27.0f); }
 	if (scrollType == (ScrollType::Down | ScrollType::Right)) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, -27.0f); }
 
-	// デバッグ用 ===============================
-	if (scrollType == (ScrollType::Up | ScrollType::Left)) { dir = 5; }
-	if (scrollType == (ScrollType::Up | ScrollType::Right)) { dir = 5; }
-	if (scrollType == (ScrollType::Down | ScrollType::Left)) { dir = 5; }
-	if (scrollType == (ScrollType::Down | ScrollType::Right)) { dir = 5; }
-	// ==========================================
-
 	if (scrollType == 0) { pTransMat = Math::Matrix::CreateTranslation(playerPos); }
-
-	// デバッグ用 ===============================
-	if (scrollType == 0) { dir = 0; }
-	ImGuiManager::Instance().SetScrollType(dir);
-	// ==========================================
 
 	mat *= pTransMat;
 

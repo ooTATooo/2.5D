@@ -124,6 +124,15 @@
     <Filter Include="Src\Application\Object\Enemy\Boss">
       <UniqueIdentifier>{a432c696-68d8-48fc-bf51-ddf88ae83473}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\BackGround">
+      <UniqueIdentifier>{9e658cc7-b1f7-4ffa-b666-1f7f32185559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Camera">
+      <UniqueIdentifier>{5881d598-c277-4272-8baf-1489364403f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Camera\TrackingCamera">
+      <UniqueIdentifier>{f62357c3-9ec4-461c-8712-2de3dc24da78}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -339,6 +348,15 @@
     <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h">
       <Filter>Src\Application\Object\Enemy\Boss</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\BackGround\BackGround.h">
+      <Filter>Src\Application\Object\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Camera\CameraBase.h">
+      <Filter>Src\Application\Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.h">
+      <Filter>Src\Application\Object\Camera\TrackingCamera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -526,6 +544,15 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp">
       <Filter>Src\Application\Object\Enemy\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\BackGround\BackGround.cpp">
+      <Filter>Src\Application\Object\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Camera\CameraBase.cpp">
+      <Filter>Src\Application\Object\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.cpp">
+      <Filter>Src\Application\Object\Camera\TrackingCamera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

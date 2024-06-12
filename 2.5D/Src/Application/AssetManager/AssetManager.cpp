@@ -51,10 +51,17 @@ void AssetManager::Init()
 	LoadMaterial("BossRun", "Asset/Textures/Boss/dragon02.png");
 	SetMaterial("BossRun", { 8.0f,6.0f }, pivot, { 15, 1 });
 	SetAnimation("BossRun", 0, 6);
+
+	LoadMaterial("PlayerBullet01Idol", "Asset/Textures/PlayerBullet01/bullet.png");
+	SetMaterial("PlayerBullet01Idol", { 1.0f,1.0f }, pivot, { 4,1 });
+	SetAnimation("PlayerBullet01Idol", 0, 4);
+
+	LoadMaterial("BackGround", "Asset/Textures/BackGround/BackGround.png");
+	SetMaterial("BackGround", { 250.0f,100.0f }, KdSquarePolygon::PivotType::Center_Middle, { 1,1 });
 	// ============================
 
 	// モデル======================
-	
+
 	// ============================
 
 	// 2Dテクスチャ================

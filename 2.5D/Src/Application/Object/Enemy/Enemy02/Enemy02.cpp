@@ -4,14 +4,14 @@ void Enemy02::Update()
 {
 	switch (m_state)
 	{
-	case AnimationManager::State::Idol:
-		m_anime->CreateAnime("Enemy02", AnimationManager::State::Idol, AnimationManager::Dir::Left, m_poly);
+	case AnimationManager::CharaState::Idol:
+		m_anime->CreateCharaAnimation("Enemy02", m_state, AnimationManager::Dir::Left, m_poly);
 		break;
-	case AnimationManager::State::Attack:
-		m_anime->CreateAnime("Enemy02", AnimationManager::State::Attack, AnimationManager::Dir::Left, m_poly);
+	case AnimationManager::CharaState::Attack:
+		m_anime->CreateCharaAnimation("Enemy02", m_state, AnimationManager::Dir::Left, m_poly);
 		break;
-	case AnimationManager::State::Run:
-		m_anime->CreateAnime("Enemy02", AnimationManager::State::Run, AnimationManager::Dir::Left, m_poly);
+	case AnimationManager::CharaState::Run:
+		m_anime->CreateCharaAnimation("Enemy02", m_state, AnimationManager::Dir::Left, m_poly);
 		break;
 	}
 
@@ -40,7 +40,7 @@ void Enemy02::Init()
 
 void Enemy02::Move()
 {
-	m_state = AnimationManager::State::Run;
+	m_state = AnimationManager::CharaState::Run;
 
 	m_moveVec = Math::Vector3::Zero;
 
@@ -63,7 +63,7 @@ void Enemy02::Move()
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
 
-				m_state = AnimationManager::State::Attack;
+				m_state = AnimationManager::CharaState::Attack;
 			}
 		}
 		else
@@ -78,7 +78,7 @@ void Enemy02::Move()
 				{
 					m_moveVec = Math::Vector3::Zero;
 
-					m_state = AnimationManager::State::Attack;
+					m_state = AnimationManager::CharaState::Attack;
 				}
 			}
 		}
