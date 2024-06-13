@@ -76,12 +76,6 @@
     <Filter Include="Src\Application\Object\Player">
       <UniqueIdentifier>{d7ef74b9-8b74-4675-97d6-e8a4c00167cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Beacon">
-      <UniqueIdentifier>{6619f5aa-aa35-4941-a7ab-98b8c84bb010}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\BeaconHp">
-      <UniqueIdentifier>{207dd2a8-f609-4461-8a35-81484d8506ba}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Ground">
       <UniqueIdentifier>{4e823812-3b8f-4dca-be7f-689759929441}</UniqueIdentifier>
     </Filter>
@@ -132,6 +126,18 @@
     </Filter>
     <Filter Include="Src\Application\Object\Camera\TrackingCamera">
       <UniqueIdentifier>{f62357c3-9ec4-461c-8712-2de3dc24da78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Monument">
+      <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\HpBar">
+      <UniqueIdentifier>{4196582b-e5b1-46f7-824a-8b524c0be4a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\HpBar\EnemyHp">
+      <UniqueIdentifier>{fb2050fe-3f05-4b85-bbfb-fdc60f002cc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\HpBar\MonumentHp">
+      <UniqueIdentifier>{7be6010c-6c66-4b39-84c1-7cbd8e6d1202}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -306,12 +312,6 @@
     <ClInclude Include="Src\Application\Object\Ground\Ground.h">
       <Filter>Src\Application\Object\Ground</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Beacon\Beacon.h">
-      <Filter>Src\Application\Object\Beacon</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\BeaconHp\BeaconHp.h">
-      <Filter>Src\Application\Object\BeaconHp</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\WallFawme\WallFrame.h">
       <Filter>Src\Application\Object\WallFrame</Filter>
     </ClInclude>
@@ -356,6 +356,21 @@
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.h">
       <Filter>Src\Application\Object\Camera\TrackingCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h">
+      <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Monument\Monument.h">
+      <Filter>Src\Application\Object\Monument</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\HpBar\MonumentHp\MonumentHP.h">
+      <Filter>Src\Application\Object\HpBar\MonumentHp</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\HpBar\EnemyHp\EnemyHp.h">
+      <Filter>Src\Application\Object\HpBar\EnemyHp</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\HpBar\BaseHpBar.h">
+      <Filter>Src\Application\Object\HpBar</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -503,12 +518,6 @@
     <ClCompile Include="Src\Application\Object\Ground\Ground.cpp">
       <Filter>Src\Application\Object\Ground</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Beacon\Beacon.cpp">
-      <Filter>Src\Application\Object\Beacon</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\BeaconHp\BeaconHp.cpp">
-      <Filter>Src\Application\Object\BeaconHp</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\WallFawme\WallFrame.cpp">
       <Filter>Src\Application\Object\WallFrame</Filter>
     </ClCompile>
@@ -553,6 +562,21 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.cpp">
       <Filter>Src\Application\Object\Camera\TrackingCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp">
+      <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Monument\Monument.cpp">
+      <Filter>Src\Application\Object\Monument</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\HpBar\MonumentHp\MonumentHP.cpp">
+      <Filter>Src\Application\Object\HpBar\MonumentHp</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\HpBar\EnemyHp\EnemyHp.cpp">
+      <Filter>Src\Application\Object\HpBar\EnemyHp</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\HpBar\BaseHpBar.cpp">
+      <Filter>Src\Application\Object\HpBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

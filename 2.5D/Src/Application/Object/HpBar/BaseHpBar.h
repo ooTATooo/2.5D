@@ -2,21 +2,22 @@
 
 class Player;
 
-class BeaconHp :public KdGameObject
+class BaseHpBar :public KdGameObject
 {
 public:
 
-	BeaconHp() { Init(); }
-	~BeaconHp()override {}
+	BaseHpBar() {}
+	~BaseHpBar()override {}
 
 	void Update()override;
 	void PostUpdate()override;
 	void Init()override;
 	void DrawSprite()override;
 
-	void SetCamera(std::weak_ptr<KdCamera> _camera) { m_camera = _camera; }
-	void SetPlayer(std::weak_ptr<Player> _player) { m_player = _player; }
-private:
+	virtual void SetCamera(std::weak_ptr<KdCamera> _camera) { m_camera = _camera; }
+	virtual void SetPlayer(std::weak_ptr<Player> _player) { m_player = _player; }
+
+protected:
 
 	std::weak_ptr<KdCamera> m_camera;
 	std::weak_ptr<Player> m_player;
@@ -30,8 +31,8 @@ private:
 	};
 
 	Data m_backHp;
-	Data m_yellowHp;
-	Data m_greenHp;
+	Data m_Hp01;
+	Data m_Hp02;
 
 	Math::Vector3 m_pos;
 	float m_scale = 1.0f;

@@ -3,7 +3,7 @@
 #include"../BaseScene/BaseScene.h"
 
 class Player;
-class BeaconHp;
+class MonumentHp;
 
 class GameScene : public BaseScene
 {
@@ -29,5 +29,5 @@ private:
 	void CameraUpdate();
 
 	std::weak_ptr<Player> m_player;
-	std::weak_ptr<BeaconHp> m_beaconHp;
+	std::weak_ptr<MonumentHp> m_monumentHp;
 };

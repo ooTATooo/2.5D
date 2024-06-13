@@ -2,16 +2,17 @@
 
 #include "../BaseBullet.h"
 
-class PlayerBullet01 :public BaseBullet
+class EnemyBullet :public BaseBullet
 {
 public:
 
-	PlayerBullet01() { Init(); }
-	~PlayerBullet01()override {}
+	EnemyBullet() { Init(); }
+	~EnemyBullet()override {}
 
 	void Update()override;
 	void PostUpdate()override;
 	void Init()override;
 
 private:
+
 };

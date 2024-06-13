@@ -20,6 +20,19 @@ void Enemy01::Update()
 
 void Enemy01::PostUpdate()
 {
+	// 球判定用の変数を作成
+	KdCollider::SphereInfo sphere;
+	// 球の中心点を設定
+	sphere.m_sphere.Center = m_pos;
+	sphere.m_sphere.Center.y += 0.5f;
+	// 球の半径を設定
+	sphere.m_sphere.Radius = 5.0f;
+	// 当たり判定をしたいタイプを設定
+	sphere.m_type = KdCollider::TypeBump;
+
+	// デバッグ表示
+	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, kRedColor);
+
 	BaseEnemy::PostUpdate();
 }
 

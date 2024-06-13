@@ -56,6 +56,10 @@ void AssetManager::Init()
 	SetMaterial("PlayerBullet01Idol", { 1.0f,1.0f }, pivot, { 4,1 });
 	SetAnimation("PlayerBullet01Idol", 0, 4);
 
+	LoadMaterial("EnemyBulletIdol", "Asset/Textures/PlayerBullet01/bullet.png");
+	SetMaterial("EnemyBulletIdol", { 1.0f,1.0f }, pivot, { 4,1 });
+	SetAnimation("EnemyBulletIdol", 0, 4);
+
 	LoadMaterial("BackGround", "Asset/Textures/BackGround/BackGround.png");
 	SetMaterial("BackGround", { 250.0f,100.0f }, KdSquarePolygon::PivotType::Center_Middle, { 1,1 });
 	// ============================

@@ -11,7 +11,9 @@ public:
 	void PostUpdate()override;
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
-	void DrawLit();
+	void DrawLit()override;
+
+	void shot(Math::Vector3 _startPos, Math::Vector3 _targetPos);
 
 protected:
 

@@ -1,11 +1,11 @@
-﻿#include "PlayerBullet01.h"
+﻿#include "EnemyBullet.h"
 
-void PlayerBullet01::Update()
+void EnemyBullet::Update()
 {
 	switch (m_state)
 	{
 	case AnimationManager::BulletState::Idol:
-		m_anime->CreateBulletAnimation("PlayerBullet01", m_state, AnimationManager::Dir::Left, m_poly);
+		m_anime->CreateBulletAnimation("EnemyBullet", m_state, AnimationManager::Dir::Left, m_poly);
 		break;
 	case AnimationManager::BulletState::Shot:
 		break;
@@ -21,12 +21,12 @@ void PlayerBullet01::Update()
 	m_pos += m_moveVec *= m_moveSpd;
 }
 
-void PlayerBullet01::PostUpdate()
+void EnemyBullet::PostUpdate()
 {
 	BaseBullet::PostUpdate();
 }
 
-void PlayerBullet01::Init()
+void EnemyBullet::Init()
 {
 	BaseBullet::Init();
 
@@ -35,6 +35,6 @@ void PlayerBullet01::Init()
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_anime = std::make_shared<AnimationManager>();
 		m_pCollider = std::make_unique<KdCollider>();
-		//m_pCollider->RegisterCollisionShape("enemy01", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
+		//m_pCollider->RegisterCollisionShape("EnemyBullet", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
 	}
 }

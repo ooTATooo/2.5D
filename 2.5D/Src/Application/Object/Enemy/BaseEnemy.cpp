@@ -18,7 +18,7 @@ void BaseEnemy::PostUpdate()
 
 	// デバッグ表示
 	Math::Color color = { 1,1,0,1 };
-	//m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
+	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
 
 	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
 

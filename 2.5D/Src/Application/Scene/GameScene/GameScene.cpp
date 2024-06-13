@@ -10,8 +10,8 @@
 #include "../../Object/Enemy/Enemy02/Enemy02.h"
 #include "../../Object/Enemy/Enemy03/Enemy03.h"
 #include "../../Object/Enemy/Boss/Boss.h"
-#include "../../Object/Beacon/Beacon.h"
-#include "../../Object/BeaconHp/BeaconHp.h"
+#include "../../Object/Monument/Monument.h"
+#include "../../Object/HpBar/MonumentHp/MonumentHP.h"
 
 void GameScene::Event()
 {
@@ -23,7 +23,7 @@ void GameScene::Event()
 		);
 	}
 
-	if (!m_beaconHp.expired()) { m_beaconHp.lock()->SetPlayer(m_player); }
+	if (!m_monumentHp.expired()) { m_monumentHp.lock()->SetPlayer(m_player); }
 
 	CameraUpdate();
 }
@@ -61,27 +61,30 @@ void GameScene::Init()
 	AddObject(player);
 	m_player = player;
 
-	std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
-	AddObject(beacon);
+	//std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
+	//AddObject(beacon);
 
-	std::shared_ptr<BeaconHp> beaconHp = std::make_shared<BeaconHp>();
-	beaconHp->SetPos(beacon->GetPos());
-	beaconHp->SetCamera(m_camera);
-	AddObject(beaconHp);
-	m_beaconHp = beaconHp;
+	std::shared_ptr<Monument> monument = std::make_shared<Monument>();
+	AddObject(monument);
+
+	std::shared_ptr<MonumentHp> monumentHp = std::make_shared<MonumentHp>();
+	monumentHp->SetPos(monument->GetPos());
+	monumentHp->SetCamera(m_camera);
+	AddObject(monumentHp);
+	m_monumentHp = monumentHp;
 
 	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
-	enemy01->SetBeacon(beacon);
+	enemy01->SetBeacon(monument);
 	enemy01->SetPlayer(player);
 	AddObject(enemy01);
 
 	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
-	enemy02->SetBeacon(beacon);
+	enemy02->SetBeacon(monument);
 	enemy02->SetPlayer(player);
 	AddObject(enemy02);
 
 	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
-	enemy03->SetBeacon(beacon);
+	enemy03->SetBeacon(monument);
 	enemy03->SetPlayer(player);
 	AddObject(enemy03);
 
