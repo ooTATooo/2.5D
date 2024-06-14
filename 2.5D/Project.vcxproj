@@ -164,8 +164,7 @@
     <ClInclude Include="Src\Application\Object\Bullet\BaseBullet.h" />
     <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h" />
     <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h" />
-    <ClInclude Include="Src\Application\Object\Camera\CameraBase.h" />
-    <ClInclude Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.h" />
+    <ClInclude Include="Src\Application\Object\Camera\Camera.h" />
     <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Enemy01\Enemy01.h" />
@@ -236,8 +235,7 @@
     <ClCompile Include="Src\Application\Object\Bullet\BaseBullet.cpp" />
     <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp" />
     <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp" />
-    <ClCompile Include="Src\Application\Object\Camera\CameraBase.cpp" />
-    <ClCompile Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.cpp" />
+    <ClCompile Include="Src\Application\Object\Camera\Camera.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Enemy01\Enemy01.cpp" />

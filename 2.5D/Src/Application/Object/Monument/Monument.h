@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+class Camera;
+
 class Monument :public KdGameObject
 {
 public:
@@ -14,6 +16,7 @@ public:
 	void DrawLit()override;
 	void DrawBright()override;
 
+	void SetCamera(const std::weak_ptr<Camera> _camera) { m_camera = _camera; }
 	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
 
 private:
@@ -21,6 +24,7 @@ private:
 	std::shared_ptr<KdModelData> m_model01 = nullptr;
 	std::shared_ptr<KdModelData> m_model02 = nullptr;
 
+	std::weak_ptr<Camera> m_camera;
 	std::weak_ptr<KdGameObject> m_player;
 
 	Math::Vector3 m_pos;

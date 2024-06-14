@@ -1,8 +1,8 @@
-﻿#include "TrackingCamera.h"
+﻿#include "Camera.h"
 
-void TrackingCamera::Init()
+void Camera::Init()
 {
-	CameraBase::Init();
+	m_camera = std::make_shared<KdCamera>();
 
 	// 基準点(ターゲット)からどれだけ離れているか
 	m_transMat = Math::Matrix::CreateTranslation(0, 8, -8);
@@ -11,24 +11,30 @@ void TrackingCamera::Init()
 	m_rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
 }
 
-void TrackingCamera::Update()
+void Camera::Update()
 {
+	if (!m_camera) return;
+
 	// ターゲット
-	Math::Matrix pTransMat = Math::Matrix::Identity;
+	Math::Matrix pTransMat;
 	Math::Vector3 playerPos;
 
-	const std::shared_ptr<const KdGameObject> _target = m_player.lock();
-	if (_target)
+	const std::shared_ptr<const KdGameObject> player = m_player.lock();
+	if (player)
 	{
-		pTransMat = _target->GetMatrix();
-		playerPos = m_player.lock()->GetPos();
+		pTransMat = player->GetMatrix();
+		playerPos = player->GetPos();
 	}
-
-	m_mWorld = m_rotMat * m_transMat * pTransMat;
 
 	UINT scrollType = 0;
 
 	m_mWorld = m_rotMat * m_transMat;
+
+	// スクロールの限界処理
+	if (playerPos.z > 27.0f) { scrollType |= ScrollType::Up; }
+	if (playerPos.z < -27.0f) { scrollType |= ScrollType::Down; }
+	if (playerPos.x < -26.0f) { scrollType |= ScrollType::Left; }
+	if (playerPos.x > 26.0f) { scrollType |= ScrollType::Right; }
 
 	if (scrollType & ScrollType::Up) { pTransMat = Math::Matrix::CreateTranslation(playerPos.x, playerPos.y, 27.0f); }
 	if (scrollType & ScrollType::Down) { pTransMat = Math::Matrix::CreateTranslation(playerPos.x, playerPos.y, -27.0f); }
@@ -44,5 +50,19 @@ void TrackingCamera::Update()
 
 	m_mWorld *= pTransMat;
 
-	CameraBase::Update();
+	m_camera->SetCameraMatrix(m_mWorld);
+}
+
+void Camera::PreDraw()
+{
+	if (!m_camera) return;
+
+	m_camera->SetToShader();
+}
+
+const Math::Vector3 Camera::GetConvertWorldToScreenDetail(const Math::Vector3 _pos)
+{
+	Math::Vector3 barRes = Math::Vector3::Zero;
+	m_camera->ConvertWorldToScreenDetail(_pos, barRes);
+	return barRes;
 }

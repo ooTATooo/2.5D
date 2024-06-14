@@ -2,6 +2,7 @@
 #include "../SceneManager.h"
 #include "../../ImGuiManager/ImGuiManager.h"
 
+#include "../../Object/Camera/Camera.h"
 #include "../../Object/Player/Player.h"
 #include "../../Object/Ground/Ground.h"
 #include "../../Object/WallFawme/WallFrame.h"
@@ -11,7 +12,6 @@
 #include "../../Object/Enemy/Enemy03/Enemy03.h"
 #include "../../Object/Enemy/Boss/Boss.h"
 #include "../../Object/Monument/Monument.h"
-#include "../../Object/HpBar/MonumentHp/MonumentHP.h"
 
 void GameScene::Event()
 {
@@ -23,16 +23,18 @@ void GameScene::Event()
 		);
 	}
 
-	if (!m_monumentHp.expired()) { m_monumentHp.lock()->SetPlayer(m_player); }
+	//if (!m_monumentHp.expired()) { m_monumentHp.lock()->SetPlayer(m_player); }
 
-	CameraUpdate();
 }
 
 void GameScene::Init()
 {
 	// カメラ生成＆視野角設定
-	m_camera = std::make_shared<KdCamera>();	//1 メモリ確保
-	m_camera->SetProjectionMatrix(60);			//2	視野角設定
+	//m_camera = std::make_shared<KdCamera>();	//1 メモリ確保
+	//m_camera->SetProjectionMatrix(60);			//2	視野角設定
+
+	std::shared_ptr<Camera> camera = std::make_shared<Camera>();
+	AddObject(camera);
 
 	std::shared_ptr<Ground> ground = std::make_shared<Ground>();
 	AddObject(ground);
@@ -56,22 +58,16 @@ void GameScene::Init()
 	}
 
 	std::shared_ptr<Player> player = std::make_shared<Player>();
-	player->SetCamera(m_camera);
+	camera->SetPlayer(player);
+	//player->SetCamera(camera);
 	player->SetGround(ground);
 	AddObject(player);
 	m_player = player;
 
-	//std::shared_ptr<Beacon> beacon = std::make_shared<Beacon>();
-	//AddObject(beacon);
-
 	std::shared_ptr<Monument> monument = std::make_shared<Monument>();
+	monument->SetCamera(camera);
+	monument->SetPlayer(player);
 	AddObject(monument);
-
-	std::shared_ptr<MonumentHp> monumentHp = std::make_shared<MonumentHp>();
-	monumentHp->SetPos(monument->GetPos());
-	monumentHp->SetCamera(m_camera);
-	AddObject(monumentHp);
-	m_monumentHp = monumentHp;
 
 	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
 	enemy01->SetBeacon(monument);
@@ -91,48 +87,4 @@ void GameScene::Init()
 	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
 	AddObject(boss);
 
-}
-
-void GameScene::CameraUpdate()
-{
-	UINT scrollType = 0;
-
-	Math::Vector3 playerPos;
-	if (!m_player.expired())
-	{
-		playerPos = m_player.lock()->GetPos();
-	}
-
-	Math::Matrix rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(45));
-
-	Math::Matrix transMat = Math::Matrix::CreateTranslation(0, 8, -8);
-
-	Math::Matrix pTransMat;
-
-	Math::Matrix mat;
-	mat = rotMat * transMat;
-
-	// スクロールの限界処理
-	if (playerPos.z > 27.0f) { scrollType |= ScrollType::Up; }
-	if (playerPos.z < -27.0f) { scrollType |= ScrollType::Down; }
-	if (playerPos.x < -26.0f) { scrollType |= ScrollType::Left; }
-	if (playerPos.x > 26.0f) { scrollType |= ScrollType::Right; }
-
-	if (scrollType & ScrollType::Up) { pTransMat = Math::Matrix::CreateTranslation(playerPos.x, playerPos.y, 27.0f); }
-	if (scrollType & ScrollType::Down) { pTransMat = Math::Matrix::CreateTranslation(playerPos.x, playerPos.y, -27.0f); }
-	if (scrollType & ScrollType::Left) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, playerPos.z); }
-	if (scrollType & ScrollType::Right) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, playerPos.z); }
-
-	if (scrollType == (ScrollType::Up | ScrollType::Left)) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, 27.0f); }
-	if (scrollType == (ScrollType::Up | ScrollType::Right)) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, 27.0f); }
-	if (scrollType == (ScrollType::Down | ScrollType::Left)) { pTransMat = Math::Matrix::CreateTranslation(-26.0f, playerPos.y, -27.0f); }
-	if (scrollType == (ScrollType::Down | ScrollType::Right)) { pTransMat = Math::Matrix::CreateTranslation(26.0f, playerPos.y, -27.0f); }
-
-	if (scrollType == 0) { pTransMat = Math::Matrix::CreateTranslation(playerPos); }
-
-	mat *= pTransMat;
-
-	// カメラに行列をセット
-	// この時点では画面には反映されない
-	m_camera->SetCameraMatrix(mat);
 }

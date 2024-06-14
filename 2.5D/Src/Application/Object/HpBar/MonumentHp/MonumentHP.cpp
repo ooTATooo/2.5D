@@ -1,5 +1,6 @@
 ﻿#include "MonumentHp.h"
 
+#include "../../Camera/Camera.h"
 #include "../../Player/Player.h"
 
 void MonumentHp::Update()
@@ -24,9 +25,10 @@ void MonumentHp::Update()
 void MonumentHp::PostUpdate()
 {
 	Math::Vector3 barRes = Math::Vector3::Zero;
-	if (!m_camera.expired())
+	std::shared_ptr<Camera> camera = m_camera.lock();
+	if (camera)
 	{
-		m_camera.lock()->ConvertWorldToScreenDetail(m_pos, barRes);
+		barRes = camera->GetConvertWorldToScreenDetail(GetPos());
 	}
 
 	m_backHp.transMat = Math::Matrix::CreateTranslation(barRes.x, barRes.y, 0);

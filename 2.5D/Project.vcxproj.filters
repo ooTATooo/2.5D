@@ -124,9 +124,6 @@
     <Filter Include="Src\Application\Object\Camera">
       <UniqueIdentifier>{5881d598-c277-4272-8baf-1489364403f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Camera\TrackingCamera">
-      <UniqueIdentifier>{f62357c3-9ec4-461c-8712-2de3dc24da78}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Monument">
       <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
     </Filter>
@@ -351,12 +348,6 @@
     <ClInclude Include="Src\Application\Object\BackGround\BackGround.h">
       <Filter>Src\Application\Object\BackGround</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Camera\CameraBase.h">
-      <Filter>Src\Application\Object\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.h">
-      <Filter>Src\Application\Object\Camera\TrackingCamera</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h">
       <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
     </ClInclude>
@@ -371,6 +362,9 @@
     </ClInclude>
     <ClInclude Include="Src\Application\Object\HpBar\BaseHpBar.h">
       <Filter>Src\Application\Object\HpBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Camera\Camera.h">
+      <Filter>Src\Application\Object\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -557,12 +551,6 @@
     <ClCompile Include="Src\Application\Object\BackGround\BackGround.cpp">
       <Filter>Src\Application\Object\BackGround</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Camera\CameraBase.cpp">
-      <Filter>Src\Application\Object\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Camera\TrackingCamera\TrackingCamera.cpp">
-      <Filter>Src\Application\Object\Camera\TrackingCamera</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp">
       <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
     </ClCompile>
@@ -577,6 +565,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\HpBar\BaseHpBar.cpp">
       <Filter>Src\Application\Object\HpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Camera\Camera.cpp">
+      <Filter>Src\Application\Object\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

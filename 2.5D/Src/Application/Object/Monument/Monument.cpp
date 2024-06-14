@@ -1,5 +1,8 @@
 ﻿#include "Monument.h"
 
+#include "../Camera/Camera.h"
+#include "../HpBar/MonumentHp/MonumentHP.h"
+
 void Monument::Update()
 {
 	m_pos.y = sin(DirectX::XMConvertToRadians(m_ang)) * m_speed;
@@ -33,6 +36,21 @@ void Monument::Init()
 	alpha = 0.3f;
 	m_color01 = { 0.5f,1,1,alpha };
 	m_color02 = { 0,0,0,1 };
+
+	std::shared_ptr<MonumentHp> monumentHp = std::make_shared<MonumentHp>();
+	monumentHp->SetPos(GetPos());
+
+	std::shared_ptr<Camera> camera = m_camera.lock();
+	if (camera)
+	{
+		monumentHp->SetCamera(camera);
+	}
+	std::shared_ptr<KdGameObject> player = m_player.lock();
+	if (player)
+	{
+		monumentHp->SetPlayer(player);
+	}
+	SceneManager::Instance().AddObject(monumentHp);
 }
 
 void Monument::GenerateDepthMapFromLight()

@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+class Camera;
 class Player;
 
 class BaseHpBar :public KdGameObject
@@ -14,13 +15,13 @@ public:
 	void Init()override;
 	void DrawSprite()override;
 
-	virtual void SetCamera(std::weak_ptr<KdCamera> _camera) { m_camera = _camera; }
-	virtual void SetPlayer(std::weak_ptr<Player> _player) { m_player = _player; }
+	void SetCamera(const std::weak_ptr<Camera> _camera) { m_camera = _camera; }
+	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
 
 protected:
 
-	std::weak_ptr<KdCamera> m_camera;
-	std::weak_ptr<Player> m_player;
+	std::weak_ptr<Camera> m_camera;
+	std::weak_ptr<KdGameObject> m_player;
 
 	struct Data
 	{

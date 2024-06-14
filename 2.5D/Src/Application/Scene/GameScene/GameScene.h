@@ -25,9 +25,6 @@ private:
 	void Event() override;
 	void Init() override;
 
-	// カメラ処理
-	void CameraUpdate();
-
 	std::weak_ptr<Player> m_player;
 	std::weak_ptr<MonumentHp> m_monumentHp;
 };
