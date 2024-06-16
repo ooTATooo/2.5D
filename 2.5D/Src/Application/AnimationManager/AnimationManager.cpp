@@ -35,8 +35,12 @@ void AnimationManager::CreateCharaAnimation(std::string _name, CharaState _state
 		}
 
 		m_anime = 0;
+	}
 
-		if (_dir == Dir::Left)_polygon->TurnScale();
+	if (m_dir != _dir)
+	{
+		m_dir = _dir;
+		_polygon->TurnScale();
 	}
 
 	_polygon->SetUVRect(m_animeFrame[(int)m_anime]);

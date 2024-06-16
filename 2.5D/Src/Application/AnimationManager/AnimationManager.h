@@ -50,4 +50,6 @@ private:
 
 	BulletState m_bulletState = BulletState::None;
 
+	Dir m_dir = Dir::Left;
+
 };

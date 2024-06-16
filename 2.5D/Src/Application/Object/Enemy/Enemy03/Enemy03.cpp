@@ -1,5 +1,8 @@
 ﻿#include "Enemy03.h"
 
+#include "../../Monolith/Monolith.h"
+#include "../../Player/Player.h"
+
 void Enemy03::Update()
 {
 	switch (m_state)
@@ -60,11 +63,11 @@ void Enemy03::Move()
 	// 対象座標ー自分の座標
 	Math::Vector3 dis;
 
-	const std::shared_ptr<KdGameObject> beacon = m_beacon.lock();
+	const std::shared_ptr<Monolith> monolith = m_monolith.lock();
 
-	if (beacon)
+	if (monolith)
 	{
-		dis = beacon->GetPos() - m_pos;
+		dis = monolith->GetPos() - m_pos;
 
 		m_moveVec = dis;
 
@@ -81,7 +84,7 @@ void Enemy03::Move()
 		}
 		else
 		{
-			const std::shared_ptr<KdGameObject> player = m_player.lock();
+			const std::shared_ptr<Player> player = m_player.lock();
 
 			if (player)
 			{

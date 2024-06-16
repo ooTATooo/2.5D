@@ -7,14 +7,19 @@ public:
 	Pillar() { Init(); }
 	~Pillar()override {}
 
-	void Update()override;
+	void PreUpdate()override;
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
+	void Hit()override;
+
+	void SetPos(const Math::Vector3 _pos) { m_mWorld.Translation(_pos); }
 
 private:
 
 	std::shared_ptr<KdModelData> m_model;
 
-	Math::Color m_color = { 1.0f,1.0f,1.0f,1.0f };
+	float m_alpha;
+
+	Math::Color m_color;
 };

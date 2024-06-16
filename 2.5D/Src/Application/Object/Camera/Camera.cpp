@@ -1,5 +1,7 @@
 ﻿#include "Camera.h"
 
+#include "../Player/Player.h"
+
 void Camera::Init()
 {
 	m_camera = std::make_shared<KdCamera>();
@@ -15,16 +17,23 @@ void Camera::Update()
 {
 	if (!m_camera) return;
 
+
+}
+
+void Camera::PostUpdate()
+{	
 	// ターゲット
 	Math::Matrix pTransMat;
 	Math::Vector3 playerPos;
 
-	const std::shared_ptr<const KdGameObject> player = m_player.lock();
+	const std::shared_ptr<const Player> player = m_player.lock();
 	if (player)
 	{
 		pTransMat = player->GetMatrix();
 		playerPos = player->GetPos();
 	}
+
+	Hit(playerPos);
 
 	UINT scrollType = 0;
 
@@ -60,9 +69,51 @@ void Camera::PreDraw()
 	m_camera->SetToShader();
 }
 
+void Camera::Hit(Math::Vector3 _playerPos)
+{
+	Math::Vector3 dir;
+	dir = _playerPos - m_camera->GetCameraMatrix().Translation();
+
+	// レイ判定用に変数を作成
+	KdCollider::RayInfo ray;
+
+	// レイの発射位置(座標)を設定
+	ray.m_pos = m_camera->GetCameraMatrix().Translation();
+
+	// レイの長さを設定
+	ray.m_range = dir.Length();
+
+	dir.Normalize();
+
+	// レイの発射方向
+	ray.m_dir = dir;
+
+	// 当たり判定をしたいタイプを設定
+	ray.m_type = KdCollider::TypeAlpha;
+
+	// レイに当たったオブジェクト情報を格納
+	std::list<KdCollider::CollisionResult> retrayList;
+
+	// 当たり判定
+	for (auto& obj : SceneManager::Instance().GetObjList())
+	{
+		if (obj->Intersects(ray, &retrayList))
+		{
+			obj->Hit();
+		}
+	}
+}
+
 const Math::Vector3 Camera::GetConvertWorldToScreenDetail(const Math::Vector3 _pos)
 {
 	Math::Vector3 barRes = Math::Vector3::Zero;
 	m_camera->ConvertWorldToScreenDetail(_pos, barRes);
 	return barRes;
+}
+
+const Math::Vector3 Camera::GetPos()
+{
+	Math::Vector3 pos = Math::Vector3::Zero;
+	pos = m_camera->GetCameraMatrix().Translation();
+	return pos;
 }

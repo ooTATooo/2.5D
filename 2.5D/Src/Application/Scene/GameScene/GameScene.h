@@ -1,9 +1,8 @@
 ﻿#pragma once
 
 #include"../BaseScene/BaseScene.h"
-
 class Player;
-class MonumentHp;
+class Monolith;
 
 class GameScene : public BaseScene
 {
@@ -25,6 +24,12 @@ private:
 	void Event() override;
 	void Init() override;
 
-	std::weak_ptr<Player> m_player;
-	std::weak_ptr<MonumentHp> m_monumentHp;
+	enum class EnemyType
+	{
+		Enemy01,
+		Enemy02,
+		Enemy03,
+	};
+	void AddEnemy(std::weak_ptr<Player> _player, std::weak_ptr<Monolith> _monolith, EnemyType _type);
+
 };

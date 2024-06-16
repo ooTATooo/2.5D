@@ -4,6 +4,10 @@ void AssetManager::Init()
 {
 	// ポリゴン====================
 	KdSquarePolygon::PivotType pivot = KdSquarePolygon::PivotType::Center_Bottom;
+	LoadMaterial("PlayerIdol", "Asset/Textures/Player/player.png");
+	SetMaterial("PlayerIdol", { 1.0f,1.0f }, pivot, { 9, 6 });
+	SetAnimation("PlayerIdol", 0, 3);
+
 	LoadMaterial("Enemy01Idol", "Asset/Textures/Enemy01/slime01.png");
 	SetMaterial("Enemy01Idol", { 1.0f,1.0f }, pivot, { 12, 1 });
 	SetAnimation("Enemy01Idol", 9, 3);
@@ -72,6 +76,14 @@ void AssetManager::Init()
 	LoadTex("BarBack", "Asset/Textures/HpBar/hpbar01.png");
 
 	LoadTex("Bar", "Asset/Textures/HpBar/hpbar02.png");
+
+	LoadTex("MapBackGround", "Asset/Textures/MiniMap/MapBack.png");
+
+	LoadTex("MapPlayerIcon", "Asset/Textures/MiniMap/PlayerIcon.png");
+	
+	LoadTex("MapMonolithPoint", "Asset/Textures/MiniMap/MonolithPoint.png");
+
+	LoadTex("MapEnemyPoint", "Asset/Textures/MiniMap/EnemyPoint.png");
 	// ============================
 
 }

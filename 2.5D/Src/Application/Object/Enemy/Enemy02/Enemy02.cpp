@@ -1,6 +1,8 @@
 ﻿#include "Enemy02.h"
 
 #include "../../Bullet/EnemyBullet/EnemyBullet.h"
+#include "../../Monolith/Monolith.h"
+#include "../../Player/Player.h"
 
 void Enemy02::Update()
 {
@@ -62,11 +64,11 @@ void Enemy02::Move()
 	// 対象座標ー自分の座標
 	Math::Vector3 dis;
 
-	const std::shared_ptr<KdGameObject> beacon = m_beacon.lock();
+	const std::shared_ptr<Monolith> monolith = m_monolith.lock();
 
-	if (beacon)
+	if (monolith)
 	{
-		dis = beacon->GetPos() - m_pos;
+		dis = monolith->GetPos() - m_pos;
 
 		m_moveVec = dis;
 
@@ -83,7 +85,7 @@ void Enemy02::Move()
 				if (shotWait <= 0)
 				{
 					std::shared_ptr<EnemyBullet> bullet = std::make_shared<EnemyBullet>();
-					bullet->shot(m_pos, beacon->GetPos());
+					bullet->shot(m_pos, monolith->GetPos());
 					SceneManager::Instance().AddObject(bullet);
 					shotWait = 60;
 				}
@@ -91,7 +93,7 @@ void Enemy02::Move()
 		}
 		else
 		{
-			const std::shared_ptr<KdGameObject> player = m_player.lock();
+			const std::shared_ptr<Player> player = m_player.lock();
 
 			if (player)
 			{

@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+class Monolith;
+class Player;
+
 class BaseEnemy :public KdGameObject
 {
 public:
@@ -13,18 +16,20 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
-	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
-	void SetBeacon(const std::weak_ptr<KdGameObject> _beacon) { m_beacon = _beacon; }
+	void SetPlayer(const std::weak_ptr<Player> _player) { m_player = _player; }
+	void SetBeacon(const std::weak_ptr<Monolith> _monolith) { m_monolith = _monolith; }
+	
+	const Math::Vector3 GetPos()const { return m_pos; }
 
 protected:
 
 	std::shared_ptr<KdSquarePolygon> m_poly = nullptr;
 
-	std::weak_ptr<KdGameObject> m_player;
-	std::weak_ptr<KdGameObject> m_beacon;
+	std::weak_ptr<Player> m_player;
+	std::weak_ptr<Monolith> m_monolith;
 
 	float m_moveSpd = 0;
-	Math::Vector3 m_pos = m_mWorld.Translation();
+	Math::Vector3 m_pos = Math::Vector3::Zero;
 	Math::Vector3 m_moveVec = Math::Vector3::Zero;
 	Math::Matrix m_rotMatX = Math::Matrix::Identity;
 	Math::Matrix m_rotMatY = Math::Matrix::Identity;

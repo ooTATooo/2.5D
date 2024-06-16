@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+class Camera;
+
 class Player :public KdGameObject
 {
 public:
@@ -13,12 +15,18 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 
+	void Move();
 	void MapHit();
 	void ShotBullet();
 
+	// セッター
 	void SetPillar(const std::weak_ptr<KdGameObject> _pillar) { m_pillar = _pillar; }
 	void SetGround(const std::weak_ptr<KdGameObject> _ground) { m_ground = _ground; }
-	void SetCamera(const std::weak_ptr<KdCamera> _camera) { m_camera = _camera; }
+	void SetCamera(const std::weak_ptr<Camera> _camera) { m_camera = _camera; }
+
+	// ゲッター
+	const Math::Vector3 GetPos()const { return m_pos; }
+	const AnimationManager::Dir GetDir()const { return m_dir; }
 
 private:
 
@@ -26,19 +34,18 @@ private:
 
 	std::weak_ptr<KdGameObject> m_pillar;
 	std::weak_ptr<KdGameObject> m_ground;
-	std::weak_ptr<KdCamera> m_camera;
+	std::weak_ptr<Camera> m_camera;
 
 	float m_moveSpd = 0;
 	Math::Vector3 m_pos = Math::Vector3::Zero;;
 	Math::Vector3 m_moveVec = Math::Vector3::Zero;
-	Math::Matrix m_rotMatX = Math::Matrix::Identity;
-	Math::Matrix m_rotMatY = Math::Matrix::Identity;
-	Math::Matrix m_transMat = Math::Matrix::Identity;
 	float m_angX = 0;
 	float m_angY = 0;
 
-	float m_anime = 0;
-
 	float shotWait= 0;
 
+	AnimationManager::CharaState m_state;
+	AnimationManager::Dir m_dir;
+	std::shared_ptr<AnimationManager> m_anime = nullptr;
+	bool m_animeFlg;
 };

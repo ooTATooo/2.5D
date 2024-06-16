@@ -124,17 +124,32 @@
     <Filter Include="Src\Application\Object\Camera">
       <UniqueIdentifier>{5881d598-c277-4272-8baf-1489364403f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Monument">
-      <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\HpBar">
       <UniqueIdentifier>{4196582b-e5b1-46f7-824a-8b524c0be4a0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\HpBar\EnemyHp">
-      <UniqueIdentifier>{fb2050fe-3f05-4b85-bbfb-fdc60f002cc7}</UniqueIdentifier>
+    <Filter Include="Src\Application\Object\HpBar\BossHp">
+      <UniqueIdentifier>{6b2941cd-54b7-4d7a-9dc7-b8299292e91c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\HpBar\MonumentHp">
+    <Filter Include="Src\Application\Object\Map">
+      <UniqueIdentifier>{f6ccf916-083e-4cc3-afb9-ce4c318d6ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Map\MapBackGround">
+      <UniqueIdentifier>{2e3f5c28-9ed3-439a-b644-493cd319d5fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Map\MapPlayerIcon">
+      <UniqueIdentifier>{b8b701ef-82e9-4e91-a70b-486daa9ea178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Map\MapMonolithPoint">
+      <UniqueIdentifier>{a7fc60a5-90d9-4114-9633-e1dec4a196ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\HpBar\MonolithHp">
       <UniqueIdentifier>{7be6010c-6c66-4b39-84c1-7cbd8e6d1202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Monolith">
+      <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Map\MapEnemyPoint">
+      <UniqueIdentifier>{ee88a9d5-6237-4685-9042-4a777941ecf1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -351,20 +366,35 @@
     <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h">
       <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Monument\Monument.h">
-      <Filter>Src\Application\Object\Monument</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\HpBar\MonumentHp\MonumentHP.h">
-      <Filter>Src\Application\Object\HpBar\MonumentHp</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\HpBar\EnemyHp\EnemyHp.h">
-      <Filter>Src\Application\Object\HpBar\EnemyHp</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\HpBar\BaseHpBar.h">
       <Filter>Src\Application\Object\HpBar</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Camera\Camera.h">
       <Filter>Src\Application\Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\HpBar\BossHp\BossHp.h">
+      <Filter>Src\Application\Object\HpBar\BossHp</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Map\BaseMap.h">
+      <Filter>Src\Application\Object\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Map\MapBackGround\MapBackGround.h">
+      <Filter>Src\Application\Object\Map\MapBackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Map\MapPlayerIcon\MapPlayerIcon.h">
+      <Filter>Src\Application\Object\Map\MapPlayerIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.h">
+      <Filter>Src\Application\Object\HpBar\MonolithHp</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Monolith\Monolith.h">
+      <Filter>Src\Application\Object\Monolith</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Map\MapMonolithPoint\MapMonolithPoint.h">
+      <Filter>Src\Application\Object\Map\MapMonolithPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Map\MapEnemyPoint\MapEnemyPoint.h">
+      <Filter>Src\Application\Object\Map\MapEnemyPoint</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -554,20 +584,35 @@
     <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp">
       <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Monument\Monument.cpp">
-      <Filter>Src\Application\Object\Monument</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\HpBar\MonumentHp\MonumentHP.cpp">
-      <Filter>Src\Application\Object\HpBar\MonumentHp</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\HpBar\EnemyHp\EnemyHp.cpp">
-      <Filter>Src\Application\Object\HpBar\EnemyHp</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\HpBar\BaseHpBar.cpp">
       <Filter>Src\Application\Object\HpBar</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Camera\Camera.cpp">
       <Filter>Src\Application\Object\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\HpBar\BossHp\BossHp.cpp">
+      <Filter>Src\Application\Object\HpBar\BossHp</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Map\BaseMap.cpp">
+      <Filter>Src\Application\Object\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Map\MapBackGround\MapBackGround.cpp">
+      <Filter>Src\Application\Object\Map\MapBackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Map\MapPlayerIcon\MapPlayerIcon.cpp">
+      <Filter>Src\Application\Object\Map\MapPlayerIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.cpp">
+      <Filter>Src\Application\Object\HpBar\MonolithHp</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Monolith\Monolith.cpp">
+      <Filter>Src\Application\Object\Monolith</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Map\MapMonolithPoint\MapMonolithPoint.cpp">
+      <Filter>Src\Application\Object\Map\MapMonolithPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Map\MapEnemyPoint\MapEnemyPoint.cpp">
+      <Filter>Src\Application\Object\Map\MapEnemyPoint</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,43 +1,24 @@
 ﻿#include "Player.h"
 
-#include "../../Object/Bullet/PlayerBullet01/PlayerBullet01.h"
+#include "../Camera/Camera.h"
+#include "../Bullet/PlayerBullet01/PlayerBullet01.h"
 
 void Player::Update()
 {
-	int run[3] = { 0,1,2 };
-	m_poly->SetUVRect(run[(int)m_anime]);
-
-	m_anime += 0.1f;
-	if (m_anime >= 3)
+	switch (m_state)
 	{
-		m_anime = 0;
+	case AnimationManager::CharaState::Idol:
+		m_anime->CreateCharaAnimation("Player", m_state, m_dir, m_poly);
+		break;
+	case AnimationManager::CharaState::Attack:
+		m_anime->CreateCharaAnimation("Player", m_state, m_dir, m_poly);
+		break;
+	case AnimationManager::CharaState::Run:
+		m_anime->CreateCharaAnimation("Player", m_state, m_dir, m_poly);
+		break;
 	}
 
-	m_moveVec = Math::Vector3::Zero;
-
-	if (GetAsyncKeyState('W') & 0x8000)
-	{
-		m_moveVec.z = 1.0f;
-	}
-	if (GetAsyncKeyState('S') & 0x8000)
-	{
-		m_moveVec.z = -1.0f;
-	}
-	if (GetAsyncKeyState('A') & 0x8000)
-	{
-		m_moveVec.x = -1.0f;
-		m_angX = 20;
-		m_angY = 0;
-	}
-	if (GetAsyncKeyState('D') & 0x8000)
-	{
-		m_moveVec.x = 1.0f;
-		m_angX = -20;
-		m_angY = 180;
-	}
-
-	m_moveVec.Normalize();
-	m_pos += m_moveVec *= m_moveSpd;
+	Move();
 
 	ShotBullet();
 }
@@ -46,31 +27,27 @@ void Player::PostUpdate()
 {
 	MapHit();
 
-	m_rotMatX = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
+	ImGuiManager::Instance().SetPlayerPos(m_pos);
 
-	m_rotMatY = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_angY));
+	Math::Matrix m_rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
 
-	m_transMat = Math::Matrix::CreateTranslation(m_pos);
+	Math::Matrix m_transMat = Math::Matrix::CreateTranslation(m_pos);
 
-	m_mWorld = m_rotMatX * m_rotMatY * m_transMat;
+	m_mWorld = m_rotMat * m_transMat;
 
 }
 
 void Player::Init()
 {
 	m_poly = std::make_shared<KdSquarePolygon>();
-	m_poly->SetMaterial("Asset/Textures/Player/player.png");
-	m_poly->SetSplit(9, 6);
-	m_poly->SetPivot(KdSquarePolygon::PivotType::Center_Bottom);
 	m_moveSpd = 0.1f;
-	m_pos = { 0,0,0 };
+	m_pos = { 0,0,-2 };
 	m_moveVec = Math::Vector3::Zero;
-	m_rotMatX = Math::Matrix::Identity;
-	m_rotMatY = Math::Matrix::Identity;
-	m_transMat = Math::Matrix::Identity;
-	m_angX = -20;
-	m_angY = 180;
-	m_anime = 0;
+	m_angX = 20;
+
+	m_anime = std::make_shared<AnimationManager>();
+	m_state = AnimationManager::CharaState::Idol;
+	m_dir = AnimationManager::Dir::Left;
 
 	m_pCollider = std::make_unique<KdCollider>();
 	m_pCollider->RegisterCollisionShape("player", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
@@ -87,6 +64,37 @@ void Player::GenerateDepthMapFromLight()
 void Player::DrawLit()
 {
 	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_poly, m_mWorld);
+}
+
+void Player::Move()
+{
+	m_state = AnimationManager::CharaState::Idol;
+
+	m_moveVec = Math::Vector3::Zero;
+
+	if (GetAsyncKeyState('W') & 0x8000)
+	{
+		m_moveVec.z = 1.0f;
+	}
+	if (GetAsyncKeyState('S') & 0x8000)
+	{
+		m_moveVec.z = -1.0f;
+	}
+	if (GetAsyncKeyState('A') & 0x8000)
+	{
+		m_moveVec.x = -1.0f;
+		m_state = AnimationManager::CharaState::Idol;
+		m_dir = AnimationManager::Dir::Left;
+	}
+	if (GetAsyncKeyState('D') & 0x8000)
+	{
+		m_moveVec.x = 1.0f;
+		m_state = AnimationManager::CharaState::Idol;
+		m_dir = AnimationManager::Dir::Right;
+	}
+
+	m_moveVec.Normalize();
+	m_pos += m_moveVec *= m_moveSpd;
 }
 
 void Player::MapHit()
@@ -152,14 +160,14 @@ void Player::ShotBullet()
 			GetCursorPos(&mousePos);
 			ScreenToClient(Application::Instance().GetWindowHandle(), &mousePos);
 
-			std::shared_ptr<KdCamera> camera = m_camera.lock();
+			std::shared_ptr<Camera> camera = m_camera.lock();
 			if (camera)
 			{
 				// レイの発射方向を求める
-				Math::Vector3 cameraPos = camera->GetCameraMatrix().Translation();
+				Math::Vector3 cameraPos = camera->GetPos();
 				Math::Vector3 rayDir = Math::Vector3::Zero;
 				float rayRange = 100.0f;
-				camera->GenerateRayInfoFromClientPos(mousePos, cameraPos, rayDir, rayRange);
+				camera->GetCamera()->GenerateRayInfoFromClientPos(mousePos, cameraPos, rayDir, rayRange);
 
 				// レイの衝突位置を求める
 				const std::shared_ptr<KdGameObject> ground = m_ground.lock();
