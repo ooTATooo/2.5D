@@ -1,6 +1,6 @@
 ﻿#include "MapMonolithPoint.h"
 
-#include "../../Monolith/Monolith.h"
+#include "../../Stage/Monolith/Monolith.h"
 
 void MapMonolithPoint::Update()
 {

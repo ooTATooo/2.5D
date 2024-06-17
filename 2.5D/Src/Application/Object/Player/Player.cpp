@@ -49,7 +49,7 @@ void Player::Init()
 
 	m_anime = std::make_shared<AnimationManager>();
 	m_state = AnimationManager::CharaState::Idol;
-	m_dir = AnimationManager::Dir::Left;
+	m_dir = AnimationManager::Dir::Right;
 
 	m_pCollider = std::make_unique<KdCollider>();
 	m_pCollider->RegisterCollisionShape("player", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
@@ -85,13 +85,13 @@ void Player::Move()
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
 		m_moveVec.x = -1.0f;
-		m_state = AnimationManager::CharaState::Idol;
+		m_state = AnimationManager::CharaState::Run;
 		m_dir = AnimationManager::Dir::Left;
 	}
 	if (GetAsyncKeyState('D') & 0x8000)
 	{
 		m_moveVec.x = 1.0f;
-		m_state = AnimationManager::CharaState::Idol;
+		m_state = AnimationManager::CharaState::Run;
 		m_dir = AnimationManager::Dir::Right;
 	}
 
@@ -113,7 +113,7 @@ void Player::MapHit()
 
 	// デバッグ表示
 	Math::Color color = { 1,1,0,1 };
-	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
+	//m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
 
 	// 球に当たったオブジェクトの情報を格納
 	std::list<KdCollider::CollisionResult> retSphereList;

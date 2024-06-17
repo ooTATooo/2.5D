@@ -4,17 +4,17 @@ void AssetManager::Init()
 {
 	// ポリゴン====================
 	KdSquarePolygon::PivotType pivot = KdSquarePolygon::PivotType::Center_Bottom;
-	LoadMaterial("PlayerIdol", "Asset/Textures/Player/player.png");
-	SetMaterial("PlayerIdol", { 1.0f,1.0f }, pivot, 9, 6);
-	SetAnimation("PlayerIdol", 51, 3);
+	LoadMaterial("PlayerIdol", "Asset/Textures/Player/Idol.png");
+	SetMaterial("PlayerIdol", { 1.5f,1.3f }, pivot, 4, 1);
+	SetAnimation("PlayerIdol", 0, 4);
 
-	//LoadMaterial("PlayerAttack", "Asset/Textures/Player/player.png");
-	//SetMaterial("PlayerAttack", { 1.0f,1.0f }, pivot, 9, 6);
-	//SetAnimation("PlayerAttack", 0, 3);
+	LoadMaterial("PlayerAttack", "Asset/Textures/Player/attack.png");
+	SetMaterial("PlayerAttack", { 4.0f,2.0f }, pivot, 8, 1);
+	SetAnimation("PlayerAttack", 0, 8);
 
-	//LoadMaterial("PlayerRun", "Asset/Textures/Player/player.png");
-	//SetMaterial("PlayerRun", { 1.0f,1.0f }, pivot, 9, 6);
-	//SetAnimation("PlayerRun", 0, 3);
+	LoadMaterial("PlayerRun", "Asset/Textures/Player/run.png");
+	SetMaterial("PlayerRun", { 1.0f,1.2f }, pivot, 8, 1);
+	SetAnimation("PlayerRun", 0, 8);
 
 	LoadMaterial("Enemy01Idol", "Asset/Textures/Enemy01/slime01.png");
 	SetMaterial("Enemy01Idol", { 1.0f,1.0f }, pivot, 12, 1);
