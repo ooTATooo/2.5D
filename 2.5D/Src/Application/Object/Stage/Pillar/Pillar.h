@@ -1,6 +1,8 @@
 ﻿#pragma once
 
-class Pillar :public KdGameObject
+#include "../BaseStage.h"
+
+class Pillar :public BaseStage
 {
 public:
 
@@ -11,15 +13,11 @@ public:
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
-	void Hit()override;
+	void OnHit()override;
 
 	void SetPos(const Math::Vector3 _pos) { m_mWorld.Translation(_pos); }
 
 private:
 
 	std::shared_ptr<KdModelData> m_model;
-
-	float m_alpha;
-
-	Math::Color m_color;
 };

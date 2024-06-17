@@ -23,7 +23,7 @@ private:
 	std::unordered_map<std::string, KdSquarePolygon> m_materialList;
 	std::unordered_map<std::string, std::vector<int>> m_animationList;
 	void LoadMaterial(std::string _name, std::string _path) { m_materialList[_name].SetMaterial(_path); }
-	void SetMaterial(std::string _name, Math::Vector2 _scale, KdSquarePolygon::PivotType _pivot, Math::Vector2 _split);
+	void SetMaterial(std::string _name, Math::Vector2 _scale, KdSquarePolygon::PivotType _pivot, UINT _splitX, UINT _splitY);
 	void SetAnimation(std::string _name, int _start, int _count);
 
 	// モデル

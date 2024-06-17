@@ -76,17 +76,8 @@
     <Filter Include="Src\Application\Object\Player">
       <UniqueIdentifier>{d7ef74b9-8b74-4675-97d6-e8a4c00167cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Ground">
-      <UniqueIdentifier>{4e823812-3b8f-4dca-be7f-689759929441}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\WallFrame">
-      <UniqueIdentifier>{ed09bb3e-797d-4752-bb0c-a9ae501327fc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\ImGuiManager">
       <UniqueIdentifier>{bce72ed7-05ad-4001-afd1-6f9f12cbf0ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Pillar">
-      <UniqueIdentifier>{169121e0-d050-4477-a1f1-f49c983deef4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Object\Enemy">
       <UniqueIdentifier>{4342e5db-e6f9-4908-b199-ba7badf18af3}</UniqueIdentifier>
@@ -118,9 +109,6 @@
     <Filter Include="Src\Application\Object\Enemy\Boss">
       <UniqueIdentifier>{a432c696-68d8-48fc-bf51-ddf88ae83473}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\BackGround">
-      <UniqueIdentifier>{9e658cc7-b1f7-4ffa-b666-1f7f32185559}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Camera">
       <UniqueIdentifier>{5881d598-c277-4272-8baf-1489364403f9}</UniqueIdentifier>
     </Filter>
@@ -145,11 +133,29 @@
     <Filter Include="Src\Application\Object\HpBar\MonolithHp">
       <UniqueIdentifier>{7be6010c-6c66-4b39-84c1-7cbd8e6d1202}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Monolith">
-      <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Map\MapEnemyPoint">
       <UniqueIdentifier>{ee88a9d5-6237-4685-9042-4a777941ecf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Stage">
+      <UniqueIdentifier>{88797548-50f5-4130-b11a-291298d2cdcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Stage\Ground">
+      <UniqueIdentifier>{4e823812-3b8f-4dca-be7f-689759929441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Stage\Monolith">
+      <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Stage\Pillar">
+      <UniqueIdentifier>{169121e0-d050-4477-a1f1-f49c983deef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Stage\WallFrame">
+      <UniqueIdentifier>{ed09bb3e-797d-4752-bb0c-a9ae501327fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Stage\BackGround">
+      <UniqueIdentifier>{9e658cc7-b1f7-4ffa-b666-1f7f32185559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\EnemyManager">
+      <UniqueIdentifier>{4e21400f-7222-4c46-b713-9f3befe2aa0c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -321,17 +327,8 @@
     <ClInclude Include="Src\Application\Object\Player\Player.h">
       <Filter>Src\Application\Object\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Ground\Ground.h">
-      <Filter>Src\Application\Object\Ground</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\WallFawme\WallFrame.h">
-      <Filter>Src\Application\Object\WallFrame</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h">
       <Filter>Src\Application\ImGuiManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Pillar\Pillar.h">
-      <Filter>Src\Application\Object\Pillar</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Enemy\Enemy01\Enemy01.h">
       <Filter>Src\Application\Object\Enemy\Enemy01</Filter>
@@ -360,9 +357,6 @@
     <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h">
       <Filter>Src\Application\Object\Enemy\Boss</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\BackGround\BackGround.h">
-      <Filter>Src\Application\Object\BackGround</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h">
       <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
     </ClInclude>
@@ -387,14 +381,32 @@
     <ClInclude Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.h">
       <Filter>Src\Application\Object\HpBar\MonolithHp</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Monolith\Monolith.h">
-      <Filter>Src\Application\Object\Monolith</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Map\MapMonolithPoint\MapMonolithPoint.h">
       <Filter>Src\Application\Object\Map\MapMonolithPoint</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Map\MapEnemyPoint\MapEnemyPoint.h">
       <Filter>Src\Application\Object\Map\MapEnemyPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Stage\BaseStage.h">
+      <Filter>Src\Application\Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Stage\BackGround\BackGround.h">
+      <Filter>Src\Application\Object\Stage\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Stage\Ground\Ground.h">
+      <Filter>Src\Application\Object\Stage\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Stage\Monolith\Monolith.h">
+      <Filter>Src\Application\Object\Stage\Monolith</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Stage\Pillar\Pillar.h">
+      <Filter>Src\Application\Object\Stage\Pillar</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Stage\WallFawme\WallFrame.h">
+      <Filter>Src\Application\Object\Stage\WallFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\EnemyManager\EnemyManager.h">
+      <Filter>Src\Application\EnemyManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -539,17 +551,8 @@
     <ClCompile Include="Src\Application\Object\Player\Player.cpp">
       <Filter>Src\Application\Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Ground\Ground.cpp">
-      <Filter>Src\Application\Object\Ground</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\WallFawme\WallFrame.cpp">
-      <Filter>Src\Application\Object\WallFrame</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp">
       <Filter>Src\Application\ImGuiManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Pillar\Pillar.cpp">
-      <Filter>Src\Application\Object\Pillar</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy\Enemy01\Enemy01.cpp">
       <Filter>Src\Application\Object\Enemy\Enemy01</Filter>
@@ -578,9 +581,6 @@
     <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp">
       <Filter>Src\Application\Object\Enemy\Boss</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\BackGround\BackGround.cpp">
-      <Filter>Src\Application\Object\BackGround</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp">
       <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
     </ClCompile>
@@ -605,14 +605,32 @@
     <ClCompile Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.cpp">
       <Filter>Src\Application\Object\HpBar\MonolithHp</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Monolith\Monolith.cpp">
-      <Filter>Src\Application\Object\Monolith</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Map\MapMonolithPoint\MapMonolithPoint.cpp">
       <Filter>Src\Application\Object\Map\MapMonolithPoint</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Map\MapEnemyPoint\MapEnemyPoint.cpp">
       <Filter>Src\Application\Object\Map\MapEnemyPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Stage\BaseStage.cpp">
+      <Filter>Src\Application\Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Stage\BackGround\BackGround.cpp">
+      <Filter>Src\Application\Object\Stage\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Stage\Ground\Ground.cpp">
+      <Filter>Src\Application\Object\Stage\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Stage\Monolith\Monolith.cpp">
+      <Filter>Src\Application\Object\Stage\Monolith</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Stage\Pillar\Pillar.cpp">
+      <Filter>Src\Application\Object\Stage\Pillar</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Stage\WallFawme\WallFrame.cpp">
+      <Filter>Src\Application\Object\Stage\WallFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\EnemyManager\EnemyManager.cpp">
+      <Filter>Src\Application\EnemyManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

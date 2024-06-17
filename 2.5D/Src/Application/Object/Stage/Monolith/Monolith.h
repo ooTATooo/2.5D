@@ -1,6 +1,8 @@
 ﻿#pragma once
 
-class Monolith :public KdGameObject
+#include "../BaseStage.h"
+
+class Monolith :public BaseStage
 {
 public:
 

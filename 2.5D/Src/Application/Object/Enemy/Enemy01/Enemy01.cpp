@@ -1,6 +1,6 @@
 ﻿#include "Enemy01.h"
 
-#include "../../Monolith/Monolith.h"
+#include "../../Stage/Monolith/Monolith.h"
 #include "../../Player/Player.h"
 
 void Enemy01::Update()
@@ -51,6 +51,11 @@ void Enemy01::Init()
 		m_pCollider = std::make_unique<KdCollider>();
 		m_pCollider->RegisterCollisionShape("enemy01", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
 	}
+}
+
+void Enemy01::OnHit()
+{
+	m_isExpired = true;
 }
 
 void Enemy01::Move()

@@ -21,7 +21,7 @@ void Camera::Update()
 }
 
 void Camera::PostUpdate()
-{	
+{
 	// ターゲット
 	Math::Matrix pTransMat;
 	Math::Vector3 playerPos;
@@ -99,7 +99,8 @@ void Camera::Hit(Math::Vector3 _playerPos)
 	{
 		if (obj->Intersects(ray, &retrayList))
 		{
-			obj->Hit();
+			obj->OnHit();
+			break;
 		}
 	}
 }

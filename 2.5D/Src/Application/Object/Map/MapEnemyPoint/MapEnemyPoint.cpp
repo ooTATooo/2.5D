@@ -10,6 +10,10 @@ void MapEnemyPoint::Update()
 	{
 		enemyPos = Convert2D(enemy->GetPos());
 	}
+	else
+	{
+		m_isExpired = true;
+	}
 
 	m_pos = enemyPos;
 }

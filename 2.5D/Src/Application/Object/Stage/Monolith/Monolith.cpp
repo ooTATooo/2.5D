@@ -1,7 +1,7 @@
 ﻿#include "Monolith.h"
 
-#include "../Camera/Camera.h"
-#include "../HpBar/MonolithHp/MonolithHP.h"
+#include "../../Camera/Camera.h"
+#include "../../HpBar/MonolithHp/MonolithHP.h"
 
 void Monolith::Update()
 {
@@ -36,6 +36,10 @@ void Monolith::Init()
 	alpha = 0.3f;
 	m_color01 = { 0.5f,1,1,alpha };
 	m_color02 = { 0,0,0,1 };
+
+	m_pCollider = std::make_unique<KdCollider>();
+	m_pCollider->RegisterCollisionShape("Monolith", m_model01, KdCollider::TypeGround);
+
 }
 
 void Monolith::GenerateDepthMapFromLight()

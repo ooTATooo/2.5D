@@ -1,6 +1,8 @@
 ﻿#pragma once
 
-class BackGround:public KdGameObject
+#include "../BaseStage.h"
+
+class BackGround:public BaseStage
 {
 public:
 

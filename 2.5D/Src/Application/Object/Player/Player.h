@@ -17,6 +17,7 @@ public:
 
 	void Move();
 	void MapHit();
+	void EnemyHit();
 	void ShotBullet();
 
 	// セッター

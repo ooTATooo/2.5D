@@ -1,6 +1,8 @@
 ﻿#pragma once
 
-class WallFrame :public KdGameObject
+#include "../BaseStage.h"
+
+class WallFrame :public BaseStage
 {
 public:
 
@@ -11,16 +13,12 @@ public:
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
-	void Hit()override;
+	void OnHit()override;
 
 private:
 
 	std::shared_ptr<KdModelData> m_model01;
 	std::shared_ptr<KdModelData> m_model02;
 	std::shared_ptr<KdModelData> m_modelHit;
-
-	float m_alpha;
-
-	Math::Color m_color;
 
 };

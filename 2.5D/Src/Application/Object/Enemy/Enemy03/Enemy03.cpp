@@ -1,6 +1,6 @@
 ﻿#include "Enemy03.h"
 
-#include "../../Monolith/Monolith.h"
+#include "../../Stage/Monolith/Monolith.h"
 #include "../../Player/Player.h"
 
 void Enemy03::Update()

@@ -1,7 +1,7 @@
 ﻿#include "Enemy02.h"
 
 #include "../../Bullet/EnemyBullet/EnemyBullet.h"
-#include "../../Monolith/Monolith.h"
+#include "../../Stage/Monolith/Monolith.h"
 #include "../../Player/Player.h"
 
 void Enemy02::Update()

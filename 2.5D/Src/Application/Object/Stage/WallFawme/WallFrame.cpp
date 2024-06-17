@@ -2,7 +2,15 @@
 
 void WallFrame::PreUpdate()
 {
-	m_alpha = 1.0f;
+	if (!m_alphaFlg)
+	{
+		m_alpha += m_alphaSpd;
+		if (m_alpha >= 1.0f)
+		{
+			m_alpha = 1.0f;
+		}
+	}
+	m_alphaFlg = false;
 }
 
 void WallFrame::Init()
@@ -14,8 +22,7 @@ void WallFrame::Init()
 	m_modelHit = std::make_shared<KdModelData>();
 	m_modelHit->Load("Asset/Models/WallFrame/WallHit.gltf");
 
-	m_alpha = 1.0f;
-	m_color = { 1.0f,1.0f,1.0f,m_alpha };
+	BaseStage::Init();
 
 	m_pCollider = std::make_unique<KdCollider>();
 	m_pCollider->RegisterCollisionShape("ModelHit", m_modelHit, KdCollider::TypeGround | KdCollider::TypeAlpha);
@@ -35,7 +42,11 @@ void WallFrame::DrawLit()
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model02, m_mWorld, m_color);
 }
 
-void WallFrame::Hit()
+void WallFrame::OnHit()
 {
-	m_alpha = 0.3f;
+	m_alphaFlg = true;
+	if (m_alpha > 0.2f)
+	{
+		m_alpha -= m_alphaSpd;
+	}
 }

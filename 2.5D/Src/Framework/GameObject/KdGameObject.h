@@ -44,7 +44,7 @@ public:
 	//virtual void SetPos(const Math::Vector3& pos) { m_mWorld.Translation(pos); }
 	//virtual Math::Vector3 GetPos() const { return m_mWorld.Translation(); }
 
-	virtual void Hit() {}
+	virtual void OnHit() {}
 
 	// 拡大率を変更する関数
 	void SetScale(float scalar);
