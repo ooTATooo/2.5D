@@ -41,7 +41,10 @@ public:
 
 	virtual void SetAsset(const std::string&) {}
 
-	//virtual void SetPos(const Math::Vector3& pos) { m_mWorld.Translation(pos); }
+	//virtual void SetPos(const Math::Vector3& pos) { m_pos = pos; }
+	//virtual Math::Vector3 GetPos() const { return m_pos; }
+
+	virtual void SetPos(const Math::Vector3& pos) { m_mWorld.Translation(pos); }
 	//virtual Math::Vector3 GetPos() const { return m_mWorld.Translation(); }
 
 	virtual void OnHit() {}

@@ -29,7 +29,6 @@ protected:
 	float m_angY = 0;
 	bool m_alive = false;
 
-	AnimationManager::BulletState m_state;
-	std::shared_ptr<AnimationManager> m_anime = nullptr;
+	std::shared_ptr<Animation> m_anime = nullptr;
 
 };

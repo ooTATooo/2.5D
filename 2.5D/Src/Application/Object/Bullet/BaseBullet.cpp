@@ -72,7 +72,7 @@ void BaseBullet::Init()
 	m_moveSpd = 0.1f;
 	m_anime = 0;
 	m_alive = false;
-	m_state = AnimationManager::BulletState::None;
+	//m_state = Animation::BulletState::None;
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 }
 

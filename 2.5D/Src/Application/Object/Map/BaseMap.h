@@ -22,7 +22,7 @@ protected:
 	Math::Vector3 m_moveVec;
 	Math::Vector3 m_scale;
 
-	AnimationManager::Dir m_dir;
+	Animation::Dir m_dir;
 
 	Math::Rectangle m_rect;
 	Math::Color m_color;

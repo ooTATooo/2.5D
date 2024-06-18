@@ -156,7 +156,7 @@
     <ClInclude Include="..\Library\tinygltf\stb_image.h" />
     <ClInclude Include="..\Library\tinygltf\stb_image_write.h" />
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
-    <ClInclude Include="Src\Application\AnimationManager\AnimationManager.h" />
+    <ClInclude Include="Src\Application\Animation\Animation.h" />
     <ClInclude Include="Src\Application\AssetManager\AssetManager.h" />
     <ClInclude Include="Src\Application\EnemyManager\EnemyManager.h" />
     <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h" />
@@ -165,6 +165,8 @@
     <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h" />
     <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h" />
     <ClInclude Include="Src\Application\Object\Camera\Camera.h" />
+    <ClInclude Include="Src\Application\Object\Effect\BaseEffect.h" />
+    <ClInclude Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.h" />
     <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Enemy01\Enemy01.h" />
@@ -234,7 +236,7 @@
     <ClCompile Include="..\Library\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="Src\Application\AnimationManager\AnimationManager.cpp" />
+    <ClCompile Include="Src\Application\Animation\Animation.cpp" />
     <ClCompile Include="Src\Application\AssetManager\AssetManager.cpp" />
     <ClCompile Include="Src\Application\EnemyManager\EnemyManager.cpp" />
     <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp" />
@@ -243,6 +245,8 @@
     <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp" />
     <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp" />
     <ClCompile Include="Src\Application\Object\Camera\Camera.cpp" />
+    <ClCompile Include="Src\Application\Object\Effect\BaseEffect.cpp" />
+    <ClCompile Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Enemy01\Enemy01.cpp" />

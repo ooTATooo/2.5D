@@ -16,8 +16,6 @@ void Camera::Init()
 void Camera::Update()
 {
 	if (!m_camera) return;
-
-
 }
 
 void Camera::PostUpdate()

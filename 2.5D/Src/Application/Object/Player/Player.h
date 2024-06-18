@@ -6,6 +6,14 @@ class Player :public KdGameObject
 {
 public:
 
+	enum Dir
+	{
+		Up = 1 << 0,
+		Down = 1 << 1,
+		Left = 1 << 2,
+		Right = 1 << 3,
+	};
+
 	Player() { Init(); }
 	~Player()override {}
 
@@ -27,7 +35,7 @@ public:
 
 	// ゲッター
 	const Math::Vector3 GetPos()const { return m_pos; }
-	const AnimationManager::Dir GetDir()const { return m_dir; }
+	const Animation::Dir GetDir()const { return m_animeDir; }
 
 private:
 
@@ -38,15 +46,18 @@ private:
 	std::weak_ptr<Camera> m_camera;
 
 	float m_moveSpd = 0;
-	Math::Vector3 m_pos = Math::Vector3::Zero;;
-	Math::Vector3 m_moveVec = Math::Vector3::Zero;
+	Math::Vector3 m_pos;
+	Math::Vector3 m_moveVec;
+	Math::Vector3 m_scale;
 	float m_angX = 0;
 	float m_angY = 0;
+	UINT m_dir;
 
 	float shotWait= 0;
 
-	AnimationManager::CharaState m_state;
-	AnimationManager::Dir m_dir;
-	std::shared_ptr<AnimationManager> m_anime = nullptr;
+	Animation::State m_state;
+	Animation::Dir m_animeDir;
+	std::shared_ptr<Animation> m_anime = nullptr;
 	bool m_animeFlg;
+
 };

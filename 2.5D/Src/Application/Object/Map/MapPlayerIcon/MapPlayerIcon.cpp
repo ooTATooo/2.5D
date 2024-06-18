@@ -31,8 +31,8 @@ void MapPlayerIcon::Init()
 	BaseMap::Init();
 	m_tex = AssetManager::Instance().GetTex("MapPlayerIcon");
 	m_pos = {};
-	m_scale = { 0.2f,0.2f,0.2f };
-	m_dir = AnimationManager::Dir::Left;
+	m_scale = { -0.2f,0.2f,0.2f };
+	m_dir = Animation::Dir::Left;
 }
 
 void MapPlayerIcon::DrawSprite()

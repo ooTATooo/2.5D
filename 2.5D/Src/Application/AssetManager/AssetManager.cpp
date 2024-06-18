@@ -6,74 +6,79 @@ void AssetManager::Init()
 	KdSquarePolygon::PivotType pivot = KdSquarePolygon::PivotType::Center_Bottom;
 	LoadMaterial("PlayerIdol", "Asset/Textures/Player/Idol.png");
 	SetMaterial("PlayerIdol", { 1.5f,1.3f }, pivot, 4, 1);
-	SetAnimation("PlayerIdol", 0, 4);
+	SetAnimation("PlayerIdol", 0, 4, 0.1f);
 
 	LoadMaterial("PlayerAttack", "Asset/Textures/Player/attack.png");
 	SetMaterial("PlayerAttack", { 4.0f,2.0f }, pivot, 8, 1);
-	SetAnimation("PlayerAttack", 0, 8);
+	SetAnimation("PlayerAttack", 0, 8, 0.3f);
 
 	LoadMaterial("PlayerRun", "Asset/Textures/Player/run.png");
 	SetMaterial("PlayerRun", { 1.0f,1.2f }, pivot, 8, 1);
-	SetAnimation("PlayerRun", 0, 8);
+	SetAnimation("PlayerRun", 0, 8, 0.1f);
 
 	LoadMaterial("Enemy01Idol", "Asset/Textures/Enemy01/slime01.png");
 	SetMaterial("Enemy01Idol", { 1.0f,1.0f }, pivot, 12, 1);
-	SetAnimation("Enemy01Idol", 9, 3);
+	SetAnimation("Enemy01Idol", 9, 3, 0.1f);
 
 	LoadMaterial("Enemy01Attack", "Asset/Textures/Enemy01/slime01.png");
 	SetMaterial("Enemy01Attack", { 1.0f,1.0f }, pivot, 12, 1);
-	SetAnimation("Enemy01Attack", 4, 5);
+	SetAnimation("Enemy01Attack", 4, 5, 0.1f);
 
 	LoadMaterial("Enemy01Run", "Asset/Textures/Enemy01/slime01.png");
 	SetMaterial("Enemy01Run", { 1.0f,1.0f }, pivot, 12, 1);
-	SetAnimation("Enemy01Run", 0, 4);
+	SetAnimation("Enemy01Run", 0, 4, 0.1f);
 
 	LoadMaterial("Enemy02Idol", "Asset/Textures/Enemy02/witch01.png");
 	SetMaterial("Enemy02Idol", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy02Idol", 10, 4);
+	SetAnimation("Enemy02Idol", 10, 4, 0.1f);
 
 	LoadMaterial("Enemy02Attack", "Asset/Textures/Enemy02/witch01.png");
 	SetMaterial("Enemy02Attack", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy02Attack", 6, 4);
+	SetAnimation("Enemy02Attack", 6, 4, 0.1f);
 
 	LoadMaterial("Enemy02Run", "Asset/Textures/Enemy02/witch01.png");
 	SetMaterial("Enemy02Run", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy02Run", 0, 6);
+	SetAnimation("Enemy02Run", 0, 6, 0.1f);
 
 	LoadMaterial("Enemy03Idol", "Asset/Textures/Enemy03/knight01.png");
 	SetMaterial("Enemy03Idol", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy03Idol", 10, 4);
+	SetAnimation("Enemy03Idol", 10, 4, 0.1f);
 
 	LoadMaterial("Enemy03Attack", "Asset/Textures/Enemy03/knight01.png");
 	SetMaterial("Enemy03Attack", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy03Attack", 6, 4);
+	SetAnimation("Enemy03Attack", 6, 4, 0.1f);
 
 	LoadMaterial("Enemy03Run", "Asset/Textures/Enemy03/knight01.png");
 	SetMaterial("Enemy03Run", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy03Run", 0, 6);
+	SetAnimation("Enemy03Run", 0, 6, 0.1f);
 
 	LoadMaterial("BossIdol", "Asset/Textures/Boss/dragon02.png");
 	SetMaterial("BossIdol", { 8.0f,6.0f }, pivot, 15, 1);
-	SetAnimation("BossIdol", 11, 4);
+	SetAnimation("BossIdol", 11, 4, 0.1f);
 
 	LoadMaterial("BossAttack", "Asset/Textures/Boss/dragon02.png");
 	SetMaterial("BossAttack", { 8.0f,6.0f }, pivot, 15, 1);
-	SetAnimation("BossAttack", 7, 5);
+	SetAnimation("BossAttack", 7, 5, 0.1f);
 
 	LoadMaterial("BossRun", "Asset/Textures/Boss/dragon02.png");
 	SetMaterial("BossRun", { 8.0f,6.0f }, pivot, 15, 1);
-	SetAnimation("BossRun", 0, 6);
+	SetAnimation("BossRun", 0, 6, 0.1f);
 
 	LoadMaterial("PlayerBullet01Idol", "Asset/Textures/PlayerBullet01/bullet.png");
 	SetMaterial("PlayerBullet01Idol", { 1.0f,1.0f }, pivot, 4, 1);
-	SetAnimation("PlayerBullet01Idol", 0, 4);
+	SetAnimation("PlayerBullet01Idol", 0, 4, 0.1f);
 
 	LoadMaterial("EnemyBulletIdol", "Asset/Textures/PlayerBullet01/bullet.png");
 	SetMaterial("EnemyBulletIdol", { 1.0f,1.0f }, pivot, 4, 1);
-	SetAnimation("EnemyBulletIdol", 0, 4);
+	SetAnimation("EnemyBulletIdol", 0, 4, 0.1f);
 
 	LoadMaterial("BackGround", "Asset/Textures/BackGround/BackGround.png");
 	SetMaterial("BackGround", { 250.0f,100.0f }, KdSquarePolygon::PivotType::Center_Middle, 1, 1);
+
+	LoadMaterial("AttackEffect", "Asset/Textures/Effect/AttackEffect.png");
+	SetMaterial("AttackEffect", { 1.0f,1.0f }, pivot, 5, 1);
+	SetAnimation("AttackEffect", 0, 5, 0.3f);
+
 	// ============================
 
 	// モデル======================
@@ -96,36 +101,9 @@ void AssetManager::Init()
 
 }
 
-KdSquarePolygon AssetManager::GetMaterial(std::string _name)
+std::tuple<KdSquarePolygon, std::vector<int>, float> AssetManager::GetMaterialAnime(std::string _name)
 {
-	//if (m_materialList.find(_name) != m_materialList.end())
-	//{
-	return m_materialList.at(_name);
-	//}
-}
-
-KdModelData AssetManager::GetModel(std::string _name)
-{
-	//if (m_modelList.find(_name) != m_modelList.end())
-	//{
-	return m_modelList.at(_name);
-	//}
-}
-
-std::shared_ptr<KdTexture> AssetManager::GetTex(std::string _name)
-{
-	//if (m_texList.find(_name) != m_texList.end())
-	//{
-	return m_texList.at(_name);
-	//}
-}
-
-std::vector<int> AssetManager::GetAnimation(std::string _name)
-{
-	//if (m_animationList.find(_name) != m_animationList.end())
-	//{
-	return m_animationList.at(_name);
-	//}
+	return std::tuple(m_materialList.at(_name), m_animationList.at(_name), m_animeSpdList.at(_name));
 }
 
 void AssetManager::SetMaterial(std::string _name, Math::Vector2 _scale, KdSquarePolygon::PivotType _pivot, UINT _splitX, UINT _splitY)
@@ -135,7 +113,7 @@ void AssetManager::SetMaterial(std::string _name, Math::Vector2 _scale, KdSquare
 	m_materialList[_name].SetSplit(_splitX, _splitY);
 }
 
-void AssetManager::SetAnimation(std::string _name, int _start, int _count)
+void AssetManager::SetAnimation(std::string _name, int _start, int _count, float _speed)
 {
 	std::vector<int> num;
 	for (int a = 0; a < _count; a++)
@@ -143,6 +121,7 @@ void AssetManager::SetAnimation(std::string _name, int _start, int _count)
 		num.push_back(_start + a);
 	}
 	m_animationList[_name] = num;
+	m_animeSpdList[_name] = _speed;
 }
 
 void AssetManager::LoadTex(std::string _name, std::string _path)

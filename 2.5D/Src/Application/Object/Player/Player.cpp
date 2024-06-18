@@ -1,26 +1,53 @@
 ﻿#include "Player.h"
 
 #include "../Camera/Camera.h"
+#include "../Effect/PlayerAttack/PlayerAttack.h"
 #include "../Bullet/PlayerBullet01/PlayerBullet01.h"
 
 void Player::Update()
 {
 	switch (m_state)
 	{
-	case AnimationManager::CharaState::Idol:
-		m_anime->CreateCharaAnimation("Player", m_state, m_dir, m_poly);
+	case Animation::State::Idol:
+		m_anime->CreateAnimation("PlayerIdol", m_poly, true);
 		break;
-	case AnimationManager::CharaState::Attack:
-		m_anime->CreateCharaAnimation("Player", m_state, m_dir, m_poly);
+	case Animation::State::Attack:
+		m_anime->CreateAnimation("PlayerAttack", m_poly, false);
 		break;
-	case AnimationManager::CharaState::Run:
-		m_anime->CreateCharaAnimation("Player", m_state, m_dir, m_poly);
+	case Animation::State::Run:
+		m_anime->CreateAnimation("PlayerRun", m_poly, true);
 		break;
+	}
+
+	if (!m_anime->GetAnimationFlg())
+	{
+		m_state = Animation::State::Idol;
 	}
 
 	Move();
 
 	ShotBullet();
+
+	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+	{
+		if (!m_animeFlg)
+		{
+			m_animeFlg = true;
+
+			m_state = Animation::State::Attack;
+
+			Math::Vector3 attackPos;
+			attackPos = m_pos;
+			attackPos += GetMatrix().Right() * 1.0f;
+			std::shared_ptr<PlayerAttack> attack = std::make_shared<PlayerAttack>();
+			attack->Set(attackPos, m_animeDir);
+			SceneManager::Instance().AddObject(attack);
+		}
+	}
+	else
+	{
+		m_animeFlg = false;
+	}
 }
 
 void Player::PostUpdate()
@@ -31,11 +58,13 @@ void Player::PostUpdate()
 
 	ImGuiManager::Instance().SetPlayerPos(m_pos);
 
+	Math::Matrix m_scaleMat = Math::Matrix::CreateScale(m_scale);
+
 	Math::Matrix m_rotMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(m_angX));
 
 	Math::Matrix m_transMat = Math::Matrix::CreateTranslation(m_pos);
 
-	m_mWorld = m_rotMat * m_transMat;
+	m_mWorld = m_scaleMat * m_rotMat * m_transMat;
 
 }
 
@@ -45,11 +74,14 @@ void Player::Init()
 	m_moveSpd = 0.1f;
 	m_pos = { 10,0,-2 };
 	m_moveVec = Math::Vector3::Zero;
+	m_scale = Math::Vector3::One;
 	m_angX = 20;
+	m_animeFlg = false;
+	m_dir = 0;
 
-	m_anime = std::make_shared<AnimationManager>();
-	m_state = AnimationManager::CharaState::Idol;
-	m_dir = AnimationManager::Dir::Right;
+	m_anime = std::make_shared<Animation>();
+	m_state = Animation::State::Idol;
+	m_animeDir = Animation::Dir::Right;
 
 	m_pCollider = std::make_unique<KdCollider>();
 	m_pCollider->RegisterCollisionShape("player", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
@@ -70,29 +102,43 @@ void Player::DrawLit()
 
 void Player::Move()
 {
-	m_state = AnimationManager::CharaState::Idol;
-
+	m_dir = 0;
+	Animation::Dir oldAnimeDir = m_animeDir;
 	m_moveVec = Math::Vector3::Zero;
 
-	if (GetAsyncKeyState('W') & 0x8000)
+	if (!m_anime->GetAnimationFlg())
 	{
-		m_moveVec.z = 1.0f;
+		if (GetAsyncKeyState('W') & 0x8000)
+		{
+			m_moveVec.z = 1.0f;
+			m_state = Animation::State::Run;
+			m_dir |= Dir::Up;
+		}
+		if (GetAsyncKeyState('S') & 0x8000)
+		{
+			m_moveVec.z = -1.0f;
+			m_state = Animation::State::Run;
+			m_dir |= Dir::Down;
+		}
+		if (GetAsyncKeyState('A') & 0x8000)
+		{
+			m_moveVec.x = -1.0f;
+			m_state = Animation::State::Run;
+			m_animeDir = Animation::Dir::Left;
+			m_dir |= Dir::Left;
+		}
+		if (GetAsyncKeyState('D') & 0x8000)
+		{
+			m_moveVec.x = 1.0f;
+			m_state = Animation::State::Run;
+			m_animeDir = Animation::Dir::Right;
+			m_dir |= Dir::Right;
+		}
 	}
-	if (GetAsyncKeyState('S') & 0x8000)
+
+	if (m_animeDir != oldAnimeDir)
 	{
-		m_moveVec.z = -1.0f;
-	}
-	if (GetAsyncKeyState('A') & 0x8000)
-	{
-		m_moveVec.x = -1.0f;
-		m_state = AnimationManager::CharaState::Run;
-		m_dir = AnimationManager::Dir::Left;
-	}
-	if (GetAsyncKeyState('D') & 0x8000)
-	{
-		m_moveVec.x = 1.0f;
-		m_state = AnimationManager::CharaState::Run;
-		m_dir = AnimationManager::Dir::Right;
+		m_scale.x *= -1;
 	}
 
 	m_moveVec.Normalize();
@@ -213,7 +259,7 @@ void Player::ShotBullet()
 {
 	if (shotWait <= 0)
 	{
-		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+		if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
 		{
 			POINT mousePos;
 			GetCursorPos(&mousePos);

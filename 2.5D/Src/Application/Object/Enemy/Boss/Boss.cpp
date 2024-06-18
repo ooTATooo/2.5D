@@ -4,18 +4,18 @@ void Boss::Update()
 {
 	switch (m_state)
 	{
-	case AnimationManager::CharaState::Idol:
-		m_anime->CreateCharaAnimation("Boss", m_state, AnimationManager::Dir::Left, m_poly);
+	case Animation::State::Idol:
+		m_anime->CreateAnimation("BossIdol", m_poly, true);
 		break;
-	case AnimationManager::CharaState::Attack:
-		m_anime->CreateCharaAnimation("Boss", m_state, AnimationManager::Dir::Left, m_poly);
+	case Animation::State::Attack:
+		m_anime->CreateAnimation("BossAttack", m_poly, true);
 		break;
-	case AnimationManager::CharaState::Run:
-		m_anime->CreateCharaAnimation("Boss", m_state, AnimationManager::Dir::Left, m_poly);
+	case Animation::State::Run:
+		m_anime->CreateAnimation("BossRun", m_poly, true);
 		break;
 	}
 
-	m_state = AnimationManager::CharaState::Run;
+	m_state = Animation::State::Run;
 }
 
 void Boss::PostUpdate()
@@ -31,7 +31,7 @@ void Boss::Init()
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_pos = { 0,0,5 };
-		m_anime = std::make_shared<AnimationManager>();
+		m_anime = std::make_shared<Animation>();
 		m_pCollider = std::make_unique<KdCollider>();
 		m_pCollider->RegisterCollisionShape("Boss", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
 	}

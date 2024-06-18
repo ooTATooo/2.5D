@@ -103,9 +103,6 @@
     <Filter Include="Src\Application\Object\Bullet\EnemyBullet">
       <UniqueIdentifier>{2f7cdba9-a5c2-4d96-a372-92fe0b97fef9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\AnimationManager">
-      <UniqueIdentifier>{973e9af9-95dd-4bf8-a583-4e39fb2900c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Enemy\Boss">
       <UniqueIdentifier>{a432c696-68d8-48fc-bf51-ddf88ae83473}</UniqueIdentifier>
     </Filter>
@@ -156,6 +153,15 @@
     </Filter>
     <Filter Include="Src\Application\EnemyManager">
       <UniqueIdentifier>{4e21400f-7222-4c46-b713-9f3befe2aa0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Effect">
+      <UniqueIdentifier>{e71b36c2-597f-4f13-b56e-fa63a9796b05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Effect\PlayerAttack">
+      <UniqueIdentifier>{4402e460-335c-4beb-8903-6cc65d340d1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Animation">
+      <UniqueIdentifier>{973e9af9-95dd-4bf8-a583-4e39fb2900c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -351,9 +357,6 @@
     <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h">
       <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\AnimationManager\AnimationManager.h">
-      <Filter>Src\Application\AnimationManager</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h">
       <Filter>Src\Application\Object\Enemy\Boss</Filter>
     </ClInclude>
@@ -407,6 +410,15 @@
     </ClInclude>
     <ClInclude Include="Src\Application\EnemyManager\EnemyManager.h">
       <Filter>Src\Application\EnemyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\BaseEffect.h">
+      <Filter>Src\Application\Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.h">
+      <Filter>Src\Application\Object\Effect\PlayerAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Animation\Animation.h">
+      <Filter>Src\Application\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -575,9 +587,6 @@
     <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp">
       <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\AnimationManager\AnimationManager.cpp">
-      <Filter>Src\Application\AnimationManager</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp">
       <Filter>Src\Application\Object\Enemy\Boss</Filter>
     </ClCompile>
@@ -631,6 +640,15 @@
     </ClCompile>
     <ClCompile Include="Src\Application\EnemyManager\EnemyManager.cpp">
       <Filter>Src\Application\EnemyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\BaseEffect.cpp">
+      <Filter>Src\Application\Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.cpp">
+      <Filter>Src\Application\Object\Effect\PlayerAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Animation\Animation.cpp">
+      <Filter>Src\Application\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

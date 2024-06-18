@@ -115,7 +115,7 @@
 #include "Framework/KdFramework.h"
 
 #include "Application/AssetManager/AssetManager.h"
-#include "Application/AnimationManager/AnimationManager.h"
+#include "Application/Animation/Animation.h"
 #include "Application/ImGuiManager/ImGuiManager.h"
 #include "Application/Scene/SceneManager.h"
 #include "Application/main.h"

@@ -68,8 +68,8 @@ void GameScene::Init()
 	std::shared_ptr<Monolith> monolith = std::make_shared<Monolith>();
 	AddObject(monolith);
 
-	std::shared_ptr<Boss> boss = std::make_shared<Boss>();
-	AddObject(boss);
+	//std::shared_ptr<Boss> boss = std::make_shared<Boss>();
+	//AddObject(boss);
 
 	// 2D===========
 	std::shared_ptr<MonolithHp> monumentHp = std::make_shared<MonolithHp>();

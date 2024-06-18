@@ -39,7 +39,7 @@ protected:
 	float m_angX = 0;
 	float m_angY = 0;
 
-	AnimationManager::CharaState m_state;
-	std::shared_ptr<AnimationManager> m_anime = nullptr;
+	Animation::State m_state;
+	std::shared_ptr<Animation> m_anime = nullptr;
 	bool m_animeFlg;
 };

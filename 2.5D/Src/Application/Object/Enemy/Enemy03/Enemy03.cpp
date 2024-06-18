@@ -7,14 +7,14 @@ void Enemy03::Update()
 {
 	switch (m_state)
 	{
-	case AnimationManager::CharaState::Idol:
-		m_anime->CreateCharaAnimation("Enemy03", m_state, AnimationManager::Dir::Left, m_poly);
+	case Animation::State::Idol:
+		m_anime->CreateAnimation("Enemy03Idol", m_poly, true);
 		break;
-	case AnimationManager::CharaState::Attack:
-		m_anime->CreateCharaAnimation("Enemy03", m_state, AnimationManager::Dir::Left, m_poly);
+	case Animation::State::Attack:
+		m_anime->CreateAnimation("Enemy03Attack", m_poly, true);
 		break;
-	case AnimationManager::CharaState::Run:
-		m_anime->CreateCharaAnimation("Enemy03", m_state, AnimationManager::Dir::Left, m_poly);
+	case Animation::State::Run:
+		m_anime->CreateAnimation("Enemy03Run", m_poly, true);
 		break;
 	}
 
@@ -48,15 +48,20 @@ void Enemy03::Init()
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_pos = { -5,0,21 };
 		//m_pos = { 5,0,0 };
-		m_anime = std::make_shared<AnimationManager>();
+		m_anime = std::make_shared<Animation>();
 		m_pCollider = std::make_unique<KdCollider>();
-		m_pCollider->RegisterCollisionShape("enemy03", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
+		m_pCollider->RegisterCollisionShape("enemy03", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump | KdCollider::TypeDamage);
 	}
+}
+
+void Enemy03::OnHit()
+{
+	m_isExpired = true;
 }
 
 void Enemy03::Move()
 {
-	m_state = AnimationManager::CharaState::Run;
+	m_state = Animation::State::Run;
 
 	m_moveVec = Math::Vector3::Zero;
 
@@ -79,7 +84,7 @@ void Enemy03::Move()
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
 
-				m_state = AnimationManager::CharaState::Attack;
+				m_state = Animation::State::Attack;
 			}
 		}
 		else
@@ -98,7 +103,7 @@ void Enemy03::Move()
 					{
 						m_moveVec = Math::Vector3::Zero;
 
-						m_state = AnimationManager::CharaState::Attack;
+						m_state = Animation::State::Attack;
 					}
 				}
 			}
