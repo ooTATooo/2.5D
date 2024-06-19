@@ -24,7 +24,7 @@ void Camera::PostUpdate()
 	Math::Matrix pTransMat;
 	Math::Vector3 playerPos;
 
-	const std::shared_ptr<const Player> player = m_player.lock();
+	const std::shared_ptr<Player> player = m_player.lock();
 	if (player)
 	{
 		pTransMat = player->GetMatrix();

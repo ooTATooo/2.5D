@@ -2,6 +2,7 @@
 #include "../SceneManager.h"
 #include "../../ImGuiManager/ImGuiManager.h"
 
+#include "../../EnemyManager/EnemyManager.h"
 #include "../../Object/Camera/Camera.h"
 #include "../../Object/Stage/BackGround/BackGround.h"
 #include "../../Object/Stage/Ground/Ground.h"
@@ -23,10 +24,11 @@ void GameScene::Event()
 {
 	if (GetAsyncKeyState('T') & 0x8000)
 	{
-		SceneManager::Instance().SetNextScene
-		(
-			SceneManager::SceneType::Title
-		);
+		//SceneManager::Instance().SetNextScene
+		//(
+		//	SceneManager::SceneType::Title
+		//);
+		EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Top_Center, KdGameObject::ObjType::Enemy01, 5);
 	}
 }
 
@@ -85,52 +87,8 @@ void GameScene::Init()
 	mapMonolithPoint->SetMomolith(monolith);
 	AddObject(mapMonolithPoint);
 
-	AddEnemy(player, monolith, EnemyType::Enemy01);
-	AddEnemy(player, monolith, EnemyType::Enemy02);
-	AddEnemy(player, monolith, EnemyType::Enemy03);
-
 	std::shared_ptr<MapPlayerIcon> mapPlayerIcon = std::make_shared<MapPlayerIcon>();
 	mapPlayerIcon->SetPlayer(player);
 	AddObject(mapPlayerIcon);
 
 }
-
-void GameScene::AddEnemy(std::weak_ptr<Player> _player, std::weak_ptr<Monolith> _monolith, EnemyType _type)
-{
-	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
-	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
-	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
-	std::shared_ptr<MapEnemyPoint> mapEnemyPoint = std::make_shared<MapEnemyPoint>();
-
-	switch (_type)
-	{
-	case GameScene::EnemyType::Enemy01:
-		enemy01->SetBeacon(_monolith);
-		enemy01->SetPlayer(_player);
-		AddObject(enemy01);
-
-		mapEnemyPoint->SetEnemy(enemy01);
-		AddObject(mapEnemyPoint);
-
-		break;
-	case GameScene::EnemyType::Enemy02:
-		enemy02->SetBeacon(_monolith);
-		enemy02->SetPlayer(_player);
-		AddObject(enemy02);
-
-		mapEnemyPoint->SetEnemy(enemy02);
-		AddObject(mapEnemyPoint);
-
-		break;
-	case GameScene::EnemyType::Enemy03:
-		enemy03->SetBeacon(_monolith);
-		enemy03->SetPlayer(_player);
-		AddObject(enemy03);
-
-		mapEnemyPoint->SetEnemy(enemy03);
-		AddObject(mapEnemyPoint);
-
-		break;
-	}
-}
-

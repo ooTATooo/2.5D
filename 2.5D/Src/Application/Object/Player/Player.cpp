@@ -78,6 +78,7 @@ void Player::Init()
 	m_angX = 20;
 	m_animeFlg = false;
 	m_dir = 0;
+	m_objType = KdGameObject::ObjType::Player;
 
 	m_anime = std::make_shared<Animation>();
 	m_state = Animation::State::Idol;
@@ -155,7 +156,7 @@ void Player::MapHit()
 	// 球の半径を設定
 	sphere.m_sphere.Radius = 0.3f;
 	// 当たり判定をしたいタイプを設定
-	sphere.m_type = KdCollider::TypeGround;
+	sphere.m_type = KdCollider::TypeGround | KdCollider::TypeWall;
 
 	// デバッグ表示
 	Math::Color color = { 1,1,0,1 };
@@ -220,39 +221,6 @@ void Player::EnemyHit()
 			obj->OnHit();
 		}
 	}
-
-	//// 当たり判定
-	//for (auto& obj : SceneManager::Instance().GetObjList())
-	//{
-	//	obj->Intersects(sphere, &retSphereList);
-	//}
-
-	//// 球に当たったリストから一番近いオブジェクトを検出
-	//float maxOverLap = 0;	// はみでたレイの長さ
-	//Math::Vector3 hitDir;	// 当たった方向
-	//bool isHit = false;		// 当たっていたらtrue
-	//for (auto& ret : retSphereList)
-	//{
-	//	// 球にめりこんで、オーバーした長さが一番長いものを探す
-	//	if (maxOverLap < ret.m_overlapDistance)
-	//	{
-	//		maxOverLap = ret.m_overlapDistance;
-	//		hitDir = ret.m_hitDir;
-	//		isHit = true;
-	//	}
-	//}
-
-	//if (isHit)
-	//{
-	//	// yへの押し返し無効
-	//	hitDir.y = 0;
-	//	// 正規化(長さを１にする)
-	//	// 方向は絶対長さ１
-	//	hitDir.Normalize();
-
-	//	// 地面に当たっている
-	//	m_pos += hitDir * maxOverLap;
-	//}
 }
 
 void Player::ShotBullet()

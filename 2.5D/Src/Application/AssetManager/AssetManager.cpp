@@ -4,6 +4,8 @@ void AssetManager::Init()
 {
 	// ポリゴン====================
 	KdSquarePolygon::PivotType pivot = KdSquarePolygon::PivotType::Center_Bottom;
+
+	// ===プレイヤー
 	LoadMaterial("PlayerIdol", "Asset/Textures/Player/Idol.png");
 	SetMaterial("PlayerIdol", { 1.5f,1.3f }, pivot, 4, 1);
 	SetAnimation("PlayerIdol", 0, 4, 0.1f);
@@ -14,45 +16,69 @@ void AssetManager::Init()
 
 	LoadMaterial("PlayerRun", "Asset/Textures/Player/run.png");
 	SetMaterial("PlayerRun", { 1.0f,1.2f }, pivot, 8, 1);
-	SetAnimation("PlayerRun", 0, 8, 0.1f);
+	SetAnimation("PlayerRun", 0, 8, 0.2f);
 
-	LoadMaterial("Enemy01Idol", "Asset/Textures/Enemy01/slime01.png");
+	LoadMaterial("PlayerHit", "Asset/Textures/Player/hit.png");
+	SetMaterial("PlayerHit", { 1.0f,1.2f }, pivot, 2, 1);
+	SetAnimation("PlayerHit", 0, 2, 0.01f);
+	// ===プレイヤー
+
+	// ===エネミー１
+	LoadMaterial("Enemy01Idol", "Asset/Textures/Enemy01/Slime01.png");
 	SetMaterial("Enemy01Idol", { 1.0f,1.0f }, pivot, 12, 1);
 	SetAnimation("Enemy01Idol", 9, 3, 0.1f);
 
-	LoadMaterial("Enemy01Attack", "Asset/Textures/Enemy01/slime01.png");
+	LoadMaterial("Enemy01Attack", "Asset/Textures/Enemy01/Slime01.png");
 	SetMaterial("Enemy01Attack", { 1.0f,1.0f }, pivot, 12, 1);
 	SetAnimation("Enemy01Attack", 4, 5, 0.1f);
 
-	LoadMaterial("Enemy01Run", "Asset/Textures/Enemy01/slime01.png");
+	LoadMaterial("Enemy01Run", "Asset/Textures/Enemy01/Slime01.png");
 	SetMaterial("Enemy01Run", { 1.0f,1.0f }, pivot, 12, 1);
 	SetAnimation("Enemy01Run", 0, 4, 0.1f);
 
-	LoadMaterial("Enemy02Idol", "Asset/Textures/Enemy02/witch01.png");
+	LoadMaterial("Enemy01Hit", "Asset/Textures/Enemy01/SlimeHit.png");
+	SetMaterial("Enemy01Hit", { 1.0f,1.0f }, pivot, 6, 1);
+	SetAnimation("Enemy01Hit", 0, 6, 0.1f);
+	// ===エネミー１
+
+	// ===エネミー２
+	LoadMaterial("Enemy02Idol", "Asset/Textures/Enemy02/Witch01.png");
 	SetMaterial("Enemy02Idol", { 2.0f,2.0f }, pivot, 14, 1);
 	SetAnimation("Enemy02Idol", 10, 4, 0.1f);
 
-	LoadMaterial("Enemy02Attack", "Asset/Textures/Enemy02/witch01.png");
+	LoadMaterial("Enemy02Attack", "Asset/Textures/Enemy02/Witch01.png");
 	SetMaterial("Enemy02Attack", { 2.0f,2.0f }, pivot, 14, 1);
 	SetAnimation("Enemy02Attack", 6, 4, 0.1f);
 
-	LoadMaterial("Enemy02Run", "Asset/Textures/Enemy02/witch01.png");
+	LoadMaterial("Enemy02Run", "Asset/Textures/Enemy02/Witch01.png");
 	SetMaterial("Enemy02Run", { 2.0f,2.0f }, pivot, 14, 1);
 	SetAnimation("Enemy02Run", 0, 6, 0.1f);
 
-	LoadMaterial("Enemy03Idol", "Asset/Textures/Enemy03/knight01.png");
+	LoadMaterial("Enemy02Hit", "Asset/Textures/Enemy02/WitchHit.png");
+	SetMaterial("Enemy02Hit", { 2.0f,2.0f }, pivot, 6, 1);
+	SetAnimation("Enemy02Hit", 0, 6, 0.1f);
+	// ===エネミー２
+
+	// ===エネミー３
+	LoadMaterial("Enemy03Idol", "Asset/Textures/Enemy03/Knight01.png");
 	SetMaterial("Enemy03Idol", { 2.0f,2.0f }, pivot, 14, 1);
 	SetAnimation("Enemy03Idol", 10, 4, 0.1f);
 
-	LoadMaterial("Enemy03Attack", "Asset/Textures/Enemy03/knight01.png");
+	LoadMaterial("Enemy03Attack", "Asset/Textures/Enemy03/Knight01.png");
 	SetMaterial("Enemy03Attack", { 2.0f,2.0f }, pivot, 14, 1);
 	SetAnimation("Enemy03Attack", 6, 4, 0.1f);
 
-	LoadMaterial("Enemy03Run", "Asset/Textures/Enemy03/knight01.png");
+	LoadMaterial("Enemy03Run", "Asset/Textures/Enemy03/Knight01.png");
 	SetMaterial("Enemy03Run", { 2.0f,2.0f }, pivot, 14, 1);
 	SetAnimation("Enemy03Run", 0, 6, 0.1f);
 
-	LoadMaterial("BossIdol", "Asset/Textures/Boss/dragon02.png");
+	LoadMaterial("Enemy03Hit", "Asset/Textures/Enemy03/KnightHit.png");
+	SetMaterial("Enemy03Hit", { 2.0f,2.0f }, pivot, 6, 1);
+	SetAnimation("Enemy03Hit", 0, 6, 0.1f);
+	// ===エネミー３
+
+	// ===ボス
+	LoadMaterial("BossIdol", "Asset/Textures/Boss/dragon01.png");
 	SetMaterial("BossIdol", { 8.0f,6.0f }, pivot, 15, 1);
 	SetAnimation("BossIdol", 11, 4, 0.1f);
 
@@ -63,7 +89,9 @@ void AssetManager::Init()
 	LoadMaterial("BossRun", "Asset/Textures/Boss/dragon02.png");
 	SetMaterial("BossRun", { 8.0f,6.0f }, pivot, 15, 1);
 	SetAnimation("BossRun", 0, 6, 0.1f);
+	// ===ボス
 
+	//
 	LoadMaterial("PlayerBullet01Idol", "Asset/Textures/PlayerBullet01/bullet.png");
 	SetMaterial("PlayerBullet01Idol", { 1.0f,1.0f }, pivot, 4, 1);
 	SetAnimation("PlayerBullet01Idol", 0, 4, 0.1f);

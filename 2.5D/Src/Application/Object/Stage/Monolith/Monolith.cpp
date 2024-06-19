@@ -33,6 +33,8 @@ void Monolith::Init()
 	m_ang = 0;
 	m_speed = 0.15f;
 
+	m_objType = KdGameObject::ObjType::Monolith;
+
 	alpha = 0.3f;
 	m_color01 = { 0.5f,1,1,alpha };
 	m_color02 = { 0,0,0,1 };

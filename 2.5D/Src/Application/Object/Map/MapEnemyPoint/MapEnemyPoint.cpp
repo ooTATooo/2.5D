@@ -16,6 +16,11 @@ void MapEnemyPoint::Update()
 	}
 
 	m_pos = enemyPos;
+
+	if (m_pos.y > MinMap_Y + 140) { m_pos.y = MinMap_Y + 140; }
+	if (m_pos.y < MinMap_Y - 140) { m_pos.y = MinMap_Y - 140; }
+	if (m_pos.x > MinMap_X + 140) { m_pos.x = MinMap_X + 140; }
+	if (m_pos.x < MinMap_X - 140) { m_pos.x = MinMap_X - 140; }
 }
 
 void MapEnemyPoint::PostUpdate()

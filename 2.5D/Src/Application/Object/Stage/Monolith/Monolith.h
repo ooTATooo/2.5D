@@ -16,7 +16,7 @@ public:
 	void DrawLit()override;
 	void DrawBright()override;
 
-	const Math::Vector3 GetPos()const { return m_pos; }
+	const Math::Vector3 GetPos() { return m_pos; }
 
 private:
 

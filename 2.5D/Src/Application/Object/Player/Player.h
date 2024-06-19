@@ -34,7 +34,7 @@ public:
 	void SetCamera(const std::weak_ptr<Camera> _camera) { m_camera = _camera; }
 
 	// ゲッター
-	const Math::Vector3 GetPos()const { return m_pos; }
+	const Math::Vector3 GetPos() { return m_pos; }
 	const Animation::Dir GetDir()const { return m_animeDir; }
 
 private:

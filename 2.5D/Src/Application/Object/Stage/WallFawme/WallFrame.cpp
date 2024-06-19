@@ -25,7 +25,7 @@ void WallFrame::Init()
 	BaseStage::Init();
 
 	m_pCollider = std::make_unique<KdCollider>();
-	m_pCollider->RegisterCollisionShape("ModelHit", m_modelHit, KdCollider::TypeGround | KdCollider::TypeAlpha);
+	m_pCollider->RegisterCollisionShape("ModelHit", m_modelHit, KdCollider::TypeWall | KdCollider::TypeAlpha);
 }
 
 void WallFrame::GenerateDepthMapFromLight()

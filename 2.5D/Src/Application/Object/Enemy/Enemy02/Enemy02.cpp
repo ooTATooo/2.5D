@@ -47,8 +47,7 @@ void Enemy02::Init()
 	if (!m_poly)
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
-		m_pos = { 5,0,21 };
-		//m_pos = { 4,0,0 };
+		m_pos = {};
 		m_anime = std::make_shared<Animation>();
 		m_pCollider = std::make_unique<KdCollider>();
 		m_pCollider->RegisterCollisionShape("enemy02", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump | KdCollider::TypeDamage);
@@ -69,7 +68,7 @@ void Enemy02::Move()
 	// 対象座標ー自分の座標
 	Math::Vector3 dis;
 
-	const std::shared_ptr<Monolith> monolith = m_monolith.lock();
+	const std::shared_ptr<KdGameObject> monolith = m_monolith.lock();
 
 	if (monolith)
 	{
@@ -98,7 +97,7 @@ void Enemy02::Move()
 		}
 		else
 		{
-			const std::shared_ptr<Player> player = m_player.lock();
+			const std::shared_ptr<KdGameObject> player = m_player.lock();
 
 			if (player)
 			{

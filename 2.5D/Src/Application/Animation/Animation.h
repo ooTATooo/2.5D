@@ -14,6 +14,8 @@ public:
 		Idol,
 		Attack,
 		Run,
+		Hit,
+
 	};
 
 	// 向き

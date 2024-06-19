@@ -18,17 +18,19 @@ public:
 	void OnHit()override {}
 
 	void MapHit();
-	void SetPlayer(const std::weak_ptr<Player> _player) { m_player = _player; }
-	void SetBeacon(const std::weak_ptr<Monolith> _monolith) { m_monolith = _monolith; }
+	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
+	void SetBeacon(const std::weak_ptr<KdGameObject> _monolith) { m_monolith = _monolith; }
 
-	const Math::Vector3 GetPos()const { return m_pos; }
+	void SetPos(const Math::Vector3 _pos) { m_pos = _pos; }
+
+	const Math::Vector3 GetPos() { return m_pos; }
 
 protected:
 
 	std::shared_ptr<KdSquarePolygon> m_poly = nullptr;
 
-	std::weak_ptr<Player> m_player;
-	std::weak_ptr<Monolith> m_monolith;
+	std::weak_ptr<KdGameObject> m_player;
+	std::weak_ptr<KdGameObject> m_monolith;
 
 	float m_moveSpd = 0;
 	Math::Vector3 m_pos = Math::Vector3::Zero;

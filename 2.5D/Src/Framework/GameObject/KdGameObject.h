@@ -7,6 +7,17 @@ class KdGameObject : public std::enable_shared_from_this<KdGameObject>
 {
 public:
 
+	enum class ObjType
+	{
+		Camera,
+		Player,
+		Monolith,
+		Enemy01,
+		Enemy02,
+		Enemy03,
+
+	};
+
 	// どのような描画を行うのかを設定するTypeID：Bitフラグで複数指定可能
 	enum
 	{
@@ -41,11 +52,10 @@ public:
 
 	virtual void SetAsset(const std::string&) {}
 
-	//virtual void SetPos(const Math::Vector3& pos) { m_pos = pos; }
-	//virtual Math::Vector3 GetPos() const { return m_pos; }
+	virtual ObjType GetObjType() { return m_objType; }
 
 	virtual void SetPos(const Math::Vector3& pos) { m_mWorld.Translation(pos); }
-	//virtual Math::Vector3 GetPos() const { return m_mWorld.Translation(); }
+	virtual Math::Vector3 GetPos() const { return m_mWorld.Translation(); }
 
 	virtual void OnHit() {}
 
@@ -96,6 +106,9 @@ protected:
 
 	// デバッグ情報クラス
 	std::unique_ptr<KdDebugWireFrame> m_pDebugWire = nullptr;
+
+	// オブジェクトタイプ格納用
+	ObjType m_objType;
 
 	GameScene* m_owner = nullptr;
 };

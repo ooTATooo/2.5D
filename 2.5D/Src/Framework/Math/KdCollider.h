@@ -23,7 +23,8 @@ public:
 		TypeDamageLine	= 1 << 3,	// 攻撃：線形の攻撃判定を受けるオブジェクトに対して付与する
 		TypeSight		= 1 << 4,	// 視界：敵がプレイヤーを発見するかどうかなど視界判定を受けるオブジェクトに付与する
 		TypeEvent		= 1 << 5,	// イベント：イベント特有の判定形状が欲しい場合にイベントを所有しているオブジェクトに付与する
-		TypeAlpha		= 1 << 6
+		TypeAlpha		= 1 << 6,
+		TypeWall		= 1 << 7,
 	};
 
 	// 球形の当たり判定情報：当たる側専用
@@ -109,7 +110,7 @@ public:
 		RayInfo() {}
 
 		// レイの情報を全て指定：自動的に方向ベクトルは正規化
-		RayInfo(UINT type, const Math::Vector3& pos, const Math::Vector3& dir, float range) 
+		RayInfo(UINT type, const Math::Vector3& pos, const Math::Vector3& dir, float range)
 			: m_type(type), m_pos(pos), m_dir(dir),m_range(range)
 		{
 			m_dir.Normalize();
@@ -141,7 +142,7 @@ public:
 	};
 
 	KdCollider() {}
-	
+
 	~KdCollider() {}
 
 	// 当たり判定形状形状登録

@@ -19,4 +19,26 @@ public:
 		Right_Center,	// 右中段
 		Right_Bottom,	// 右下段
 	};
+
+	void Init();
+
+	void AddEnemy(SpawnType _type, KdGameObject::ObjType _enemyType, int _num);
+
+	void Load(std::string a_filePath);
+
+private:
+
+	std::unordered_map<SpawnType, Math::Vector3> m_spawnPosList;
+private:
+
+	EnemyManager() { Init(); }
+	~EnemyManager() {}
+
+public:
+
+	static EnemyManager& Instance()
+	{
+		static EnemyManager instance;
+		return instance;
+	}
 };

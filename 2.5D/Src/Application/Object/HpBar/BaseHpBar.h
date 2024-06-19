@@ -21,7 +21,7 @@ public:
 	void SetPos(const Math::Vector3 _pos) { m_pos = _pos; }
 
 	// ゲッター
-	const Math::Vector3 GetPos()const { return m_pos; }
+	const Math::Vector3 GetPos() { return m_pos; }
 
 protected:
 
