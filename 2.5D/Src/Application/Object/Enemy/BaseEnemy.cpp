@@ -88,8 +88,13 @@ void BaseEnemy::DrawLit()
 	}
 }
 
+void BaseEnemy::OnHit()
+{
+}
+
 void BaseEnemy::MapHit()
-{	// 球判定用の変数を作成
+{
+	// 球判定用の変数を作成
 	KdCollider::SphereInfo sphere;
 	// 球の中心点を設定
 	sphere.m_sphere.Center = m_pos;

@@ -15,7 +15,7 @@ public:
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
-	void OnHit()override {}
+	void OnHit()override;
 
 	void MapHit();
 	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }

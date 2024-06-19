@@ -14,8 +14,6 @@ public:
 	void DrawBright()override;
 	void OnHit()override {}
 
-	//void SetPos(Math::Vector3 _pos) { m_pos = _pos; }
-
 protected:
 
 	std::shared_ptr<KdSquarePolygon> m_poly;

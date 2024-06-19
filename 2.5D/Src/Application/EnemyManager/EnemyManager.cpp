@@ -96,7 +96,6 @@ void EnemyManager::Load(std::string a_filePath)
 		std::istringstream iss(str);//ファイルから取ってきた文字列を操る
 		std::string conmaString;//コンマ区切りになった変数を格納
 
-		//②issにある文字列うをコンマ区切りにして格納
 		while (getline(iss, conmaString, ','))
 		{
 			float tempData = (float)stoi(conmaString);
