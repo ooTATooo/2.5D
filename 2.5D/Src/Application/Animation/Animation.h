@@ -15,7 +15,6 @@ public:
 		Attack,
 		Run,
 		Hit,
-
 	};
 
 	// 向き

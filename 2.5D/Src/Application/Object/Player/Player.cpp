@@ -52,8 +52,6 @@ void Player::PostUpdate()
 {
 	MapHit();
 
-	EnemyHit();
-
 	ImGuiManager::Instance().SetPlayerPos(m_pos);
 
 	Math::Matrix m_scaleMat = Math::Matrix::CreateScale(m_scale);
@@ -194,29 +192,5 @@ void Player::MapHit()
 
 		// 地面に当たっている
 		m_pos += hitDir * maxOverLap;
-	}
-}
-
-void Player::EnemyHit()
-{
-	// 球判定用の変数を作成
-	KdCollider::SphereInfo sphere;
-	// 球の中心点を設定
-	sphere.m_sphere.Center = m_pos;
-	sphere.m_sphere.Center.y += 0.5f;
-	// 球の半径を設定
-	sphere.m_sphere.Radius = 0.3f;
-	// 当たり判定をしたいタイプを設定
-	sphere.m_type = KdCollider::TypeBump;
-
-	// 球に当たったオブジェクトの情報を格納
-	std::list<KdCollider::CollisionResult> retSphereList;
-
-	for (auto& obj : SceneManager::Instance().GetObjList())
-	{
-		if (obj->Intersects(sphere, &retSphereList))
-		{
-			obj->OnHit();
-		}
 	}
 }

@@ -15,7 +15,9 @@ void BaseEffect::PostUpdate()
 
 void BaseEffect::Init()
 {
-	m_pos = {};
+	m_pos = Math::Vector3::Zero;
+	m_scale = Math::Vector3::One;
+
 	m_attackArea = 0.3f;
 }
 

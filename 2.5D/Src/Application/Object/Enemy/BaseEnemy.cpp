@@ -1,5 +1,7 @@
 ﻿#include "BaseEnemy.h"
 
+#include "../Effect/AttackImpact/AttackImpact.h"
+
 void BaseEnemy::PostUpdate()
 {
 	MapHit();
@@ -16,7 +18,7 @@ void BaseEnemy::PostUpdate()
 
 	// デバッグ表示
 	Math::Color color = { 1,1,0,1 };
-	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
+	//m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
 
 	std::list<KdCollider::CollisionResult> retSphereList;
 
@@ -90,6 +92,16 @@ void BaseEnemy::DrawLit()
 
 void BaseEnemy::OnHit()
 {
+	if (m_hitWait <= 0)
+	{
+		m_state = Animation::State::Hit;
+
+		std::shared_ptr<AttackImpact> atkImpact = std::make_shared<AttackImpact>();
+		atkImpact->Set(m_pos);
+		SceneManager::Instance().AddObject(atkImpact);
+
+		m_hitWait = 60;
+	}
 }
 
 void BaseEnemy::MapHit()

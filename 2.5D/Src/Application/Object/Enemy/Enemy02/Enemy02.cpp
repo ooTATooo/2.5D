@@ -8,35 +8,25 @@ void Enemy02::Update()
 {
 	switch (m_state)
 	{
-	case Animation::State::Idol:
-		m_anime->CreateAnimation("Enemy02Idol", m_poly, true);
-		break;
 	case Animation::State::Attack:
 		m_anime->CreateAnimation("Enemy02Attack", m_poly, true);
 		break;
 	case Animation::State::Run:
 		m_anime->CreateAnimation("Enemy02Run", m_poly, true);
 		break;
+	case Animation::State::Hit:
+		m_anime->CreateAnimation("Enemy02Hit", m_poly, false);
+		break;
 	}
 
 	Move();
+
+	m_hitWait--;
+	if (m_hitWait <= 0) { m_hitWait = 0; }
 }
 
 void Enemy02::PostUpdate()
 {
-	// 球判定用の変数を作成
-	KdCollider::SphereInfo sphere;
-	// 球の中心点を設定
-	sphere.m_sphere.Center = m_pos;
-	sphere.m_sphere.Center.y += 0.5f;
-	// 球の半径を設定
-	sphere.m_sphere.Radius = 5.0f;
-	// 当たり判定をしたいタイプを設定
-	sphere.m_type = KdCollider::TypeBump;
-
-	// デバッグ表示
-	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, kRedColor);
-
 	BaseEnemy::PostUpdate();
 }
 
@@ -56,19 +46,22 @@ void Enemy02::Init()
 
 void Enemy02::OnHit()
 {
-	m_isExpired = true;
+	BaseEnemy::OnHit();
 }
 
 void Enemy02::Move()
 {
-	m_state = Animation::State::Run;
+	if (!m_anime->GetAnimationFlg())
+	{
+		m_state = Animation::State::Run;
+	}
 
 	m_moveVec = Math::Vector3::Zero;
 
 	// 対象座標ー自分の座標
 	Math::Vector3 dis;
 
-	const std::shared_ptr<KdGameObject> monolith = m_monolith.lock();
+	const std::shared_ptr<const KdGameObject> monolith = m_monolith.lock();
 
 	if (monolith)
 	{
@@ -84,14 +77,17 @@ void Enemy02::Move()
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
 
-				m_state = Animation::State::Attack;
-
-				if (shotWait <= 0)
+				if (!m_anime->GetAnimationFlg())
 				{
-					std::shared_ptr<EnemyBullet> bullet = std::make_shared<EnemyBullet>();
-					bullet->shot(m_pos, monolith->GetPos());
-					SceneManager::Instance().AddObject(bullet);
-					shotWait = 60;
+					m_state = Animation::State::Attack;
+
+					if (shotWait <= 0)
+					{
+						std::shared_ptr<EnemyBullet> bullet = std::make_shared<EnemyBullet>();
+						bullet->shot(m_pos, monolith->GetPos());
+						SceneManager::Instance().AddObject(bullet);
+						shotWait = 120;
+					}
 				}
 			}
 		}
@@ -107,14 +103,17 @@ void Enemy02::Move()
 				{
 					m_moveVec = Math::Vector3::Zero;
 
-					m_state = Animation::State::Attack;
-
-					if (shotWait <= 0)
+					if (!m_anime->GetAnimationFlg())
 					{
-						std::shared_ptr<EnemyBullet> bullet = std::make_shared<EnemyBullet>();
-						bullet->shot(m_pos, player->GetPos());
-						SceneManager::Instance().AddObject(bullet);
-						shotWait = 60;
+						m_state = Animation::State::Attack;
+
+						if (shotWait <= 0)
+						{
+							std::shared_ptr<EnemyBullet> bullet = std::make_shared<EnemyBullet>();
+							bullet->shot(m_pos, player->GetPos());
+							SceneManager::Instance().AddObject(bullet);
+							shotWait = 120;
+						}
 					}
 				}
 			}

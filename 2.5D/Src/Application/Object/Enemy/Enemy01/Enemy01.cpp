@@ -7,35 +7,25 @@ void Enemy01::Update()
 {
 	switch (m_state)
 	{
-	case Animation::State::Idol:
-		m_anime->CreateAnimation("Enemy01Idol", m_poly, true);
-		break;
 	case Animation::State::Attack:
 		m_anime->CreateAnimation("Enemy01Attack", m_poly, true);
 		break;
 	case Animation::State::Run:
 		m_anime->CreateAnimation("Enemy01Run", m_poly, true);
 		break;
+	case Animation::State::Hit:
+		m_anime->CreateAnimation("Enemy01Hit", m_poly, false);
+		break;
 	}
 
 	Move();
+
+	m_hitWait--;
+	if (m_hitWait <= 0) { m_hitWait = 0; }
 }
 
 void Enemy01::PostUpdate()
 {
-	// 球判定用の変数を作成
-	KdCollider::SphereInfo sphere;
-	// 球の中心点を設定
-	sphere.m_sphere.Center = m_pos;
-	sphere.m_sphere.Center.y += 0.5f;
-	// 球の半径を設定
-	sphere.m_sphere.Radius = 5.0f;
-	// 当たり判定をしたいタイプを設定
-	sphere.m_type = KdCollider::TypeBump;
-
-	// デバッグ表示
-	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, kRedColor);
-
 	BaseEnemy::PostUpdate();
 }
 
@@ -55,12 +45,16 @@ void Enemy01::Init()
 
 void Enemy01::OnHit()
 {
-	m_isExpired = true;
+	BaseEnemy::OnHit();
+	//m_isExpired = true;
 }
 
 void Enemy01::Move()
 {
-	m_state = Animation::State::Run;
+	if (!m_anime->GetAnimationFlg())
+	{
+		m_state = Animation::State::Run;
+	}
 
 	m_moveVec = Math::Vector3::Zero;
 
@@ -83,7 +77,10 @@ void Enemy01::Move()
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
 
-				m_state = Animation::State::Attack;
+				if (!m_anime->GetAnimationFlg())
+				{
+					m_state = Animation::State::Attack;
+				}
 			}
 		}
 		else
@@ -102,7 +99,10 @@ void Enemy01::Move()
 					{
 						m_moveVec = Math::Vector3::Zero;
 
-						m_state = Animation::State::Attack;
+						if (!m_anime->GetAnimationFlg())
+						{
+							m_state = Animation::State::Attack;
+						}
 					}
 				}
 			}

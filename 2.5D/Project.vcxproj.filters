@@ -163,6 +163,15 @@
     <Filter Include="Src\Application\Animation">
       <UniqueIdentifier>{973e9af9-95dd-4bf8-a583-4e39fb2900c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\Effect\EnemyAttack">
+      <UniqueIdentifier>{90a8aa4a-ac5d-423f-a3d5-1e30c05026d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Effect\AttackImpact">
+      <UniqueIdentifier>{c2a40394-19af-4968-932a-baedd33eb454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Effect\EnemyBulletHit">
+      <UniqueIdentifier>{81a756eb-cd01-4404-9434-479b5fffe96d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -420,6 +429,15 @@
     <ClInclude Include="Src\Application\Animation\Animation.h">
       <Filter>Src\Application\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\EnemyAttack\EnemyAttack.h">
+      <Filter>Src\Application\Object\Effect\EnemyAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.h">
+      <Filter>Src\Application\Object\Effect\AttackImpact</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\EnemyBulletHit\EnemyBulletHit.h">
+      <Filter>Src\Application\Object\Effect\EnemyBulletHit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -649,6 +667,15 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Animation\Animation.cpp">
       <Filter>Src\Application\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\EnemyAttack\EnemyAttack.cpp">
+      <Filter>Src\Application\Object\Effect\EnemyAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.cpp">
+      <Filter>Src\Application\Object\Effect\AttackImpact</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\EnemyBulletHit\EnemyBulletHit.cpp">
+      <Filter>Src\Application\Object\Effect\EnemyBulletHit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

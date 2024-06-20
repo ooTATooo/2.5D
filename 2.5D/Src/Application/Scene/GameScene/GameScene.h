@@ -24,4 +24,5 @@ private:
 	void Event() override;
 	void Init() override;
 
+	bool flg = false;
 };

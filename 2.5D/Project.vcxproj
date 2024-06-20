@@ -165,7 +165,10 @@
     <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h" />
     <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h" />
     <ClInclude Include="Src\Application\Object\Camera\Camera.h" />
+    <ClInclude Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.h" />
     <ClInclude Include="Src\Application\Object\Effect\BaseEffect.h" />
+    <ClInclude Include="Src\Application\Object\Effect\EnemyAttack\EnemyAttack.h" />
+    <ClInclude Include="Src\Application\Object\Effect\EnemyBulletHit\EnemyBulletHit.h" />
     <ClInclude Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.h" />
     <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h" />
@@ -245,7 +248,10 @@
     <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp" />
     <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp" />
     <ClCompile Include="Src\Application\Object\Camera\Camera.cpp" />
+    <ClCompile Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.cpp" />
     <ClCompile Include="Src\Application\Object\Effect\BaseEffect.cpp" />
+    <ClCompile Include="Src\Application\Object\Effect\EnemyAttack\EnemyAttack.cpp" />
+    <ClCompile Include="Src\Application\Object\Effect\EnemyBulletHit\EnemyBulletHit.cpp" />
     <ClCompile Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp" />

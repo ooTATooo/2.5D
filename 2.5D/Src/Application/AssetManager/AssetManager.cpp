@@ -38,7 +38,7 @@ void AssetManager::Init()
 
 	LoadMaterial("Enemy01Hit", "Asset/Textures/Enemy01/SlimeHit.png");
 	SetMaterial("Enemy01Hit", { 1.0f,1.0f }, pivot, 6, 1);
-	SetAnimation("Enemy01Hit", 0, 6, 0.1f);
+	SetAnimation("Enemy01Hit", 0, 6, 0.2f);
 	// ===エネミー１
 
 	// ===エネミー２
@@ -56,7 +56,7 @@ void AssetManager::Init()
 
 	LoadMaterial("Enemy02Hit", "Asset/Textures/Enemy02/WitchHit.png");
 	SetMaterial("Enemy02Hit", { 2.0f,2.0f }, pivot, 6, 1);
-	SetAnimation("Enemy02Hit", 0, 6, 0.1f);
+	SetAnimation("Enemy02Hit", 0, 6, 0.2f);
 	// ===エネミー２
 
 	// ===エネミー３
@@ -74,7 +74,7 @@ void AssetManager::Init()
 
 	LoadMaterial("Enemy03Hit", "Asset/Textures/Enemy03/KnightHit.png");
 	SetMaterial("Enemy03Hit", { 2.0f,2.0f }, pivot, 6, 1);
-	SetAnimation("Enemy03Hit", 0, 6, 0.1f);
+	SetAnimation("Enemy03Hit", 0, 6, 0.2f);
 	// ===エネミー３
 
 	// ===ボス
@@ -91,22 +91,26 @@ void AssetManager::Init()
 	SetAnimation("BossRun", 0, 6, 0.1f);
 	// ===ボス
 
-	//
-	LoadMaterial("PlayerBullet01Idol", "Asset/Textures/PlayerBullet01/bullet.png");
-	SetMaterial("PlayerBullet01Idol", { 1.0f,1.0f }, pivot, 4, 1);
-	SetAnimation("PlayerBullet01Idol", 0, 4, 0.1f);
+	// ===エネミー弾
+	LoadMaterial("EnemyBulletIdol", "Asset/Textures/Bullet/EnemyBullet.png");
+	SetMaterial("EnemyBulletIdol", { 2.0f,2.0f }, pivot, 8, 4);
+	SetAnimation("EnemyBulletIdol", 0, 27, 1.0f);
 
-	LoadMaterial("EnemyBulletIdol", "Asset/Textures/PlayerBullet01/bullet.png");
-	SetMaterial("EnemyBulletIdol", { 1.0f,1.0f }, pivot, 4, 1);
-	SetAnimation("EnemyBulletIdol", 0, 4, 0.1f);
+	LoadMaterial("EnemyBulletHit", "Asset/Textures/Bullet/EnemyBulletHit.png");
+	SetMaterial("EnemyBulletHit", { 1.0f,1.0f }, pivot, 6, 1);
+	SetAnimation("EnemyBulletHit", 0, 6, 0.3f);
+	// ===エネミー弾
+
+	LoadMaterial("PlayerAtkEffect", "Asset/Textures/Effect/PlayerAtk.png");
+	SetMaterial("PlayerAtkEffect", { 1.0f,1.0f }, pivot, 5, 1);
+	SetAnimation("PlayerAtkEffect", 0, 5, 0.3f);
+
+	LoadMaterial("PlayerAtkImpact", "Asset/Textures/Effect/PlayerAtkImpact.png");
+	SetMaterial("PlayerAtkImpact", { 0.5f,0.5f }, pivot, 6, 1);
+	SetAnimation("PlayerAtkImpact", 0, 6, 0.3f);
 
 	LoadMaterial("BackGround", "Asset/Textures/BackGround/BackGround.png");
 	SetMaterial("BackGround", { 250.0f,100.0f }, KdSquarePolygon::PivotType::Center_Middle, 1, 1);
-
-	LoadMaterial("AttackEffect", "Asset/Textures/Effect/AttackEffect.png");
-	SetMaterial("AttackEffect", { 1.0f,1.0f }, pivot, 5, 1);
-	SetAnimation("AttackEffect", 0, 5, 0.3f);
-
 	// ============================
 
 	// モデル======================

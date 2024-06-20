@@ -25,8 +25,6 @@ public:
 
 	void Move();
 	void MapHit();
-	void EnemyHit();
-	void ShotBullet();
 
 	// セッター
 	void SetPillar(const std::weak_ptr<KdGameObject> _pillar) { m_pillar = _pillar; }

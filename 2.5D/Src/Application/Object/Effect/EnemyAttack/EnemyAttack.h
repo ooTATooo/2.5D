@@ -2,12 +2,12 @@
 
 #include "../BaseEffect.h"
 
-class PlayerAttack :public BaseEffect
+class EnemyAttack :public BaseEffect
 {
 public:
 
-	PlayerAttack() { Init(); }
-	~PlayerAttack()override {}
+	EnemyAttack() { Init(); }
+	~EnemyAttack()override {}
 
 	void Update()override;
 	void PostUpdate()override;

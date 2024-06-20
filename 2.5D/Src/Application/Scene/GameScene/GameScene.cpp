@@ -28,7 +28,17 @@ void GameScene::Event()
 		//(
 		//	SceneManager::SceneType::Title
 		//);
-		EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Top_Center, KdGameObject::ObjType::Enemy01, 5);
+		if (!flg)
+		{
+			EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Top_Center, KdGameObject::ObjType::Enemy01, 5);
+			EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Left_Center, KdGameObject::ObjType::Enemy02, 5);
+			EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Right_Center, KdGameObject::ObjType::Enemy03, 5);
+			flg = true;
+		}
+	}
+	else
+	{
+		flg = false;
 	}
 }
 

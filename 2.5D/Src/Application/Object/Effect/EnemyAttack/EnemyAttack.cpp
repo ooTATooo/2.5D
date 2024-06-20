@@ -1,6 +1,8 @@
-﻿#include "PlayerAttack.h"
+﻿#include "EnemyAttack.h"
 
-void PlayerAttack::Update()
+#include "../../Player/Player.h"
+
+void EnemyAttack::Update()
 {
 	m_anime->CreateAnimation("PlayerAtkEffect", m_poly, false);
 
@@ -10,7 +12,7 @@ void PlayerAttack::Update()
 	}
 }
 
-void PlayerAttack::PostUpdate()
+void EnemyAttack::PostUpdate()
 {
 	// 球判定用の変数を作成
 	KdCollider::SphereInfo sphere;
@@ -35,7 +37,6 @@ void PlayerAttack::PostUpdate()
 		if (hit)
 		{
 			obj->OnHit();
-			OnHit();
 			break;
 		}
 	}
@@ -43,7 +44,7 @@ void PlayerAttack::PostUpdate()
 	BaseEffect::PostUpdate();
 }
 
-void PlayerAttack::Init()
+void EnemyAttack::Init()
 {
 	BaseEffect::Init();
 
@@ -59,7 +60,7 @@ void PlayerAttack::Init()
 	}
 }
 
-void PlayerAttack::Set(Math::Vector3 _pos, Animation::Dir _dir)
+void EnemyAttack::Set(Math::Vector3 _pos, Animation::Dir _dir)
 {
 	m_pos = _pos;
 

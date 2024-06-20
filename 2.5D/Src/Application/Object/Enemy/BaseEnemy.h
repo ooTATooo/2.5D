@@ -40,6 +40,7 @@ protected:
 	Math::Matrix m_transMat = Math::Matrix::Identity;
 	float m_angX = 0;
 	float m_angY = 0;
+	float m_hitWait = 0;
 
 	Animation::State m_state;
 	std::shared_ptr<Animation> m_anime = nullptr;
