@@ -172,9 +172,9 @@
     <ClInclude Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.h" />
     <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h" />
-    <ClInclude Include="Src\Application\Object\Enemy\Enemy01\Enemy01.h" />
-    <ClInclude Include="Src\Application\Object\Enemy\Enemy02\Enemy02.h" />
-    <ClInclude Include="Src\Application\Object\Enemy\Enemy03\Enemy03.h" />
+    <ClInclude Include="Src\Application\Object\Enemy\Knight\Knight.h" />
+    <ClInclude Include="Src\Application\Object\Enemy\Slime\Slime.h" />
+    <ClInclude Include="Src\Application\Object\Enemy\Witch\Witch.h" />
     <ClInclude Include="Src\Application\Object\HpBar\BaseHpBar.h" />
     <ClInclude Include="Src\Application\Object\HpBar\BossHp\BossHp.h" />
     <ClInclude Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.h" />
@@ -255,9 +255,9 @@
     <ClCompile Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp" />
-    <ClCompile Include="Src\Application\Object\Enemy\Enemy01\Enemy01.cpp" />
-    <ClCompile Include="Src\Application\Object\Enemy\Enemy02\Enemy02.cpp" />
-    <ClCompile Include="Src\Application\Object\Enemy\Enemy03\Enemy03.cpp" />
+    <ClCompile Include="Src\Application\Object\Enemy\Knight\Knight.cpp" />
+    <ClCompile Include="Src\Application\Object\Enemy\Slime\Slime.cpp" />
+    <ClCompile Include="Src\Application\Object\Enemy\Witch\Witch.cpp" />
     <ClCompile Include="Src\Application\Object\HpBar\BaseHpBar.cpp" />
     <ClCompile Include="Src\Application\Object\HpBar\BossHp\BossHp.cpp" />
     <ClCompile Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.cpp" />

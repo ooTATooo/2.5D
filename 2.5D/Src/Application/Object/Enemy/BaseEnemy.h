@@ -10,6 +10,7 @@ public:
 	BaseEnemy() {}
 	~BaseEnemy()override {}
 
+	void PreUpdate()override;
 	void Update()override {}
 	void PostUpdate()override;
 	void Init()override;
@@ -18,6 +19,8 @@ public:
 	void OnHit()override;
 
 	void MapHit();
+	void Dissolve();
+
 	void SetPlayer(const std::weak_ptr<KdGameObject> _player) { m_player = _player; }
 	void SetBeacon(const std::weak_ptr<KdGameObject> _monolith) { m_monolith = _monolith; }
 
@@ -32,15 +35,17 @@ protected:
 	std::weak_ptr<KdGameObject> m_player;
 	std::weak_ptr<KdGameObject> m_monolith;
 
-	float m_moveSpd = 0;
 	Math::Vector3 m_pos = Math::Vector3::Zero;
 	Math::Vector3 m_moveVec = Math::Vector3::Zero;
-	Math::Matrix m_rotMatX = Math::Matrix::Identity;
-	Math::Matrix m_rotMatY = Math::Matrix::Identity;
-	Math::Matrix m_transMat = Math::Matrix::Identity;
-	float m_angX = 0;
-	float m_angY = 0;
+	Math::Vector3 m_scale = Math::Vector3::One;
+	float m_moveSpd;
+	float m_angX;
 	float m_hitWait = 0;
+	int m_maxHp;
+	int m_hp;
+
+	float m_dissolve = 0;
+	bool m_dissolveFlg = false;
 
 	Animation::State m_state;
 	std::shared_ptr<Animation> m_anime = nullptr;

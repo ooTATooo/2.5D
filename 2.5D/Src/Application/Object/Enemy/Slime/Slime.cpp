@@ -1,55 +1,50 @@
-﻿#include "Enemy01.h"
+﻿#include "Slime.h"
 
 #include "../../Stage/Monolith/Monolith.h"
 #include "../../Player/Player.h"
 
-void Enemy01::Update()
+void Slime::Update()
 {
 	switch (m_state)
 	{
 	case Animation::State::Attack:
-		m_anime->CreateAnimation("Enemy01Attack", m_poly, true);
+		m_anime->CreateAnimation("SlimeAttack", m_poly, true);
 		break;
 	case Animation::State::Run:
-		m_anime->CreateAnimation("Enemy01Run", m_poly, true);
+		m_anime->CreateAnimation("SlimeRun", m_poly, true);
 		break;
 	case Animation::State::Hit:
-		m_anime->CreateAnimation("Enemy01Hit", m_poly, false);
+		m_anime->CreateAnimation("SlimeHit", m_poly, false);
+		break;
+	case Animation::State::Die:
+		m_anime->CreateAnimation("SlimeDie", m_poly, true);
 		break;
 	}
 
-	Move();
+	if (m_state != Animation::State::Die)
+	{
+		Move();
+	}
 
 	m_hitWait--;
 	if (m_hitWait <= 0) { m_hitWait = 0; }
 }
 
-void Enemy01::PostUpdate()
-{
-	BaseEnemy::PostUpdate();
-}
-
-void Enemy01::Init()
+void Slime::Init()
 {
 	BaseEnemy::Init();
 
-	if (!m_poly)
-	{
-		m_poly = std::make_shared<KdSquarePolygon>();
-		m_pos = {};
-		m_anime = std::make_shared<Animation>();
-		m_pCollider = std::make_unique<KdCollider>();
-		m_pCollider->RegisterCollisionShape("enemy01", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump | KdCollider::TypeDamage);
-	}
+	m_poly = std::make_shared<KdSquarePolygon>();
+	m_maxHp = 3;
+	m_hp = m_maxHp;
+
+	m_anime = std::make_shared<Animation>();
+
+	m_pCollider = std::make_unique<KdCollider>();
+	m_pCollider->RegisterCollisionShape("Slime", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump | KdCollider::TypeDamage);
 }
 
-void Enemy01::OnHit()
-{
-	BaseEnemy::OnHit();
-	//m_isExpired = true;
-}
-
-void Enemy01::Move()
+void Slime::Move()
 {
 	if (!m_anime->GetAnimationFlg())
 	{

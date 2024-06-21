@@ -2,17 +2,15 @@
 
 #include "../BaseEnemy.h"
 
-class Enemy03 :public BaseEnemy
+class Knight :public BaseEnemy
 {
 public:
 
-	Enemy03() { Init(); }
-	~Enemy03()override {}
+	Knight() { Init(); }
+	~Knight()override {}
 
 	void Update()override;
-	void PostUpdate()override;
 	void Init()override;
-	void OnHit()override;
 
 private:
 

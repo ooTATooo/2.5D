@@ -2,19 +2,20 @@
 
 #include "../BaseEnemy.h"
 
-class Enemy01 :public BaseEnemy
+class Witch :public BaseEnemy
 {
 public:
 
-	Enemy01() { Init(); }
-	~Enemy01()override {}
+	Witch() { Init(); }
+	~Witch()override {}
 
 	void Update()override;
-	void PostUpdate()override;
 	void Init()override;
-	void OnHit()override;
 
 private:
 
 	void Move();
+
+	float shotWait = 30;
+
 };

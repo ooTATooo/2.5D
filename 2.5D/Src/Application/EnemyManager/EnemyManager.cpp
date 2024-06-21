@@ -1,8 +1,8 @@
 ﻿#include "EnemyManager.h"
 
-#include "../Object/Enemy/Enemy01/Enemy01.h"
-#include "../Object/Enemy/Enemy02/Enemy02.h"
-#include "../Object/Enemy/Enemy03/Enemy03.h"
+#include "../Object/Enemy/Slime/Slime.h"
+#include "../Object/Enemy/Witch/Witch.h"
+#include "../Object/Enemy/Knight/Knight.h"
 #include "../Object/Map/MapEnemyPoint/MapEnemyPoint.h"
 
 void EnemyManager::Init()
@@ -12,9 +12,9 @@ void EnemyManager::Init()
 
 void EnemyManager::AddEnemy(SpawnType _type, KdGameObject::ObjType _enemyType, int _num)
 {
-	std::shared_ptr<Enemy01> enemy01 = std::make_shared<Enemy01>();
-	std::shared_ptr<Enemy02> enemy02 = std::make_shared<Enemy02>();
-	std::shared_ptr<Enemy03> enemy03 = std::make_shared<Enemy03>();
+	std::shared_ptr<Slime> slime = std::make_shared<Slime>();
+	std::shared_ptr<Witch> witch = std::make_shared<Witch>();
+	std::shared_ptr<Knight> knight = std::make_shared<Knight>();
 	std::shared_ptr<MapEnemyPoint> mapEnemyPoint = std::make_shared<MapEnemyPoint>();
 
 	switch (_enemyType)
@@ -24,18 +24,18 @@ void EnemyManager::AddEnemy(SpawnType _type, KdGameObject::ObjType _enemyType, i
 		{
 			if (obj->GetObjType() == KdGameObject::ObjType::Player)
 			{
-				enemy01->SetPlayer(obj);
+				slime->SetPlayer(obj);
 
 			}
 			if (obj->GetObjType() == KdGameObject::ObjType::Monolith)
 			{
-				enemy01->SetBeacon(obj);
+				slime->SetBeacon(obj);
 			}
 		}
-		enemy01->SetPos(m_spawnPosList[_type]);
-		SceneManager::Instance().AddObject(enemy01);
+		slime->SetPos(m_spawnPosList[_type]);
+		SceneManager::Instance().AddObject(slime);
 
-		mapEnemyPoint->SetEnemy(enemy01);
+		mapEnemyPoint->SetEnemy(slime);
 		SceneManager::Instance().AddObject(mapEnemyPoint);
 
 		break;
@@ -44,18 +44,18 @@ void EnemyManager::AddEnemy(SpawnType _type, KdGameObject::ObjType _enemyType, i
 		{
 			if (obj->GetObjType() == KdGameObject::ObjType::Player)
 			{
-				enemy02->SetPlayer(obj);
+				witch->SetPlayer(obj);
 
 			}
 			if (obj->GetObjType() == KdGameObject::ObjType::Monolith)
 			{
-				enemy02->SetBeacon(obj);
+				witch->SetBeacon(obj);
 			}
 		}
-		enemy02->SetPos(m_spawnPosList[_type]);
-		SceneManager::Instance().AddObject(enemy02);
+		witch->SetPos(m_spawnPosList[_type]);
+		SceneManager::Instance().AddObject(witch);
 
-		mapEnemyPoint->SetEnemy(enemy02);
+		mapEnemyPoint->SetEnemy(witch);
 		SceneManager::Instance().AddObject(mapEnemyPoint);
 
 		break;
@@ -64,18 +64,18 @@ void EnemyManager::AddEnemy(SpawnType _type, KdGameObject::ObjType _enemyType, i
 		{
 			if (obj->GetObjType() == KdGameObject::ObjType::Player)
 			{
-				enemy03->SetPlayer(obj);
+				knight->SetPlayer(obj);
 
 			}
 			if (obj->GetObjType() == KdGameObject::ObjType::Monolith)
 			{
-				enemy03->SetBeacon(obj);
+				knight->SetBeacon(obj);
 			}
 		}
-		enemy03->SetPos(m_spawnPosList[_type]);
-		SceneManager::Instance().AddObject(enemy03);
+		knight->SetPos(m_spawnPosList[_type]);
+		SceneManager::Instance().AddObject(knight);
 
-		mapEnemyPoint->SetEnemy(enemy03);
+		mapEnemyPoint->SetEnemy(knight);
 		SceneManager::Instance().AddObject(mapEnemyPoint);
 
 		break;

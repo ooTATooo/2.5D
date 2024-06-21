@@ -24,57 +24,57 @@ void AssetManager::Init()
 	// ===プレイヤー
 
 	// ===エネミー１
-	LoadMaterial("Enemy01Idol", "Asset/Textures/Enemy01/Slime01.png");
-	SetMaterial("Enemy01Idol", { 1.0f,1.0f }, pivot, 12, 1);
-	SetAnimation("Enemy01Idol", 9, 3, 0.1f);
+	LoadMaterial("SlimeAttack", "Asset/Textures/Enemy/Slime/Slime.png");
+	SetMaterial("SlimeAttack", { 1.0f,1.0f }, pivot, 9, 1);
+	SetAnimation("SlimeAttack", 4, 5, 0.1f);
 
-	LoadMaterial("Enemy01Attack", "Asset/Textures/Enemy01/Slime01.png");
-	SetMaterial("Enemy01Attack", { 1.0f,1.0f }, pivot, 12, 1);
-	SetAnimation("Enemy01Attack", 4, 5, 0.1f);
+	LoadMaterial("SlimeRun", "Asset/Textures/Enemy/Slime/Slime.png");
+	SetMaterial("SlimeRun", { 1.0f,1.0f }, pivot, 9, 1);
+	SetAnimation("SlimeRun", 0, 4, 0.1f);
 
-	LoadMaterial("Enemy01Run", "Asset/Textures/Enemy01/Slime01.png");
-	SetMaterial("Enemy01Run", { 1.0f,1.0f }, pivot, 12, 1);
-	SetAnimation("Enemy01Run", 0, 4, 0.1f);
+	LoadMaterial("SlimeHit", "Asset/Textures/Enemy/Slime/SlimeHit.png");
+	SetMaterial("SlimeHit", { 1.0f,1.0f }, pivot, 6, 1);
+	SetAnimation("SlimeHit", 0, 6, 0.2f);
 
-	LoadMaterial("Enemy01Hit", "Asset/Textures/Enemy01/SlimeHit.png");
-	SetMaterial("Enemy01Hit", { 1.0f,1.0f }, pivot, 6, 1);
-	SetAnimation("Enemy01Hit", 0, 6, 0.2f);
+	LoadMaterial("SlimeDie", "Asset/Textures/Enemy/Slime/SlimeDie.png");
+	SetMaterial("SlimeDie", { 1.0f,1.0f }, pivot, 2, 1);
+	SetAnimation("SlimeDie", 0, 2, 0.2f);
 	// ===エネミー１
 
 	// ===エネミー２
-	LoadMaterial("Enemy02Idol", "Asset/Textures/Enemy02/Witch01.png");
-	SetMaterial("Enemy02Idol", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy02Idol", 10, 4, 0.1f);
+	LoadMaterial("WitchAttack", "Asset/Textures/Enemy/Witch/Witch.png");
+	SetMaterial("WitchAttack", { 2.0f,2.0f }, pivot, 10, 1);
+	SetAnimation("WitchAttack", 6, 4, 0.1f);
 
-	LoadMaterial("Enemy02Attack", "Asset/Textures/Enemy02/Witch01.png");
-	SetMaterial("Enemy02Attack", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy02Attack", 6, 4, 0.1f);
+	LoadMaterial("WitchRun", "Asset/Textures/Enemy/Witch/Witch.png");
+	SetMaterial("WitchRun", { 2.0f,2.0f }, pivot, 10, 1);
+	SetAnimation("WitchRun", 0, 6, 0.1f);
 
-	LoadMaterial("Enemy02Run", "Asset/Textures/Enemy02/Witch01.png");
-	SetMaterial("Enemy02Run", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy02Run", 0, 6, 0.1f);
+	LoadMaterial("WitchHit", "Asset/Textures/Enemy/Witch/WitchHit.png");
+	SetMaterial("WitchHit", { 2.0f,2.0f }, pivot, 6, 1);
+	SetAnimation("WitchHit", 0, 6, 0.2f);
 
-	LoadMaterial("Enemy02Hit", "Asset/Textures/Enemy02/WitchHit.png");
-	SetMaterial("Enemy02Hit", { 2.0f,2.0f }, pivot, 6, 1);
-	SetAnimation("Enemy02Hit", 0, 6, 0.2f);
+	LoadMaterial("WitchDie", "Asset/Textures/Enemy/Witch/WitchDie.png");
+	SetMaterial("WitchDie", { 2.0f,2.0f }, pivot, 2, 1);
+	SetAnimation("WitchDie", 0, 2, 0.2f);
 	// ===エネミー２
 
 	// ===エネミー３
-	LoadMaterial("Enemy03Idol", "Asset/Textures/Enemy03/Knight01.png");
-	SetMaterial("Enemy03Idol", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy03Idol", 10, 4, 0.1f);
+	LoadMaterial("KnightAttack", "Asset/Textures/Enemy/Knight/Knight.png");
+	SetMaterial("KnightAttack", { 2.0f,2.0f }, pivot, 10, 1);
+	SetAnimation("KnightAttack", 6, 4, 0.1f);
 
-	LoadMaterial("Enemy03Attack", "Asset/Textures/Enemy03/Knight01.png");
-	SetMaterial("Enemy03Attack", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy03Attack", 6, 4, 0.1f);
+	LoadMaterial("KnightRun", "Asset/Textures/Enemy/Knight/Knight.png");
+	SetMaterial("KnightRun", { 2.0f,2.0f }, pivot, 10, 1);
+	SetAnimation("KnightRun", 0, 6, 0.1f);
 
-	LoadMaterial("Enemy03Run", "Asset/Textures/Enemy03/Knight01.png");
-	SetMaterial("Enemy03Run", { 2.0f,2.0f }, pivot, 14, 1);
-	SetAnimation("Enemy03Run", 0, 6, 0.1f);
+	LoadMaterial("KnightHit", "Asset/Textures/Enemy/Knight/KnightHit.png");
+	SetMaterial("KnightHit", { 2.0f,2.0f }, pivot, 6, 1);
+	SetAnimation("KnightHit", 0, 6, 0.2f);
 
-	LoadMaterial("Enemy03Hit", "Asset/Textures/Enemy03/KnightHit.png");
-	SetMaterial("Enemy03Hit", { 2.0f,2.0f }, pivot, 6, 1);
-	SetAnimation("Enemy03Hit", 0, 6, 0.2f);
+	LoadMaterial("KnightDie", "Asset/Textures/Enemy/Knight/KnightDie.png");
+	SetMaterial("KnightDie", { 2.0f,2.0f }, pivot, 2, 1);
+	SetAnimation("KnightDie", 0, 2, 0.2f);
 	// ===エネミー３
 
 	// ===ボス
