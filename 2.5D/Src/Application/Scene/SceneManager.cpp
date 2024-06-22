@@ -6,7 +6,7 @@
 #include "GameScene/GameScene.h"
 #include "TitleScene/TitleScene.h"
 
-#include "../Object/Effect/Fade/Fade.h"
+#include "../GameObject/Effect/Fade/Fade.h"
 
 void SceneManager::PreUpdate()
 {

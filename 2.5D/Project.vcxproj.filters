@@ -70,116 +70,149 @@
     <Filter Include="Library\imgui">
       <UniqueIdentifier>{b17bb8db-9ca3-4b8f-8d13-84bd3e97ab97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object">
-      <UniqueIdentifier>{7b03ac67-e544-4d14-9674-59fe906c3cf9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Player">
-      <UniqueIdentifier>{d7ef74b9-8b74-4675-97d6-e8a4c00167cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\ImGuiManager">
       <UniqueIdentifier>{bce72ed7-05ad-4001-afd1-6f9f12cbf0ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Enemy">
-      <UniqueIdentifier>{4342e5db-e6f9-4908-b199-ba7badf18af3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\AssetManager">
       <UniqueIdentifier>{54eb2e43-25a1-41aa-87c9-e9249d47ab51}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Bullet">
-      <UniqueIdentifier>{e19058bf-cce6-4800-b2d3-1b876f1cd4c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Bullet\PlayerBullet01">
-      <UniqueIdentifier>{9b7d6f30-40fa-425e-ba36-99a14c30eb8a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Bullet\EnemyBullet">
-      <UniqueIdentifier>{2f7cdba9-a5c2-4d96-a372-92fe0b97fef9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Enemy\Boss">
-      <UniqueIdentifier>{a432c696-68d8-48fc-bf51-ddf88ae83473}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Camera">
-      <UniqueIdentifier>{5881d598-c277-4272-8baf-1489364403f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\HpBar">
-      <UniqueIdentifier>{4196582b-e5b1-46f7-824a-8b524c0be4a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Map">
-      <UniqueIdentifier>{f6ccf916-083e-4cc3-afb9-ce4c318d6ac0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Map\MapBackGround">
-      <UniqueIdentifier>{2e3f5c28-9ed3-439a-b644-493cd319d5fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Map\MapPlayerIcon">
-      <UniqueIdentifier>{b8b701ef-82e9-4e91-a70b-486daa9ea178}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Map\MapMonolithPoint">
-      <UniqueIdentifier>{a7fc60a5-90d9-4114-9633-e1dec4a196ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\HpBar\MonolithHp">
-      <UniqueIdentifier>{7be6010c-6c66-4b39-84c1-7cbd8e6d1202}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Map\MapEnemyPoint">
-      <UniqueIdentifier>{ee88a9d5-6237-4685-9042-4a777941ecf1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Stage">
-      <UniqueIdentifier>{88797548-50f5-4130-b11a-291298d2cdcd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Stage\Ground">
-      <UniqueIdentifier>{4e823812-3b8f-4dca-be7f-689759929441}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Stage\Monolith">
-      <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Stage\Pillar">
-      <UniqueIdentifier>{169121e0-d050-4477-a1f1-f49c983deef4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Stage\WallFrame">
-      <UniqueIdentifier>{ed09bb3e-797d-4752-bb0c-a9ae501327fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Stage\BackGround">
-      <UniqueIdentifier>{9e658cc7-b1f7-4ffa-b666-1f7f32185559}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\EnemyManager">
       <UniqueIdentifier>{4e21400f-7222-4c46-b713-9f3befe2aa0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Effect">
-      <UniqueIdentifier>{e71b36c2-597f-4f13-b56e-fa63a9796b05}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Object\Effect\PlayerAttack">
-      <UniqueIdentifier>{4402e460-335c-4beb-8903-6cc65d340d1b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Animation">
       <UniqueIdentifier>{973e9af9-95dd-4bf8-a583-4e39fb2900c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Effect\AttackImpact">
-      <UniqueIdentifier>{c2a40394-19af-4968-932a-baedd33eb454}</UniqueIdentifier>
+    <Filter Include="Src\Application\GameObject">
+      <UniqueIdentifier>{7b03ac67-e544-4d14-9674-59fe906c3cf9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Effect\EnemyBulletHit">
-      <UniqueIdentifier>{81a756eb-cd01-4404-9434-479b5fffe96d}</UniqueIdentifier>
+    <Filter Include="Src\Application\GameObject\Player">
+      <UniqueIdentifier>{d7ef74b9-8b74-4675-97d6-e8a4c00167cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Enemy\Slime">
+    <Filter Include="Src\Application\GameObject\Enemy">
+      <UniqueIdentifier>{4342e5db-e6f9-4908-b199-ba7badf18af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Enemy\Boss">
+      <UniqueIdentifier>{a432c696-68d8-48fc-bf51-ddf88ae83473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Enemy\Slime">
       <UniqueIdentifier>{202d943d-c4fe-4af9-9d9b-ff0e1894c076}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Enemy\Witch">
+    <Filter Include="Src\Application\GameObject\Enemy\Witch">
       <UniqueIdentifier>{50963397-8825-4c13-82e6-5e198321dc35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Enemy\Knight">
+    <Filter Include="Src\Application\GameObject\Enemy\Knight">
       <UniqueIdentifier>{2f21d9f7-272e-46b0-88f0-ea8a2ed878de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Effect\KnightAttack">
+    <Filter Include="Src\Application\GameObject\Bullet">
+      <UniqueIdentifier>{e19058bf-cce6-4800-b2d3-1b876f1cd4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Bullet\PlayerBullet01">
+      <UniqueIdentifier>{9b7d6f30-40fa-425e-ba36-99a14c30eb8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Bullet\EnemyBullet">
+      <UniqueIdentifier>{2f7cdba9-a5c2-4d96-a372-92fe0b97fef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Camera">
+      <UniqueIdentifier>{5881d598-c277-4272-8baf-1489364403f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\HpBar">
+      <UniqueIdentifier>{4196582b-e5b1-46f7-824a-8b524c0be4a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\HpBar\MonolithHp">
+      <UniqueIdentifier>{7be6010c-6c66-4b39-84c1-7cbd8e6d1202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Map">
+      <UniqueIdentifier>{f6ccf916-083e-4cc3-afb9-ce4c318d6ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Map\MapBackGround">
+      <UniqueIdentifier>{2e3f5c28-9ed3-439a-b644-493cd319d5fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Map\MapPlayerIcon">
+      <UniqueIdentifier>{b8b701ef-82e9-4e91-a70b-486daa9ea178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Map\MapMonolithPoint">
+      <UniqueIdentifier>{a7fc60a5-90d9-4114-9633-e1dec4a196ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Map\MapEnemyPoint">
+      <UniqueIdentifier>{ee88a9d5-6237-4685-9042-4a777941ecf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Stage">
+      <UniqueIdentifier>{88797548-50f5-4130-b11a-291298d2cdcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Stage\Ground">
+      <UniqueIdentifier>{4e823812-3b8f-4dca-be7f-689759929441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Stage\Monolith">
+      <UniqueIdentifier>{a2fd2fd7-8c8b-4aee-acf7-e7c720757cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Stage\Pillar">
+      <UniqueIdentifier>{169121e0-d050-4477-a1f1-f49c983deef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Stage\WallFrame">
+      <UniqueIdentifier>{ed09bb3e-797d-4752-bb0c-a9ae501327fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Stage\BackGround">
+      <UniqueIdentifier>{9e658cc7-b1f7-4ffa-b666-1f7f32185559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Effect">
+      <UniqueIdentifier>{e71b36c2-597f-4f13-b56e-fa63a9796b05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Effect\PlayerAttack">
+      <UniqueIdentifier>{4402e460-335c-4beb-8903-6cc65d340d1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Effect\AttackImpact">
+      <UniqueIdentifier>{c2a40394-19af-4968-932a-baedd33eb454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Effect\EnemyBulletHit">
+      <UniqueIdentifier>{81a756eb-cd01-4404-9434-479b5fffe96d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Effect\KnightAttack">
       <UniqueIdentifier>{90a8aa4a-ac5d-423f-a3d5-1e30c05026d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Effect\SlimeAttack">
+    <Filter Include="Src\Application\GameObject\Effect\SlimeAttack">
       <UniqueIdentifier>{648cc25a-1330-4f7f-974f-8710d442719e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Effect\Fade">
+    <Filter Include="Src\Application\GameObject\Effect\Fade">
       <UniqueIdentifier>{ac8d6796-251d-4bdd-9853-27fd39bc80cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\UI">
+    <Filter Include="Src\Application\GameObject\UI">
       <UniqueIdentifier>{61d58ee0-c3c9-43c4-8c6d-7d5d8c48d179}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\UI\TitleLogo">
-      <UniqueIdentifier>{94d63c4f-78f7-43ec-8cc9-c7392d950492}</UniqueIdentifier>
+    <Filter Include="Src\Application\TitleObject">
+      <UniqueIdentifier>{e26925c3-d4b3-47c5-9984-3280f8a40a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleStage">
+      <UniqueIdentifier>{8e38d34e-cdec-4224-9f00-ff7c3494aee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleStage\TitleBackGround">
+      <UniqueIdentifier>{6c752a51-164b-4d30-a4e8-e332f4f01e4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleStage\TitleGround">
+      <UniqueIdentifier>{9e48f3ff-4677-40d2-8cb7-420ff50c7b0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleStage\TitleMonolith">
+      <UniqueIdentifier>{429d9be7-8fb9-4428-928c-a4a755d2165b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleStage\TitlePillar">
+      <UniqueIdentifier>{c8d62b1a-b2b5-4368-bf82-268a7f5971ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleCamera">
+      <UniqueIdentifier>{36e9f028-7931-4d8c-843a-a9e3238e38c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleStage\TitleWallFrame">
+      <UniqueIdentifier>{2547d0e0-861d-41f6-9546-2827ee59db50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitlePlayer">
+      <UniqueIdentifier>{64c998f5-7add-4bdf-8361-0cad6f41adb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleUI">
+      <UniqueIdentifier>{777cd16b-c3c1-4514-8f0d-475cea278a63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleUI\TitleLogo">
+      <UniqueIdentifier>{0e0694c4-2e6c-4414-935b-db00cd8beeff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleObject\TitleUI\TitleStart">
+      <UniqueIdentifier>{28a6d0dd-8a6b-408c-9d5a-55d2f390f5be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -197,9 +230,6 @@
     </ClInclude>
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h">
       <Filter>Library\tinygltf</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\main.h">
-      <Filter>Src\Application</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Direct3D\KdDirect3D.h">
       <Filter>Src\Framework\Direct3D</Filter>
@@ -306,18 +336,6 @@
     <ClInclude Include="Src\Framework\Effekseer\KdEffekseerManager.h">
       <Filter>Src\Framework\Effekseer</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Scene\SceneManager.h">
-      <Filter>Src\Application\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h">
-      <Filter>Src\Application\Scene\BaseScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h">
-      <Filter>Src\Application\Scene\GameScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h">
-      <Filter>Src\Application\Scene\TitleScene</Filter>
-    </ClInclude>
     <ClInclude Include="..\Library\imgui\imconfig.h">
       <Filter>Library\imgui</Filter>
     </ClInclude>
@@ -348,121 +366,160 @@
     <ClInclude Include="..\Library\imgui\ja_glyph_ranges.h">
       <Filter>Library\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Player\Player.h">
-      <Filter>Src\Application\Object\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h">
-      <Filter>Src\Application\ImGuiManager</Filter>
+    <ClInclude Include="Src\Application\Animation\Animation.h">
+      <Filter>Src\Application\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\AssetManager\AssetManager.h">
       <Filter>Src\Application\AssetManager</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Bullet\BaseBullet.h">
-      <Filter>Src\Application\Object\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.h">
-      <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Enemy\Boss\Boss.h">
-      <Filter>Src\Application\Object\Enemy\Boss</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.h">
-      <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\HpBar\BaseHpBar.h">
-      <Filter>Src\Application\Object\HpBar</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Camera\Camera.h">
-      <Filter>Src\Application\Object\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Map\BaseMap.h">
-      <Filter>Src\Application\Object\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Map\MapBackGround\MapBackGround.h">
-      <Filter>Src\Application\Object\Map\MapBackGround</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Map\MapPlayerIcon\MapPlayerIcon.h">
-      <Filter>Src\Application\Object\Map\MapPlayerIcon</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.h">
-      <Filter>Src\Application\Object\HpBar\MonolithHp</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Map\MapMonolithPoint\MapMonolithPoint.h">
-      <Filter>Src\Application\Object\Map\MapMonolithPoint</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Map\MapEnemyPoint\MapEnemyPoint.h">
-      <Filter>Src\Application\Object\Map\MapEnemyPoint</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Stage\BaseStage.h">
-      <Filter>Src\Application\Object\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Stage\BackGround\BackGround.h">
-      <Filter>Src\Application\Object\Stage\BackGround</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Stage\Ground\Ground.h">
-      <Filter>Src\Application\Object\Stage\Ground</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Stage\Monolith\Monolith.h">
-      <Filter>Src\Application\Object\Stage\Monolith</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Stage\Pillar\Pillar.h">
-      <Filter>Src\Application\Object\Stage\Pillar</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Object\Stage\WallFawme\WallFrame.h">
-      <Filter>Src\Application\Object\Stage\WallFrame</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\EnemyManager\EnemyManager.h">
       <Filter>Src\Application\EnemyManager</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\BaseEffect.h">
-      <Filter>Src\Application\Object\Effect</Filter>
+    <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h">
+      <Filter>Src\Application\ImGuiManager</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.h">
-      <Filter>Src\Application\Object\Effect\PlayerAttack</Filter>
+    <ClInclude Include="Src\Application\Scene\SceneManager.h">
+      <Filter>Src\Application\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Animation\Animation.h">
-      <Filter>Src\Application\Animation</Filter>
+    <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h">
+      <Filter>Src\Application\Scene\BaseScene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.h">
-      <Filter>Src\Application\Object\Effect\AttackImpact</Filter>
+    <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h">
+      <Filter>Src\Application\Scene\GameScene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\EnemyBulletHit\EnemyBulletHit.h">
-      <Filter>Src\Application\Object\Effect\EnemyBulletHit</Filter>
+    <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h">
+      <Filter>Src\Application\Scene\TitleScene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Enemy\Slime\Slime.h">
-      <Filter>Src\Application\Object\Enemy\Slime</Filter>
+    <ClInclude Include="Src\Application\GameObject\Bullet\BaseBullet.h">
+      <Filter>Src\Application\GameObject\Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Enemy\Witch\Witch.h">
-      <Filter>Src\Application\Object\Enemy\Witch</Filter>
+    <ClInclude Include="Src\Application\GameObject\Bullet\EnemyBullet\EnemyBullet.h">
+      <Filter>Src\Application\GameObject\Bullet\EnemyBullet</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Enemy\Knight\Knight.h">
-      <Filter>Src\Application\Object\Enemy\Knight</Filter>
+    <ClInclude Include="Src\Application\GameObject\Bullet\PlayerBullet01\PlayerBullet01.h">
+      <Filter>Src\Application\GameObject\Bullet\PlayerBullet01</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h">
-      <Filter>Src\Application\Object\Enemy</Filter>
+    <ClInclude Include="Src\Application\GameObject\Camera\Camera.h">
+      <Filter>Src\Application\GameObject\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\KnightAttack\KnightAttack.h">
-      <Filter>Src\Application\Object\Effect\KnightAttack</Filter>
+    <ClInclude Include="Src\Application\GameObject\Effect\BaseEffect.h">
+      <Filter>Src\Application\GameObject\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\SlimeAttack\SlimeAttack.h">
-      <Filter>Src\Application\Object\Effect\SlimeAttack</Filter>
+    <ClInclude Include="Src\Application\GameObject\Effect\AttackImpact\AttackImpact.h">
+      <Filter>Src\Application\GameObject\Effect\AttackImpact</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\Fade\Fade.h">
-      <Filter>Src\Application\Object\Effect\Fade</Filter>
+    <ClInclude Include="Src\Application\GameObject\Effect\EnemyBulletHit\EnemyBulletHit.h">
+      <Filter>Src\Application\GameObject\Effect\EnemyBulletHit</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\UI\BaseUI.h">
-      <Filter>Src\Application\Object\UI</Filter>
+    <ClInclude Include="Src\Application\GameObject\Effect\Fade\Fade.h">
+      <Filter>Src\Application\GameObject\Effect\Fade</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\UI\TitleLogo\TitleLogo.h">
-      <Filter>Src\Application\Object\UI\TitleLogo</Filter>
+    <ClInclude Include="Src\Application\GameObject\Effect\KnightAttack\KnightAttack.h">
+      <Filter>Src\Application\GameObject\Effect\KnightAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Effect\PlayerAttack\PlayerAttack.h">
+      <Filter>Src\Application\GameObject\Effect\PlayerAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Effect\SlimeAttack\SlimeAttack.h">
+      <Filter>Src\Application\GameObject\Effect\SlimeAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Enemy\BaseEnemy.h">
+      <Filter>Src\Application\GameObject\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Enemy\Knight\Knight.h">
+      <Filter>Src\Application\GameObject\Enemy\Knight</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Enemy\Slime\Slime.h">
+      <Filter>Src\Application\GameObject\Enemy\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Enemy\Witch\Witch.h">
+      <Filter>Src\Application\GameObject\Enemy\Witch</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\HpBar\BaseHpBar.h">
+      <Filter>Src\Application\GameObject\HpBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\HpBar\MonolithHp\MonolithHP.h">
+      <Filter>Src\Application\GameObject\HpBar\MonolithHp</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Map\BaseMap.h">
+      <Filter>Src\Application\GameObject\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Map\MapBackGround\MapBackGround.h">
+      <Filter>Src\Application\GameObject\Map\MapBackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Map\MapEnemyPoint\MapEnemyPoint.h">
+      <Filter>Src\Application\GameObject\Map\MapEnemyPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Map\MapMonolithPoint\MapMonolithPoint.h">
+      <Filter>Src\Application\GameObject\Map\MapMonolithPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Map\MapPlayerIcon\MapPlayerIcon.h">
+      <Filter>Src\Application\GameObject\Map\MapPlayerIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Player\Player.h">
+      <Filter>Src\Application\GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Stage\BaseStage.h">
+      <Filter>Src\Application\GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Stage\BackGround\BackGround.h">
+      <Filter>Src\Application\GameObject\Stage\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Stage\Ground\Ground.h">
+      <Filter>Src\Application\GameObject\Stage\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Stage\Monolith\Monolith.h">
+      <Filter>Src\Application\GameObject\Stage\Monolith</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Stage\Pillar\Pillar.h">
+      <Filter>Src\Application\GameObject\Stage\Pillar</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Stage\WallFawme\WallFrame.h">
+      <Filter>Src\Application\GameObject\Stage\WallFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\UI\BaseUI.h">
+      <Filter>Src\Application\GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\main.h">
+      <Filter>Src\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleStage\TitleBackGround\TitleBackGround.h">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleBackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleStage\TitleGround\TitleGround.h">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleStage\TitlePillar\TitlePillar.h">
+      <Filter>Src\Application\TitleObject\TitleStage\TitlePillar</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleStage\TitleMonolith\TitleMonolith.h">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleMonolith</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleStage\TitleBaseStage.h">
+      <Filter>Src\Application\TitleObject\TitleStage</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleCamera\TitleCamera.h">
+      <Filter>Src\Application\TitleObject\TitleCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleStage\TitleWallFrame\TitleWallFrame.h">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleWallFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitlePlayer\TitlePlayer.h">
+      <Filter>Src\Application\TitleObject\TitlePlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleUI\TitleLBaseUI.h">
+      <Filter>Src\Application\TitleObject\TitleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleUI\TitleLogo\TitleLogo.h">
+      <Filter>Src\Application\TitleObject\TitleUI\TitleLogo</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleObject\TitleUI\TitleStart\TitleStart.h">
+      <Filter>Src\Application\TitleObject\TitleUI\TitleStart</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
       <Filter>Src</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\main.cpp">
-      <Filter>Src\Application</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Direct3D\KdDirect3D.cpp">
       <Filter>Src\Framework\Direct3D</Filter>
@@ -560,18 +617,6 @@
     <ClCompile Include="Src\Framework\Effekseer\KdEffekseerManager.cpp">
       <Filter>Src\Framework\Effekseer</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Scene\SceneManager.cpp">
-      <Filter>Src\Application\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp">
-      <Filter>Src\Application\Scene\BaseScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp">
-      <Filter>Src\Application\Scene\GameScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp">
-      <Filter>Src\Application\Scene\TitleScene</Filter>
-    </ClCompile>
     <ClCompile Include="..\Library\imgui\imgui.cpp">
       <Filter>Library\imgui</Filter>
     </ClCompile>
@@ -596,113 +641,155 @@
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp">
       <Filter>Library\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Player\Player.cpp">
-      <Filter>Src\Application\Object\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp">
-      <Filter>Src\Application\ImGuiManager</Filter>
+    <ClCompile Include="Src\Application\Animation\Animation.cpp">
+      <Filter>Src\Application\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\AssetManager\AssetManager.cpp">
       <Filter>Src\Application\AssetManager</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Bullet\BaseBullet.cpp">
-      <Filter>Src\Application\Object\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Bullet\PlayerBullet01\PlayerBullet01.cpp">
-      <Filter>Src\Application\Object\Bullet\PlayerBullet01</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Enemy\Boss\Boss.cpp">
-      <Filter>Src\Application\Object\Enemy\Boss</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Bullet\EnemyBullet\EnemyBullet.cpp">
-      <Filter>Src\Application\Object\Bullet\EnemyBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\HpBar\BaseHpBar.cpp">
-      <Filter>Src\Application\Object\HpBar</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Camera\Camera.cpp">
-      <Filter>Src\Application\Object\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Map\BaseMap.cpp">
-      <Filter>Src\Application\Object\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Map\MapBackGround\MapBackGround.cpp">
-      <Filter>Src\Application\Object\Map\MapBackGround</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Map\MapPlayerIcon\MapPlayerIcon.cpp">
-      <Filter>Src\Application\Object\Map\MapPlayerIcon</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\HpBar\MonolithHp\MonolithHP.cpp">
-      <Filter>Src\Application\Object\HpBar\MonolithHp</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Map\MapMonolithPoint\MapMonolithPoint.cpp">
-      <Filter>Src\Application\Object\Map\MapMonolithPoint</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Map\MapEnemyPoint\MapEnemyPoint.cpp">
-      <Filter>Src\Application\Object\Map\MapEnemyPoint</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Stage\BaseStage.cpp">
-      <Filter>Src\Application\Object\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Stage\BackGround\BackGround.cpp">
-      <Filter>Src\Application\Object\Stage\BackGround</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Stage\Ground\Ground.cpp">
-      <Filter>Src\Application\Object\Stage\Ground</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Stage\Monolith\Monolith.cpp">
-      <Filter>Src\Application\Object\Stage\Monolith</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Stage\Pillar\Pillar.cpp">
-      <Filter>Src\Application\Object\Stage\Pillar</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Object\Stage\WallFawme\WallFrame.cpp">
-      <Filter>Src\Application\Object\Stage\WallFrame</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\EnemyManager\EnemyManager.cpp">
       <Filter>Src\Application\EnemyManager</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\BaseEffect.cpp">
-      <Filter>Src\Application\Object\Effect</Filter>
+    <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp">
+      <Filter>Src\Application\ImGuiManager</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\PlayerAttack\PlayerAttack.cpp">
-      <Filter>Src\Application\Object\Effect\PlayerAttack</Filter>
+    <ClCompile Include="Src\Application\Scene\SceneManager.cpp">
+      <Filter>Src\Application\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Animation\Animation.cpp">
-      <Filter>Src\Application\Animation</Filter>
+    <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp">
+      <Filter>Src\Application\Scene\BaseScene</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.cpp">
-      <Filter>Src\Application\Object\Effect\AttackImpact</Filter>
+    <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp">
+      <Filter>Src\Application\Scene\GameScene</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\EnemyBulletHit\EnemyBulletHit.cpp">
-      <Filter>Src\Application\Object\Effect\EnemyBulletHit</Filter>
+    <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp">
+      <Filter>Src\Application\Scene\TitleScene</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Enemy\Slime\Slime.cpp">
-      <Filter>Src\Application\Object\Enemy\Slime</Filter>
+    <ClCompile Include="Src\Application\GameObject\Bullet\BaseBullet.cpp">
+      <Filter>Src\Application\GameObject\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Enemy\Witch\Witch.cpp">
-      <Filter>Src\Application\Object\Enemy\Witch</Filter>
+    <ClCompile Include="Src\Application\GameObject\Bullet\EnemyBullet\EnemyBullet.cpp">
+      <Filter>Src\Application\GameObject\Bullet\EnemyBullet</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Enemy\Knight\Knight.cpp">
-      <Filter>Src\Application\Object\Enemy\Knight</Filter>
+    <ClCompile Include="Src\Application\GameObject\Bullet\PlayerBullet01\PlayerBullet01.cpp">
+      <Filter>Src\Application\GameObject\Bullet\PlayerBullet01</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp">
-      <Filter>Src\Application\Object\Enemy</Filter>
+    <ClCompile Include="Src\Application\GameObject\Camera\Camera.cpp">
+      <Filter>Src\Application\GameObject\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\KnightAttack\KnightAttack.cpp">
-      <Filter>Src\Application\Object\Effect\KnightAttack</Filter>
+    <ClCompile Include="Src\Application\GameObject\Effect\BaseEffect.cpp">
+      <Filter>Src\Application\GameObject\Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\SlimeAttack\SlimeAttack.cpp">
-      <Filter>Src\Application\Object\Effect\SlimeAttack</Filter>
+    <ClCompile Include="Src\Application\GameObject\Effect\AttackImpact\AttackImpact.cpp">
+      <Filter>Src\Application\GameObject\Effect\AttackImpact</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\Fade\Fade.cpp">
-      <Filter>Src\Application\Object\Effect\Fade</Filter>
+    <ClCompile Include="Src\Application\GameObject\Effect\EnemyBulletHit\EnemyBulletHit.cpp">
+      <Filter>Src\Application\GameObject\Effect\EnemyBulletHit</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\UI\BaseUI.cpp">
-      <Filter>Src\Application\Object\UI</Filter>
+    <ClCompile Include="Src\Application\GameObject\Effect\Fade\Fade.cpp">
+      <Filter>Src\Application\GameObject\Effect\Fade</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\UI\TitleLogo\TitleLogo.cpp">
-      <Filter>Src\Application\Object\UI\TitleLogo</Filter>
+    <ClCompile Include="Src\Application\GameObject\Effect\KnightAttack\KnightAttack.cpp">
+      <Filter>Src\Application\GameObject\Effect\KnightAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Effect\PlayerAttack\PlayerAttack.cpp">
+      <Filter>Src\Application\GameObject\Effect\PlayerAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Effect\SlimeAttack\SlimeAttack.cpp">
+      <Filter>Src\Application\GameObject\Effect\SlimeAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Enemy\BaseEnemy.cpp">
+      <Filter>Src\Application\GameObject\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Enemy\Knight\Knight.cpp">
+      <Filter>Src\Application\GameObject\Enemy\Knight</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Enemy\Slime\Slime.cpp">
+      <Filter>Src\Application\GameObject\Enemy\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Enemy\Witch\Witch.cpp">
+      <Filter>Src\Application\GameObject\Enemy\Witch</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\HpBar\BaseHpBar.cpp">
+      <Filter>Src\Application\GameObject\HpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\HpBar\MonolithHp\MonolithHP.cpp">
+      <Filter>Src\Application\GameObject\HpBar\MonolithHp</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Map\BaseMap.cpp">
+      <Filter>Src\Application\GameObject\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Map\MapBackGround\MapBackGround.cpp">
+      <Filter>Src\Application\GameObject\Map\MapBackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Map\MapEnemyPoint\MapEnemyPoint.cpp">
+      <Filter>Src\Application\GameObject\Map\MapEnemyPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Map\MapMonolithPoint\MapMonolithPoint.cpp">
+      <Filter>Src\Application\GameObject\Map\MapMonolithPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Map\MapPlayerIcon\MapPlayerIcon.cpp">
+      <Filter>Src\Application\GameObject\Map\MapPlayerIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Player\Player.cpp">
+      <Filter>Src\Application\GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Stage\BaseStage.cpp">
+      <Filter>Src\Application\GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Stage\BackGround\BackGround.cpp">
+      <Filter>Src\Application\GameObject\Stage\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Stage\Ground\Ground.cpp">
+      <Filter>Src\Application\GameObject\Stage\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Stage\Monolith\Monolith.cpp">
+      <Filter>Src\Application\GameObject\Stage\Monolith</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Stage\Pillar\Pillar.cpp">
+      <Filter>Src\Application\GameObject\Stage\Pillar</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Stage\WallFawme\WallFrame.cpp">
+      <Filter>Src\Application\GameObject\Stage\WallFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\UI\BaseUI.cpp">
+      <Filter>Src\Application\GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\main.cpp">
+      <Filter>Src\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleStage\TitleBackGround\TitleBackGround.cpp">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleBackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleStage\TitleGround\TitleGround.cpp">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleStage\TitlePillar\TitlePillar.cpp">
+      <Filter>Src\Application\TitleObject\TitleStage\TitlePillar</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleStage\TitleMonolith\TitleMonolith.cpp">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleMonolith</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleStage\TitleBaseStage.cpp">
+      <Filter>Src\Application\TitleObject\TitleStage</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleCamera\TitleCamera.cpp">
+      <Filter>Src\Application\TitleObject\TitleCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleStage\TitleWallFrame\TitleWallFrame.cpp">
+      <Filter>Src\Application\TitleObject\TitleStage\TitleWallFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitlePlayer\TitlePlayer.cpp">
+      <Filter>Src\Application\TitleObject\TitlePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleUI\TitleLBaseUI.cpp">
+      <Filter>Src\Application\TitleObject\TitleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleUI\TitleLogo\TitleLogo.cpp">
+      <Filter>Src\Application\TitleObject\TitleUI\TitleLogo</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleObject\TitleUI\TitleStart\TitleStart.cpp">
+      <Filter>Src\Application\TitleObject\TitleUI\TitleStart</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

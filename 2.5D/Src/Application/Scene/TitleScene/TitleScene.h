@@ -9,8 +9,10 @@ public :
 	TitleScene() { Init(); }
 	~TitleScene() {}
 
-private :
+private:
 
 	void Event() override;
 	void Init() override;
+
+	bool m_keyFlg = false;
 };

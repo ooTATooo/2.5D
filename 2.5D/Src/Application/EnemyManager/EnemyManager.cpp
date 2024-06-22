@@ -1,9 +1,9 @@
 ﻿#include "EnemyManager.h"
 
-#include "../Object/Enemy/Slime/Slime.h"
-#include "../Object/Enemy/Witch/Witch.h"
-#include "../Object/Enemy/Knight/Knight.h"
-#include "../Object/Map/MapEnemyPoint/MapEnemyPoint.h"
+#include "../GameObject/Enemy/Slime/Slime.h"
+#include "../GameObject/Enemy/Witch/Witch.h"
+#include "../GameObject/Enemy/Knight/Knight.h"
+#include "../GameObject/Map/MapEnemyPoint/MapEnemyPoint.h"
 
 void EnemyManager::Init()
 {
