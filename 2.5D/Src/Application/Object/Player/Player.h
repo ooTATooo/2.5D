@@ -22,6 +22,7 @@ public:
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
+	void OnHit()override;
 
 	void Move();
 	void MapHit();
@@ -32,7 +33,7 @@ public:
 	void SetCamera(const std::weak_ptr<Camera> _camera) { m_camera = _camera; }
 
 	// ゲッター
-	const Math::Vector3 GetPos() { return m_pos; }
+	Math::Vector3 GetPos()const { return m_pos; }
 	const Animation::Dir GetDir()const { return m_animeDir; }
 
 private:
@@ -47,6 +48,7 @@ private:
 	Math::Vector3 m_pos;
 	Math::Vector3 m_moveVec;
 	Math::Vector3 m_scale;
+	float m_hitWait = 0;
 	float m_angX = 0;
 	float m_angY = 0;
 	UINT m_dir;

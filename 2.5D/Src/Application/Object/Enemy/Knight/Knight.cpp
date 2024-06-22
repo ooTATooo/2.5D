@@ -2,13 +2,17 @@
 
 #include "../../Stage/Monolith/Monolith.h"
 #include "../../Player/Player.h"
+#include "../../Effect/KnightAttack/KnightAttack.h"
 
 void Knight::Update()
 {
 	switch (m_state)
 	{
+	case Animation::State::Idol:
+		m_anime->CreateAnimation("KnightIdol", m_poly, false);
+		break;
 	case Animation::State::Attack:
-		m_anime->CreateAnimation("KnightAttack", m_poly, true);
+		m_anime->CreateAnimation("KnightAttack", m_poly, false);
 		break;
 	case Animation::State::Run:
 		m_anime->CreateAnimation("KnightRun", m_poly, true);
@@ -26,8 +30,7 @@ void Knight::Update()
 		Move();
 	}
 
-	m_hitWait--;
-	if (m_hitWait <= 0) { m_hitWait = 0; }
+	BaseEnemy::Update();
 }
 
 void Knight::Init()
@@ -53,7 +56,6 @@ void Knight::Move()
 
 	m_moveVec = Math::Vector3::Zero;
 
-	// 対象座標ー自分の座標
 	Math::Vector3 dis;
 
 	const std::shared_ptr<const KdGameObject> monolith = m_monolith.lock();
@@ -66,8 +68,7 @@ void Knight::Move()
 
 		if (dis.Length() < 5.0f)
 		{
-			// 球判定・・・ベクトルの長さで判定
-			if (dis.Length() < 2.0f)
+			if (dis.Length() < 1.5f)
 			{
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
@@ -75,6 +76,13 @@ void Knight::Move()
 				if (!m_anime->GetAnimationFlg())
 				{
 					m_state = Animation::State::Attack;
+
+					Math::Vector3 attackPos;
+					attackPos = m_pos;
+					attackPos += GetMatrix().Left() * 1.0f;
+					std::shared_ptr<KnightAttack> atk = std::make_shared<KnightAttack>();
+					atk->Set(attackPos, m_dir);
+					SceneManager::Instance().AddObject(atk);
 				}
 			}
 		}
@@ -94,9 +102,20 @@ void Knight::Move()
 					{
 						m_moveVec = Math::Vector3::Zero;
 
-						if (!m_anime->GetAnimationFlg())
+						if (shotWait <= 0)
 						{
-							m_state = Animation::State::Attack;
+							if (!m_anime->GetAnimationFlg())
+							{
+								m_state = Animation::State::Attack;
+
+								Math::Vector3 attackPos;
+								attackPos = m_pos;
+								attackPos += GetMatrix().Left() * 1.0f;
+								std::shared_ptr<KnightAttack> atk = std::make_shared<KnightAttack>();
+								atk->Set(attackPos, m_dir);
+								SceneManager::Instance().AddObject(atk);
+								shotWait = 120;
+							}
 						}
 					}
 				}
@@ -104,6 +123,9 @@ void Knight::Move()
 		}
 	}
 
-	m_moveVec.Normalize();
-	m_pos += m_moveVec *= m_moveSpd;
+	shotWait--;
+	if (shotWait == 0)
+	{
+		shotWait = 0;
+	}
 }

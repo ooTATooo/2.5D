@@ -37,6 +37,6 @@ void MapPlayerIcon::Init()
 
 void MapPlayerIcon::DrawSprite()
 {
-	m_color = { 1.0f,1.0f,1.0f,1.0f };
+	m_color = { 1.0f,1.0f, 1.0f, 1.0f };
 	BaseMap::DrawSprite();
 }

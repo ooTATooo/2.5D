@@ -16,6 +16,6 @@ private:
 
 	void Move();
 
-	float shotWait = 30;
+	float shotWait = 0;
 
 };

@@ -7,11 +7,11 @@ class BaseEnemy :public KdGameObject
 {
 public:
 
-	BaseEnemy() {}
+	BaseEnemy() { Init(); }
 	~BaseEnemy()override {}
 
 	void PreUpdate()override;
-	void Update()override {}
+	void Update()override;
 	void PostUpdate()override;
 	void Init()override;
 	void GenerateDepthMapFromLight()override;
@@ -26,7 +26,7 @@ public:
 
 	void SetPos(const Math::Vector3 _pos) { m_pos = _pos; }
 
-	const Math::Vector3 GetPos() { return m_pos; }
+	Math::Vector3 GetPos() const { return m_pos; }
 
 protected:
 
@@ -47,6 +47,8 @@ protected:
 	float m_dissolve = 0;
 	bool m_dissolveFlg = false;
 
+	Animation::Dir m_dir;
+	Animation::Dir m_oldDir;
 	Animation::State m_state;
 	std::shared_ptr<Animation> m_anime = nullptr;
 	bool m_animeFlg;

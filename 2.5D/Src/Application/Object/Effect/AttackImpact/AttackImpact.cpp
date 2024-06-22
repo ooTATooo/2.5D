@@ -23,7 +23,6 @@ void AttackImpact::Init()
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_anime = std::make_shared<Animation>();
-		m_scale = { 2,2,2 };
 	}
 }
 

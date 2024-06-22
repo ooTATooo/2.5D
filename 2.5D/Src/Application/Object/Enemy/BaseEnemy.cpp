@@ -10,6 +10,25 @@ void BaseEnemy::PreUpdate()
 	}
 }
 
+void BaseEnemy::Update()
+{
+	m_hitWait--;
+	if (m_hitWait <= 0) { m_hitWait = 0; }
+
+	m_moveVec.Normalize();
+
+	if (m_moveVec.x < 0) { m_dir = Animation::Dir::Left; }
+	else if(m_moveVec.x > 0){ m_dir = Animation::Dir::Right; }
+
+	m_pos += m_moveVec *= m_moveSpd;
+
+	if (m_oldDir != m_dir)
+	{
+		m_scale.x *= -1;
+		m_oldDir = m_dir;
+	}
+}
+
 void BaseEnemy::PostUpdate()
 {
 	MapHit();
@@ -29,6 +48,8 @@ void BaseEnemy::Init()
 	m_moveSpd = 0.02f;
 
 	m_animeFlg = false;
+	m_dir = Animation::Dir::Left;
+	m_oldDir = m_dir;
 	m_state = Animation::State::None;
 
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();

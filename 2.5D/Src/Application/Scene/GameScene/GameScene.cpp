@@ -10,9 +10,6 @@
 #include "../../Object/Stage/Pillar/Pillar.h"
 #include "../../Object/Stage/Monolith/Monolith.h"
 #include "../../Object/Player/Player.h"
-#include "../../Object/Enemy/Enemy01/Enemy01.h"
-#include "../../Object/Enemy/Enemy02/Enemy02.h"
-#include "../../Object/Enemy/Enemy03/Enemy03.h"
 #include "../../Object/Enemy/Boss/Boss.h"
 #include "../../Object/HpBar/MonolithHp/MonolithHP.h"
 #include "../../Object/Map/MapBackGround/MapBackGround.h"
@@ -88,6 +85,7 @@ void GameScene::Init()
 	monumentHp->SetPos(monolith->GetPos());
 	monumentHp->SetCamera(camera);
 	monumentHp->SetPlayer(player);
+	monumentHp->SetMonolith(monolith);
 	AddObject(monumentHp);
 
 	std::shared_ptr<MapBackGround> mapBackGround = std::make_shared<MapBackGround>();

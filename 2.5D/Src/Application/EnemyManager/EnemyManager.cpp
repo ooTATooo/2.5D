@@ -98,7 +98,7 @@ void EnemyManager::Load(std::string a_filePath)
 
 		while (getline(iss, conmaString, ','))
 		{
-			float tempData = (float)stoi(conmaString);
+			float tempData = stof(conmaString);
 
 			data.push_back(tempData);
 		}
@@ -106,7 +106,7 @@ void EnemyManager::Load(std::string a_filePath)
 
 	ifs.close();
 
-	for (int i = 0; i < data.size(); i += 3)
+	for (int i = 0; i < (int)data.size(); i += 3)
 	{
 		pos.push_back({ data[i],data[i + 1],data[i + 2] });
 	}

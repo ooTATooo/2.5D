@@ -33,11 +33,10 @@ void MapEnemyPoint::Init()
 	BaseMap::Init();
 	m_tex = AssetManager::Instance().GetTex("MapEnemyPoint");
 	m_pos = {};
-	m_scale = { 0.1f,0.1f,0.1f };
 }
 
 void MapEnemyPoint::DrawSprite()
 {
-	m_color = { 1.0f,1.0f,1.0f,1.0f };
+	m_color = { 1.0f,1.0f, 1.0f, 1.0f };
 	BaseMap::DrawSprite();
 }

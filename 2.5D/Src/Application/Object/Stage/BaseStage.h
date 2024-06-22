@@ -4,7 +4,7 @@ class BaseStage :public KdGameObject
 {
 public:
 
-	BaseStage() {}
+	BaseStage() { Init(); }
 	~BaseStage()override {}
 
 	void PreUpdate()override {}

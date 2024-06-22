@@ -2,13 +2,14 @@
 
 #include "../../Stage/Monolith/Monolith.h"
 #include "../../Player/Player.h"
+#include "../../Effect/SlimeAttack/SlimeAttack.h"
 
 void Slime::Update()
 {
 	switch (m_state)
 	{
 	case Animation::State::Attack:
-		m_anime->CreateAnimation("SlimeAttack", m_poly, true);
+		m_anime->CreateAnimation("SlimeAttack", m_poly, false);
 		break;
 	case Animation::State::Run:
 		m_anime->CreateAnimation("SlimeRun", m_poly, true);
@@ -26,8 +27,7 @@ void Slime::Update()
 		Move();
 	}
 
-	m_hitWait--;
-	if (m_hitWait <= 0) { m_hitWait = 0; }
+	BaseEnemy::Update();
 }
 
 void Slime::Init()
@@ -66,8 +66,7 @@ void Slime::Move()
 
 		if (dis.Length() < 5.0f)
 		{
-			// 球判定・・・ベクトルの長さで判定
-			if (dis.Length() < 2.0f)
+			if (dis.Length() < 1.5f)
 			{
 				// ビーコン前で止まる
 				m_moveVec = Math::Vector3::Zero;
@@ -75,6 +74,10 @@ void Slime::Move()
 				if (!m_anime->GetAnimationFlg())
 				{
 					m_state = Animation::State::Attack;
+
+					std::shared_ptr<SlimeAttack> atk = std::make_shared<SlimeAttack>();
+					atk->Set(m_pos, monolith->GetPos());
+					SceneManager::Instance().AddObject(atk);
 				}
 			}
 		}
@@ -97,13 +100,14 @@ void Slime::Move()
 						if (!m_anime->GetAnimationFlg())
 						{
 							m_state = Animation::State::Attack;
+
+							std::shared_ptr<SlimeAttack> atk = std::make_shared<SlimeAttack>();
+							atk->Set(m_pos, player->GetPos());
+							SceneManager::Instance().AddObject(atk);
 						}
 					}
 				}
 			}
 		}
 	}
-
-	m_moveVec.Normalize();
-	m_pos += m_moveVec *= m_moveSpd;
 }

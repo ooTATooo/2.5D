@@ -23,8 +23,6 @@ void EnemyBullet::Init()
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_anime = std::make_shared<Animation>();
-		m_pCollider = std::make_unique<KdCollider>();
-		m_pCollider->RegisterCollisionShape("EnemyBullet", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
 	}
 }
 

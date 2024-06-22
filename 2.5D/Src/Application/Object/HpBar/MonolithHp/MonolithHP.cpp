@@ -2,6 +2,7 @@
 
 #include "../../Camera/Camera.h"
 #include "../../Player/Player.h"
+#include "../../Stage/Monolith/Monolith.h"
 
 void MonolithHp::Update()
 {
@@ -19,6 +20,17 @@ void MonolithHp::Update()
 		}
 	}
 
+	std::shared_ptr<Monolith> monolith = m_monolith.lock();
+	if (monolith)
+	{
+		m_singleW = (float)m_Hp.tex->GetWidth() / monolith->GetMaxHp();
+		m_hp = monolith->GetHp();
+		if (m_hp <= 0)
+		{
+			m_isExpired = true;
+		}
+	}
+
 	ImGuiManager::Instance().SetSize(m_scale);
 }
 
@@ -31,51 +43,29 @@ void MonolithHp::PostUpdate()
 		barRes = camera->GetConvertWorldToScreenDetail(m_pos + Math::Vector3{ -0.8f,2.5f,0 });
 	}
 
-	m_backHp.transMat = Math::Matrix::CreateTranslation(barRes.x, barRes.y, 0);
-	m_backHp.scaleMat = Math::Matrix::CreateScale(m_scale);
-	m_backHp.mat = m_backHp.scaleMat * m_backHp.transMat;
+	m_pos = barRes;
 
-	m_Hp01.transMat = Math::Matrix::CreateTranslation(barRes.x, barRes.y, 0);
-	m_Hp01.scaleMat = Math::Matrix::CreateScale(m_scale);
-	m_Hp01.mat = m_Hp01.scaleMat * m_Hp01.transMat;
-
-	m_Hp02.transMat = Math::Matrix::CreateTranslation(barRes.x, barRes.y, 0);
-	m_Hp02.scaleMat = Math::Matrix::CreateScale(m_scale);
-	m_Hp02.mat = m_Hp02.scaleMat * m_Hp02.transMat;
 }
 
 void MonolithHp::Init()
 {
 	m_backHp.tex = std::make_shared<KdTexture>();
 	m_backHp.tex = AssetManager::Instance().GetTex("BarBack");
-	m_backHp.scaleMat = Math::Matrix::CreateScale(m_scale);
-	m_backHp.transMat = Math::Matrix::Identity;
 
-	m_Hp01.tex = std::make_shared<KdTexture>();
-	m_Hp01.tex = AssetManager::Instance().GetTex("Bar");
-	m_Hp01.scaleMat = Math::Matrix::CreateScale(m_scale);
-	m_Hp01.transMat = Math::Matrix::Identity;
+	m_Hp.tex = std::make_shared<KdTexture>();
+	m_Hp.tex = AssetManager::Instance().GetTex("Bar");
 
-	m_Hp02.tex = std::make_shared<KdTexture>();
-	m_Hp02.tex = AssetManager::Instance().GetTex("Bar");
-	m_Hp02.scaleMat = Math::Matrix::CreateScale(m_scale);
-	m_Hp02.transMat = Math::Matrix::Identity;
+	std::shared_ptr<Monolith> monolith = m_monolith.lock();
+	if (monolith)
+	{
+		m_singleW = (float)m_Hp.tex->GetWidth() / monolith->GetMaxHp();
+	}
 }
 
 void MonolithHp::DrawSprite()
 {
-	m_rect = { 0,0,(int)m_backHp.tex->GetWidth(),(int)m_backHp.tex->GetHeight() };
-	m_color = { 1.0f,1.0f,1.0f,1.0f };
-	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_backHp.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(m_backHp.tex, 0, 0, m_backHp.tex->GetWidth(), m_backHp.tex->GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_backHp.tex, m_pos.x, m_pos.y, m_rect.width, m_rect.height, nullptr, nullptr, { 0.0f, 0.5f });
 
-	m_rect = { 0,0,(int)m_Hp01.tex->GetWidth(),(int)m_Hp01.tex->GetHeight() };
-	m_color = { 1.0f,1.0f,0.0f,1.0f };
-	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_Hp01.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(m_Hp01.tex, 0, 0, m_Hp01.tex->GetWidth(), m_Hp01.tex->GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
-
-	m_rect = { 0,0,(int)m_Hp02.tex->GetWidth(),(int)m_Hp02.tex->GetHeight() };
-	m_color = { 0.0f,1.0f,0.0f,1.0f };
-	KdShaderManager::Instance().m_spriteShader.SetMatrix(m_Hp02.mat);
-	KdShaderManager::Instance().m_spriteShader.DrawTex(m_Hp02.tex, 0, 0, m_Hp02.tex->GetWidth(), m_Hp02.tex->GetHeight(), &m_rect, &m_color, { 0.0f, 0.5f });
+	m_rect = { 0,0,(long)(m_singleW * m_hp),(long)m_Hp.tex->GetHeight() };
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_Hp.tex, m_pos.x, m_pos.y, m_rect.width, m_rect.height, &m_rect, nullptr, { 0.0f, 0.5f });
 }

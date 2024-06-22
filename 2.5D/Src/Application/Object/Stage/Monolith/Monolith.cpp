@@ -14,6 +14,14 @@ void Monolith::Update()
 	}
 
 	m_color01 = { 0.5f,1,1,alpha + sin(DirectX::XMConvertToRadians(m_ang)) / 10 };
+
+	if (m_hp <= 0)
+	{
+		m_isExpired = true;
+	}
+
+	m_hitWait--;
+	if (m_hitWait <= 0) { m_hitWait = 0; }
 }
 
 void Monolith::PostUpdate()
@@ -29,9 +37,9 @@ void Monolith::Init()
 	m_model02 = std::make_shared<KdModelData>();
 	m_model02->Load("Asset/Models/Monument/Monument2.gltf");
 
-	m_pos = {};
-	m_ang = 0;
 	m_speed = 0.15f;
+	m_maxHp = 5;
+	m_hp = m_maxHp;
 
 	m_objType = KdGameObject::ObjType::Monolith;
 
@@ -40,8 +48,7 @@ void Monolith::Init()
 	m_color02 = { 0,0,0,1 };
 
 	m_pCollider = std::make_unique<KdCollider>();
-	m_pCollider->RegisterCollisionShape("Monolith", m_model01, KdCollider::TypeGround);
-
+	m_pCollider->RegisterCollisionShape("Monolith", m_model01, KdCollider::TypeMonolith);
 }
 
 void Monolith::GenerateDepthMapFromLight()
@@ -59,4 +66,14 @@ void Monolith::DrawLit()
 void Monolith::DrawBright()
 {
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model01, m_mWorld, m_color01);
+}
+
+void Monolith::OnHit()
+{
+	if (m_hitWait <= 0)
+	{
+		m_hp--;
+		m_hitWait = 60;
+		m_color01 = { 1,1,1,0.5f };
+	}
 }

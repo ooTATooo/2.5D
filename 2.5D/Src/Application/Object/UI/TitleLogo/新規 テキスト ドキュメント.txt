@@ -1,0 +1,15 @@
+﻿#pragma once
+
+#include "../BaseUI.h"
+
+class TitleLogo :public BaseUI
+{
+public:
+
+	TitleLogo() { Init(); }
+	~TitleLogo()override {}
+
+	void Init()override;
+
+private:
+};

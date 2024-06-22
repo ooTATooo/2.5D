@@ -25,6 +25,8 @@ public:
 		TypeEvent		= 1 << 5,	// イベント：イベント特有の判定形状が欲しい場合にイベントを所有しているオブジェクトに付与する
 		TypeAlpha		= 1 << 6,
 		TypeWall		= 1 << 7,
+		TypePlayer		= 1 << 8,
+		TypeMonolith	= 1 << 9,
 	};
 
 	// 球形の当たり判定情報：当たる側専用

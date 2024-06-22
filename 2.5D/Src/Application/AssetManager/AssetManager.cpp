@@ -19,8 +19,8 @@ void AssetManager::Init()
 	SetAnimation("PlayerRun", 0, 8, 0.2f);
 
 	LoadMaterial("PlayerHit", "Asset/Textures/Player/hit.png");
-	SetMaterial("PlayerHit", { 1.0f,1.2f }, pivot, 2, 1);
-	SetAnimation("PlayerHit", 0, 2, 0.01f);
+	SetMaterial("PlayerHit", { 0.8f,1.0f }, pivot, 6, 1);
+	SetAnimation("PlayerHit", 0, 6, 0.2f);
 	// ===プレイヤー
 
 	// ===エネミー１
@@ -74,7 +74,11 @@ void AssetManager::Init()
 
 	LoadMaterial("KnightDie", "Asset/Textures/Enemy/Knight/KnightDie.png");
 	SetMaterial("KnightDie", { 2.0f,2.0f }, pivot, 2, 1);
-	SetAnimation("KnightDie", 0, 2, 0.2f);
+	SetAnimation("KnightDie", 0, 2, 0.1f);
+
+	LoadMaterial("KnightIdol", "Asset/Textures/Enemy/Knight/KnightIdol.png");
+	SetMaterial("KnightIdol", { 2.0f,2.0f }, pivot, 4, 1);
+	SetAnimation("KnightIdol", 0, 4, 0.1f);
 	// ===エネミー３
 
 	// ===ボス
@@ -97,17 +101,21 @@ void AssetManager::Init()
 	SetAnimation("EnemyBulletIdol", 0, 27, 1.0f);
 
 	LoadMaterial("EnemyBulletHit", "Asset/Textures/Bullet/EnemyBulletHit.png");
-	SetMaterial("EnemyBulletHit", { 1.0f,1.0f }, pivot, 6, 1);
+	SetMaterial("EnemyBulletHit", { 1.5f,1.5f }, pivot, 6, 1);
 	SetAnimation("EnemyBulletHit", 0, 6, 0.3f);
 	// ===エネミー弾
 
 	LoadMaterial("PlayerAtkEffect", "Asset/Textures/Effect/PlayerAtk.png");
-	SetMaterial("PlayerAtkEffect", { 1.0f,1.0f }, pivot, 5, 1);
+	SetMaterial("PlayerAtkEffect", { 2.0f,2.0f }, pivot, 5, 1);
 	SetAnimation("PlayerAtkEffect", 0, 5, 0.3f);
 
 	LoadMaterial("PlayerAtkImpact", "Asset/Textures/Effect/PlayerAtkImpact.png");
-	SetMaterial("PlayerAtkImpact", { 0.5f,0.5f }, pivot, 6, 1);
+	SetMaterial("PlayerAtkImpact", { 1.5f,1.5f }, pivot, 6, 1);
 	SetAnimation("PlayerAtkImpact", 0, 6, 0.3f);
+
+	LoadMaterial("KnightAtk", "Asset/Textures/Effect/KnightAtk.png");
+	SetMaterial("KnightAtk", { 1.0f,1.0f }, pivot, 8, 1);
+	SetAnimation("KnightAtk", 0, 8, 0.2f);
 
 	LoadMaterial("BackGround", "Asset/Textures/BackGround/BackGround.png");
 	SetMaterial("BackGround", { 250.0f,100.0f }, KdSquarePolygon::PivotType::Center_Middle, 1, 1);
@@ -129,6 +137,10 @@ void AssetManager::Init()
 	LoadTex("MapMonolithPoint", "Asset/Textures/MiniMap/MonolithPoint.png");
 
 	LoadTex("MapEnemyPoint", "Asset/Textures/MiniMap/EnemyPoint.png");
+
+	LoadTex("Fade", "Asset/Textures/Effect/Fade.png");
+
+	LoadTex("TitleLogo", "Asset/Textures/UI/Title.png");
 	// ============================
 
 }

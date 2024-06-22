@@ -86,6 +86,20 @@ public:
 		DrawTex(tex.lock().get(), x, y, tex.lock().get()->GetInfo().Width, tex.lock().get()->GetInfo().Height, srcRect, color, pivot);
 	}
 
+	void DrawTex2(const std::weak_ptr<KdTexture> tex, int x, int y, const Math::Rectangle* srcRect = nullptr, const Math::Color* color = &kWhiteColor, const float alpha = 1.0f, const Math::Vector2& pivot = { 0.5, 0.5f })
+	{
+		if (tex.expired())return;
+		Math::Color col = { color->x,color->y,color->z,alpha };
+		DrawTex(tex.lock().get(), x, y, tex.lock().get()->GetInfo().Width, tex.lock().get()->GetInfo().Height, srcRect, &col, pivot);
+	}
+
+	void DrawTex2(const std::weak_ptr<KdTexture> tex, int x, int y, int w, int h, const Math::Rectangle* srcRect = nullptr, const Math::Color* color = &kWhiteColor, const float alpha = 1.0f, const Math::Vector2& pivot = { 0.5, 0.5f })
+	{
+		if (tex.expired())return;
+		Math::Color col = { color->x,color->y,color->z,alpha };
+		DrawTex(tex.lock().get(), x, y, w, h, srcRect, &col, pivot);
+	}
+
 	// 点を描画
 	// ・x				… 点のX座標
 	// ・y				… 点のY座標

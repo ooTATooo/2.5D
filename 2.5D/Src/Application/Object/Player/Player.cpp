@@ -17,6 +17,12 @@ void Player::Update()
 	case Animation::State::Run:
 		m_anime->CreateAnimation("PlayerRun", m_poly, true);
 		break;
+	case Animation::State::Hit:
+		m_anime->CreateAnimation("PlayerHit", m_poly, false);
+		break;
+	case Animation::State::Die:
+		m_anime->CreateAnimation("PlayerDie", m_poly, false);
+		break;
 	}
 
 	if (!m_anime->GetAnimationFlg())
@@ -46,6 +52,9 @@ void Player::Update()
 	{
 		m_animeFlg = false;
 	}
+
+	m_hitWait--;
+	if (m_hitWait <= 0) { m_hitWait = 0; }
 }
 
 void Player::PostUpdate()
@@ -68,7 +77,7 @@ void Player::Init()
 {
 	m_poly = std::make_shared<KdSquarePolygon>();
 	m_moveSpd = 0.1f;
-	m_pos = { 10,0,-2 };
+	m_pos = { 0,0,-2 };
 	m_moveVec = Math::Vector3::Zero;
 	m_scale = Math::Vector3::One;
 	m_angX = 20;
@@ -81,7 +90,7 @@ void Player::Init()
 	m_animeDir = Animation::Dir::Right;
 
 	m_pCollider = std::make_unique<KdCollider>();
-	m_pCollider->RegisterCollisionShape("player", { 0,0.5f,0 }, 0.3f, KdCollider::TypeBump);
+	m_pCollider->RegisterCollisionShape("player", { 0,0.5f,0 }, 0.3f, KdCollider::TypePlayer);
 
 	// デバッグ用
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
@@ -95,6 +104,15 @@ void Player::GenerateDepthMapFromLight()
 void Player::DrawLit()
 {
 	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_poly, m_mWorld);
+}
+
+void Player::OnHit()
+{
+	if (m_hitWait <= 0)
+	{
+		m_state = Animation::State::Hit;
+		m_hitWait = 60;
+	}
 }
 
 void Player::Move()
@@ -152,7 +170,7 @@ void Player::MapHit()
 	// 球の半径を設定
 	sphere.m_sphere.Radius = 0.3f;
 	// 当たり判定をしたいタイプを設定
-	sphere.m_type = KdCollider::TypeGround | KdCollider::TypeWall;
+	sphere.m_type = KdCollider::TypeGround | KdCollider::TypeWall | KdCollider::TypeMonolith;
 
 	// デバッグ表示
 	Math::Color color = { 1,1,0,1 };

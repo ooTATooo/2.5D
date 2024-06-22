@@ -1,9 +1,5 @@
 ﻿#include "BaseEffect.h"
 
-void BaseEffect::Update()
-{
-}
-
 void BaseEffect::PostUpdate()
 {
 	Math::Matrix scaleMat = Math::Matrix::CreateScale(m_scale);
@@ -17,8 +13,10 @@ void BaseEffect::Init()
 {
 	m_pos = Math::Vector3::Zero;
 	m_scale = Math::Vector3::One;
+	m_dir = Math::Vector3::Zero;
 
 	m_attackArea = 0.3f;
+	m_wait = 10;
 }
 
 void BaseEffect::DrawUnLit()

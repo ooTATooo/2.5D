@@ -34,12 +34,7 @@ private:
 
 	std::vector<int> m_animeFrame;		// アニメーション配列格納用
 
-	State m_
-		= State::None;
-
-	Dir m_dir = Dir::Right;
-
-	float m_cntSed = 0;			// アニメのスピード
+	float m_cntSed = 0;				// アニメのスピード
 	float m_anime = 0;				// アニメーションカウント
 	bool m_flg = false;
 

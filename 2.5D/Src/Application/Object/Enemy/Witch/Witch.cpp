@@ -27,8 +27,7 @@ void Witch::Update()
 		Move();
 	}
 
-	m_hitWait--;
-	if (m_hitWait <= 0) { m_hitWait = 0; }
+	BaseEnemy::Update();
 }
 
 void Witch::Init()
@@ -67,7 +66,6 @@ void Witch::Move()
 
 		if (dis.Length() < 5.0f)
 		{
-			// 球判定・・・ベクトルの長さで判定
 			if (dis.Length() < 2.0f)
 			{
 				// ビーコン前で止まる
@@ -97,18 +95,24 @@ void Witch::Move()
 
 				if (dis.Length() < 5.0f)
 				{
-					m_moveVec = Math::Vector3::Zero;
+					m_moveVec = dis;
 
-					if (!m_anime->GetAnimationFlg())
+					if (dis.Length() < 4.0f)
 					{
-						m_state = Animation::State::Attack;
 
-						if (shotWait <= 0)
+						m_moveVec = Math::Vector3::Zero;
+
+						if (!m_anime->GetAnimationFlg())
 						{
-							std::shared_ptr<EnemyBullet> bullet = std::make_shared<EnemyBullet>();
-							bullet->shot(m_pos, player->GetPos());
-							SceneManager::Instance().AddObject(bullet);
-							shotWait = 120;
+							m_state = Animation::State::Attack;
+
+							if (shotWait <= 0)
+							{
+								std::shared_ptr<EnemyBullet> bullet = std::make_shared<EnemyBullet>();
+								bullet->shot(m_pos, player->GetPos());
+								SceneManager::Instance().AddObject(bullet);
+								shotWait = 120;
+							}
 						}
 					}
 				}
@@ -121,7 +125,4 @@ void Witch::Move()
 	{
 		shotWait = 0;
 	}
-
-	m_moveVec.Normalize();
-	m_pos += m_moveVec *= m_moveSpd;
 }

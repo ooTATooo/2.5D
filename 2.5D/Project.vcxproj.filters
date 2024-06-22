@@ -103,9 +103,6 @@
     <Filter Include="Src\Application\Object\HpBar">
       <UniqueIdentifier>{4196582b-e5b1-46f7-824a-8b524c0be4a0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\HpBar\BossHp">
-      <UniqueIdentifier>{6b2941cd-54b7-4d7a-9dc7-b8299292e91c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Map">
       <UniqueIdentifier>{f6ccf916-083e-4cc3-afb9-ce4c318d6ac0}</UniqueIdentifier>
     </Filter>
@@ -154,9 +151,6 @@
     <Filter Include="Src\Application\Animation">
       <UniqueIdentifier>{973e9af9-95dd-4bf8-a583-4e39fb2900c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Object\Effect\EnemyAttack">
-      <UniqueIdentifier>{90a8aa4a-ac5d-423f-a3d5-1e30c05026d4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\Effect\AttackImpact">
       <UniqueIdentifier>{c2a40394-19af-4968-932a-baedd33eb454}</UniqueIdentifier>
     </Filter>
@@ -171,6 +165,21 @@
     </Filter>
     <Filter Include="Src\Application\Object\Enemy\Knight">
       <UniqueIdentifier>{2f21d9f7-272e-46b0-88f0-ea8a2ed878de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Effect\KnightAttack">
+      <UniqueIdentifier>{90a8aa4a-ac5d-423f-a3d5-1e30c05026d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Effect\SlimeAttack">
+      <UniqueIdentifier>{648cc25a-1330-4f7f-974f-8710d442719e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Effect\Fade">
+      <UniqueIdentifier>{ac8d6796-251d-4bdd-9853-27fd39bc80cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\UI">
+      <UniqueIdentifier>{61d58ee0-c3c9-43c4-8c6d-7d5d8c48d179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\UI\TitleLogo">
+      <UniqueIdentifier>{94d63c4f-78f7-43ec-8cc9-c7392d950492}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -366,9 +375,6 @@
     <ClInclude Include="Src\Application\Object\Camera\Camera.h">
       <Filter>Src\Application\Object\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\HpBar\BossHp\BossHp.h">
-      <Filter>Src\Application\Object\HpBar\BossHp</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Map\BaseMap.h">
       <Filter>Src\Application\Object\Map</Filter>
     </ClInclude>
@@ -417,9 +423,6 @@
     <ClInclude Include="Src\Application\Animation\Animation.h">
       <Filter>Src\Application\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Effect\EnemyAttack\EnemyAttack.h">
-      <Filter>Src\Application\Object\Effect\EnemyAttack</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.h">
       <Filter>Src\Application\Object\Effect\AttackImpact</Filter>
     </ClInclude>
@@ -437,6 +440,21 @@
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Enemy\BaseEnemy.h">
       <Filter>Src\Application\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\KnightAttack\KnightAttack.h">
+      <Filter>Src\Application\Object\Effect\KnightAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\SlimeAttack\SlimeAttack.h">
+      <Filter>Src\Application\Object\Effect\SlimeAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Effect\Fade\Fade.h">
+      <Filter>Src\Application\Object\Effect\Fade</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\UI\BaseUI.h">
+      <Filter>Src\Application\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\UI\TitleLogo\TitleLogo.h">
+      <Filter>Src\Application\Object\UI\TitleLogo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -605,9 +623,6 @@
     <ClCompile Include="Src\Application\Object\Camera\Camera.cpp">
       <Filter>Src\Application\Object\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\HpBar\BossHp\BossHp.cpp">
-      <Filter>Src\Application\Object\HpBar\BossHp</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Map\BaseMap.cpp">
       <Filter>Src\Application\Object\Map</Filter>
     </ClCompile>
@@ -656,9 +671,6 @@
     <ClCompile Include="Src\Application\Animation\Animation.cpp">
       <Filter>Src\Application\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Effect\EnemyAttack\EnemyAttack.cpp">
-      <Filter>Src\Application\Object\Effect\EnemyAttack</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\Effect\AttackImpact\AttackImpact.cpp">
       <Filter>Src\Application\Object\Effect\AttackImpact</Filter>
     </ClCompile>
@@ -676,6 +688,21 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy\BaseEnemy.cpp">
       <Filter>Src\Application\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\KnightAttack\KnightAttack.cpp">
+      <Filter>Src\Application\Object\Effect\KnightAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\SlimeAttack\SlimeAttack.cpp">
+      <Filter>Src\Application\Object\Effect\SlimeAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Effect\Fade\Fade.cpp">
+      <Filter>Src\Application\Object\Effect\Fade</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\UI\BaseUI.cpp">
+      <Filter>Src\Application\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\UI\TitleLogo\TitleLogo.cpp">
+      <Filter>Src\Application\Object\UI\TitleLogo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

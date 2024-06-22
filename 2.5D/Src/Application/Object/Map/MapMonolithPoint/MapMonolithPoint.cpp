@@ -9,6 +9,10 @@ void MapMonolithPoint::Update()
 	if (monolith)
 	{
 		monolithPos = Convert2D(monolith->GetPos());
+		if (monolith->GetHp() <= 0)
+		{
+			m_isExpired = true;
+		}
 	}
 
 	m_pos = monolithPos;
@@ -24,11 +28,10 @@ void MapMonolithPoint::Init()
 	BaseMap::Init();
 	m_tex = AssetManager::Instance().GetTex("MapMonolithPoint");
 	m_pos = {};
-	m_scale = { 0.1f,0.1f,0.1f };
 }
 
 void MapMonolithPoint::DrawSprite()
 {
-	m_color = { 1.0f,1.0f,1.0f,1.0f };
+	m_color = { 1.0f,1.0f, 1.0f, 1.0f };
 	BaseMap::DrawSprite();
 }

@@ -6,6 +6,8 @@
 #include "GameScene/GameScene.h"
 #include "TitleScene/TitleScene.h"
 
+#include "../Object/Effect/Fade/Fade.h"
+
 void SceneManager::PreUpdate()
 {
 	// シーン切替
@@ -20,6 +22,8 @@ void SceneManager::PreUpdate()
 void SceneManager::Update()
 {
 	m_currentScene->Update();
+
+	Fade::Instance().Update();
 }
 
 void SceneManager::PostUpdate()
@@ -40,6 +44,8 @@ void SceneManager::Draw()
 void SceneManager::DrawSprite()
 {
 	m_currentScene->DrawSprite();
+
+	Fade::Instance().DrawSprite();
 }
 
 void SceneManager::DrawDebug()

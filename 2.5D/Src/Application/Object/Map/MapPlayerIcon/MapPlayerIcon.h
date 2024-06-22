@@ -20,4 +20,6 @@ private:
 
 	std::weak_ptr<Player> m_player;
 
+	Math::Vector3 m_scale;
+
 };

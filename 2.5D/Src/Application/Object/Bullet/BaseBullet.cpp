@@ -10,21 +10,24 @@ void BaseBullet::PostUpdate()
 	// 球の半径を設定
 	sphere.m_sphere.Radius = 0.5f;
 	// 当たり判定をしたいタイプを設定
-	sphere.m_type = KdCollider::TypeGround | KdCollider::TypeWall;
+	sphere.m_type = KdCollider::TypeGround | KdCollider::TypeWall | KdCollider::TypePlayer | KdCollider::TypeMonolith;
 
 	// デバッグ表示
 	Math::Color color = { 1,1,0,1 };
 	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
 
-	// 球に当たったオブジェクトの情報を格納
 	std::list<KdCollider::CollisionResult> retSphereList;
 
-	// 当たり判定
+	bool hit = false;
 	for (auto& obj : SceneManager::Instance().GetObjList())
 	{
-		if (obj->Intersects(sphere, &retSphereList))
+		hit = obj->Intersects(sphere, &retSphereList);
+
+		if (hit)
 		{
 			OnHit();
+			obj->OnHit();
+			break;
 		}
 	}
 

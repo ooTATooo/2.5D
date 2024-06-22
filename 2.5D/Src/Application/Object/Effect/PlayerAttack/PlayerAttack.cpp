@@ -35,8 +35,6 @@ void PlayerAttack::PostUpdate()
 		if (hit)
 		{
 			obj->OnHit();
-			OnHit();
-			break;
 		}
 	}
 
@@ -51,7 +49,6 @@ void PlayerAttack::Init()
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_anime = std::make_shared<Animation>();
-		m_scale = { 2,2,2 };
 		m_dir = Animation::Dir::Left;
 		m_attackArea = 1.0f;
 

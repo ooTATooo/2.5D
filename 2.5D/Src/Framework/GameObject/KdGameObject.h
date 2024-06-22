@@ -9,6 +9,7 @@ public:
 
 	enum class ObjType
 	{
+		None,
 		Camera,
 		Player,
 		Monolith,
@@ -108,7 +109,7 @@ protected:
 	std::unique_ptr<KdDebugWireFrame> m_pDebugWire = nullptr;
 
 	// オブジェクトタイプ格納用
-	ObjType m_objType;
+	ObjType m_objType = ObjType::None;
 
 	GameScene* m_owner = nullptr;
 };

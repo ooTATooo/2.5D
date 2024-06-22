@@ -15,19 +15,25 @@ public:
 	void GenerateDepthMapFromLight()override;
 	void DrawLit()override;
 	void DrawBright()override;
+	void OnHit()override;
 
-	const Math::Vector3 GetPos() { return m_pos; }
+	Math::Vector3 GetPos()const { return m_pos; }
+	int GetHp()const { return m_hp; }
+	int GetMaxHp()const { return m_maxHp; }
 
 private:
 
 	std::shared_ptr<KdModelData> m_model01 = nullptr;
 	std::shared_ptr<KdModelData> m_model02 = nullptr;
 
-	Math::Vector3 m_pos;
-	float m_ang;
+	Math::Vector3 m_pos = Math::Vector3::Zero;
+	float m_ang = 0;
 	float m_speed;
-	float alpha;
+	int m_maxHp;
+	int m_hp;
+	float m_hitWait = 0;
 
+	float alpha;
 	Math::Color m_color01;
 	Math::Color m_color02;
 

@@ -14,4 +14,8 @@ public:
 	void Init()override;
 	void DrawSprite()override;
 private:
+
+	int m_hp;
+	int m_maxHp;
+	float m_singleW;
 };

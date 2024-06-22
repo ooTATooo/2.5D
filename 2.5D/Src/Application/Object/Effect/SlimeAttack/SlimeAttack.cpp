@@ -1,18 +1,15 @@
-﻿#include "EnemyAttack.h"
+﻿#include "SlimeAttack.h"
 
-#include "../../Player/Player.h"
-
-void EnemyAttack::Update()
+void SlimeAttack::Update()
 {
-	m_anime->CreateAnimation("PlayerAtkEffect", m_poly, false);
-
-	if (!m_anime->GetAnimationFlg())
+	m_wait--;
+	if (m_wait <= 0)
 	{
 		m_isExpired = true;
 	}
 }
 
-void EnemyAttack::PostUpdate()
+void SlimeAttack::PostUpdate()
 {
 	// 球判定用の変数を作成
 	KdCollider::SphereInfo sphere;
@@ -22,7 +19,7 @@ void EnemyAttack::PostUpdate()
 	// 球の半径を設定
 	sphere.m_sphere.Radius = m_attackArea;
 	// 当たり判定をしたいタイプを設定
-	sphere.m_type = KdCollider::TypeDamage;
+	sphere.m_type = KdCollider::TypePlayer | KdCollider::TypeMonolith;
 
 	// デバッグ表示
 	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, kRedColor);
@@ -44,29 +41,25 @@ void EnemyAttack::PostUpdate()
 	BaseEffect::PostUpdate();
 }
 
-void EnemyAttack::Init()
+void SlimeAttack::Init()
 {
 	BaseEffect::Init();
 
 	if (!m_poly)
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
-		m_anime = std::make_shared<Animation>();
-		m_scale = { 2,2,2 };
-		m_dir = Animation::Dir::Left;
-		m_attackArea = 1.0f;
+		m_attackArea = 0.3f;
 
 		m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 	}
 }
 
-void EnemyAttack::Set(Math::Vector3 _pos, Animation::Dir _dir)
+void SlimeAttack::Set(Math::Vector3 _startPos, Math::Vector3 _targetPos)
 {
-	m_pos = _pos;
-
-	if (m_dir != _dir)
-	{
-		m_scale.x *= -1;
-		m_dir = _dir;
-	}
+	m_pos = _startPos;
+	m_dir = _targetPos - _startPos;
+	m_dir.y = 0;
+	m_dir.Normalize();
+	m_pos += m_dir * 0.7f;
+	m_wait = 30;
 }
