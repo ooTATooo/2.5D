@@ -14,18 +14,36 @@
 
 void TitleScene::Event()
 {
-	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+	if (!Fade::Instance().GetFade())
 	{
-		if (!m_keyFlg)
-		{
-			Fade::Instance().BootFade(SceneManager::SceneType::Game);
+		//if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+		//{
+		//	if (!m_keyFlg)
+		//	{
+		//		Fade::Instance().BootFade(SceneManager::SceneType::Game);
 
-			m_keyFlg = true;
+		//		KdAudioManager::Instance().Play("Asset/Sounds/Decision.wav", false, 0.2f);
+		//		m_keyFlg = true;
+		//	}
+		//}
+		//else
+		//{
+		//	m_keyFlg = false;
+		//}
+		if (GetAsyncKeyState(VK_RETURN) & 0x8000)
+		{
+			if (!m_keyFlg)
+			{
+				Fade::Instance().BootFade(SceneManager::SceneType::Game);
+
+				KdAudioManager::Instance().Play("Asset/Sounds/Decision.wav", false, 0.2f);
+				m_keyFlg = true;
+			}
 		}
-	}
-	else
-	{
-		m_keyFlg = false;
+		else
+		{
+			m_keyFlg = false;
+		}
 	}
 }
 
@@ -72,4 +90,5 @@ void TitleScene::Init()
 	player->SetPos(pos);
 	AddObject(player);
 
+	KdAudioManager::Instance().Play("Asset/Sounds/Bgm/Bgm.wav", true, 0.1f);
 }

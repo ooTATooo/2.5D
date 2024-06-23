@@ -22,9 +22,6 @@ void PlayerAttack::PostUpdate()
 	// 当たり判定をしたいタイプを設定
 	sphere.m_type = KdCollider::TypeDamage;
 
-	// デバッグ表示
-	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, kRedColor);
-
 	std::list<KdCollider::CollisionResult> retSphereList;
 
 	bool hit = false;
@@ -54,6 +51,7 @@ void PlayerAttack::Init()
 
 		m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 	}
+	KdAudioManager::Instance().Play("Asset/Sounds/PlayerAttack.wav", false, 0.1f);
 }
 
 void PlayerAttack::Set(Math::Vector3 _pos, Animation::Dir _dir)

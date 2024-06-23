@@ -12,10 +12,6 @@ void BaseBullet::PostUpdate()
 	// 当たり判定をしたいタイプを設定
 	sphere.m_type = KdCollider::TypeGround | KdCollider::TypeWall | KdCollider::TypePlayer | KdCollider::TypeMonolith;
 
-	// デバッグ表示
-	Math::Color color = { 1,1,0,1 };
-	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
-
 	std::list<KdCollider::CollisionResult> retSphereList;
 
 	bool hit = false;

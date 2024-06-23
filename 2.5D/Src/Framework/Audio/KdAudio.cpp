@@ -68,19 +68,40 @@ void KdAudioManager::SetListnerMatrix(const Math::Matrix& mWorld)
 // ・管理用プレイリストへの追加
 // ・戻り値で再生インスタンスを取得可能（音量・ピッチなどを変更する場合に必要
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
-std::shared_ptr<KdSoundInstance> KdAudioManager::Play(std::string_view rName, bool loop)
+//std::shared_ptr<KdSoundInstance> KdAudioManager::Play(std::string_view rName, bool loop)
+//{
+//	if (!m_audioEng) { return nullptr; }
+//
+//	std::shared_ptr<KdSoundEffect> soundData = GetSound(rName);
+//
+//	if (!soundData) { return nullptr; }
+//
+//	std::shared_ptr<KdSoundInstance> instance = std::make_shared<KdSoundInstance>(soundData);
+//
+//	if(!instance->CreateInstance()){ return nullptr; }
+//
+//	instance->Play(loop);
+//
+//	AddPlayList(instance);
+//
+//	return instance;
+//}
+
+std::shared_ptr<KdSoundInstance> KdAudioManager::Play(std::string_view rName, bool loop, const float vol)
 {
 	if (!m_audioEng) { return nullptr; }
 
 	std::shared_ptr<KdSoundEffect> soundData = GetSound(rName);
-
+	
 	if (!soundData) { return nullptr; }
 
 	std::shared_ptr<KdSoundInstance> instance = std::make_shared<KdSoundInstance>(soundData);
 
-	if(!instance->CreateInstance()){ return nullptr; }
+	if (!instance->CreateInstance()) { return nullptr; }
 
 	instance->Play(loop);
+
+	instance->SetVolume(vol);
 
 	AddPlayList(instance);
 
@@ -93,7 +114,28 @@ std::shared_ptr<KdSoundInstance> KdAudioManager::Play(std::string_view rName, bo
 // ・再生用インスタンスの生成、3D座標のセット
 // ・管理用プレイリストへの追加
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
-std::shared_ptr<KdSoundInstance3D> KdAudioManager::Play3D(std::string_view rName, const Math::Vector3& rPos, bool loop)
+//std::shared_ptr<KdSoundInstance3D> KdAudioManager::Play3D(std::string_view rName, const Math::Vector3& rPos, bool loop)
+//{
+//	if (!m_audioEng) { return nullptr; }
+//
+//	std::shared_ptr<KdSoundEffect> soundData = GetSound(rName);
+//
+//	if (!soundData) { return nullptr; }
+//
+//	std::shared_ptr<KdSoundInstance3D> instance = std::make_shared<KdSoundInstance3D>(soundData, m_listener);
+//
+//	if (!instance->CreateInstance()) { return nullptr; }
+//
+//	instance->Play(loop);
+//
+//	instance->SetPos(rPos);
+//
+//	AddPlayList(instance);
+//
+//	return instance;
+//}
+
+std::shared_ptr<KdSoundInstance3D> KdAudioManager::Play3D(std::string_view rName, const Math::Vector3& rPos, bool loop, const float vol)
 {
 	if (!m_audioEng) { return nullptr; }
 
@@ -106,6 +148,8 @@ std::shared_ptr<KdSoundInstance3D> KdAudioManager::Play3D(std::string_view rName
 	if (!instance->CreateInstance()) { return nullptr; }
 
 	instance->Play(loop);
+
+	instance->SetVolume(vol);
 
 	instance->SetPos(rPos);
 

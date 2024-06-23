@@ -16,27 +16,154 @@
 #include "../../GameObject/Map/MapPlayerIcon/MapPlayerIcon.h"
 #include "../../GameObject/Map/MapMonolithPoint/MapMonolithPoint.h"
 #include "../../GameObject/Map/MapEnemyPoint/MapEnemyPoint.h"
+#include "../../GameObject/UI/WaveTex/WaveTex.h"
+#include "../../GameObject/UI/GameOver/GameOver.h"
+#include "../../GameObject/UI/GameOverBack/GameOverBack.h"
+#include "../../GameObject/UI/GameClear/GameClear.h"
 
 void GameScene::Event()
 {
-	if (GetAsyncKeyState('T') & 0x8000)
+	if (m_spawnNum > 0)
 	{
-		//SceneManager::Instance().SetNextScene
-		//(
-		//	SceneManager::SceneType::Title
-		//);
-		if (!flg)
+		switch (m_wave)
 		{
-			EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Top_Center, KdGameObject::ObjType::Enemy01, 5);
-			EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Left_Center, KdGameObject::ObjType::Enemy02, 5);
-			EnemyManager::Instance().AddEnemy(EnemyManager::SpawnType::Right_Center, KdGameObject::ObjType::Enemy03, 5);
-			flg = true;
+		case EnemyManager::WaveType::First:
+			if (m_frame <= 0)
+			{
+				if (!m_flg)
+				{
+					std::shared_ptr<WaveTex> wave = std::make_shared<WaveTex>();
+					wave->SetWave(m_wave);
+					AddObject(wave);
+					m_flg = true;
+					m_frame = 180;
+				}
+				else
+				{
+					m_spawn = EnemyManager::Instance().GetSpawnType();
+					EnemyManager::Instance().AddEnemy(m_spawn, KdGameObject::ObjType::Slime);
+					m_frame = 180;
+					m_spawnNum--;
+					//if (m_spawnNum == 0)
+					//{
+					//	m_wave = EnemyManager::WaveType::Second;
+					//	m_spawnNum = 7;
+					//	m_flg = false;
+					//}
+				}
+			}
+			break;
+		case EnemyManager::WaveType::Second:
+			if (m_frame <= 0)
+			{
+				if (!m_flg)
+				{
+					std::shared_ptr<WaveTex> wave = std::make_shared<WaveTex>();
+					wave->SetWave(m_wave);
+					AddObject(wave);
+					m_flg = true;
+					m_frame = 180;
+				}
+				else
+				{
+					m_spawn = EnemyManager::Instance().GetSpawnType();
+					m_objtype = EnemyManager::Instance().GetObjType(false);
+					EnemyManager::Instance().AddEnemy(m_spawn, m_objtype);
+					m_frame = 180;
+					m_spawnNum--;
+
+					//if (m_enemyCount == m_spawnNum)
+					//{
+					//	m_wave = EnemyManager::WaveType::Final;
+					//	m_spawnNum = 6;
+					//	m_flg = false;
+					//}
+				}
+			}
+			break;
+		case EnemyManager::WaveType::Final:
+			if (m_frame <= 0)
+			{
+				if (!m_flg)
+				{
+					std::shared_ptr<WaveTex> wave = std::make_shared<WaveTex>();
+					wave->SetWave(m_wave);
+					AddObject(wave);
+					m_flg = true;
+					m_frame = 180;
+				}
+				else
+				{
+					m_spawn = EnemyManager::Instance().GetSpawnType();
+					m_objtype = EnemyManager::Instance().GetObjType(true);
+					EnemyManager::Instance().AddEnemy(m_spawn, m_objtype);
+					m_frame = 180;
+					m_spawnNum--;
+
+					//if (m_enemyCount == m_spawnNum)
+					//{
+					//	std::shared_ptr<GameClear> gameClear = std::make_shared<GameClear>();
+					//	AddObject(gameClear);
+					//	m_enemyCount = -1;
+					//}
+				}
+			}
+			break;
 		}
 	}
-	else
+
+	if (GetAsyncKeyState('R') & 0x8000)
 	{
-		flg = false;
+		if (!flg[0])
+		{
+			m_wave = EnemyManager::WaveType::Second;
+			m_spawnNum = 7;
+			m_flg = false;
+			flg[0] = true;
+		}
 	}
+	else { flg[0] = false; }
+	if (GetAsyncKeyState('T') & 0x8000)
+	{
+		if (!flg[1])
+		{
+			m_wave = EnemyManager::WaveType::Final;
+			m_spawnNum = 6;
+			m_flg = false;
+			flg[1] = true;
+		}
+	}
+	else{ flg[1] = false; }
+	if (GetAsyncKeyState('F') & 0x8000)
+	{
+		if (!flg[2])
+		{
+			std::shared_ptr<GameClear> gameClear = std::make_shared<GameClear>();
+			AddObject(gameClear);
+			flg[2] = true;
+		}
+	}
+	else{ flg[2] = false; }
+
+	std::shared_ptr<Monolith> monolith = m_monolith.lock();
+	if (monolith)
+	{
+		if (!monolith->GetAlive())
+		{
+			std::shared_ptr<GameOverBack> gameOverBack = std::make_shared<GameOverBack>();
+			AddObject(gameOverBack);
+
+			std::shared_ptr<GameOver> gameOver = std::make_shared<GameOver>();
+			AddObject(gameOver);
+
+			monolith->Expired();
+
+			KdAudioManager::Instance().StopAllSound();
+		}
+	}
+
+	m_frame--;
+	if (m_frame <= 0) { m_frame = 0; }
 }
 
 void GameScene::Init()
@@ -69,16 +196,14 @@ void GameScene::Init()
 		for (int j = 0; j < height; j++)
 		{
 			std::shared_ptr<Pillar> pillar = std::make_shared<Pillar>();
-			pillar->SetPos({ posX[i], 0, posZ[j]});
+			pillar->SetPos({ posX[i], 0, posZ[j] });
 			AddObject(pillar);
 		}
 	}
 
 	std::shared_ptr<Monolith> monolith = std::make_shared<Monolith>();
 	AddObject(monolith);
-
-	//std::shared_ptr<Boss> boss = std::make_shared<Boss>();
-	//AddObject(boss);
+	m_monolith = monolith;
 
 	// 2D===========
 	std::shared_ptr<MonolithHp> monumentHp = std::make_shared<MonolithHp>();
@@ -98,5 +223,4 @@ void GameScene::Init()
 	std::shared_ptr<MapPlayerIcon> mapPlayerIcon = std::make_shared<MapPlayerIcon>();
 	mapPlayerIcon->SetPlayer(player);
 	AddObject(mapPlayerIcon);
-
 }

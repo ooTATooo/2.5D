@@ -91,9 +91,6 @@
     <Filter Include="Src\Application\GameObject\Enemy">
       <UniqueIdentifier>{4342e5db-e6f9-4908-b199-ba7badf18af3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\GameObject\Enemy\Boss">
-      <UniqueIdentifier>{a432c696-68d8-48fc-bf51-ddf88ae83473}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\GameObject\Enemy\Slime">
       <UniqueIdentifier>{202d943d-c4fe-4af9-9d9b-ff0e1894c076}</UniqueIdentifier>
     </Filter>
@@ -213,6 +210,24 @@
     </Filter>
     <Filter Include="Src\Application\TitleObject\TitleUI\TitleStart">
       <UniqueIdentifier>{28a6d0dd-8a6b-408c-9d5a-55d2f390f5be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\UI\GameOver">
+      <UniqueIdentifier>{09996d8c-ab33-47d9-b293-20933f677c20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\UI\GameOverBack">
+      <UniqueIdentifier>{87074ec4-4c01-417e-8781-f696ef7577fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\UI\GameClear">
+      <UniqueIdentifier>{b0578e91-98d7-4047-838b-71a16d2262ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Effect\WhiteFade">
+      <UniqueIdentifier>{01747d3c-ee67-459c-b6ee-84ba1c2a541d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\UI\WaveTex">
+      <UniqueIdentifier>{2359d4a0-8fcd-4305-a43d-d54f37975b90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\SoundManager">
+      <UniqueIdentifier>{7cf692b0-d948-4c0e-9667-f0fbf179c48f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -516,6 +531,21 @@
     <ClInclude Include="Src\Application\TitleObject\TitleUI\TitleStart\TitleStart.h">
       <Filter>Src\Application\TitleObject\TitleUI\TitleStart</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\UI\GameOver\GameOver.h">
+      <Filter>Src\Application\GameObject\UI\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\UI\GameOverBack\GameOverBack.h">
+      <Filter>Src\Application\GameObject\UI\GameOverBack</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\UI\GameClear\GameClear.h">
+      <Filter>Src\Application\GameObject\UI\GameClear</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Effect\WhiteFade\WhiteFade.h">
+      <Filter>Src\Application\GameObject\Effect\WhiteFade</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\UI\WaveTex\WaveTex.h">
+      <Filter>Src\Application\GameObject\UI\WaveTex</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -790,6 +820,21 @@
     </ClCompile>
     <ClCompile Include="Src\Application\TitleObject\TitleUI\TitleStart\TitleStart.cpp">
       <Filter>Src\Application\TitleObject\TitleUI\TitleStart</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\UI\GameOver\GameOver.cpp">
+      <Filter>Src\Application\GameObject\UI\GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\UI\GameOverBack\GameOverBack.cpp">
+      <Filter>Src\Application\GameObject\UI\GameOverBack</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\UI\GameClear\GameClear.cpp">
+      <Filter>Src\Application\GameObject\UI\GameClear</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Effect\WhiteFade\WhiteFade.cpp">
+      <Filter>Src\Application\GameObject\Effect\WhiteFade</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\UI\WaveTex\WaveTex.cpp">
+      <Filter>Src\Application\GameObject\UI\WaveTex</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

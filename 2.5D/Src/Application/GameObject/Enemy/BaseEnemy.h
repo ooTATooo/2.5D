@@ -28,6 +28,7 @@ public:
 
 	Math::Vector3 GetPos() const { return m_pos; }
 
+
 protected:
 
 	std::shared_ptr<KdSquarePolygon> m_poly = nullptr;

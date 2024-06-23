@@ -145,6 +145,14 @@ void Application::DrawSprite()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 bool Application::Init(int w, int h)
 {
+	// デバック用
+	srand(timeGetTime());
+	srand(timeGetTime());
+	srand(timeGetTime());
+	srand(timeGetTime());
+	srand(timeGetTime());
+	// ===========
+
 	//===================================================================
 	// ウィンドウ作成
 	//===================================================================
@@ -323,6 +331,10 @@ void Application::Execute()
 
 		m_fpsController.Update();
 
+
+		//ゲームルーブ内
+		std::string titleBar = "Tower Guardian fps" + std::to_string(m_fpsController.m_nowfps);
+		SetWindowTextA(m_window.GetWndHandle(), titleBar.c_str());
 	}
 
 	//===================================================================

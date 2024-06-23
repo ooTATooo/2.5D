@@ -18,8 +18,11 @@ public:
 	void OnHit()override;
 
 	Math::Vector3 GetPos()const { return m_pos; }
+	bool GetAlive()const { return m_alive; }
 	int GetHp()const { return m_hp; }
 	int GetMaxHp()const { return m_maxHp; }
+
+	void Expired() { m_isExpired = true; }
 
 private:
 
@@ -37,6 +40,10 @@ private:
 	Math::Color m_color01;
 	Math::Color m_color02;
 
-	bool flg = false;
+	bool m_alive = true;
 
+	bool m_dissolveFlg = false;
+	float m_dissolve = 0;
+
+	bool m_soundFlg = false;
 };

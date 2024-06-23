@@ -21,9 +21,6 @@ void SlimeAttack::PostUpdate()
 	// 当たり判定をしたいタイプを設定
 	sphere.m_type = KdCollider::TypePlayer | KdCollider::TypeMonolith;
 
-	// デバッグ表示
-	m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, kRedColor);
-
 	std::list<KdCollider::CollisionResult> retSphereList;
 
 	bool hit = false;
@@ -50,7 +47,7 @@ void SlimeAttack::Init()
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_attackArea = 0.3f;
 
-		m_pDebugWire = std::make_unique<KdDebugWireFrame>();
+		KdAudioManager::Instance().Play("Asset/Sounds/SlimeAttack.wav", false, 0.3f);
 	}
 }
 

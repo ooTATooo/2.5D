@@ -170,6 +170,7 @@
     <ClInclude Include="Src\Application\GameObject\Effect\KnightAttack\KnightAttack.h" />
     <ClInclude Include="Src\Application\GameObject\Effect\PlayerAttack\PlayerAttack.h" />
     <ClInclude Include="Src\Application\GameObject\Effect\SlimeAttack\SlimeAttack.h" />
+    <ClInclude Include="Src\Application\GameObject\Effect\WhiteFade\WhiteFade.h" />
     <ClInclude Include="Src\Application\GameObject\Enemy\BaseEnemy.h" />
     <ClInclude Include="Src\Application\GameObject\Enemy\Knight\Knight.h" />
     <ClInclude Include="Src\Application\GameObject\Enemy\Slime\Slime.h" />
@@ -189,6 +190,10 @@
     <ClInclude Include="Src\Application\GameObject\Stage\Pillar\Pillar.h" />
     <ClInclude Include="Src\Application\GameObject\Stage\WallFawme\WallFrame.h" />
     <ClInclude Include="Src\Application\GameObject\UI\BaseUI.h" />
+    <ClInclude Include="Src\Application\GameObject\UI\GameClear\GameClear.h" />
+    <ClInclude Include="Src\Application\GameObject\UI\GameOverBack\GameOverBack.h" />
+    <ClInclude Include="Src\Application\GameObject\UI\GameOver\GameOver.h" />
+    <ClInclude Include="Src\Application\GameObject\UI\WaveTex\WaveTex.h" />
     <ClInclude Include="Src\Application\ImGuiManager\ImGuiManager.h" />
     <ClInclude Include="Src\Application\main.h" />
     <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h" />
@@ -265,6 +270,7 @@
     <ClCompile Include="Src\Application\GameObject\Effect\KnightAttack\KnightAttack.cpp" />
     <ClCompile Include="Src\Application\GameObject\Effect\PlayerAttack\PlayerAttack.cpp" />
     <ClCompile Include="Src\Application\GameObject\Effect\SlimeAttack\SlimeAttack.cpp" />
+    <ClCompile Include="Src\Application\GameObject\Effect\WhiteFade\WhiteFade.cpp" />
     <ClCompile Include="Src\Application\GameObject\Enemy\BaseEnemy.cpp" />
     <ClCompile Include="Src\Application\GameObject\Enemy\Knight\Knight.cpp" />
     <ClCompile Include="Src\Application\GameObject\Enemy\Slime\Slime.cpp" />
@@ -284,6 +290,10 @@
     <ClCompile Include="Src\Application\GameObject\Stage\Pillar\Pillar.cpp" />
     <ClCompile Include="Src\Application\GameObject\Stage\WallFawme\WallFrame.cpp" />
     <ClCompile Include="Src\Application\GameObject\UI\BaseUI.cpp" />
+    <ClCompile Include="Src\Application\GameObject\UI\GameClear\GameClear.cpp" />
+    <ClCompile Include="Src\Application\GameObject\UI\GameOverBack\GameOverBack.cpp" />
+    <ClCompile Include="Src\Application\GameObject\UI\GameOver\GameOver.cpp" />
+    <ClCompile Include="Src\Application\GameObject\UI\WaveTex\WaveTex.cpp" />
     <ClCompile Include="Src\Application\ImGuiManager\ImGuiManager.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />
     <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp" />

@@ -59,4 +59,5 @@ private:
 	std::shared_ptr<Animation> m_anime = nullptr;
 	bool m_animeFlg;
 
+	int m_runWait;
 };

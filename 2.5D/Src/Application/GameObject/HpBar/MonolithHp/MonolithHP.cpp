@@ -65,9 +65,9 @@ void MonolithHp::Init()
 
 void MonolithHp::DrawSprite()
 {
-	m_rect = { 0,0,(long)m_tex01->GetWidth(),(long)m_tex01->GetHeight()};
-	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex01, (long)m_pos.x, (long)m_pos.y, (long)(m_tex01->GetWidth() * m_scale), (long)(m_tex01->GetHeight() * m_scale), &m_rect, nullptr, { 0.0f, 0.5f });
+	m_rect = { 0,0,(int)m_tex01->GetWidth(),(int)m_tex01->GetHeight()};
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex01, (int)m_pos.x, (int)m_pos.y, (int)(m_rect.width * m_scale), m_rect.height, &m_rect, nullptr, { 0.0f, 0.5f });
 
-	m_rect = { 0,0,(long)(m_singleW * m_hp),(long)m_tex02->GetHeight() };
-	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex02, (long)m_pos.x, (long)m_pos.y, (long)(m_tex02->GetWidth() * m_scale), (long)(m_tex02->GetHeight() * m_scale), &m_rect, nullptr, { 0.0f, 0.5f });
+	m_rect = { 0,0,(int)(m_singleW * m_hp),(int)m_tex02->GetHeight() };
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex02, (int)m_pos.x, (int)m_pos.y, (int)(m_rect.width * m_scale), m_rect.height, &m_rect, nullptr, { 0.0f, 0.5f });
 }

@@ -2,6 +2,7 @@
 
 void ImGuiManager::Update()
 {
+	return;
 	// デバッグウィンドウ
 	if (ImGui::Begin("Debug Window"))
 	{

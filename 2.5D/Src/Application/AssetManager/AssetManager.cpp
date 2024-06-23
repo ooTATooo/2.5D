@@ -140,9 +140,21 @@ void AssetManager::Init()
 
 	LoadTex("Fade", "Asset/Textures/Effect/Fade.png");
 
+	LoadTex("WhiteFade", "Asset/Textures/Effect/WhiteFade.png");
+
+	LoadTex("First", "Asset/Textures/UI/First.png");
+
+	LoadTex("Second", "Asset/Textures/UI/Second.png");
+
+	LoadTex("Final", "Asset/Textures/UI/Final.png");
+
 	LoadTex("TitleLogo", "Asset/Textures/UI/Title.png");
 	
 	LoadTex("TitleStart", "Asset/Textures/UI/Start.png");
+
+	LoadTex("GameOver", "Asset/Textures/UI/GameOver.png");
+
+	LoadTex("GameClear", "Asset/Textures/UI/Clear.png");
 	// ============================
 
 }

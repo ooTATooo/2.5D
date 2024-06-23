@@ -4,6 +4,13 @@ class EnemyManager
 {
 public:
 
+	enum class WaveType
+	{
+		First,
+		Second,
+		Final,
+	};
+
 	enum class SpawnType
 	{
 		Top_Left,		// 上段左
@@ -22,13 +29,24 @@ public:
 
 	void Init();
 
-	void AddEnemy(SpawnType _type, KdGameObject::ObjType _enemyType, int _num);
+	void AddEnemy(SpawnType _type, KdGameObject::ObjType _enemyType);
+
+	EnemyManager::SpawnType GetSpawnType();
+
+	KdGameObject::ObjType GetObjType(bool _flg);
 
 	void Load(std::string a_filePath);
 
 private:
 
 	std::unordered_map<SpawnType, Math::Vector3> m_spawnPosList;
+
+	SpawnType m_spawn;
+
+	WaveType m_wave;
+
+	KdGameObject::ObjType m_objType;
+
 private:
 
 	EnemyManager() { Init(); }

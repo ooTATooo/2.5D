@@ -10,5 +10,5 @@ void BaseUI::Init()
 
 void BaseUI::DrawSprite()
 {
-	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, (long)m_pos.x, (long)m_pos.y, nullptr, nullptr);
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, (int)m_pos.x, (int)m_pos.y, nullptr, nullptr);
 }

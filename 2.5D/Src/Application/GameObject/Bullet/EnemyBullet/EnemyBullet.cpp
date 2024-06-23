@@ -23,6 +23,8 @@ void EnemyBullet::Init()
 	{
 		m_poly = std::make_shared<KdSquarePolygon>();
 		m_anime = std::make_shared<Animation>();
+
+		KdAudioManager::Instance().Play("Asset/Sounds/EnemyBullet.wav", false, 0.1f);
 	}
 }
 

@@ -44,7 +44,6 @@ void Fade::Init()
 {
 	m_tex = std::make_shared<KdTexture>();
 	m_tex = AssetManager::Instance().GetTex("Fade");
-    m_blackMat = Math::Matrix::Identity;
     m_blackAlpha = 0.0f;
     m_blackColor = { 1.0f,1.0f,1.0f,m_blackAlpha };
     m_bFade = false;

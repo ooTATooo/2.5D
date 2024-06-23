@@ -25,9 +25,6 @@ void KnightAttack::PostUpdate()
 		// 当たり判定をしたいタイプを設定
 		sphere.m_type = KdCollider::TypePlayer | KdCollider::TypeMonolith;
 
-		// デバッグ表示
-		m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, kRedColor);
-
 		std::list<KdCollider::CollisionResult> retSphereList;
 
 		bool hit = false;
@@ -57,8 +54,6 @@ void KnightAttack::Init()
 		m_attackArea = 0.3f;
 
 		m_anime = std::make_shared<Animation>();
-
-		m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 	}
 }
 
@@ -71,4 +66,8 @@ void KnightAttack::Set(Math::Vector3 _pos, Animation::Dir _dir)
 		m_scale.x *= -1;
 		m_dir = _dir;
 	}
+
+	m_wait = 30;
+
+	KdAudioManager::Instance().Play3D("Asset/Sounds/KnightAttack.wav", m_pos, false, 1.0f);
 }

@@ -18,7 +18,6 @@ private:
     SceneManager::SceneType m_nextScene;
 
     std::shared_ptr<KdTexture> m_tex;
-    Math::Matrix m_blackMat;
     Math::Color m_blackColor;
     float m_blackAlpha;
     bool m_bFade;               // フェード中かどうか？

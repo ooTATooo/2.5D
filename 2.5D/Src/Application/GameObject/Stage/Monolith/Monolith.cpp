@@ -17,7 +17,23 @@ void Monolith::Update()
 
 	if (m_hp <= 0)
 	{
-		m_isExpired = true;
+		m_dissolveFlg = true;
+
+		if (!m_soundFlg)
+		{
+			KdAudioManager::Instance().Play("Asset/Sounds/MonolithBreak.wav", false, 0.2f);
+			m_soundFlg = true;
+		}
+	}
+
+	if (m_dissolveFlg)
+	{
+		m_dissolve += 0.01f;
+	}
+
+	if (m_dissolve > 1.0f)
+	{
+		m_alive = false;
 	}
 
 	m_hitWait--;
@@ -38,7 +54,7 @@ void Monolith::Init()
 	m_model02->Load("Asset/Models/Monument/Monument2.gltf");
 
 	m_speed = 0.15f;
-	m_maxHp = 5;
+	m_maxHp = 20;
 	m_hp = m_maxHp;
 
 	m_objType = KdGameObject::ObjType::Monolith;
@@ -53,18 +69,25 @@ void Monolith::Init()
 
 void Monolith::GenerateDepthMapFromLight()
 {
+	KdShaderManager::Instance().m_StandardShader.SetDissolve(m_dissolve);
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model01, m_mWorld, m_color01);
+
+	KdShaderManager::Instance().m_StandardShader.SetDissolve(m_dissolve);
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model02, m_mWorld, m_color02);
 }
 
 void Monolith::DrawLit()
 {
+	KdShaderManager::Instance().m_StandardShader.SetDissolve(m_dissolve);
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model01, m_mWorld, m_color01);
+
+	KdShaderManager::Instance().m_StandardShader.SetDissolve(m_dissolve);
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model02, m_mWorld, m_color02);
 }
 
 void Monolith::DrawBright()
 {
+	KdShaderManager::Instance().m_StandardShader.SetDissolve(m_dissolve);
 	KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model01, m_mWorld, m_color01);
 }
 
@@ -73,7 +96,7 @@ void Monolith::OnHit()
 	if (m_hitWait <= 0)
 	{
 		m_hp--;
-		m_hitWait = 60;
+		m_hitWait = 30;
 		m_color01 = { 1,1,1,0.5f };
 	}
 }

@@ -13,10 +13,9 @@ public:
 		Camera,
 		Player,
 		Monolith,
-		Enemy01,
-		Enemy02,
-		Enemy03,
-
+		Slime,
+		Witct,
+		Knight,
 	};
 
 	// どのような描画を行うのかを設定するTypeID：Bitフラグで複数指定可能

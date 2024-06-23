@@ -7,6 +7,7 @@
 #include "TitleScene/TitleScene.h"
 
 #include "../GameObject/Effect/Fade/Fade.h"
+#include "../GameObject/Effect/WhiteFade/WhiteFade.h"
 
 void SceneManager::PreUpdate()
 {
@@ -24,6 +25,7 @@ void SceneManager::Update()
 	m_currentScene->Update();
 
 	Fade::Instance().Update();
+	WhiteFade::Instance().Update();
 }
 
 void SceneManager::PostUpdate()
@@ -46,6 +48,7 @@ void SceneManager::DrawSprite()
 	m_currentScene->DrawSprite();
 
 	Fade::Instance().DrawSprite();
+	WhiteFade::Instance().DrawSprite();
 }
 
 void SceneManager::DrawDebug()

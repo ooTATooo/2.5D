@@ -21,4 +21,5 @@ private:
 
 	std::weak_ptr<BaseEnemy> m_enemy;
 
+	bool m_frame = false;
 };

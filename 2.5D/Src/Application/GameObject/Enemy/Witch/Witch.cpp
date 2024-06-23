@@ -35,7 +35,7 @@ void Witch::Init()
 	BaseEnemy::Init();
 
 	m_poly = std::make_shared<KdSquarePolygon>();
-	m_maxHp = 3;
+	m_maxHp = 2;
 	m_hp = m_maxHp;
 
 	m_anime = std::make_shared<Animation>();

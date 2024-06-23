@@ -16,6 +16,12 @@ void Player::Update()
 		break;
 	case Animation::State::Run:
 		m_anime->CreateAnimation("PlayerRun", m_poly, true);
+
+		if (m_runWait <= 0)
+		{
+			KdAudioManager::Instance().Play("Asset/Sounds/Walk.wav", false, 0.5f);
+			m_runWait = 20;
+		}
 		break;
 	case Animation::State::Hit:
 		m_anime->CreateAnimation("PlayerHit", m_poly, false);
@@ -55,6 +61,9 @@ void Player::Update()
 
 	m_hitWait--;
 	if (m_hitWait <= 0) { m_hitWait = 0; }
+
+	m_runWait--;
+	if (m_runWait <= 0) { m_runWait = 0; }
 }
 
 void Player::PostUpdate()
@@ -76,7 +85,7 @@ void Player::PostUpdate()
 void Player::Init()
 {
 	m_poly = std::make_shared<KdSquarePolygon>();
-	m_moveSpd = 0.1f;
+	m_moveSpd = 0.15f;
 	m_pos = { 0,0,-2 };
 	m_moveVec = Math::Vector3::Zero;
 	m_scale = Math::Vector3::One;
@@ -89,11 +98,10 @@ void Player::Init()
 	m_state = Animation::State::Idol;
 	m_animeDir = Animation::Dir::Right;
 
+	m_runWait = 0;
+
 	m_pCollider = std::make_unique<KdCollider>();
 	m_pCollider->RegisterCollisionShape("player", { 0,0.5f,0 }, 0.3f, KdCollider::TypePlayer);
-
-	// デバッグ用
-	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 }
 
 void Player::GenerateDepthMapFromLight()
@@ -171,10 +179,6 @@ void Player::MapHit()
 	sphere.m_sphere.Radius = 0.3f;
 	// 当たり判定をしたいタイプを設定
 	sphere.m_type = KdCollider::TypeGround | KdCollider::TypeWall | KdCollider::TypeMonolith;
-
-	// デバッグ表示
-	Math::Color color = { 1,1,0,1 };
-	//m_pDebugWire->AddDebugSphere(sphere.m_sphere.Center, sphere.m_sphere.Radius, color);
 
 	// 球に当たったオブジェクトの情報を格納
 	std::list<KdCollider::CollisionResult> retSphereList;

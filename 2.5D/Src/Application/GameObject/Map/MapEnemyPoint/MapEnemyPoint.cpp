@@ -17,6 +17,11 @@ void MapEnemyPoint::Update()
 
 	m_pos = enemyPos;
 
+	if (!m_frame)
+	{
+		m_frame = true;
+	}
+
 	if (m_pos.y > MinMap_Y + 140) { m_pos.y = MinMap_Y + 140; }
 	if (m_pos.y < MinMap_Y - 140) { m_pos.y = MinMap_Y - 140; }
 	if (m_pos.x > MinMap_X + 140) { m_pos.x = MinMap_X + 140; }
@@ -38,6 +43,9 @@ void MapEnemyPoint::Init()
 
 void MapEnemyPoint::DrawSprite()
 {
-	m_color = { 1.0f,1.0f, 1.0f, 1.0f };
-	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, (long)m_pos.x, (long)m_pos.y, (long)(m_tex->GetWidth() * m_scale), (long)(m_tex->GetHeight() * m_scale), nullptr, &m_color);
+	if (m_frame)
+	{
+		m_color = { 1.0f,1.0f, 1.0f, 1.0f };
+		KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, (long)m_pos.x, (long)m_pos.y, (long)(m_tex->GetWidth() * m_scale), (long)(m_tex->GetHeight() * m_scale), nullptr, &m_color);
+	}
 }
