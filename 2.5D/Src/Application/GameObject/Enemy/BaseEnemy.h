@@ -26,7 +26,8 @@ public:
 
 	void SetPos(const Math::Vector3 _pos) { m_pos = _pos; }
 
-	Math::Vector3 GetPos() const { return m_pos; }
+	Math::Vector3 GetPos()const { return m_pos; }
+	bool GetAlive()const { return m_alive; }
 
 
 protected:
@@ -46,7 +47,7 @@ protected:
 	int m_hp;
 
 	float m_dissolve = 0;
-	bool m_dissolveFlg = false;
+	bool m_alive = false;
 
 	Animation::Dir m_dir;
 	Animation::Dir m_oldDir;

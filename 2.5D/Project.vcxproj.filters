@@ -226,9 +226,6 @@
     <Filter Include="Src\Application\GameObject\UI\WaveTex">
       <UniqueIdentifier>{2359d4a0-8fcd-4305-a43d-d54f37975b90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\SoundManager">
-      <UniqueIdentifier>{7cf692b0-d948-4c0e-9667-f0fbf179c48f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">

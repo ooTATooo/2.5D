@@ -149,7 +149,7 @@ void AssetManager::Init()
 	LoadTex("Final", "Asset/Textures/UI/Final.png");
 
 	LoadTex("TitleLogo", "Asset/Textures/UI/Title.png");
-	
+
 	LoadTex("TitleStart", "Asset/Textures/UI/Start.png");
 
 	LoadTex("GameOver", "Asset/Textures/UI/GameOver.png");

@@ -18,9 +18,12 @@ void BaseEnemy::Update()
 	m_moveVec.Normalize();
 
 	if (m_moveVec.x < 0) { m_dir = Animation::Dir::Left; }
-	else if(m_moveVec.x > 0){ m_dir = Animation::Dir::Right; }
+	else if (m_moveVec.x > 0) { m_dir = Animation::Dir::Right; }
 
-	m_pos += m_moveVec *= m_moveSpd;
+	if (m_alive)
+	{
+		m_pos += m_moveVec *= m_moveSpd;
+	}
 
 	if (m_oldDir != m_dir)
 	{
@@ -47,6 +50,7 @@ void BaseEnemy::Init()
 	m_angX = 30;
 	m_moveSpd = 0.02f;
 
+	m_alive = true;
 	m_animeFlg = false;
 	m_dir = Animation::Dir::Left;
 	m_oldDir = m_dir;
@@ -67,7 +71,7 @@ void BaseEnemy::DrawLit()
 {
 	if (m_poly)
 	{
-		if (m_dissolveFlg)
+		if (!m_alive)
 		{
 			Dissolve();
 		}
@@ -80,7 +84,7 @@ void BaseEnemy::OnHit()
 {
 	if (m_hp <= 0)
 	{
-		m_dissolveFlg = true;
+		m_alive = false;
 
 		m_state = Animation::State::Die;
 	}

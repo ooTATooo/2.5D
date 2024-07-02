@@ -9,17 +9,18 @@ void MapEnemyPoint::Update()
 	if (enemy)
 	{
 		enemyPos = Convert2D(enemy->GetPos());
-	}
-	else
-	{
-		m_isExpired = true;
+
+		if (!enemy->GetAlive())
+		{
+			m_isExpired = true;
+		}
 	}
 
 	m_pos = enemyPos;
 
-	if (!m_frame)
+	if (!m_flg)
 	{
-		m_frame = true;
+		m_flg = true;
 	}
 
 	if (m_pos.y > MinMap_Y + 140) { m_pos.y = MinMap_Y + 140; }
@@ -43,7 +44,7 @@ void MapEnemyPoint::Init()
 
 void MapEnemyPoint::DrawSprite()
 {
-	if (m_frame)
+	if (m_flg)
 	{
 		m_color = { 1.0f,1.0f, 1.0f, 1.0f };
 		KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, (long)m_pos.x, (long)m_pos.y, (long)(m_tex->GetWidth() * m_scale), (long)(m_tex->GetHeight() * m_scale), nullptr, &m_color);
